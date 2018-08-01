@@ -14,7 +14,8 @@
     <!-- Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <style>
         body {
@@ -200,7 +201,7 @@
                     </a>
                 </div>
             </div>
-        </div> 
+        </div>
         <!-- 表格放内容，一行两列 -->
         <table class="table" id="table">
             <tbody>
@@ -236,6 +237,14 @@
             data: {
 
             }
+        })
+
+        new Vue({
+            el:"table",
+
+            mounted() {
+                axios.get('/movie').then((res)=>{this.list=data});
+            },
         })
 
     </script>
