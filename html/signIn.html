@@ -92,11 +92,12 @@
         .movie_list {
             display: block;
             list-style-type: disc;
-            -webkit-margin-before: 1em;
+            /* -webkit-margin-before: 1em;
             -webkit-margin-after: 1em;
             -webkit-margin-start: 0px;
             -webkit-margin-end: 0px;
-            -webkit-padding-start: 40px;
+            -webkit-padding-start: 40px; */
+            margin-top: 10px;
             width: 100%;
         }
 
@@ -105,7 +106,22 @@
             width: 100%;
         }
 
-        .title a {
+        .introduce {
+            float: right;
+            /* margin: 0 20px 0 0; */
+            margin-top: 0px;
+            margin-right: 20px;
+            margin-bottom: 0px;
+            margin-left: 0px;
+            line-height: 24px;
+            width: 850px;
+            font-size: 108%;
+            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+
+        /* .title a {
             display: block;
             width: 100%;
             outline-color: initial;
@@ -116,7 +132,7 @@
             word-break: keep-all;
             white-space: nowrap;
             text-overflow: ellipsis;
-        }
+        } */
     </style>
 
 
@@ -261,15 +277,13 @@
                                 <a v-for="(item, index) in countries" :key="index" href="#" class="tag">{{item}}</a>
                             </td>
                         </tr>
-                        <tr>
+                        <tr style="border-bottom:1px solid #DDD;">
                             <td class="tag-span2">分类</td>
                             <td>
                                 <a v-for="(item, index) in clazz" :key="index" href="#" class="tag">{{item}}</a>
                             </td>
                         </tr>
-
                     </tbody>
-
                 </table>
             </div>
 
@@ -301,18 +315,32 @@
             </div>
         </div> -->
 
-            <!-- 影片展示 -->
-            <ul class="movie_list">
-                <li class="movie_show">
-                    <h2 class="title">
-                        <a href="">fsajkfhjakshfjashfjkasnfajsfasjkksahfaskjfhasjkfhjkashfkasjfhakkjfdjhsahfdkjashgfjkhsahjas</a>
-                    </h2>
-                    <div>
-                        <img src="" alt="">
-                        <div></div>
-                    </div>
-                </li>
-            </ul>
+            <div>
+                <!-- 影片展示 -->
+                <ul class="movie_list">
+                    <li class="movie_show">
+                        <h2 class="title">
+                            <a href="">很大很大金卡很少看到很快就撒谎的卡省的的哈数据的哈萨克来到了科技大厦空军的卡拉就开始了的</a>
+                        </h2>
+                        <div>
+                            <img width="96px" height="128px" src="b.jpg" alt="">
+                            <div class="introduce">dfhasjkfhkjashfkjlashjkashfjkashfjkashfasjkhfjkashfaskjhfaskjfhaskjhfasjkfhasjkfhjkasfhasjkfhasjkfhaskjfhasjkfhasjkfhjkas时间多久啊快点哈克的喀什觉得哈接口对接的哈萨克来得及奥克兰市的健康打开深刻理解的技能拉萨简单快乐啊了
+                            </div>
+                        </div>
+                    </li>
+                    <li class="movie_show">
+                        <h2 class="title">
+                            <a href="">很大很大金卡很少看到很快就撒谎的卡省的的哈数据的哈萨克来到了科技大厦空军的卡拉就开始了的</a>
+                        </h2>
+                        <div>
+                            <img width="96px" height="128px" src="b.jpg" alt="">
+                            <div class="introduce">dfhasjkfhkjashfkjlashjkashfjkashfjkashfasjkhfjkashfaskjhfaskjfhaskjhfasjkfhasjkfhjkasfhasjkfhasjkfhaskjfhasjkfhasjkfhjkas时间多久啊快点哈克的喀什觉得哈接口对接的哈萨克来得及奥克兰市的健康打开深刻理解的技能拉萨简单快乐啊了
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
 
 
 
