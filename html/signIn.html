@@ -18,37 +18,55 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <style>
-        body {
-            padding-top: 60px;
+        div {
+            display: block;
         }
 
-        /* nav{
-            position: relative;
-        } */
+        .container {
+            width: 1040px !important;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
 
-        .form {
-            position: absolute;
-            right: 300px;
-            margin-top: 2px;
-            padding: 2px 2px 2px 72px;
-            bottom: 7px;
+        .row {
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        .table>tbody>tr>td,{
+            padding: 10px;
+            line-height: 1.42857143;
+            border-top: 1px solid #ddd;
         }
 
         .form.form-inline {
             display: block;
         }
 
-        .searchList {
-            position: relative;
-            border: 1px solid #e5e9ef;
-            margin-top: 2px;
-            background: #fff;
-            z-index: 99999;
-            border-radius: 4px;
-            -webkit-box-shadow: rgba(0, 0, 0, .16) 0 2px 4px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, .16);
-            padding-bottom: 5px;
+        .tag-span2 {
+            vertical-align: middle !important;
+            font-weight: bolder;
+            width: 100px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 2px;
+            color: #888;
+            line-height: 1;
             font-size: 12px;
+            background-color: #E6E6E6;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .tag-box {
+            padding: 0 15px;
+            margin-bottom: 20px;
+            margin-top: 10px;
         }
     </style>
 
@@ -59,7 +77,7 @@
 
     <header>
         <!-- 导航条 -->
-        <nav class="navbar navbar-default fixed-top" style="background-color: #1976d2">
+        <nav class="navbar navbar-default" style="background-color: #1976d2">
             <a class="navbar-brand text-white" href="#">电影</a>
 
             <ul class="nav">
@@ -174,9 +192,26 @@
         </div>
     </header>
 
+    <!-- 整个内容框架 -->
+    <div class="container">
+        <div class="row">
+            <div class="tag-box">
+                <!-- 分类表格 -->
+                <table class="table" id="Fenlei">
+                    <tbody>
+                        <tr style="border-bottom:1px solid #DDD;">
+                            <td class="tag-span2">分类</td>
+                            <td>
+                                <a v-for="(item, index) in Fenlei" :key="index" href="#" class="tag">{{item}}</a>
+                            </td>
+                        </tr>
+                    </tbody>
 
-    <div class="container mt-52px">
-        <!-- 轮播 -->
+                </table>
+            </div>
+
+            <!-- <div class="container mt-52px"> -->
+            <!-- 轮播
         <div class="row">
             <div class="col">
                 <div id="carouselExampleControls" class="carousel slide margin-left: auto margin-right: auto" data-ride="carousel">
@@ -201,25 +236,17 @@
                     </a>
                 </div>
             </div>
+        </div> -->
+
+
+
+
         </div>
-        <!-- 表格放内容，一行两列 -->
-        <table class="table" id="table">
-            <tbody>
-                <tr>
-                    <td scope="row">
-                        <ul v-for="(item, index) in movie" :key="index">
-                            <li>{{item}}</li>
-                        </ul>
-                    </td>
-                    <td scope="row">
-                        <ul v-for="(item, index) in movie" :key="index">
-                            <li>{{item}}</li>
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+
     </div>
+
+
+    <!-- </div> -->
 
     <!-- Vue实例 -->
     <script>
@@ -240,11 +267,18 @@
         })
 
         new Vue({
-            el:"table",
+            el: "#table",
 
-            mounted() {
-                axios.get('/movie').then((res)=>{this.list=data});
-            },
+            // mounted() {
+            //     axios.get('/movie').then((res)=>{this.list=data});
+            // },
+        })
+
+        new Vue({
+            el: "#Fenlei",
+            data: {
+                Fenlei: ['传记', '喜剧', '剧情', '枪战', '恐怖', '励志', '动画', '传记', '喜剧', '剧情', '枪战', '恐怖', '励志', '动画', '喜剧', '剧情', '枪战', '恐怖', '励志', '动画', '传记', '喜剧', '剧情', '枪战', '恐怖', '励志', '动画']
+            }
         })
 
     </script>
