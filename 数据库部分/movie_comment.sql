@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.11, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: moviesearch
+-- Host: 127.0.0.1    Database: movie
 -- ------------------------------------------------------
 -- Server version	8.0.11
 
@@ -16,31 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `director`
+-- Table structure for table `comment`
 --
 
-DROP TABLE IF EXISTS `director`;
+DROP TABLE IF EXISTS `comment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `director` (
-  `director_id` int(11) NOT NULL AUTO_INCREMENT,
-  `director_name` varchar(20) DEFAULT NULL,
-  `director_sex` varchar(5) DEFAULT NULL,
-  `director_age` int(11) DEFAULT NULL,
-  `director_country` varchar(10) DEFAULT NULL,
-  `director_desc` text,
-  PRIMARY KEY (`director_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+CREATE TABLE `comment` (
+  `cmt_id` int(11) NOT NULL AUTO_INCREMENT,
+  `vip_id` int(11) DEFAULT NULL,
+  `movie_id` int(11) DEFAULT NULL,
+  `cmt_comment` text,
+  PRIMARY KEY (`cmt_id`),
+  KEY `id_vip_idx` (`vip_id`),
+  KEY `id_movie_idx` (`movie_id`),
+  CONSTRAINT `comment_fk_movie` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`movie_id`),
+  CONSTRAINT `comment_fk_vip` FOREIGN KEY (`vip_id`) REFERENCES `vip` (`vip_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `director`
+-- Dumping data for table `comment`
 --
 
-LOCK TABLES `director` WRITE;
-/*!40000 ALTER TABLE `director` DISABLE KEYS */;
-INSERT INTO `director` VALUES (1,'冯小刚','man',50,'china',NULL),(2,'徐峥','man',40,'china',NULL),(3,'宁浩','man',40,'china',NULL),(4,'罗素兄弟','man',35,'USA',NULL);
-/*!40000 ALTER TABLE `director` ENABLE KEYS */;
+LOCK TABLES `comment` WRITE;
+/*!40000 ALTER TABLE `comment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-07-31 17:13:53
+-- Dump completed on 2018-08-02  8:40:20

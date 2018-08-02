@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.11, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: moviesearch
+-- Host: 127.0.0.1    Database: movie
 -- ------------------------------------------------------
 -- Server version	8.0.11
 
@@ -16,33 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `comment`
+-- Table structure for table `director`
 --
 
-DROP TABLE IF EXISTS `comment`;
+DROP TABLE IF EXISTS `director`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `comment` (
-  `comment_id` int(11) NOT NULL AUTO_INCREMENT,
-  `vip_id` int(11) DEFAULT NULL,
-  `movie_id` int(11) DEFAULT NULL,
-  `comment` text,
-  PRIMARY KEY (`comment_id`),
-  KEY `id_vip_idx` (`vip_id`),
-  KEY `id_movie_idx` (`movie_id`),
-  CONSTRAINT `comment_fk_movie` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`movie_id`),
-  CONSTRAINT `comment_fk_vip` FOREIGN KEY (`vip_id`) REFERENCES `vip` (`vip_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+CREATE TABLE `director` (
+  `director_id` int(11) NOT NULL AUTO_INCREMENT,
+  `director_name` varchar(20) DEFAULT NULL,
+  `director_sex` int(11) DEFAULT NULL,
+  `director_age` date DEFAULT NULL,
+  `director_country` varchar(10) DEFAULT NULL,
+  `director_desc` text,
+  PRIMARY KEY (`director_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `comment`
+-- Dumping data for table `director`
 --
 
-LOCK TABLES `comment` WRITE;
-/*!40000 ALTER TABLE `comment` DISABLE KEYS */;
-INSERT INTO `comment` VALUES (1,1,1,'好看'),(2,1,2,'好看'),(3,2,2,'好看'),(4,3,2,'好看');
-/*!40000 ALTER TABLE `comment` ENABLE KEYS */;
+LOCK TABLES `director` WRITE;
+/*!40000 ALTER TABLE `director` DISABLE KEYS */;
+INSERT INTO `director` VALUES (1,'弗兰克·德拉邦特',1,'1959-01-28','法国',NULL),(2,'陈凯歌',1,'1952-08-12','中国',NULL),(3,'吕克·贝松',1,'1959-01-28','法国',NULL),(4,'罗伯特·泽米吉斯',1,'1952-05-14','美国',NULL),(5,'罗伯托·贝尼尼',1,'1952-10-27','意大利',NULL),(6,'詹姆斯·卡梅隆',1,'1954-08-16','加拿大',NULL),(7,'宫崎骏',1,'1941-01-05','日本',NULL),(8,'史蒂文·斯皮尔伯格',1,'1946-12-18','美国',NULL);
+/*!40000 ALTER TABLE `director` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-07-31 17:13:52
+-- Dump completed on 2018-08-02  8:40:21

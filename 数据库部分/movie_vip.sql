@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.11, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: moviesearch
+-- Host: 127.0.0.1    Database: movie
 -- ------------------------------------------------------
 -- Server version	8.0.11
 
@@ -24,10 +24,12 @@ DROP TABLE IF EXISTS `vip`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `vip` (
   `vip_id` int(11) NOT NULL AUTO_INCREMENT,
-  `phone` varchar(20) NOT NULL,
-  `password` varchar(40) NOT NULL,
+  `vip_phone` char(11) NOT NULL,
+  `vip_password` char(32) NOT NULL,
+  `vip_name` varchar(20) NOT NULL,
+  `vip_pic` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`vip_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +38,6 @@ CREATE TABLE `vip` (
 
 LOCK TABLES `vip` WRITE;
 /*!40000 ALTER TABLE `vip` DISABLE KEYS */;
-INSERT INTO `vip` VALUES (1,'123456789','1234'),(2,'987654321','1111'),(3,'111111111','4531');
 /*!40000 ALTER TABLE `vip` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-07-31 17:13:55
+-- Dump completed on 2018-08-02  8:40:23
