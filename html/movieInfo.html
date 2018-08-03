@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+</head>
+
+<style>
+    div {
+        display: block;
+    }
+
+    .content {
+        width: 70%;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    h1 {
+        display: block;
+    }
+
+    .movieInfo {
+        /* float: right; */
+        margin-left: 20px;
+    }
+
+    .row {
+        width: 100%;
+    }
+
+    .info_li {
+        margin-bottom: 2px;
+    }
+</style>
+
+<body>
+    <header>
+        <!-- 导航条 -->
+        <nav class="navbar navbar-default" style="background-color: #1976d2">
+            <a class="navbar-brand text-white" href="#">电影</a>
+
+            <ul class="nav">
+
+                <!-- 首页 -->
+                <li class="nav-item">
+                    <a class="nav-link active  text-white" href="#">首页</a>
+                </li>
+                <!-- 下拉分类菜单 -->
+                <li class="nav-item dropdown">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            分类
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                            <a class="dropdown-item" href="#">动作</a>
+                            <a class="dropdown-item" href="#">喜剧</a>
+                            <a class="dropdown-item" href="#">恐怖</a>
+                            <a class="dropdown-item" href="#">爱情</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">个人中心</a>
+                </li>
+            </ul>
+
+            <!-- 搜索框和按鈕 -->
+            <div class="form">
+                <form class="form-inline my-2 my-lg-0" id="search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">搜索</button>
+                </form>
+                <!-- <ul class="searchList">
+                        <li>a</li>
+                        <li>a</li>
+                        <li>a</li>
+                        <li>a</li>
+                    </ul> -->
+            </div>
+
+
+            <!-- 登录注册选项 -->
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white" data-toggle="modal" data-target="#modelId">登陆</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" data-toggle="modal" data-target="#modelId2">注册</a>
+                </li>
+                <li class="nav-item" id="FeedBack">
+                    <a class="nav-link text-white" v-on:click="feedBack">反馈</a>
+                </li>
+            </ul>
+        </nav>
+
+
+
+        <!-- 点击登陆显示 -->
+        <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="modelTitleId">欢迎来到电影网</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="form-group">
+                                <label for="">账号</label>
+                                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="请输入账号">
+                            </div>
+                            <div class="form-group">
+                                <label for="">密码</label>
+                                <input type="password" class="form-control" name="" id="" aria-describedby="helpId" placeholder="请输入密码">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-success">登陆</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 点击注册显示 -->
+        <div class="modal fade" id="modelId2" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="modalTitledId2">欢迎来到电影网</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="form-group">
+                                <label for="">账号</label>
+                                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="请输入账号">
+                            </div>
+                            <div class="form-group">
+                                <label for="">密码</label>
+                                <input type="password" class="form-control" name="" id="" aria-describedby="helpId" placeholder="请设置密码">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-success">注册</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 页面内容 -->
+    <div class="content">
+        <h1>西虹市首富</h1>
+        <div class="row">
+            <img width="240px" height="320px" src="b.jpg" alt="">
+            <!-- <div class="movieInfo"> -->
+            <ul>
+                <li>
+                    <span class="info_li">
+                        <span>导演：</span>
+                        <span>
+                            <a href="">沈腾</a>
+                        </span>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                        <span>主演：</span>
+                        <span>
+                            <a href="">沈腾</a>
+                        </span>
+                    </span>
+                </li>
+            </ul>
+
+
+            
+            <!-- </div> -->
+        </div>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
