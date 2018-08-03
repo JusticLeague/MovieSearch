@@ -12,17 +12,20 @@ select * from moviedirector;
 查询电影导演演员
 CREATE VIEW moviedirectoractor AS 
 SELECT 
-m.movie_name,m.movie_type,m.movie_country,m.movie_date,
+m.movie_name,m.movie_type,m.movie_country,m.movie_date,m.movir_score,
+p.poster_pic,
 d.director_name,
 a.actor_name
 FROM
-movie AS m,director AS d,movieitem AS mi,actor AS a
+movie AS m,director AS d,movieitem AS mi,actor AS a,poster AS p
 WHERE
 m.director_id=d.director_id
 AND
 m.movie_id=mi.movie_id
 AND
-mi.actor_id=a.actor_id;
+mi.actor_id=a.actor_id
+AND
+p.movie_id=m.movie_id;
 
 select * from moviedirectoractor;
 
@@ -63,3 +66,12 @@ WHERE
 a.actor_id = mi.actor_id
 AND
 mi.movie_id = m.movie_id;
+
+
+select
+d.director_name,
+m.movie_name
+from
+movie as m,director as d
+where
+d.director_id=m.director_id;
