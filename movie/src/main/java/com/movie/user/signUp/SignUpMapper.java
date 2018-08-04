@@ -6,7 +6,7 @@ import com.movie.user.User;
 
 public interface SignUpMapper {
 	
-	@Insert("insert into vip(name,phone,password,pic) value(name=#{name}, phone=#{phone}, password=#{password}, pic=#{pic}")
+	@Insert("insert into vip(name,phone,password,pic) value(#{name}, #{phone}, #{password}, #{pic}")
 	void create(User u);
 
 }

@@ -13,7 +13,7 @@ import com.movie.user.User;
  *
  */
 @Controller
-@RequestMapping("/vip")
+@RequestMapping("/signUp")
 public class SignUpController {
 	
 	@Autowired
