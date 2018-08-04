@@ -21,13 +21,15 @@
         width: 1040px;
         margin: auto;
         margin-top: 20px;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 1px;
+        padding-bottom: 20px;
         box-shadow: -5px 0px 10px rgba(0, 0, 0, .7);
     }
 
     h1 {
         display: block;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     .movieInfo {
@@ -44,9 +46,9 @@
         margin-bottom: 2px;
     }
 
-    .score h2 {
+    /* .score h2 {
         margin-top: 10px;
-    }
+    } */
 
     li {
         list-style: none;
@@ -61,7 +63,7 @@
 
     .info ul {
         float: right;
-        padding-right:300px; 
+        padding-right: 300px;
     }
 </style>
 
@@ -190,8 +192,10 @@
             <!-- <div class="row"> -->
             <img width="240px" height="320px" src="b.jpg" alt="">
             <!-- <div class="movieInfo"> -->
-            <ul>
-                <li>
+            <!-- <ul> -->
+
+            <ul class="list-group">
+                <li class="list-group-item">
                     <span class="info_li">
                         <span>导演：</span>
                         <span>
@@ -199,7 +203,7 @@
                         </span>
                     </span>
                 </li>
-                <li>
+                <li class="list-group-item">
                     <span>
                         <span>主演：</span>
                         <span>
@@ -207,7 +211,7 @@
                         </span>
                     </span>
                 </li>
-                <li>
+                <li class="list-group-item">
                     <span>
                         <span>国家：</span>
                         <span>
@@ -215,7 +219,7 @@
                         </span>
                     </span>
                 </li>
-                <li>
+                <li class="list-group-item">
                     <span>
                         <span>年份：</span>
                         <span>
@@ -223,10 +227,11 @@
                         </span>
                     </span>
                 </li>
-                <div class="score">
-                    <h2>7.5</h2>
-                </div>
             </ul>
+            <h1>
+                <span class="badge badge-secondary">New</span>
+            </h1>
+            <!-- </ul> -->
         </div>
 
 

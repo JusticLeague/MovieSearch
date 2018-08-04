@@ -1,5 +1,5 @@
 package com.movie.user.pc.collect;
 
-public class CollectMapper {
+public interface CollectMapper {
 
 }

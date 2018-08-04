@@ -1,5 +1,5 @@
 package com.movie.actor;
 
-public class ActorMapper {
+public interface ActorMapper {
 
 }

@@ -1,5 +1,5 @@
 package com.movie.show.sore;
 
-public class SoreMapper {
+public interface SoreMapper {
 
 }

@@ -1,5 +1,5 @@
 package com.movie.user.signUp;
 
-public class SignUpMapper {
+public interface SignUpMapper {
 
 }

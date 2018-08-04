@@ -1,5 +1,5 @@
 package com.movie.user.pc.comment;
 
-public class CommentMapper {
+public interface CommentMapper {
 
 }
