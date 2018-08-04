@@ -1,5 +1,5 @@
 package com.movie.show.classify;
 
-public class ClassifyService {
+public interface ClassifyService {
 
 }

@@ -1,5 +1,5 @@
 package com.movie.manage.movie;
 
-public class MovieService {
+public interface MovieService {
 
 }

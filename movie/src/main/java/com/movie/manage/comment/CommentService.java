@@ -1,5 +1,5 @@
 package com.movie.manage.comment;
 
-public class CommentService {
+public interface CommentService {
 
 }

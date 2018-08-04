@@ -1,5 +1,5 @@
 package com.movie.show.search;
 
-public class SearchService {
+public interface SearchService {
 
 }
