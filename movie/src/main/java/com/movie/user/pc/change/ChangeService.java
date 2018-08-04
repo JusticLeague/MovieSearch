@@ -9,7 +9,7 @@ public class ChangeService {
 	@Autowired
 	ChangeMapper mapper;
 	
-	// 修改
+	// 修改信息
 	public void change(User u) {
 		mapper.change(u);
 	}
