@@ -1,5 +1,5 @@
 package com.movie.actor;
 
-public class ActorService {
+public interface ActorService {
 
 }

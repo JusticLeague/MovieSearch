@@ -1,5 +1,5 @@
 package com.movie.director;
 
-public class DirectorService {
+public interface DirectorService {
 
 }
