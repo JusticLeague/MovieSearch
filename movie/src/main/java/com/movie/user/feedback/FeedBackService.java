@@ -1,5 +1,5 @@
 package com.movie.user.feedback;
 
-public interface FeedBackService {
+public class FeedBackService {
 
 }

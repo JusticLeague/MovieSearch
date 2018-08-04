@@ -1,5 +1,5 @@
 package com.movie.show.home;
 
-public interface HomeService {
+public class HomeService {
 
 }

@@ -1,5 +1,5 @@
 package com.movie.user.signUp;
 
-public interface SignUpService {
+public class SignUpService {
 
 }

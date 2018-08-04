@@ -1,5 +1,5 @@
 package com.movie.summary.score;
 
-public interface ScoreService {
+public class ScoreService {
 
 }

@@ -1,5 +1,5 @@
 package com.movie.summary.collect;
 
-public interface CollectService {
+public class CollectService {
 
 }
