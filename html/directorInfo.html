@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>影片详情</title>
+    <title>导演详情</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,6 +13,70 @@
 </head>
 
 <style>
+    /* body {
+        background-color: #d6d6d6;
+    }
+
+    div {
+        display: block;
+    }
+
+    .content {
+        background-color: white;
+        width: 1040px;
+        margin: auto;
+        margin-top: 20px;
+        padding-top: 1px;
+        padding-bottom: 20px;
+        box-shadow: -5px 0px 10px rgba(0, 0, 0, .7);
+    }
+
+    h1 {
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .movieInfo {
+        /* float: right; */
+
+    /* margin-left: 20px;
+    }
+
+    .row {
+        width: 100%;
+        padding-left: 40px
+    }
+
+    .info_li {
+        margin-bottom: 2px;
+    } */
+
+    /* .score h2 {
+        margin-top: 10px;
+    } */
+
+    /* li {
+        list-style: none;
+    }
+
+    .info {
+        width: 85%;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .info ul {
+        float: right;
+        padding-right: 500px;
+    }
+
+    
+
+    .card {
+        float: right;
+    } */
 
     * {
         -webkit-border-radius: 0 !important;
@@ -24,8 +88,6 @@
         /* background-image: url("b2.jpg"); */
         /* background-image: url("c2.jpg"); */
         /* background-color: transparent; */
-        /* background-color: #2b2b2b; */
-        background-color: #f8f9fa;
     }
 
     .img-thumbnail {
@@ -33,9 +95,17 @@
         height: 280px;
     }
 
+    .movie_title {
+        color: white;
+    }
+
+    .movie_score {
+        color: white;
+    }
+
     .info_list {
         margin-top: 0%;
-        /* color: white; */
+        color: white;
         list-style: none;
     }
 
@@ -72,6 +142,16 @@
         color: white;
     }
 
+    /* footer li {
+        list-style: none;
+        float: left;
+        padding-right: 10px;
+        color: aliceblue;
+    } */
+
+    /* .row{
+        background-color: #00b5ec;
+    } */
 </style>
 
 <body>
@@ -192,7 +272,7 @@
         </div>
     </header>
 
-    <div class="container mt-5 mb-5">
+    <div class="container mt-3 mb-5">
         <!-- <div class="row mb-4">
             <div class="col-lg-10 offset-lg-1">
                 <h1 class="movie_title">陈凯歌</h1>
@@ -201,13 +281,13 @@
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
                 <div class="card">
-                    <div class="card-header" style="background-color: #7a8b98;">
-                        <h1>死侍</h1>
+                    <div class="card-header">
+                        <h1>陈凯歌</h1>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-3">
-                                <img class="img-thumbnail " src="b.jpg" alt="">
+                                <img class="img-thumbnail " src="陈凯歌.webp" alt="">
                             </div>
                             <div class="col-lg-3">
                                 <ul class="text-left info_list mt-3" style="color: black">
@@ -243,13 +323,9 @@
                                             </span>
                                         </span>
                                     </li>
-                                    <h3 class=" movie_scoren mt-3" style="color: black">
-                                        评分：
-                                        <span class="badge badge-outline-primary ">7.6</span>
-                                    </h3>
-                                    <button type="button" class="btn btn-primary btn-lg mt-2">收藏</button>
-                                    <button type="button" class="btn btn-primary btn-lg mt-2 " data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
-                                        aria-controls="collapseExample">评论</button>
+
+                                    <button type="button" class="btn btn-primary btn-lg mt-4">收藏</button>
+
                                 </ul>
                             </div>
                             <div class="col-lg-3 offset-lg-1">
@@ -265,26 +341,6 @@
                                 </div>
                             </div>
                         </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="row">
-            <div class="col-lg-5">
-                <button type="button" class="btn btn-primary btn-lg mt-4">收藏</button>
-                <button type="button" class="btn btn-primary btn-lg mt-4 ml-5" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
-                    aria-controls="collapseExample">评论</button>
-            </div>
-        </div> -->
-        <div class="row">
-            <div class="col-xl-10 offset-lg-1">
-                <div class="collapse" id="collapseExample">
-                    <div class="input-group mt-5">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">请在右侧发表你的观点</span>
-                        </div>
-                        <textarea class="form-control" aria-label="With textarea"></textarea>
                     </div>
                 </div>
             </div>
@@ -293,7 +349,7 @@
             <div class="col-lg-7 offset-lg-1">
                 <div class="card">
                     <div class="card-header">
-                        <h1>电影简介</h1>
+                        <h1>人物简介</h1>
                     </div>
                     <div class="card-body">
                         <p>This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
@@ -305,7 +361,7 @@
             <div class="col-lg-10 offset-lg-1 mt-5">
                 <div class="card">
                     <div class="card-header">
-                        <h4>相关演员</h4>
+                        <h4>人物图片</h4>
                     </div>
                     <div class="card-body">
                         <ul class="director-pic pl-0">
@@ -333,43 +389,66 @@
 
             </div>
         </div>
-
         <div class="row mt-5">
-            <div class="col-xl-10 offset-lg-1">
+            <div class="col-lg-10 offset-lg-1">
                 <div class="card">
                     <div class="card-header">
-                        <h4>用户评论</h4>
+                        <h4>拍过的作品</h4>
                     </div>
                     <div class="card-body">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">List group item heading</h5>
-                                    <small>3 days ago</small>
-                                </div>
-                                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                                <small>Donec id elit non mi porta.</small>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">List group item heading</h5>
-                                    <small class="text-muted">3 days ago</small>
-                                </div>
-                                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                                <small class="text-muted">Donec id elit non mi porta.</small>
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">List group item heading</h5>
-                                    <small class="text-muted">3 days ago</small>
-                                </div>
-                                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                                <small class="text-muted">Donec id elit non mi porta.</small>
-                            </a>
-                        </div>
+                        <ul class="director-pic pl-0">
+                            <li>
+                                <img src="陈凯歌.webp" alt="..." class="img-thumbnail">
+                            </li>
+                            <li>
+                                <img src="陈凯歌.webp" alt="..." class="img-thumbnail">
+                            </li>
+                            <li>
+                                <img src="陈凯歌.webp" alt="..." class="img-thumbnail">
+                            </li>
+                            <li>
+                                <img src="陈凯歌.webp" alt="..." class="img-thumbnail">
+                            </li>
+                            <li>
+                                <img src="陈凯歌.webp" alt="..." class="img-thumbnail">
+                            </li>
+                            <li>
+                                <img src="陈凯歌.webp" alt="..." class="img-thumbnail">
+                            </li>
+                        </ul>
                     </div>
                 </div>
-
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>合作过的演员</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="director-pic pl-0">
+                            <li>
+                                <img src="陈凯歌.webp" alt="..." class="img-thumbnail">
+                            </li>
+                            <li>
+                                <img src="陈凯歌.webp" alt="..." class="img-thumbnail">
+                            </li>
+                            <li>
+                                <img src="陈凯歌.webp" alt="..." class="img-thumbnail">
+                            </li>
+                            <li>
+                                <img src="陈凯歌.webp" alt="..." class="img-thumbnail">
+                            </li>
+                            <li>
+                                <img src="陈凯歌.webp" alt="..." class="img-thumbnail">
+                            </li>
+                            <li>
+                                <img src="陈凯歌.webp" alt="..." class="img-thumbnail">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">

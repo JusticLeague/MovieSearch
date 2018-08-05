@@ -18,6 +18,14 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <style>
+        body {
+            /* background-image: url("b2.jpg"); */
+            /* background-image: url("c2.jpg"); */
+            /* background-color: transparent; */
+            /* background-color: #2b2b2b; */
+            background-color: #f8f9fa;
+        }
+
         div {
             display: block;
         }
@@ -30,23 +38,10 @@
             margin-left: auto;
         }
 
-        /* .row {
-            margin-right: -15px;
-            margin-left: -15px;
-        } */
-
-        /* .table>tbody>tr>td,
-            {
-            padding: 10px;
-            line-height: 1.42857143;
-            border-top: 1px solid #ddd;
-        } */
-
-        /* .form.form-inline {
-            display: block;
-        } */
-
-        /* 分类每一行的标题 */
+        img {
+            width: 180px;
+            height: 240px;
+        }
 
         .tag-span2 {
             vertical-align: middle !important;
@@ -60,12 +55,13 @@
             display: inline-block;
             padding: 5px 10px;
             border-radius: 2px;
-            color: #888;
+            color: black;
             line-height: 1;
-            font-size: 12px;
+            font-size: 13px;
             background-color: #E6E6E6;
             margin-right: 5px;
             margin-bottom: 5px;
+            
         }
 
         /* 整个分类部分的样式 */
@@ -76,32 +72,13 @@
         }
 
         .movie_list {
-            padding: 10px;
+            list-style: none;
         }
 
-        .movie_list,
         .movie_list li {
-            width: 95%;
-            list-style-type: none;
-            list-style-position: initial;
-            list-style-image: initial;
-            margin: 0;
-            border-bottom: 1px #ccc solid;
-            margin: auto;
-            padding-bottom: 20px;
-            padding-top: 20px;
-        }
-
-        .movie_list {
-            display: block;
-            list-style-type: disc;
-            /* -webkit-margin-before: 1em;
-            -webkit-margin-after: 1em;
-            -webkit-margin-start: 0px;
-            -webkit-margin-end: 0px;
-            -webkit-padding-start: 40px; */
-            margin-top: 10px;
-            width: 100%;
+            margin-bottom: 3%;
+            border-bottom: 2px solid #e5e5e5;
+            padding-bottom: 3%
         }
 
         .title {
@@ -124,21 +101,17 @@
             overflow-y: hidden;
         }
 
-        /* .title a {
-            display: block;
-            width: 100%;
-            outline-color: initial;
-            outline-style: none;
-            outline-width: initial;
-            float: left;
-            overflow: hidden;
-            word-break: keep-all;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        } */
-
         .shadow {
             box-shadow: 1px 1px 10px rgba(0, 0, 0, .7);
+        }
+
+        .top {
+            position: fixed;
+            right: 60px;
+            bottom: 60px;
+        }
+        .title a{
+            color: black
         }
     </style>
 
@@ -149,7 +122,7 @@
 
     <header>
         <!-- 导航条 -->
-        <nav class="navbar navbar-default" style="background-color: #1976d2">
+        <nav class="navbar navbar-default" style="background-color: #283e4a">
             <a class="navbar-brand text-white" href="#">电影</a>
 
             <ul class="nav">
@@ -294,8 +267,9 @@
                 </table>
             </div>
 
-            <!-- <div class="container mt-52px"> -->
-            <!-- 轮播
+        </div>
+        <!-- <div class="container mt-52px"> -->
+        <!-- 轮播
         <div class="row">
             <div class="col">
                 <div id="carouselExampleControls" class="carousel slide margin-left: auto margin-right: auto" data-ride="carousel">
@@ -322,39 +296,77 @@
             </div>
         </div> -->
 
-            <div>
+        <div class="row">
+            <div class="col-lg-12">
                 <!-- 影片展示 -->
                 <ul class="movie_list shadow">
                     <li class="movie_show">
-                        <h2 class="title">
-                            <a href="">很大很大金卡很少看到很快就撒谎的卡省的的哈数据的哈萨克来到了科技大厦空军的卡拉就开始了的</a>
-                        </h2>
-                        <div>
-                            <img width="210px" height="280px" src="b.jpg" alt="">
-                            <div class="introduce">dfhasjkfhkjashfkjlashjkashfjkashfjkashfasjkhfjkashfaskjhfaskjfhaskjhfasjkfhasjkfhjkasfhasjkfhasjkfhaskjfhasjkfhasjkfhjkas时间多久啊快点哈克的喀什觉得哈接口对接的哈萨克来得及奥克兰市的健康打开深刻理解的技能拉萨简单快乐啊了
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h2 class="title">
+                                    <a href="">很大很大金卡很少看到很快就撒谎的卡省的的哈数据的哈萨克来到了科技大厦空军的卡拉就开始了的</a>
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <img src="b.jpg" alt="">
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="introduce">dfhasjkfhkjashfkjlashjkashfjkashfjkashfasjkhfjkashfaskjhfaskjfhaskjhfasjkfhasjkfhjkasfhasjkfhasjkfhaskjfhasjkfhasjkfhjkas时间多久啊快点哈克的喀什觉得哈接口对接的哈萨克来得及奥克兰市的健康打开深刻理解的技能拉萨简单快乐啊了
+                                </div>
                             </div>
                         </div>
                     </li>
                     <li class="movie_show">
-                        <h2 class="title">
-                            <a href="">很大很大金卡很少看到很快就撒谎的卡省的的哈数据的哈萨克来到了科技大厦空军的卡拉就开始了的</a>
-                        </h2>
-                        <div>
-                            <img width="96px" height="128px" src="b.jpg" alt="">
-                            <div class="introduce">dfhasjkfhkjashfkjlashjkashfjkashfjkashfasjkhfjkashfaskjhfaskjfhaskjhfasjkfhasjkfhjkasfhasjkfhasjkfhaskjfhasjkfhasjkfhjkas时间多久啊快点哈克的喀什觉得哈接口对接的哈萨克来得及奥克兰市的健康打开深刻理解的技能拉萨简单快乐啊了
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h2 class="title">
+                                    <a href="">很大很大金卡很少看到很快就撒谎的卡省的的哈数据的哈萨克来到了科技大厦空军的卡拉就开始了的</a>
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <img src="b.jpg" alt="">
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="introduce">dfhasjkfhkjashfkjlashjkashfjkashfjkashfasjkhfjkashfaskjhfaskjfhaskjhfasjkfhasjkfhjkasfhasjkfhasjkfhaskjfhasjkfhasjkfhjkas时间多久啊快点哈克的喀什觉得哈接口对接的哈萨克来得及奥克兰市的健康打开深刻理解的技能拉萨简单快乐啊了
+                                </div>
                             </div>
                         </div>
                     </li>
+
+                    <div class="row">
+                        <div class="col-lg-4 offset-lg-4">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Previous</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">1</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">2</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">3</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
                 </ul>
             </div>
-
-
-
-
         </div>
-
     </div>
-
+    <a class="top" href="#top" style="color: black;float: right;">
+        <h4>back to top</h4>
+    </a>
 
     <!-- </div> -->
 
@@ -388,13 +400,6 @@
         })
 
     </script>
-
-
-
-
-
-
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
