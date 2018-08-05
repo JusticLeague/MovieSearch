@@ -1,19 +1,28 @@
 package com.movie.actor;
 
 /**
- * 演员的名称，性别，生日，国籍，简介，图片
+ * 演员的id，名称，性别，生日，国籍，简介，图片
  * 
  * @author QQ546
  *
  */
 public class ActorModel {
 
+	int id;
 	String name;
 	int sex;
 	String birth;
 	String country;
 	String desc;
 	String pic;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;

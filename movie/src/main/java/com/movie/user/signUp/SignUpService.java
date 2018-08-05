@@ -11,8 +11,8 @@ public class SignUpService {
 	SignUpMapper mapper;
 	
 	// 添加一个会员
-	public void addVip(User u) {
-		mapper.create(u);
+	public void addVip(User user) {
+		mapper.create(user);
 	}
 
 }
