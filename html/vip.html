@@ -170,10 +170,13 @@
             <!-- 登录注册选项 -->
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white" data-toggle="modal" data-target="#modelId">登陆</a>
+                    <img src="b.jpg" alt="" style="width: 48px;height: 48px;">
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" data-toggle="modal" data-target="#modelId2">注册</a>
+                    <a class="nav-link text-white" data-toggle="modal" data-target="#modelId">用户昵称</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" data-toggle="modal" data-target="#modelId2">退出</a>
                 </li>
                 <li class="nav-item" id="FeedBack">
                     <a class="nav-link text-white" v-on:click="feedBack">反馈</a>
@@ -184,7 +187,7 @@
 
 
         <!-- 点击登陆显示 -->
-        <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <!-- <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -192,11 +195,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="container-fluid">
-                            <form id="sign-in" method="POST" action="signIn">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">昵称</label>
-                                    <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入昵称">
-                                </div>
+                            <form id="sign-in" method="POST">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">手机号</label>
                                     <input type="text" class="form-control" name="phone" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入手机号">
@@ -218,7 +217,7 @@
         </div>
 
         <!-- 点击注册显示 -->
-        <div class="modal fade" id="modelId2" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <!-- <div class="modal fade" id="modelId2" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -226,24 +225,23 @@
                     </div>
                     <div class="modal-body">
                         <div class="container-fluid">
-                            <form id="sign-up" method="POST" action="signUp">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">昵称</label>
-                                    <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入昵称">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">手机号</label>
-                                    <input type="text" class="form-control" name="phone" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入手机号">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">密码</label>
-                                    <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="输入密码">
-                                </div>
-                                <button type="submit" class="btn btn-primary">注册</button>
-                            </form>
+                            <div class="form-group">
+                                <label for="">账号</label>
+                                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="请输入账号">
+                            </div>
+                            <div class="form-group">
+                                <label for="">密码</label>
+                                <input type="password" class="form-control" name="" id="" aria-describedby="helpId" placeholder="请设置密码">
+                            </div>
                         </div>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+                        <button type="submit" class="btn btn-success">注册</button>
+                    </div>
                 </div>
+            </div>
+        </div> -->
     </header>
 
     <!-- 整个内容框架 -->
@@ -308,8 +306,27 @@
         <div class="row">
             <div class="col-lg-12">
                 <!-- 影片展示 -->
-                <ul class="movie_list shadow">
-                    <li class="movie_show">
+                <ul class="movie_list shadow" id="show">
+                    <li class="movie_show" v-for="(m, index) in movies" :key="index">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h2 class="title">
+                                    <a href="">{{m.movie_name}}</a>
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <img src="b.jpg" alt="">
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="introduce">
+                                    {{m.movie_desc}}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- <li class="movie_show">
                         <div class="row">
                             <div class="col-lg-12">
                                 <h2 class="title">
@@ -326,25 +343,7 @@
                                 </div>
                             </div>
                         </div>
-                    </li>
-                    <li class="movie_show">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h2 class="title">
-                                    <a href="">很大很大金卡很少看到很快就撒谎的卡省的的哈数据的哈萨克来到了科技大厦空军的卡拉就开始了的</a>
-                                </h2>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <img src="b.jpg" alt="">
-                            </div>
-                            <div class="col-lg-9">
-                                <div class="introduce">dfhasjkfhkjashfkjlashjkashfjkashfjkashfasjkhfjkashfaskjhfaskjfhaskjhfasjkfhasjkfhjkasfhasjkfhasjkfhaskjfhasjkfhasjkfhjkas时间多久啊快点哈克的喀什觉得哈接口对接的哈萨克来得及奥克兰市的健康打开深刻理解的技能拉萨简单快乐啊了
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                    </li> -->
 
                     <div class="row">
                         <div class="col-lg-4 offset-lg-4">
@@ -374,13 +373,26 @@
         </div>
     </div>
     <a class="top" href="#top" style="color: black;float: right;">
-        <h4>top</h4>
+        <h4>back to top</h4>
     </a>
 
     <!-- </div> -->
 
     <!-- Vue实例 -->
     <script>
+        // 影片展示部分
+        new Vue({
+            el:"show",
+            data:{
+                // movie_name:'',
+                // movie_pic:'',
+                // movie_desc:'',
+                movies:[],
+            },
+            mounted() {
+                axios.get('/show').then((res)=>{this.movies=res.data});
+            },
+        })
         new Vue({
             el: "#FeedBack",
             methods: {
