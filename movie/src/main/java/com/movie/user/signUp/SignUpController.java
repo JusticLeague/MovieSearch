@@ -20,8 +20,9 @@ public class SignUpController {
 	SignUpService service;
 	
 	@PostMapping
-	public void add(User u) {
-		service.addVip(u);
+	public String add(User user) {
+		service.addVip(user);
+		return "/signIn.html";
 	}
 	
 
