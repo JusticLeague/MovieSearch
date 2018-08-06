@@ -15,6 +15,10 @@ public class ActorModel {
 	String country;
 	String desc;
 	String pic;
+	
+	public ActorModel() {
+
+	}
 
 	public int getId() {
 		return id;

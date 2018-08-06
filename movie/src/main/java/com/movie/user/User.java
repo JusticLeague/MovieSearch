@@ -13,6 +13,10 @@ public class User {
 	String phone;
 	String password;
 	
+	public User() {
+
+	}
+	
 	public int getId() {
 		return id;
 	}

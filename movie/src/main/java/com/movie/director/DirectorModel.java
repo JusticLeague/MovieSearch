@@ -15,6 +15,10 @@ public class DirectorModel {
 	String country;
 	String desc;
 	String pic;
+	
+	public DirectorModel() {
+
+	}
 
 	public String getName() {
 		return name;
