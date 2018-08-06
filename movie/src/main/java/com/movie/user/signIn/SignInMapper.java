@@ -7,10 +7,10 @@ import org.apache.ibatis.annotations.Select;
 public interface SignInMapper {
 	
 	// 查找账号
-	@Select("select phone from vip where phone = #{phone}")
+	@Select("select vip_phone from vip where vip_phone = #{phone}")
 	String phone();
 
 	// 查找密码
-	@Select("select password from vip where password = #{password}")
+	@Select("select vip_password from vip where vip_password = #{password}")
 	String password();
 }
