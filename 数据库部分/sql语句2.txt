@@ -1,4 +1,4 @@
-查询电影导演
+﻿查询电影导演
 CREATE VIEW moviedirectorname AS 
 SELECT 
 m.movie_name,m.movie_type,m.movie_country,m.movie_date,d.director_name
@@ -12,12 +12,12 @@ select * from moviedirector;
 查询电影导演演员
 CREATE VIEW moviedirectoractor AS 
 SELECT 
-m.movie_name,m.movie_type,m.movie_country,m.movie_date,m.movir_score,
+m.movie_name,m.movie_type,m.movie_country,m.movie_date,m.movie_score,
 p.poster_pic,
 d.director_name,
 a.actor_name
 FROM
-movie AS m,director AS d,movieitem AS mi,actor AS a,poster AS p
+movie AS m,director AS d,movie_item AS mi,actor AS a,poster AS p
 WHERE
 m.director_id=d.director_id
 AND
