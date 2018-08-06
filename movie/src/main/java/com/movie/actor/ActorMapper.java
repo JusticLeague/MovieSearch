@@ -33,10 +33,12 @@ public interface ActorMapper {
 	@Delete("delete from actor where actor_id = #{id}")
 	void remove(int id);
 	
+	// 删除图片
 	@Delete("delete from actor_pic where actor_id = #{id}")
 	void removePic(int id);
 	
-	@Update("update actor set actor_name = #{name}, actor_sex = #{sex}, ")
+	// 修改信息
+	@Update("update actor set actor_name = #{name}, actor_sex = #{sex}, actor_birth = #{birth}, actor_country = #{country}, actor_desc = #{desc} where actor_id = #{id}")
 	void update(ActorModel actor);
 
 }
