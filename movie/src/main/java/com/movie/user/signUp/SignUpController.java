@@ -20,15 +20,9 @@ public class SignUpController {
 	SignUpService service;
 	
 	@PostMapping
-<<<<<<< HEAD
 	public String add(User u) {
 		service.addVip(u);
 		return "redirect:/signIn.html";
-=======
-	public String add(User user) {
-		service.addVip(user);
-		return "/signIn.html";
->>>>>>> b363fcd85cc158c9958430e0c3a6e1b1e262ad65
 	}
 	
 
