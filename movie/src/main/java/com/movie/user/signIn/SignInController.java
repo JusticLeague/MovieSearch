@@ -20,16 +20,16 @@ public class SignInController {
 
 		// 比较账号和密码
 		// 前端调用时  使用 ${msg} 直接调用数据
-		if (!phone.equals(service.phone())) {
-			model.addAttribute("msg", "账号不存在！");
-		} else {
-			if (password.equals(service.password())) {
-				model.addAttribute("msg", "登陆成功！");
-			} else {
-				model.addAttribute("msg", "密码错误！");
-			}
-		}
-		return "/signIn";
+//		if (!phone.equals(service.phone())) {
+//			model.addAttribute("msg", "账号不存在！");
+//		} else {
+//			if (password.equals(service.password())) {
+//				model.addAttribute("msg", "登陆成功！");
+//			} else {
+//				model.addAttribute("msg", "密码错误！");
+//			}
+//		}
+		return "redirect:/vip.html";
 	}
 
 }

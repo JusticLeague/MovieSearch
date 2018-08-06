@@ -194,6 +194,10 @@
                         <div class="container-fluid">
                             <form id="sign-in" method="POST" action="signIn">
                                 <div class="form-group">
+                                    <label for="exampleInputEmail1">昵称</label>
+                                    <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入昵称">
+                                </div>
+                                <div class="form-group">
                                     <label for="exampleInputEmail1">手机号</label>
                                     <input type="text" class="form-control" name="phone" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入手机号">
                                 </div>
@@ -222,23 +226,24 @@
                     </div>
                     <div class="modal-body">
                         <div class="container-fluid">
-                            <div class="form-group">
-                                <label for="">账号</label>
-                                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="请输入账号">
-                            </div>
-                            <div class="form-group">
-                                <label for="">密码</label>
-                                <input type="password" class="form-control" name="" id="" aria-describedby="helpId" placeholder="请设置密码">
-                            </div>
+                            <form id="sign-up" method="POST" action="signUp">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">昵称</label>
+                                    <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入昵称">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">手机号</label>
+                                    <input type="text" class="form-control" name="phone" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入手机号">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">密码</label>
+                                    <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="输入密码">
+                                </div>
+                                <button type="submit" class="btn btn-primary">注册</button>
+                            </form>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
-                        <button type="submit" class="btn btn-success">注册</button>
-                    </div>
                 </div>
-            </div>
-        </div>
     </header>
 
     <!-- 整个内容框架 -->
@@ -369,7 +374,7 @@
         </div>
     </div>
     <a class="top" href="#top" style="color: black;float: right;">
-        <h4>back to top</h4>
+        <h4>top</h4>
     </a>
 
     <!-- </div> -->
