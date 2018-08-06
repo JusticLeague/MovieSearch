@@ -31,9 +31,10 @@ public class ActorController {
 	}
 
 	// 添加海报
+	// 要先得到演员id
 	@PostMapping
-	public void addPic(@RequestParam(value = "id", required = true) int id,
-			@RequestParam(value = "actor_pic", required = true) String actor_pic) {
+	public void addPic(@RequestParam(value = "actor_id", required = true) int id,
+			@RequestParam(value = "actor_pic", required = false) String actor_pic) {
 		service.addPic(id, actor_pic);
 	}
 

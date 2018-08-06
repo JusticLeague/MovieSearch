@@ -1,7 +1,10 @@
 package com.movie.user.signIn;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+
+@Service
 public class SignInService {
 	
 	@Autowired

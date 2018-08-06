@@ -8,6 +8,7 @@ package com.movie.director;
  */
 public class DirectorModel {
 
+	int id;
 	String name;
 	int sex;
 	String birth;

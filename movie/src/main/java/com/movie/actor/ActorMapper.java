@@ -18,7 +18,7 @@ public interface ActorMapper {
 	void create(ActorModel actor);
 
 	// 演员海报
-	@Insert("insert into actor_pic(actor_id, actor_pic) value(#{actor_id}, #{actor_pic})")
+	@Insert("insert into actor_pic(actor_id, actor_pic) value(#{id}, #{pic})")
 	void addPic(int id, String actor_pic);
 
 	// 使用视图 actor_info (详细设计)
