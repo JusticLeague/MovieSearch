@@ -3,6 +3,7 @@ package com.movie.director;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 /**
@@ -11,6 +12,7 @@ import org.apache.ibatis.annotations.Select;
  * @author QQ546
  *
  */
+@Mapper
 public interface DirectorMapper {
 	
 	@Insert("insert into director(director_name, director_sex, director_country, director_birth, director_desc) value(#{name}, #{sex}, #{country}, #{birth}, #{desc})")

@@ -1,9 +1,11 @@
 package com.movie.user.signUp;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
 
 import com.movie.user.User;
 
+@Mapper
 public interface SignUpMapper {
 	
 	// 数据库vip表中插入数据

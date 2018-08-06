@@ -1,5 +1,6 @@
 package com.movie.user.pc.change;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Update;
 
 import com.movie.user.User;
@@ -9,6 +10,7 @@ import com.movie.user.User;
  * @author QQ546
  *
  */
+@Mapper
 public interface ChangeMapper {
 	
 	@Update("update vip set name = #{name}, pic = #{pic}, password = #{password} where id = #{id}")

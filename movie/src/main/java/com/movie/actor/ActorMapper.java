@@ -2,8 +2,11 @@ package com.movie.actor;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 /**
  * 添加演员，从视图 actor_info 中查看演员信息
@@ -11,6 +14,7 @@ import org.apache.ibatis.annotations.Select;
  * @author QQ546
  *
  */
+@Mapper
 public interface ActorMapper {
 
 	// 演员的基本信息
@@ -24,5 +28,15 @@ public interface ActorMapper {
 	// 使用视图 actor_info (详细设计)
 	@Select("select * from actor_info")
 	List<ActorModel> find();
+	
+	// 删除演员
+	@Delete("delete from actor where actor_id = #{id}")
+	void remove(int id);
+	
+	@Delete("delete from actor_pic where actor_id = #{id}")
+	void removePic(int id);
+	
+	@Update("update actor set actor_name = #{name}, actor_sex = #{sex}, ")
+	void update(ActorModel actor);
 
 }

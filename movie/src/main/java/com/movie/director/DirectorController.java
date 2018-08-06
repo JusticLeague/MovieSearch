@@ -18,7 +18,7 @@ public class DirectorController {
 		service.create(director);
 	}
 
-	@PostMapping
+	@PostMapping("/{id}")
 	public void addPic(@RequestParam(value = "director_id", required = true) int id,
 			@RequestParam(value = "director_pic", required = false) String pic) {
 		service.addPic(id, pic);

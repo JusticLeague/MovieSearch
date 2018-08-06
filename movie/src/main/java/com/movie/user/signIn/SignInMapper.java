@@ -1,7 +1,9 @@
 package com.movie.user.signIn;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+@Mapper
 public interface SignInMapper {
 	
 	// 查找账号
