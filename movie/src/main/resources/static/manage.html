@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- 操作选项 -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#movie-manage" role="tab" aria-controls="movie-manage" aria-selected="true">电影管理</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#user-manage" role="tab" aria-controls="user-manage" aria-selected="false">用户管理</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#director-manage" role="tab" aria-controls="director-manage"
+                            aria-selected="false">导演管理</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="actor-manage-tab" data-toggle="tab" href="#actor-manage" role="tab" aria-controls="actor-manage"
+                            aria-selected="false">演员管理</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <!-- 电影管理 -->
+                    <div class="tab-pane fade show active" id="movie-manage" role="tabpanel" aria-labelledby="movie-manage-tab">
+                        <div class="row mt-5">
+                            <div class="col-lg-3">
+                                <!-- 添加电影 -->
+                                <p>
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+                                        aria-controls="collapseExample">
+                                        添加电影
+                                    </button>
+                                </p>
+
+                            </div>
+                            <!-- 查询电影 -->
+                            <div class="col-lg-3">
+                                <p>
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false"
+                                        aria-controls="collapseExample">
+                                        查询电影
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- 显示输入框到的电影 -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="collapse" id="collapseExample">
+                                    <div class="card card-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Email address</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Password</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                            </div>
+                                            <div class="form-group form-check">
+                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <form>
+                                                <div class="form-group mt-3">
+                                                    <label for="exampleInputEmail1">电影名称</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                                </div>
+                                                <div class="form-group mt-4">
+                                                    <label for="exampleFormControlFile1">Example file input</label>
+                                                    <input type="file" multiple class="form-control-file" id="exampleFormControlFile1">
+                                                    <button type="submit" class="btn btn-primary mt-3">上传</button>
+                                                </div>
+                                            </form>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="collapse" id="collapseExample2">
+                                    <div class="card card-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>电影id</th>
+                                                    <th>电影名称</th>
+                                                    <th>电影类型</th>
+                                                    <th>电影产地</th>
+                                                    <th>电影评分</th>
+                                                    <th>上映日期</th>
+                                                    <th>电影简介</th>
+                                                    <th>导演</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td scope="row">1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">修改</button>
+                                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-body">
+                                                                        <form>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">电影名称</label>
+                                                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">电影类型</label>
+                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">电影产地</label>
+                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">评分</label>
+                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">上映日期</label>
+                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">简介</label>
+                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">导演</label>
+                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <button type="submit" class="btn btn-primary">提交</button>
+                                                                        </form>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button type="button" class="btn btn-danger">删除</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td scope="row"></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 用户管理 -->
+                    <div class="tab-pane fade" id="user-manage" role="tabpanel" aria-labelledby="user-manage-tab">
+                        <div class="row mt-5">
+                            <!-- <div class="col-lg-3">
+                                <p>
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+                                        aria-controls="collapseExample">
+                                        添加电影
+                                    </button>
+                                </p>
+                                <div class="collapse" id="collapseExample">
+                                    <div class="card card-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Email address</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Password</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                            </div>
+                                            <div class="form-group form-check">
+                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <!-- 查询用户 -->
+                            <div class="col-lg-3">
+                                <p>
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false"
+                                        aria-controls="collapseExample">
+                                        查询用户
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- 显示查询到的用户 -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="collapse" id="collapseExample2">
+                                    <div class="card card-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>用户id</th>
+                                                    <th>用户昵称</th>
+                                                    <th>用户手机</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td scope="row">1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal2">修改</button>
+                                                        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-body">
+                                                                        <form>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">用户手机</label>
+                                                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">用户昵称</label>
+                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <button type="submit" class="btn btn-primary">提交</button>
+                                                                        </form>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button type="button" class="btn btn-danger">删除</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td scope="row"></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 导演管理 -->
+                    <div class="tab-pane fade" id="director-manage" role="tabpanel" aria-labelledby="director-manage-tab">
+                        <div class="row mt-5">
+                            <div class="col-lg-3">
+                                <!-- 添加电影 -->
+                                <p>
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+                                        aria-controls="collapseExample">
+                                        添加电影
+                                    </button>
+                                </p>
+
+                            </div>
+                            <!-- 查询电影 -->
+                            <div class="col-lg-3">
+                                <p>
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false"
+                                        aria-controls="collapseExample">
+                                        查询电影
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- 显示输入框到的电影 -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="collapse" id="collapseExample">
+                                    <div class="card card-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Email address</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Password</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                            </div>
+                                            <div class="form-group form-check">
+                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <form>
+                                                <div class="form-group mt-3">
+                                                    <label for="exampleInputEmail1">电影名称</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                                </div>
+                                                <div class="form-group mt-4">
+                                                    <label for="exampleFormControlFile1">Example file input</label>
+                                                    <input type="file" multiple class="form-control-file" id="exampleFormControlFile1">
+                                                    <button type="submit" class="btn btn-primary mt-3">上传</button>
+                                                </div>
+                                            </form>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="collapse" id="collapseExample2">
+                                    <div class="card card-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>电影id</th>
+                                                    <th>电影名称</th>
+                                                    <th>电影类型</th>
+                                                    <th>电影产地</th>
+                                                    <th>电影评分</th>
+                                                    <th>上映日期</th>
+                                                    <th>电影简介</th>
+                                                    <th>导演</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td scope="row">1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">修改</button>
+                                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-body">
+                                                                        <form>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">电影名称</label>
+                                                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">电影类型</label>
+                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">电影产地</label>
+                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">评分</label>
+                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">上映日期</label>
+                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">简介</label>
+                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">导演</label>
+                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <button type="submit" class="btn btn-primary">提交</button>
+                                                                        </form>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button type="button" class="btn btn-danger">删除</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td scope="row"></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 演员管理 -->
+                    <div class="tab-pane fade" id="actor-manage" role="tabpanel" aria-labelledby="actor-manage-tab">
+                        <div class="row mt-5">
+                            <div class="col-lg-3">
+                                <!-- 添加电影 -->
+                                <p>
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+                                        aria-controls="collapseExample">
+                                        添加电影
+                                    </button>
+                                </p>
+
+                            </div>
+                            <!-- 查询电影 -->
+                            <div class="col-lg-3">
+                                <p>
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false"
+                                        aria-controls="collapseExample">
+                                        查询电影
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- 显示输入框到的电影 -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="collapse" id="collapseExample">
+                                    <div class="card card-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Email address</label>
+                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Password</label>
+                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                            </div>
+                                            <div class="form-group form-check">
+                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <form>
+                                                <div class="form-group mt-3">
+                                                    <label for="exampleInputEmail1">电影名称</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                                </div>
+                                                <div class="form-group mt-4">
+                                                    <label for="exampleFormControlFile1">Example file input</label>
+                                                    <input type="file" multiple class="form-control-file" id="exampleFormControlFile1">
+                                                    <button type="submit" class="btn btn-primary mt-3">上传</button>
+                                                </div>
+                                            </form>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="collapse" id="collapseExample2">
+                                    <div class="card card-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>电影id</th>
+                                                    <th>电影名称</th>
+                                                    <th>电影类型</th>
+                                                    <th>电影产地</th>
+                                                    <th>电影评分</th>
+                                                    <th>上映日期</th>
+                                                    <th>电影简介</th>
+                                                    <th>导演</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td scope="row">1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">修改</button>
+                                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-body">
+                                                                        <form>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">电影名称</label>
+                                                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">电影类型</label>
+                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">电影产地</label>
+                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">评分</label>
+                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">上映日期</label>
+                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">简介</label>
+                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">导演</label>
+                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <button type="submit" class="btn btn-primary">提交</button>
+                                                                        </form>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button type="button" class="btn btn-danger">删除</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td scope="row"></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
