@@ -1,5 +1,7 @@
 package com.movie.user.pc.collect;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,11 @@ public class CollectService {
 	// 删除
 	public void remove(int id) {
 		mapper.remove(id);
+	}
+	
+	// 得到一个用户收藏列表里所有的影片name
+	public List<String> getName(){
+		return mapper.getName();
 	}
 	
 }
