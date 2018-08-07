@@ -2,7 +2,6 @@ package com.movie.actor;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,12 +28,12 @@ public class ActorController {
 		return service.find();
 	}
 
-	// 海报
-	@GetMapping
-	@ResponseBody
-	public List<ActorModel> findPic() {
-		return service.findPic();
-	}
+//	// 海报
+//	@GetMapping
+//	@ResponseBody
+//	public List<ActorModel> findPic() {
+//		return service.findPic();
+//	}
 
 	// 创建演员
 	@PostMapping

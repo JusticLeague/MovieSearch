@@ -12,7 +12,7 @@ import com.movie.actor.ActorModel;
 
 /**
  * 添加导演、添加海报
- * 
+ * 视图 name,country,sex,birth,desc,pic,movie
  * @author QQ546
  *
  */

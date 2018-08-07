@@ -28,9 +28,9 @@ public class CollectController {
 
 	// 删除
 	@RequestMapping("/collect")
-	@DeleteMapping("/{id}")
-	public void remove(@PathVariable int id) {
-		service.remove(id);
+	@DeleteMapping("/{collect_id}")
+	public void remove(@PathVariable int collect_id) {
+		service.remove(collect_id);
 	}
 
 	// 得到一个人的所有收藏影片name

@@ -9,7 +9,8 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 /**
- * 添加演员，从视图 actor_info 中查看演员信息
+ * 添加演员，从视图 actor_info 中查看演员信息 
+ * 视图 name,country,sex,birth,desc,pic,movie
  * 
  * @author QQ546
  *
@@ -17,11 +18,16 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface ActorMapper {
 
-	@Select("select * from actor")
-	List<ActorModel> find();
+	// @Select("select * from actor")
+	// List<ActorModel> find();
+	//
+	// @Select("select actor_pic from actor, actor_pic where actor.actor_id =
+	// actor_pic.actor_id ")
+	// List<ActorModel> findPic();
 
-	@Select("select actor_pic from actor, actor_pic where actor.actor_id = actor_pic.actor_id ")
-	List<ActorModel> findPic();
+	// 视图actor_info
+	@Select("select * from actor_info")
+	List<ActorModel> find();
 
 	// 演员的基本信息
 	@Insert("insert into actor(actor_name, actor_sex, actor_country, actor_birth, actor_desc) value(#{actor_name}, #{actor_sex}, #{actor_country}, #{actor_birth}, #{actor_desc})")

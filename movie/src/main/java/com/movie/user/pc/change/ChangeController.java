@@ -15,9 +15,9 @@ public class ChangeController {
 	@Autowired
 	ChangeService service;
 	
-	@PutMapping("/{id}")
+	@PutMapping("/{vip_id}")
 	public void change(
-			@PathVariable int id, User u) {
+			@PathVariable int vip_id, User u) {
 		service.change(u);
 	}
 

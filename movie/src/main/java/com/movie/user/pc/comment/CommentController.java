@@ -26,9 +26,9 @@ public class CommentController {
 	
 	// 删除评论
 	@RequestMapping("/comment")
-	@DeleteMapping("/{id}")
-	public void remove(@PathVariable int id) {
-		service.remove(id);
+	@DeleteMapping("/{cmt_id}")
+	public void remove(@PathVariable int cmt_id) {
+		service.remove(cmt_id);
 	}
 	
 	// 得到一个vip用户的所有影片相应的评论

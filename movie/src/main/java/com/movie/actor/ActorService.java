@@ -22,15 +22,15 @@ public class ActorService {
 		mapper.addPic(id, actor_pic);
 	}
 
-	// 演员的基本信息
+	// 演员视图信息
 	public List<ActorModel> find() {
 		return mapper.find();
 	}
 
-	// 海报
-	public List<ActorModel> findPic() {
-		return mapper.findPic();
-	}
+//	// 海报
+//	public List<ActorModel> findPic() {
+//		return mapper.findPic();
+//	}
 
 	// 删除包括图片
 	@Transactional

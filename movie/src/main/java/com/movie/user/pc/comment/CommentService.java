@@ -17,8 +17,8 @@ public class CommentService {
 	}
 
 	// 删除
-	public void remove(int id) {
-		mapper.remove(id);
+	public void remove(int cmt_id) {
+		mapper.remove(cmt_id);
 	}
 
 	// 得到一个用户的所有影片相应的评论

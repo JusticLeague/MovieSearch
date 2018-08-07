@@ -21,7 +21,7 @@ public interface CollectMapper {
 	void create(CollectModel collect);
 	
 	// 删除
-	@Delete("delete from collect where id = #{id}")
+	@Delete("delete from collect where collect_id = #{collect_id}")
 	void remove(int id);
 	
 	// 查找得到影片name
