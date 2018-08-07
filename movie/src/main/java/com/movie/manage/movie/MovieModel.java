@@ -9,67 +9,76 @@ package com.movie.manage.movie;
  */
 public class MovieModel {
 
-	int id;
-	String name;
-	String country;
-	double score;
-	String date;
-	String desc;
+	int movie_id;
+	String movie_name;
+	String movie_type;
+	String movie_country;
+	double movie_score;
+	String movie_date;
+	String movie_desc;
 	int director_id;
-	String ratings;
-	int dimension;
+	String movie_ratings;
+	int movie_dimension;
 	String poster_pic;
 
 	public MovieModel() {
 
 	}
 
-	public int getId() {
-		return id;
+	public int getMovie_id() {
+		return movie_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setMovie_id(int movie_id) {
+		this.movie_id = movie_id;
 	}
 
-	public String getName() {
-		return name;
+	public String getMovie_name() {
+		return movie_name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setMovie_name(String movie_name) {
+		this.movie_name = movie_name;
 	}
 
-	public String getCountry() {
-		return country;
+	public String getMovie_type() {
+		return movie_type;
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
+	public void setMovie_type(String movie_type) {
+		this.movie_type = movie_type;
 	}
 
-	public double getScore() {
-		return score;
+	public String getMovie_country() {
+		return movie_country;
 	}
 
-	public void setScore(double score) {
-		this.score = score;
+	public void setMovie_country(String movie_country) {
+		this.movie_country = movie_country;
 	}
 
-	public String getDate() {
-		return date;
+	public double getMovie_score() {
+		return movie_score;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setMovie_score(double movie_score) {
+		this.movie_score = movie_score;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getMovie_date() {
+		return movie_date;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setMovie_date(String movie_date) {
+		this.movie_date = movie_date;
+	}
+
+	public String getMovie_desc() {
+		return movie_desc;
+	}
+
+	public void setMovie_desc(String movie_desc) {
+		this.movie_desc = movie_desc;
 	}
 
 	public int getDirector_id() {
@@ -80,20 +89,20 @@ public class MovieModel {
 		this.director_id = director_id;
 	}
 
-	public String getRatings() {
-		return ratings;
+	public String getMovie_ratings() {
+		return movie_ratings;
 	}
 
-	public void setRatings(String ratings) {
-		this.ratings = ratings;
+	public void setMovie_ratings(String movie_ratings) {
+		this.movie_ratings = movie_ratings;
 	}
 
-	public int getDimension() {
-		return dimension;
+	public int getMovie_dimension() {
+		return movie_dimension;
 	}
 
-	public void setDimension(int dimension) {
-		this.dimension = dimension;
+	public void setMovie_dimension(int movie_dimension) {
+		this.movie_dimension = movie_dimension;
 	}
 
 	public String getPoster_pic() {

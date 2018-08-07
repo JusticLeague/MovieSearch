@@ -8,8 +8,6 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import com.movie.actor.ActorModel;
-
 /**
  * 添加导演、添加海报
  * 视图 name,country,sex,birth,desc,pic,movie

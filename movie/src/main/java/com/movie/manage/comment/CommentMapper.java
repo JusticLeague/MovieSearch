@@ -11,10 +11,12 @@ import com.movie.user.pc.comment.CommentModel;
 @Mapper
 public interface CommentMapper {
 	
+	// 找出所有的评论
 	@Select("select cmt_comment from comment")
 	List<CommentModel> find();
 	
-	@Delete("delete from comment where cmt_id = #{id}")
-	void remove(int id);
+	// 按评论id删除
+	@Delete("delete from comment where cmt_id = #{cmt_id}")
+	void remove(int cmt_id);
 
 }
