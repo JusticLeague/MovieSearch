@@ -68,25 +68,40 @@ AND
 mi.movie_id = m.movie_id;
 
 
+视图director_info
 create view director_info as
 select
-d.director_name,
-d.director_country,
-d.director_birth,
-dp.director_pic,
-m.movie_name,
-d.director_desc
+director_name,
+director_sex,
+director_country,
+director_birth,
+director_pic,
+movie_name,
+director_desc
 from
-movie as m, director as d, director_pic as dp
+movie , director , director_pic
 where
-m.director_id = d.director_id;
+movie.director_id = director.director_id
 and
-d.director_id = dp.director_id;
+director.director_id = director_pic.director_id;
 
 select * from director_info;
 
 
+视图actor_info
+create view actor_info as
+select
+actor_name, actor_sex, actor_country, actor_birth, actor_desc, movie_name, actor_pic
+from 
+movie, movie_item, actor, actor_pic
+where 
+movie_item.actor_id = actor.actor_id
+and
+movie_item.movie_id = movie.movie_id
+and
+actor.actor_id = actor_pic.actor_id;
 
+select * from actor_info;
 
 
 
