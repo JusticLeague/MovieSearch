@@ -29,8 +29,8 @@ public interface CollectMapper {
 	List<String> getName();
 	
 	// 统计某部影片有多少收藏
-//	@Select("select movie_id, count(movie_id) as numble from collect group by movie_id")
-//	void sum();
+	@Select("select count(vip_id) from collect where movie_id = #{movie_id}")
+	int sum(int movie_id);
 	
 	
 	

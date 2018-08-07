@@ -20,10 +20,15 @@ public class CommentService {
 	public void remove(int id) {
 		mapper.remove(id);
 	}
-	
+
 	// 得到一个用户的所有影片相应的评论
-	public List<CommentModel> find(int vip_id){
+	public List<CommentModel> find(int vip_id) {
 		return mapper.find(vip_id);
+	}
+
+	// 统计某部影片有多少评论量
+	public int numble(int movie_id) {
+		return mapper.sum(movie_id);
 	}
 
 }

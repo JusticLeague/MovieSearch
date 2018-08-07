@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CollectService {
-	
+
 	@Autowired
 	CollectMapper mapper;
 
@@ -15,15 +15,20 @@ public class CollectService {
 	public void create(CollectModel collect) {
 		mapper.create(collect);
 	}
-	
+
 	// 删除
 	public void remove(int id) {
 		mapper.remove(id);
 	}
-	
+
 	// 得到一个用户收藏列表里所有的影片name
-	public List<String> getName(){
+	public List<String> getName() {
 		return mapper.getName();
 	}
-	
+
+	// 得到一个影片的收藏量
+	public int numble(int movie_id) {
+		return mapper.sum(movie_id);
+	}
+
 }
