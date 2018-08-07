@@ -24,22 +24,21 @@ public class DirectorController {
 		service.create(director);
 	}
 
-	@PostMapping("/{id}")
-	public void addPic(@RequestParam(value = "director_id", required = true) int id,
-			@RequestParam(value = "director_pic", required = false) String pic) {
-		service.addPic(id, pic);
+	@PostMapping("/{director_id}")
+	public void addPic(@RequestParam(value = "director_id", required = true) int director_id,
+			@RequestParam(value = "director_pic", required = false) String director_pic) {
+		service.addPic(director_id, director_pic);
 	}
 
 	// 删除
-	@DeleteMapping("/{id}")
-	public void delete(@PathVariable int id) {
-		service.remove(id);
+	@DeleteMapping("/{director_id}")
+	public void delete(@PathVariable int director_id) {
+		service.remove(director_id);
 	}
 
 	// 修改
-	@PutMapping("/{id}")
-	public void update(@PathVariable int id,
-			@RequestBody DirectorModel director) {
+	@PutMapping("/{director_id}")
+	public void update(@PathVariable int director_id, @RequestBody DirectorModel director) {
 		service.update(director);
 	}
 

@@ -68,10 +68,34 @@ AND
 mi.movie_id = m.movie_id;
 
 
+create view director_info as
 select
 d.director_name,
-m.movie_name
+d.director_country,
+d.director_birth,
+dp.director_pic,
+m.movie_name,
+d.director_desc
 from
-movie as m,director as d
+movie as m, director as d, director_pic as dp
 where
-d.director_id=m.director_id;
+m.director_id = d.director_id;
+and
+d.director_id = dp.director_id;
+
+select * from director_info;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

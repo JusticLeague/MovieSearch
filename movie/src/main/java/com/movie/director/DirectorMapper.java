@@ -19,10 +19,12 @@ import com.movie.actor.ActorModel;
 @Mapper
 public interface DirectorMapper {
 
-	@Insert("insert into director(director_name, director_sex, director_country, director_birth, director_desc) value(#{name}, #{sex}, #{country}, #{birth}, #{desc})")
+	// 插入基本信息
+	@Insert("insert into director(director_name, director_sex, director_country, director_birth, director_desc) value(#{director_name}, #{director_sex}, #{director_country}, #{director_birth}, #{director_desc})")
 	void create(DirectorModel director);
 
-	@Insert("insert into director_pic(director_id, director_pic) value(#{id}, #{pic}")
+	// 上传图片
+	@Insert("insert into director_pic(director_id, director_pic) value(#{director_id}, #{director_pic}")
 	void addPic(int id, String pic);
 
 	// 使用 director_info 视图 （详细设计）
@@ -30,15 +32,15 @@ public interface DirectorMapper {
 	List<DirectorModel> find();
 
 	// 删除导演
-	@Delete("delete from director where director_id = #{id}")
-	void remove(int id);
+	@Delete("delete from director where director_id = #{director_id}")
+	void remove(int director_id);
 
 	// 删除图片
-	@Delete("delete from director_pic where director_id = #{id}")
-	void removePic(int id);
+	@Delete("delete from director_pic where director_id = #{director_id}")
+	void removePic(int director_id);
 
 	// 修改信息
-	@Update("update director set director_name = #{name}, director_sex = #{sex}, director_birth = #{birth}, director_country = #{country}, director_desc = #{desc} where director_id = #{id}")
+	@Update("update director set director_name = #{director_name}, director_sex = #{director_sex}, director_birth = #{director_birth}, director_country = #{director_country}, director_desc = #{director_desc} where director_id = #{director_id}")
 	void update(DirectorModel director);
 
 }
