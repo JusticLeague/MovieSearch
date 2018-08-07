@@ -8,72 +8,74 @@ package com.movie.actor;
  */
 public class ActorModel {
 
-	int id;
-	String name;
-	int sex;
-	String birth;
-	String country;
-	String desc;
-	String pic;
+	int actor_id;
+	String actor_name;
+	int actor_sex;
+	String actor_birth;
+	String actor_country;
+	String actor_desc;
+	String actor_pic;
 	
 	public ActorModel() {
 
 	}
 
-	public int getId() {
-		return id;
+	public int getActor_id() {
+		return actor_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setActor_id(int actor_id) {
+		this.actor_id = actor_id;
 	}
 
-	public String getName() {
-		return name;
+	public String getActor_name() {
+		return actor_name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setActor_name(String actor_name) {
+		this.actor_name = actor_name;
 	}
 
-	public int getSex() {
-		return sex;
+	public int getActor_sex() {
+		return actor_sex;
 	}
 
-	public void setSex(int sex) {
-		this.sex = sex;
+	public void setActor_sex(int actor_sex) {
+		this.actor_sex = actor_sex;
 	}
 
-	public String getBirth() {
-		return birth;
+	public String getActor_birth() {
+		return actor_birth;
 	}
 
-	public void setBirth(String birth) {
-		this.birth = birth;
+	public void setActor_birth(String actor_birth) {
+		this.actor_birth = actor_birth;
 	}
 
-	public String getCountry() {
-		return country;
+	public String getActor_country() {
+		return actor_country;
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
+	public void setActor_country(String actor_country) {
+		this.actor_country = actor_country;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getActor_desc() {
+		return actor_desc;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setActor_desc(String actor_desc) {
+		this.actor_desc = actor_desc;
 	}
 
-	public void setPic(String pic) {
-		this.pic = pic;
+	public String getActor_pic() {
+		return actor_pic;
 	}
 
-	public String getPic() {
-		return pic;
+	public void setActor_pic(String actor_pic) {
+		this.actor_pic = actor_pic;
 	}
+
+	
 
 }

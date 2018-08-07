@@ -31,8 +31,9 @@ public class ActorController {
 
 	// 创建演员
 	@PostMapping
-	public void create(ActorModel actor) {
+	public String create(ActorModel actor) {
 		service.create(actor);
+		return "redirect:/manage.html";
 	}
 
 	// 添加海报

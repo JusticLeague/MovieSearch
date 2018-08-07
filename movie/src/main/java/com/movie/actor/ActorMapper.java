@@ -26,7 +26,7 @@ public interface ActorMapper {
 	void addPic(int id, String actor_pic);
 
 	// 使用视图 actor_info (详细设计)
-	@Select("select * from actor_info")
+	@Select("select * from actor")
 	List<ActorModel> find();
 	
 	// 删除演员

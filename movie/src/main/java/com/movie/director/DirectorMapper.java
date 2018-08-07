@@ -24,9 +24,8 @@ public interface DirectorMapper {
 
 	@Insert("insert into director_pic(director_id, director_pic) value(#{id}, #{pic}")
 	void addPic(int id, String pic);
-
-	// 使用 director_info 视图 （详细设计）
-	@Select("select * from director_info")
+	
+	@Select("select * from director")
 	List<DirectorModel> find();
 
 	// 删除导演

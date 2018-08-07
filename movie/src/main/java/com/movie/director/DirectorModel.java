@@ -8,64 +8,74 @@ package com.movie.director;
  */
 public class DirectorModel {
 
-	int id;
-	String name;
-	int sex;
-	String birth;
-	String country;
-	String desc;
-	String pic;
+	int director_id;
+	String director_name;
+	int director_sex;
+	String director_birth;
+	String director_country;
+	String director_desc;
+	String director_pic;
 	
 	public DirectorModel() {
 
 	}
 
-	public String getName() {
-		return name;
+	public int getDirector_id() {
+		return director_id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setDirector_id(int director_id) {
+		this.director_id = director_id;
 	}
 
-	public int getSex() {
-		return sex;
+	public String getDirector_name() {
+		return director_name;
 	}
 
-	public void setSex(int sex) {
-		this.sex = sex;
+	public void setDirector_name(String director_name) {
+		this.director_name = director_name;
 	}
 
-	public String getBirth() {
-		return birth;
+	public int getDirector_sex() {
+		return director_sex;
 	}
 
-	public void setBirth(String birth) {
-		this.birth = birth;
+	public void setDirector_sex(int director_sex) {
+		this.director_sex = director_sex;
 	}
 
-	public String getCountry() {
-		return country;
+	public String getDirector_birth() {
+		return director_birth;
 	}
 
-	public void setCountry(String country) {
-		this.country = country;
+	public void setDirector_birth(String director_birth) {
+		this.director_birth = director_birth;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getDirector_country() {
+		return director_country;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDirector_country(String director_country) {
+		this.director_country = director_country;
 	}
 
-	public String getPic() {
-		return pic;
+	public String getDirector_desc() {
+		return director_desc;
 	}
 
-	public void setPic(String pic) {
-		this.pic = pic;
+	public void setDirector_desc(String director_desc) {
+		this.director_desc = director_desc;
 	}
+
+	public String getDirector_pic() {
+		return director_pic;
+	}
+
+	public void setDirector_pic(String director_pic) {
+		this.director_pic = director_pic;
+	}
+
+	
 
 }

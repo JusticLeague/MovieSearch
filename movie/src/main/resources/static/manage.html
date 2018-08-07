@@ -10,6 +10,13 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 </head>
 
 <body>
@@ -32,70 +39,100 @@
                         <a class="nav-link" id="actor-manage-tab" data-toggle="tab" href="#actor-manage" role="tab" aria-controls="actor-manage"
                             aria-selected="false">演员管理</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="data-manage-tab" data-toggle="tab" href="#data-manage" role="tab" aria-controls="data-manage" aria-selected="false">数据统计</a>
+                    </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <!-- 电影管理 -->
                     <div class="tab-pane fade show active" id="movie-manage" role="tabpanel" aria-labelledby="movie-manage-tab">
                         <div class="row mt-5">
                             <div class="col-lg-3">
-                                <!-- 添加电影 -->
+                                <!-- 添加电影按钮 -->
                                 <p>
-                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
-                                        aria-controls="collapseExample">
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseMovie" aria-expanded="false" aria-controls="collapseExample">
                                         添加电影
                                     </button>
                                 </p>
 
                             </div>
-                            <!-- 查询电影 -->
+                            <!-- 查询电影按钮 -->
                             <div class="col-lg-3">
                                 <p>
-                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false"
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseMovie2" aria-expanded="false"
                                         aria-controls="collapseExample">
                                         查询电影
                                     </button>
                                 </p>
                             </div>
+                            <!-- 搜索电影按钮 -->
+                            <div class="col-lg-5">
+                                <form class="form-inline my-2 my-lg-0">
+                                    <input class="form-control mr-sm-2" placeholder="输入电影名" aria-label="Search">
+                                    <!-- 点击按钮后发送电影名并展开下拉内容框 （后续增加点击事件）-->
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="collapse" data-target="#collapseMovie3" aria-expanded="false"
+                                    aria-controls="collapseExample">搜索</button>
+                                </form>
+                            </div>
                         </div>
-                        <!-- 显示输入框到的电影 -->
+                        <!-- 添加电影下拉框 -->
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="collapse" id="collapseExample">
+                                <div class="collapse" id="collapseMovie">
                                     <div class="card card-body">
                                         <form>
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                                <label for="exampleInputEmail1">电影名称</label>
+                                                <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Password</label>
-                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                                <label for="exampleInputEmail1">电影类型</label>
+                                                <input type="text" class="form-control" name="type" id="exampleInputPassword1" placeholder="">
                                             </div>
-                                            <div class="form-group form-check">
-                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">电影产地</label>
+                                                <input type="text" class="form-control" name="country" id="exampleInputPassword1" placeholder="">
                                             </div>
-                                            <button type="submit" class="btn btn-primary">Submit</button>
-                                            <form>
-                                                <div class="form-group mt-3">
-                                                    <label for="exampleInputEmail1">电影名称</label>
-                                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                                </div>
-                                                <div class="form-group mt-4">
-                                                    <label for="exampleFormControlFile1">Example file input</label>
-                                                    <input type="file" multiple class="form-control-file" id="exampleFormControlFile1">
-                                                    <button type="submit" class="btn btn-primary mt-3">上传</button>
-                                                </div>
-                                            </form>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">评分</label>
+                                                <input type="text" class="form-control" name="score" id="exampleInputPassword1" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">上映日期</label>
+                                                <input type="text" class="form-control" name="date" id="exampleInputPassword1" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">简介</label>
+                                                <input type="text" class="form-control" name="desc" id="exampleInputPassword1" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">导演</label>
+                                                <input type="text" class="form-control" name="director" id="exampleInputPassword1" placeholder="">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">提交</button>
                                         </form>
+                                        <!-- 上传用户头像 -->
+                                        <form>
+                                            <div class="form-group mt-3">
+                                                <label for="exampleInputEmail1">电影名称</label>
+                                                <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                            </div>
+                                            <div class="form-group mt-4">
+                                                <label for="exampleFormControlFile1">Example file input</label>
+                                                <input type="file" multiple class="form-control-file" id="exampleFormControlFile1">
+                                                <button type="submit" class="btn btn-primary mt-3">上传</button>
+                                            </div>
+                                        </form>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- 查询电影下拉框 -->
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="collapse" id="collapseExample2">
+                                <div class="collapse" id="collapseMovie2">
                                     <div class="card card-body">
                                         <table class="table">
                                             <thead>
@@ -122,40 +159,40 @@
                                                     <td>1</td>
                                                     <td>1</td>
                                                     <td>
-                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">修改</button>
-                                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#movieModal">修改</button>
+                                                        <div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                             <div class="modal-dialog" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-body">
                                                                         <form>
                                                                             <div class="form-group">
                                                                                 <label for="exampleInputEmail1">电影名称</label>
-                                                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                                                                                <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
 
                                                                             </div>
                                                                             <div class="form-group">
                                                                                 <label for="exampleInputEmail1">电影类型</label>
-                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                                <input type="text" class="form-control" name="type" id="exampleInputPassword1" placeholder="">
                                                                             </div>
                                                                             <div class="form-group">
                                                                                 <label for="exampleInputEmail1">电影产地</label>
-                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                                <input type="text" class="form-control" name="country" id="exampleInputPassword1" placeholder="">
                                                                             </div>
                                                                             <div class="form-group">
                                                                                 <label for="exampleInputEmail1">评分</label>
-                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                                <input type="text" class="form-control" name="score" id="exampleInputPassword1" placeholder="">
                                                                             </div>
                                                                             <div class="form-group">
                                                                                 <label for="exampleInputEmail1">上映日期</label>
-                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                                <input type="text" class="form-control" name="date" id="exampleInputPassword1" placeholder="">
                                                                             </div>
                                                                             <div class="form-group">
                                                                                 <label for="exampleInputEmail1">简介</label>
-                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                                <input type="text" class="form-control" name="desc" id="exampleInputPassword1" placeholder="">
                                                                             </div>
                                                                             <div class="form-group">
                                                                                 <label for="exampleInputEmail1">导演</label>
-                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                                <input type="text" class="form-control" name="director" id="exampleInputPassword1" placeholder="">
                                                                             </div>
                                                                             <button type="submit" class="btn btn-primary">提交</button>
                                                                         </form>
@@ -178,52 +215,105 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- 搜索电影下拉框 -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="collapse" id="collapseMovie3">
+                                    <div class="card card-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>电影id</th>
+                                                    <th>电影名称</th>
+                                                    <th>电影类型</th>
+                                                    <th>电影产地</th>
+                                                    <th>电影评分</th>
+                                                    <th>上映日期</th>
+                                                    <th>电影简介</th>
+                                                    <th>导演</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td scope="row">1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>1</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#movieModal2">修改</button>
+                                                        <!-- 搜索电影并点击修改后的model -->
+                                                        <div class="modal fade" id="movieModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-body">
+                                                                        <form>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">电影名称</label>
+                                                                                <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">电影类型</label>
+                                                                                <input type="text" class="form-control" name="type" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">电影产地</label>
+                                                                                <input type="text" class="form-control" name="country" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">评分</label>
+                                                                                <input type="text" class="form-control" name="score" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">上映日期</label>
+                                                                                <input type="text" class="form-control" name="date" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">简介</label>
+                                                                                <input type="text" class="form-control" name="desc" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">导演</label>
+                                                                                <input type="text" class="form-control" name="director" id="exampleInputPassword1" placeholder="">
+                                                                            </div>
+                                                                            <button type="submit" class="btn btn-primary">提交</button>
+                                                                        </form>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button type="button" class="btn btn-danger">删除</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- 用户管理 -->
                     <div class="tab-pane fade" id="user-manage" role="tabpanel" aria-labelledby="user-manage-tab">
                         <div class="row mt-5">
-                            <!-- <div class="col-lg-3">
-                                <p>
-                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
-                                        aria-controls="collapseExample">
-                                        添加电影
-                                    </button>
-                                </p>
-                                <div class="collapse" id="collapseExample">
-                                    <div class="card card-body">
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">Password</label>
-                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                            </div>
-                                            <div class="form-group form-check">
-                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Submit</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <!-- 查询用户 -->
+                            <!-- 查询用户按钮 -->
                             <div class="col-lg-3">
                                 <p>
-                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false"
-                                        aria-controls="collapseExample">
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseVip" aria-expanded="false" aria-controls="collapseExample">
                                         查询用户
                                     </button>
                                 </p>
                             </div>
                         </div>
-                        <!-- 显示查询到的用户 -->
+                        <!-- 查询用户下拉框 -->
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="collapse" id="collapseExample2">
+                                <div class="collapse" id="collapseVip">
                                     <div class="card card-body">
                                         <table class="table">
                                             <thead>
@@ -246,13 +336,12 @@
                                                                     <div class="modal-body">
                                                                         <form>
                                                                             <div class="form-group">
-                                                                                <label for="exampleInputEmail1">用户手机</label>
-                                                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
-
+                                                                                <label for="exampleInputEmail1">用户昵称</label>
+                                                                                <input type="text" class="form-control" name="name" id="exampleInputPassword1" placeholder="">
                                                                             </div>
                                                                             <div class="form-group">
-                                                                                <label for="exampleInputEmail1">用户昵称</label>
-                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                                <label for="exampleInputEmail1">用户手机</label>
+                                                                                <input type="text" class="form-control" name="phone" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
                                                                             </div>
                                                                             <button type="submit" class="btn btn-primary">提交</button>
                                                                         </form>
@@ -280,76 +369,185 @@
                     <div class="tab-pane fade" id="director-manage" role="tabpanel" aria-labelledby="director-manage-tab">
                         <div class="row mt-5">
                             <div class="col-lg-3">
-                                <!-- 添加电影 -->
+                                <!-- 添加导演按钮 -->
                                 <p>
-                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseDirector" aria-expanded="false"
                                         aria-controls="collapseExample">
-                                        添加电影
+                                        添加导演
                                     </button>
                                 </p>
 
                             </div>
-                            <!-- 查询电影 -->
+                            <!-- 查询导演按钮 -->
                             <div class="col-lg-3">
                                 <p>
-                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false"
-                                        aria-controls="collapseExample">
-                                        查询电影
+                                    <button v-on:click="findDirectors" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseDirector2"
+                                        aria-expanded="false" aria-controls="collapseExample">
+                                        查询导演
                                     </button>
                                 </p>
                             </div>
+                            <!-- 搜索导演按钮 -->
+                            <div class="col-lg-5">
+                                <form class="form-inline my-2 my-lg-0">
+                                    <input class="form-control mr-sm-2" placeholder="输入导演姓名" aria-label="Search">
+                                    <!-- 点击按钮后发送导演名并展开下拉内容框 （后续增加点击事件）-->
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="collapse" data-target="#collapseDirector3" aria-expanded="false"
+                                    aria-controls="collapseExample">搜索</button>
+                                </form>
+                            </div>
                         </div>
-                        <!-- 显示输入框到的电影 -->
+                        <!-- 添加导演下拉框 -->
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="collapse" id="collapseExample">
+                                <div class="collapse" id="collapseDirector">
                                     <div class="card card-body">
-                                        <form>
+                                        <form method="POST" action="director">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                                <label for="exampleInputEmail1">导演名字</label>
+                                                <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入导演姓名">
+
+                                            </div>
+                                            <!-- <div class="form-group">
+                                                <label for="exampleInputPassword1">导演性别</label>
+                                                <input type="number" class="form-control" name="sex" id="exampleInputPassword1" placeholder="输入导演性别">
+                                            </div> -->
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="sex" id="exampleRadios1" value="1" checked>
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    男
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="sex" id="exampleRadios2" value="0">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                    女
+                                                </label>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Password</label>
-                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                                <label for="exampleInputPassword1">出生日期</label>
+                                                <input type="text" class="form-control" name="birth" id="exampleInputPassword1" placeholder="输入出生日期">
                                             </div>
-                                            <div class="form-group form-check">
-                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">国籍</label>
+                                                <input type="text" class="form-control" name="country" id="exampleInputPassword1" placeholder="输入国籍">
                                             </div>
-                                            <button type="submit" class="btn btn-primary">Submit</button>
-                                            <form>
-                                                <div class="form-group mt-3">
-                                                    <label for="exampleInputEmail1">电影名称</label>
-                                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                                </div>
-                                                <div class="form-group mt-4">
-                                                    <label for="exampleFormControlFile1">Example file input</label>
-                                                    <input type="file" multiple class="form-control-file" id="exampleFormControlFile1">
-                                                    <button type="submit" class="btn btn-primary mt-3">上传</button>
-                                                </div>
-                                            </form>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">简介</label>
+                                                <input type="text" class="form-control" name="desc" id="exampleInputPassword1" placeholder="输入简介">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">添加</button>
                                         </form>
+                                        <!-- 上传导演图片 -->
+                                        <form>
+                                            <div class="form-group mt-3">
+                                                <label for="exampleInputEmail1">导演姓名</label>
+                                                <input type="text" class="form-control" namr="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入导演姓名">
+                                            </div>
+                                            <div class="form-group mt-4">
+                                                <label for="exampleFormControlFile1">Example file input</label>
+                                                <input type="file" multiple class="form-control-file" id="exampleFormControlFile1">
+                                                <button type="submit" class="btn btn-primary mt-3">上传</button>
+                                            </div>
+                                        </form>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- 查询导演下拉框 -->
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="collapse" id="collapseExample2">
+                                <div class="collapse" id="collapseDirector2">
+                                    <div class="card card-body">
+                                        <table class="table" id="">
+                                            <thead>
+                                                <tr>
+                                                    <th>导演id</th>
+                                                    <th>导演姓名</th>
+                                                    <th>导演性别</th>
+                                                    <th>出生日期</th>
+                                                    <th>国籍</th>
+                                                    <th>简介</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="item in directors">
+                                                    <td scope="row">{{item.director_id}}</td>
+                                                    <td>{{item.director_name}}</td>
+                                                    <td>{{item.director_sex}}</td>
+                                                    <td>{{item.director_birth}}</td>
+                                                    <td>{{item.director_country}}</td>
+                                                    <td>{{item.director_desc}}</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#directorModal">修改</button>
+                                                        <!-- 导演修改按钮的modal -->
+                                                        <div class="modal fade" id="directorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-body">
+                                                                        <form>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">导演名字</label>
+                                                                                <input type="text" class="form-control" name="name" id="exampleInputEmail1" v-model="item.director_name" aria-describedby="emailHelp"
+                                                                                    placeholder="输入导演姓名">
+                                                                            </div>
+
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="sex" id="exampleRadios1" value="1" checked>
+                                                                                <label class="form-check-label" for="exampleRadios1">
+                                                                                    男
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="sex" id="exampleRadios2" value="0">
+                                                                                <label class="form-check-label" for="exampleRadios2">
+                                                                                    女
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputPassword1">出生日期</label>
+                                                                                <input type="text" class="form-control" name="birth" id="exampleInputPassword1" v-model="item.director_birth" placeholder="输入出生日期">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputPassword1">国籍</label>
+                                                                                <input type="text" class="form-control" name="country" id="exampleInputPassword1" v-model="item.director_country" placeholder="输入国籍">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputPassword1">简介</label>
+                                                                                <input type="text" class="form-control" name="desc" id="exampleInputPassword1" v-model="item.director_desc" placeholder="输入简介">
+                                                                            </div>
+                                                                            <button type="submit" class="btn btn-primary">提交</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button type="button" class="btn btn-danger">删除</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 搜索导演下拉框 -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="collapse" id="collapseDirector3">
                                     <div class="card card-body">
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>电影id</th>
-                                                    <th>电影名称</th>
-                                                    <th>电影类型</th>
-                                                    <th>电影产地</th>
-                                                    <th>电影评分</th>
-                                                    <th>上映日期</th>
-                                                    <th>电影简介</th>
-                                                    <th>导演</th>
+                                                    <th>导演id</th>
+                                                    <th>导演姓名</th>
+                                                    <th>导演性别</th>
+                                                    <th>出生日期</th>
+                                                    <th>国籍</th>
+                                                    <th>简介</th>
                                                     <th>操作</th>
                                                 </tr>
                                             </thead>
@@ -361,43 +559,43 @@
                                                     <td>1</td>
                                                     <td>1</td>
                                                     <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
                                                     <td>
-                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">修改</button>
-                                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#directorModal2">修改</button>
+                                                        <!-- 搜索导演并点击修改后的model -->
+                                                        <div class="modal fade" id="directorModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                             <div class="modal-dialog" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-body">
                                                                         <form>
                                                                             <div class="form-group">
-                                                                                <label for="exampleInputEmail1">电影名称</label>
-                                                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                                                                                <label for="exampleInputEmail1">导演名字</label>
+                                                                                <input type="text" class="form-control" name="name" id="exampleInputEmail1"  aria-describedby="emailHelp"
+                                                                                    placeholder="输入导演姓名">
+                                                                            </div>
 
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="sex" id="exampleRadios1" value="1" checked>
+                                                                                <label class="form-check-label" for="exampleRadios1">
+                                                                                    男
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="sex" id="exampleRadios2" value="0">
+                                                                                <label class="form-check-label" for="exampleRadios2">
+                                                                                    女
+                                                                                </label>
                                                                             </div>
                                                                             <div class="form-group">
-                                                                                <label for="exampleInputEmail1">电影类型</label>
-                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                                <label for="exampleInputPassword1">出生日期</label>
+                                                                                <input type="text" class="form-control" name="birth" id="exampleInputPassword1"  placeholder="输入出生日期">
                                                                             </div>
                                                                             <div class="form-group">
-                                                                                <label for="exampleInputEmail1">电影产地</label>
-                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                                <label for="exampleInputPassword1">国籍</label>
+                                                                                <input type="text" class="form-control" name="country" id="exampleInputPassword1"  placeholder="输入国籍">
                                                                             </div>
                                                                             <div class="form-group">
-                                                                                <label for="exampleInputEmail1">评分</label>
-                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <label for="exampleInputEmail1">上映日期</label>
-                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <label for="exampleInputEmail1">简介</label>
-                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <label for="exampleInputEmail1">导演</label>
-                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                                <label for="exampleInputPassword1">简介</label>
+                                                                                <input type="text" class="form-control" name="desc" id="exampleInputPassword1"  placeholder="输入简介">
                                                                             </div>
                                                                             <button type="submit" class="btn btn-primary">提交</button>
                                                                         </form>
@@ -408,11 +606,6 @@
                                                         </div>
                                                         <button type="button" class="btn btn-danger">删除</button>
                                                     </td>
-                                                </tr>
-                                                <tr>
-                                                    <td scope="row"></td>
-                                                    <td></td>
-                                                    <td></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -425,76 +618,181 @@
                     <div class="tab-pane fade" id="actor-manage" role="tabpanel" aria-labelledby="actor-manage-tab">
                         <div class="row mt-5">
                             <div class="col-lg-3">
-                                <!-- 添加电影 -->
+                                <!-- 添加演员按钮 -->
                                 <p>
-                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
-                                        aria-controls="collapseExample">
-                                        添加电影
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseActor" aria-expanded="false" aria-controls="collapseExample">
+                                        添加演员
                                     </button>
                                 </p>
 
                             </div>
-                            <!-- 查询电影 -->
+                            <!-- 查询演员 -->
                             <div class="col-lg-3">
                                 <p>
-                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false"
-                                        aria-controls="collapseExample">
-                                        查询电影
+                                    <button v-on:click="findActors" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseActor2"
+                                        aria-expanded="false" aria-controls="collapseExample">
+                                        查询演员
                                     </button>
                                 </p>
                             </div>
+                            <!-- 搜索演员按钮 -->
+                            <div class="col-lg-5">
+                                <form class="form-inline my-2 my-lg-0">
+                                    <input class="form-control mr-sm-2" placeholder="输入演员姓名" aria-label="Search">
+                                    <!-- 点击按钮后发送导演名并展开下拉内容框 （后续增加点击事件）-->
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="collapse" data-target="#collapseActor3" aria-expanded="false"
+                                    aria-controls="collapseExample">搜索</button>
+                                </form>
+                            </div>
                         </div>
-                        <!-- 显示输入框到的电影 -->
+                        <!-- 添加演员下拉框 -->
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="collapse" id="collapseExample">
+                                <div class="collapse" id="collapseActor">
                                     <div class="card card-body">
+                                        <form method="POST" action="actor">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">演员名字</label>
+                                                <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入演员姓名">
+
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="sex" id="exampleRadios1" value="1" checked>
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    男
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="sex" id="exampleRadios2" value="0">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                    女
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">出生日期</label>
+                                                <input type="text" class="form-control" name="birth" id="exampleInputPassword1" placeholder="输入出生日期">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">国籍</label>
+                                                <input type="text" class="form-control" name="country" id="exampleInputPassword1" placeholder="输入国籍">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">简介</label>
+                                                <input type="text" class="form-control" name="desc" id="exampleInputPassword1" placeholder="输入简介">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">添加</button>
+                                        </form>
+                                        <!-- 上传演员图片 -->
                                         <form>
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                            <div class="form-group mt-3">
+                                                <label for="exampleInputEmail1">演员姓名</label>
+                                                <input type="text" class="form-control" namr="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入演员姓名">
                                             </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">Password</label>
-                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                            <div class="form-group mt-4">
+                                                <label for="exampleFormControlFile1">Example file input</label>
+                                                <input type="file" multiple class="form-control-file" id="exampleFormControlFile1">
+                                                <button type="submit" class="btn btn-primary mt-3">上传</button>
                                             </div>
-                                            <div class="form-group form-check">
-                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Submit</button>
-                                            <form>
-                                                <div class="form-group mt-3">
-                                                    <label for="exampleInputEmail1">电影名称</label>
-                                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                                </div>
-                                                <div class="form-group mt-4">
-                                                    <label for="exampleFormControlFile1">Example file input</label>
-                                                    <input type="file" multiple class="form-control-file" id="exampleFormControlFile1">
-                                                    <button type="submit" class="btn btn-primary mt-3">上传</button>
-                                                </div>
-                                            </form>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- 查询演员下拉框 -->
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="collapse" id="collapseExample2">
+                                <div class="collapse" id="collapseActor2">
                                     <div class="card card-body">
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>电影id</th>
-                                                    <th>电影名称</th>
-                                                    <th>电影类型</th>
-                                                    <th>电影产地</th>
-                                                    <th>电影评分</th>
-                                                    <th>上映日期</th>
-                                                    <th>电影简介</th>
-                                                    <th>导演</th>
+                                                    <th>演员id</th>
+                                                    <th>演员姓名</th>
+                                                    <th>演员性别</th>
+                                                    <th>出生日期</th>
+                                                    <th>国籍</th>
+                                                    <th>简介</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="(a, index) in actors" :key="index">
+                                                    <td scope="row">{{a.actor_id}}</td>
+                                                    <td>{{a.actor_name}}</td>
+                                                    <td>{{a.actor_sex}}</td>
+                                                    <td>{{a.actor_birth}}</td>
+                                                    <td>{{a.actor_country}}</td>
+                                                    <td>{{a.actor_desc}}</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ActorModal">修改</button>
+                                                        <div class="modal fade" id="ActorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-body">
+                                                                        <form>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputEmail1">演员名字</label>
+                                                                                <input type="text" class="form-control" name="name" v-model="a.actor_name" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                                                                    placeholder="输入演员姓名">
+
+                                                                            </div>
+                                                                            <!-- <div class="form-group">
+                                                                                <label for="exampleInputPassword1">演员性别</label>
+                                                                                <input type="number" class="form-control" name="sex" id="exampleInputPassword1" placeholder="输入演员性别">
+                                                                            </div> -->
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="sex" id="exampleRadios1" value="1" checked>
+                                                                                <label class="form-check-label" for="exampleRadios1">
+                                                                                    男
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="sex" id="exampleRadios2" value="0">
+                                                                                <label class="form-check-label" for="exampleRadios2">
+                                                                                    女
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputPassword1">出生日期</label>
+                                                                                <input type="text" class="form-control" name="birth" v-model="a.actor_birth" id="exampleInputPassword1" placeholder="输入出生日期">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputPassword1">国籍</label>
+                                                                                <input type="text" class="form-control" name="country" v-model="a.actor_country" id="exampleInputPassword1" placeholder="输入国籍">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="exampleInputPassword1">简介</label>
+                                                                                <input type="text" class="form-control" name="desc" v-model="a.actor_desc" id="exampleInputPassword1" placeholder="输入简介">
+                                                                            </div>
+                                                                            <button type="submit" class="btn btn-primary">提交</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button type="button" class="btn btn-danger">删除</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 搜索演员下拉框 -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="collapse" id="collapseActor3">
+                                    <div class="card card-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>演员id</th>
+                                                    <th>演员姓名</th>
+                                                    <th>演员性别</th>
+                                                    <th>出生日期</th>
+                                                    <th>国籍</th>
+                                                    <th>简介</th>
                                                     <th>操作</th>
                                                 </tr>
                                             </thead>
@@ -506,43 +804,44 @@
                                                     <td>1</td>
                                                     <td>1</td>
                                                     <td>1</td>
-                                                    <td>1</td>
-                                                    <td>1</td>
                                                     <td>
-                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">修改</button>
-                                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#actorModal2">修改</button>
+                                                        <!-- 搜索导演并点击修改后的model -->
+                                                        <div class="modal fade" id="actorModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                             <div class="modal-dialog" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-body">
                                                                         <form>
                                                                             <div class="form-group">
-                                                                                <label for="exampleInputEmail1">电影名称</label>
-                                                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                                                                                <label for="exampleInputEmail1">演员名字</label>
+                                                                                <input type="text" class="form-control" name="name"  id="exampleInputEmail1" aria-describedby="emailHelp"
+                                                                                    placeholder="输入演员姓名">
 
                                                                             </div>
-                                                                            <div class="form-group">
-                                                                                <label for="exampleInputEmail1">电影类型</label>
-                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                            
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="sex" id="exampleRadios1" value="1" checked>
+                                                                                <label class="form-check-label" for="exampleRadios1">
+                                                                                    男
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="sex" id="exampleRadios2" value="0">
+                                                                                <label class="form-check-label" for="exampleRadios2">
+                                                                                    女
+                                                                                </label>
                                                                             </div>
                                                                             <div class="form-group">
-                                                                                <label for="exampleInputEmail1">电影产地</label>
-                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                                <label for="exampleInputPassword1">出生日期</label>
+                                                                                <input type="text" class="form-control" name="birth"  id="exampleInputPassword1" placeholder="输入出生日期">
                                                                             </div>
                                                                             <div class="form-group">
-                                                                                <label for="exampleInputEmail1">评分</label>
-                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                                <label for="exampleInputPassword1">国籍</label>
+                                                                                <input type="text" class="form-control" name="country"  id="exampleInputPassword1" placeholder="输入国籍">
                                                                             </div>
                                                                             <div class="form-group">
-                                                                                <label for="exampleInputEmail1">上映日期</label>
-                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <label for="exampleInputEmail1">简介</label>
-                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <label for="exampleInputEmail1">导演</label>
-                                                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                                                                                <label for="exampleInputPassword1">简介</label>
+                                                                                <input type="text" class="form-control" name="desc"  id="exampleInputPassword1" placeholder="输入简介">
                                                                             </div>
                                                                             <button type="submit" class="btn btn-primary">提交</button>
                                                                         </form>
@@ -554,11 +853,6 @@
                                                         <button type="button" class="btn btn-danger">删除</button>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td scope="row"></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -566,12 +860,41 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div> -->
+                    <!-- 数据统计 -->
+                    <div class="tab-pane fade" id="data-manage" role="tabpanel" aria-labelledby="user-manage-tab">
+                        。。。。。。。。。。。。。。。。。。。。。。。。。。。
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <script>
+        new Vue({
+            el: "#director-manage",
+            data: {
+                directors: [],
+            },
+
+            methods: {
+                findDirectors() {
+                    axios.get('/director').then((res) => { this.directors = res.data });
+                }
+            }
+        })
+
+        new Vue({
+            el: "#actor-manage",
+            data: {
+                actors: [],
+            },
+            methods: {
+                findActors() {
+                    axios.get('/actor').then((res) => { this.actors = res.data });
+                }
+            }
+        })
+    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

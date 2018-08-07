@@ -1,5 +1,7 @@
 package com.movie.director;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,4 +36,8 @@ public class DirectorService {
 		mapper.update(actor);
 	}
 
+	//查询导演
+	public List<DirectorModel> findAll() {
+		return mapper.find();
+	}
 }
