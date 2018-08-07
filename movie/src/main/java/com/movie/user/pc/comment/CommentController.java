@@ -12,27 +12,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+@RequestMapping("/comment")
 public class CommentController {
 	
 	@Autowired
 	CommentService service;
 
 	// 添加评论
-	@RequestMapping("/comment")
 	@PostMapping
 	public void create(CommentModel comment) {
 		service.create(comment);
 	}
 	
 	// 删除评论
-	@RequestMapping("/comment")
 	@DeleteMapping("/{cmt_id}")
 	public void remove(@PathVariable int cmt_id) {
 		service.remove(cmt_id);
 	}
 	
 	// 得到一个vip用户的所有影片相应的评论
-	@RequestMapping("/comment")
 	@GetMapping("/{vip_id}")
 	@ResponseBody
 	public List<CommentModel> find(@PathVariable int vip_id){

@@ -14,10 +14,10 @@ import com.movie.user.pc.comment.CommentModel;
 
 @Controller
 @RequestMapping("/manage")
-public class CommentController {
+public class ManageCommentController {
 
 	@Autowired
-	CommentService service;
+	ManageCommentService service;
 	
 	// 所有的评论
 	@GetMapping

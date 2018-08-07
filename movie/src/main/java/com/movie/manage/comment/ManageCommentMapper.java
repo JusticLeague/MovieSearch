@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import com.movie.user.pc.comment.CommentModel;
 
 @Mapper
-public interface CommentMapper {
+public interface ManageCommentMapper {
 	
 	// 找出所有的评论
 	@Select("select cmt_comment from comment")

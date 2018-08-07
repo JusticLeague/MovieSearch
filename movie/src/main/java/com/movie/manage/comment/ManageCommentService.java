@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 import com.movie.user.pc.comment.CommentModel;
 
 @Service
-public class CommentService {
+public class ManageCommentService {
 
 	@Autowired
-	CommentMapper mapper;
+	ManageCommentMapper mapper;
 	
 	// 所有的评论
 	public List<CommentModel> find(){

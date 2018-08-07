@@ -15,11 +15,7 @@ public class ActorModel {
 	String actor_country;
 	String actor_desc;
 	String actor_pic;
-<<<<<<< HEAD
 	
-=======
-
->>>>>>> 316453ba2adf6253a0dbfbd8589176107b77280d
 	public ActorModel() {
 
 	}

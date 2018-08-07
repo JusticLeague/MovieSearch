@@ -88,7 +88,7 @@ select * from actor_info;
 
 
 
-视图
+视图movie_show
 create view movie_show as
 SELECT 
 movie.movie_id, movie_name, movie_type, movie_country, movie_date, movie_score, movie_ratings, movie_dimension,
