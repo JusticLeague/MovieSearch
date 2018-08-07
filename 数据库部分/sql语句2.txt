@@ -9,25 +9,7 @@ m.director_id=d.director_id;
 
 select * from moviedirector;
 
-查询电影导演演员
-CREATE VIEW moviedirectoractor AS 
-SELECT 
-m.movie_name,m.movie_type,m.movie_country,m.movie_date,m.movie_score,
-p.poster_pic,
-d.director_name,
-a.actor_name
-FROM
-movie AS m,director AS d,movie_item AS mi,actor AS a,poster AS p
-WHERE
-m.director_id=d.director_id
-AND
-m.movie_id=mi.movie_id
-AND
-mi.actor_id=a.actor_id
-AND
-p.movie_id=m.movie_id;
 
-select * from moviedirectoractor;
 
 
 查询电影信息、导演、演员
@@ -71,12 +53,13 @@ mi.movie_id = m.movie_id;
 视图director_info
 create view director_info as
 select
+director.director_id,
 director_name,
 director_sex,
 director_country,
 director_birth,
-director_pic,
 movie_name,
+director_pic,
 director_desc
 from
 movie , director , director_pic
@@ -91,7 +74,7 @@ select * from director_info;
 视图actor_info
 create view actor_info as
 select
-actor_name, actor_sex, actor_country, actor_birth, actor_desc, movie_name, actor_pic
+actor.actor_id ,actor_name, actor_sex, actor_country, actor_birth, movie_name, actor_desc, actor_pic
 from 
 movie, movie_item, actor, actor_pic
 where 
@@ -102,6 +85,39 @@ and
 actor.actor_id = actor_pic.actor_id;
 
 select * from actor_info;
+
+
+
+视图
+create view movie_show as
+SELECT 
+movie.movie_id, movie_name, movie_type, movie_country, movie_date, movie_score, movie_ratings, movie_dimension,
+director_name,
+actor_name,
+movie_desc,
+poster_pic
+FROM
+movie, director, movie_item, actor, poster
+WHERE
+movie.director_id=director.director_id
+AND
+movie.movie_id=movie_item.movie_id
+AND
+movie_item.actor_id=actor.actor_id
+AND
+poster.movie_id=movie.movie_id;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
