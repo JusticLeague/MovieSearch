@@ -2,7 +2,6 @@ package com.movie.actor;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,9 +24,16 @@ public class ActorController {
 	// 展示演员
 	@GetMapping
 	@ResponseBody
-	public List<ActorModel> list() {
+	public List<ActorModel> find() {
 		return service.find();
 	}
+
+//	// 海报
+//	@GetMapping
+//	@ResponseBody
+//	public List<ActorModel> findPic() {
+//		return service.findPic();
+//	}
 
 	// 创建演员
 	@PostMapping
@@ -39,23 +45,21 @@ public class ActorController {
 	// 添加海报
 	// 要先得到演员id
 	@PostMapping("/{id}")
-	public void addPic(@RequestParam(value = "actor_id", required = true) int id,
+	public void addPic(@RequestParam(value = "actor_id", required = true) int actor_id,
 			@RequestParam(value = "actor_pic", required = false) String actor_pic) {
-		service.addPic(id, actor_pic);
+		service.addPic(actor_id, actor_pic);
 	}
-	
+
 	// 删除
-	@DeleteMapping("/{id}")
-	public void delete(@PathVariable int id) {
-		service.remove(id);
+	@DeleteMapping("/{actor_id}")
+	public void delete(@PathVariable int actor_id) {
+		service.remove(actor_id);
 	}
-	
+
 	// 修改
-	@PutMapping("/{id}")
-	public void update(@PathVariable int id,
-			@RequestBody ActorModel actor) {
+	@PutMapping("/{actor_id}")
+	public void update(@PathVariable int actor_id, @RequestBody ActorModel actor) {
 		service.update(actor);
 	}
-	
 
 }

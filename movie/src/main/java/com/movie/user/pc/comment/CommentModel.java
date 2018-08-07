@@ -8,21 +8,21 @@ package com.movie.user.pc.comment;
  */
 public class CommentModel {
 
-	int id;
+	int cmt_id;
 	int vip_id;
 	int movie_id;
-	String comment;
+	String cmt_comment;
 
 	public CommentModel() {
 
 	}
 
-	public int getId() {
-		return id;
+	public int getCmt_id() {
+		return cmt_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setCmt_id(int cmt_id) {
+		this.cmt_id = cmt_id;
 	}
 
 	public int getVip_id() {
@@ -41,12 +41,12 @@ public class CommentModel {
 		this.movie_id = movie_id;
 	}
 
-	public String getComment() {
-		return comment;
+	public String getCmt_comment() {
+		return cmt_comment;
 	}
 
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setCmt_comment(String cmt_comment) {
+		this.cmt_comment = cmt_comment;
 	}
 
 }

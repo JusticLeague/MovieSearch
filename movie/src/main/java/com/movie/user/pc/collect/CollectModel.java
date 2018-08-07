@@ -8,7 +8,7 @@ package com.movie.user.pc.collect;
  */
 public class CollectModel {
 
-	int id;
+	int collect_id;
 	int vip_id;
 	int movie_id;
 
@@ -17,11 +17,11 @@ public class CollectModel {
 	}
 
 	public int getId() {
-		return id;
+		return collect_id;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.collect_id = id;
 	}
 
 	public int getVip_id() {

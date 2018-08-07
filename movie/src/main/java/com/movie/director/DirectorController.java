@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.RestController;
 
 import com.movie.actor.ActorModel;
+=======
+>>>>>>> 316453ba2adf6253a0dbfbd8589176107b77280d
 
 @RestController
 @RequestMapping("/director")
@@ -23,6 +26,13 @@ public class DirectorController {
 
 	@Autowired
 	DirectorService service;
+	
+	// 得到视图
+	@GetMapping
+	@ResponseBody
+	public List<DirectorModel> find(){
+		return service.find();
+	}
 
 	// 查询导演所有信息
 	@GetMapping
@@ -36,21 +46,26 @@ public class DirectorController {
 		return "redirect:/manage.html";
 	}
 
-	@PostMapping("/{id}")
-	public void addPic(@RequestParam(value = "director_id", required = true) int id,
-			@RequestParam(value = "director_pic", required = false) String pic) {
-		service.addPic(id, pic);
+	@PostMapping("/{director_id}")
+	public void addPic(@RequestParam(value = "director_id", required = true) int director_id,
+			@RequestParam(value = "director_pic", required = false) String director_pic) {
+		service.addPic(director_id, director_pic);
 	}
 
 	// 删除
-	@DeleteMapping("/{id}")
-	public void delete(@PathVariable int id) {
-		service.remove(id);
+	@DeleteMapping("/{director_id}")
+	public void delete(@PathVariable int director_id) {
+		service.remove(director_id);
 	}
 
 	// 修改
+<<<<<<< HEAD
 	@PutMapping("/{id}")
 	public void update(@PathVariable int id, @RequestBody DirectorModel director) {
+=======
+	@PutMapping("/{director_id}")
+	public void update(@PathVariable int director_id, @RequestBody DirectorModel director) {
+>>>>>>> 316453ba2adf6253a0dbfbd8589176107b77280d
 		service.update(director);
 	}
 
