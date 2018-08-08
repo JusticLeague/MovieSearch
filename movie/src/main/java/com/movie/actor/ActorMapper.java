@@ -37,10 +37,6 @@ public interface ActorMapper {
 	@Insert("insert into actor_pic(actor_id, actor_pic) value(#{actor_id}, #{actor_pic})")
 	void addPic(int id, String actor_pic);
 
-//	// 使用视图 actor_info (详细设计)
-//	@Select("select * from actor")
-//	List<ActorModel> find();
-	
 	// 删除演员
 	@Delete("delete from actor where actor_id = #{actor_id}")
 	void remove(int actor_id);
