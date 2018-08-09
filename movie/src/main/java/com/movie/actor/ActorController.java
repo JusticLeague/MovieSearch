@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping("/actor")
 public class ActorController {
 
@@ -43,9 +44,9 @@ public class ActorController {
 
 	// 创建演员
 	@PostMapping
-	public String create(ActorModel actor) {
+	public void create(ActorModel actor) {
 		service.create(actor);
-		return "redirect:/manage.html";
+//		return "redirect:/manage.html";
 	}
 
 	// 添加海报
