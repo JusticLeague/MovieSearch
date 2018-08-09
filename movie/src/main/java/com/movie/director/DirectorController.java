@@ -21,30 +21,33 @@ public class DirectorController {
 	@Autowired
 	DirectorService service;
 
-	// 得到视图
+	// 视图director_info 通过id
 	@GetMapping("/{directorId}")
 	@ResponseBody
 	public List<DirectorModel> find(@PathVariable int directorId) {
 		return service.find(directorId);
 	}
 
+	// 视图director_info
 	@GetMapping
 	@ResponseBody
 	public List<DirectorModel> findAll() {
 		return service.findAll();
 	}
+
 	
+	// 表director 通过name
 	@GetMapping("/{directorName}")
 	@ResponseBody
-	public List<DirectorModel> findByName(@PathVariable String name){
+	public List<DirectorModel> findByName(@PathVariable String name) {
 		return service.findByName(name);
 	}
 
-	// // 查询导演所有信息
-	// @GetMapping
-	// public List<DirectorModel> find() {
-	// return service.findAll();
-	// }
+	// 表director 查询基本信息
+	@GetMapping("/base")
+	public List<DirectorModel> findBase() {
+		return service.findBase();
+	}
 
 	@PostMapping
 	public String create(DirectorModel director) {

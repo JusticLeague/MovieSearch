@@ -34,18 +34,25 @@ public class DirectorService {
 		mapper.update(actor);
 	}
 	
-	// 得到导演的基本信息包括图片
+	// 视图director_info 得到导演的基本信息包括图片
 	public List<DirectorModel> find(int directorId){
 		return mapper.find(directorId);
 	}
-
+	// 视图director_info
 	public List<DirectorModel> findAll() {
 		return mapper.findAll();
 	}
 	
 	
-	// 通过name 查找
+	// 表director 通过name 查找
 	public List<DirectorModel> findByName(String name){
 		return mapper.findByName(name);
 	}
+	
+	// 表director
+	public List<DirectorModel> findBase(){
+		return mapper.findBase();
+	}
+	
+	
 }

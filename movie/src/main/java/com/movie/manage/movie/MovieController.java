@@ -21,16 +21,24 @@ public class MovieController {
 	@Autowired
 	MovieService service;
 
+	// 视图movie_show 
 	@GetMapping
 	@ResponseBody
 	public List<MovieModel> findAll() {
 		return service.findAll();
 	}
 	
+	// 视图movie_show 通过id
 	@GetMapping("/{movieId}")
 	@ResponseBody
 	public List<MovieModel> find(@PathVariable int movieId){
 		return service.find(movieId);
+	}
+	
+	@GetMapping("/base")
+	@ResponseBody
+	public List<MovieModel> findBase(){
+		return service.findBase();
 	}
 
 	// 创建基本信息

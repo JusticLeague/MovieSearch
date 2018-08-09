@@ -31,14 +31,21 @@ public interface DirectorMapper {
 			+ "director_birth as directorBirth, movie_name as movieName, director_pic as directorPic, director_desc as directorDesc from director_info where director_id = #{directorId}")
 	List<DirectorModel> find(int directorId);
 	
+	
+	// 视图director_info 
 	@Select("select director_id as directorId, director_name as directorName, director_sex as directorSex, director_country as directorCountry,"
 			+ "director_birth as directorBirth, movie_name as movieName, director_pic as directorPic, director_desc as directorDesc from director_info")
 	List<DirectorModel> findAll();
 	
-	// 通过name 查找
+	// 表director 通过name 查找
 	@Select("select director_id as directorId, director_name as directorName, director_sex as directorSex, director_country as directorCountry, "
 			+ "director_birth as directorBirth, director_desc as directorDesc from director where director_name = #{directorName}")
 	List<DirectorModel> findByName(String name);
+	
+	// 表 director 
+	@Select("select director_id as directorId, director_name as directorName, director_sex as directorSex, director_country as directorCountry, "
+			+ "director_birth as directorBirth, director_desc as directorDesc from director")
+	List<DirectorModel> findBase();
 
 	// 删除导演
 	@Delete("delete from director where director_id = #{directorId}")

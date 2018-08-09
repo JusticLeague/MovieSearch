@@ -21,23 +21,31 @@ public class ActorController {
 	@Autowired
 	ActorService service;
 
-	// 展示演员
+	// 视图actor_info 展示演员
 	@GetMapping("/{actorId}")
 	@ResponseBody
 	public List<ActorModel> find(@PathVariable int actorId) {
 		return service.find(actorId);
 	}
 	
+	// 视图actor_info
 	@GetMapping
 	@ResponseBody
 	public List<ActorModel> findAll(){
 		return service.findAll();
 	}
 	
+	// 表actor
 	@GetMapping("/{actorName}")
 	@ResponseBody
 	public List<ActorModel> findByName(@PathVariable String name){
 		return service.findByName(name);
+	}
+	
+	@GetMapping("/base")
+	@ResponseBody
+	public List<ActorModel> findBase(){
+		return service.findBase();
 	}
 
 //	// 海报

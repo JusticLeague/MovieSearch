@@ -26,12 +26,18 @@ public class ActorService {
 	public List<ActorModel> find(int actorId) {
 		return mapper.find(actorId);
 	}
-
+	
+	// 视图actor_info
 	public List<ActorModel> findAll() {
 		return mapper.findAll();
 	}
 	
-	// 通过name 查找
+	// 表actor 基础信息
+	public List<ActorModel> findBase(){
+		return mapper.findBase();
+	}
+	
+	// 表actor 通过name 查找
 	public List<ActorModel> findByName(String name){
 		return mapper.findByName(name);
 	}

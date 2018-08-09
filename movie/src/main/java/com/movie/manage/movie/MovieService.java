@@ -10,12 +10,18 @@ public class MovieService {
 	
 	@Autowired
 	MovieMapper mapper;
+	
+	// 表 movie
+	public List<MovieModel> findBase(){
+		return mapper.findBase();
+	}
 
 	// 视图movie_show信息
 	public List<MovieModel> findAll(){
 		return mapper.findAll();
 	}
 	
+	// 视图movie_show 通过id
 	public List<MovieModel> find(int movieId){
 		return mapper.find(movieId);
 	}

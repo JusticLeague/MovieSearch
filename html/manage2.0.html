@@ -90,35 +90,35 @@
             <form method="POST" action="movie" target="iframeMA">
                 <div class="form-group">
                     <label for="exampleInputEmail1">电影名称</label>
-                    <input type="text" class="form-control" name="movie_name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                    <input type="text" class="form-control" name="movieName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">电影类型</label>
-                    <input type="text" class="form-control" name="movie_type" id="exampleInputPassword1" placeholder="">
+                    <input type="text" class="form-control" name="movieType" id="exampleInputPassword1" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">电影产地</label>
-                    <input type="text" class="form-control" name="movie_country" id="exampleInputPassword1" placeholder="">
+                    <input type="text" class="form-control" name="movieCountry" id="exampleInputPassword1" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">评分</label>
-                    <input type="text" class="form-control" name="movie_score" id="exampleInputPassword1" placeholder="">
+                    <input type="text" class="form-control" name="movieScore" id="exampleInputPassword1" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">上映日期</label>
-                    <input type="text" class="form-control" name="movie_date" id="exampleInputPassword1" placeholder="">
+                    <input type="text" class="form-control" name="movieDate" id="exampleInputPassword1" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">推荐指数</label>
-                    <input type="text" class="form-control" name="movie_ratings" id="exampleInputPassword1" placeholder="">
+                    <input type="text" class="form-control" name="movieRatings" id="exampleInputPassword1" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">维度</label>
-                    <input type="text" class="form-control" name="movie_dimension" id="exampleInputPassword1" placeholder="">
+                    <input type="text" class="form-control" name="movieDimension" id="exampleInputPassword1" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">简介</label>
-                    <input type="text" class="form-control" name="movie_desc" id="exampleInputPassword1" placeholder="">
+                    <input type="text" class="form-control" name="movieDesc" id="exampleInputPassword1" placeholder="">
                 </div>
                     <button type="submit" class="btn btn-primary">提交</button>
                 </form>
@@ -157,7 +157,7 @@
             },
             methods:{
                 movieList(){
-                    axios.get('/movie').then((res)=>this.movies=res.data);
+                    axios.get('/movie/base').then((res)=>this.movies=res.data);
                 }
             },
             template: `
@@ -178,15 +178,15 @@
                 </thead>
                 <tbody>
                     <tr v-for="m in movies">
-                        <td scope="row">{{m.movie_id}}</td>
-                        <td>{{m.movie_name}}</td>
-                        <td>{{m.movie_type}}</td>
-                        <td>{{m.movie_country}}</td>
-                        <td>{{m.movie_score}}</td>
-                        <td>{{m.movie_date}}</td>
-                        <td>{{m.movie_ratings}}</td>
-                        <td>{{m.movie_dimension}}</td>
-                        <td>{{m.movie_desc}}</td>
+                        <td scope="row">{{m.movieId}}</td>
+                        <td>{{m.movieName}}</td>
+                        <td>{{m.movieType}}</td>
+                        <td>{{m.movieCountry}}</td>
+                        <td>{{m.movieScore}}</td>
+                        <td>{{m.movieDate}}</td>
+                        <td>{{m.movieRatings}}</td>
+                        <td>{{m.movieDimension}}</td>
+                        <td>{{m.movieDesc}}</td>
                         <td>
                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#movieModal">修改</button>
                             <div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -196,36 +196,36 @@
                                             <form>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">电影名称</label>
-                                                    <input type="text" class="form-control" name="movie_name" v-model="m.movie_name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                                                    <input type="text" class="form-control" name="movieName" v-model="m.movieName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
 
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">电影类型</label>
-                                                    <input type="text" class="form-control" name="movie_type" v-model="m.movie_type" id="exampleInputPassword1" placeholder="">
+                                                    <input type="text" class="form-control" name="movieType" v-model="m.movieType" id="exampleInputPassword1" placeholder="">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">电影产地</label>
-                                                    <input type="text" class="form-control" name="movie_country" v-model="m.movie_country" id="exampleInputPassword1" placeholder="">
+                                                    <input type="text" class="form-control" name="movieCountry" v-model="m.movieCountry" id="exampleInputPassword1" placeholder="">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">评分</label>
-                                                    <input type="text" class="form-control" name="movie_score" v-model="m.movie_score" id="exampleInputPassword1" placeholder="">
+                                                    <input type="text" class="form-control" name="movieScore" v-model="m.movieScore" id="exampleInputPassword1" placeholder="">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">上映日期</label>
-                                                    <input type="text" class="form-control" name="movie_date" v-model="m.movie_date" id="exampleInputPassword1" placeholder="">
+                                                    <input type="text" class="form-control" name="movieDate" v-model="m.movieDate" id="exampleInputPassword1" placeholder="">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">推荐指数</label>
-                                                    <input type="text" class="form-control" name="movie_ratings" v-model="m.movie_ratings" id="exampleInputPassword1" placeholder="">
+                                                    <input type="text" class="form-control" name="movieRatings" v-model="m.movieRatings" id="exampleInputPassword1" placeholder="">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">维度</label>
-                                                    <input type="text" class="form-control" name="movie_dimension" v-model="m.movie_dimension" id="exampleInputPassword1" placeholder="">
+                                                    <input type="text" class="form-control" name="movieDimension" v-model="m.movieDimension" id="exampleInputPassword1" placeholder="">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">简介</label>
-                                                    <input type="text" class="form-control" name="movie_desc" v-model="m.movie_desc" id="exampleInputPassword1" placeholder="">
+                                                    <input type="text" class="form-control" name="movieDesc" v-model="m.movieDesc" id="exampleInputPassword1" placeholder="">
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">提交</button>
                                             </form>
@@ -314,32 +314,32 @@
             <form method="POST" action="director" target="iframeDA">
                 <div class="form-group">
                     <label for="exampleInputEmail1">导演名字</label>
-                    <input type="text" class="form-control" name="director_name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入导演姓名">
+                    <input type="text" class="form-control" name="directorName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入导演姓名">
 
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="director_sex" id="exampleRadios1" value="1" checked>
+                    <input class="form-check-input" type="radio" name="directorSex" id="exampleRadios1" value="1" checked>
                     <label class="form-check-label" for="exampleRadios1">
                         男
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="director_sex" id="exampleRadios2" value="0">
+                    <input class="form-check-input" type="radio" name="directorSex" id="exampleRadios2" value="0">
                     <label class="form-check-label" for="exampleRadios2">
                         女
                     </label>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">出生日期</label>
-                    <input type="text" class="form-control" name="director_birth" id="exampleInputPassword1" placeholder="输入出生日期">
+                    <input type="text" class="form-control" name="directorBirth" id="exampleInputPassword1" placeholder="输入出生日期">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">国籍</label>
-                    <input type="text" class="form-control" name="director_country" id="exampleInputPassword1" placeholder="输入国籍">
+                    <input type="text" class="form-control" name="directorCountry" id="exampleInputPassword1" placeholder="输入国籍">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">简介</label>
-                    <input type="text" class="form-control" name="director_desc" id="exampleInputPassword1" placeholder="输入简介">
+                    <input type="text" class="form-control" name="directorDesc" id="exampleInputPassword1" placeholder="输入简介">
                 </div>
                 <button type="submit" class="btn btn-primary">添加</button>
             </form>
@@ -381,7 +381,7 @@
             },
             methods: {
                 directorList() {
-                    axios.get('/director').then((res) => this.directors = res.data);
+                    axios.get('/director/base').then((res) => this.directors = res.data);
                 }
             },
             template: `
@@ -399,12 +399,12 @@
                 </thead>
                 <tbody>
                     <tr v-for="item in directors">
-                        <td scope="row">{{item.director_id}}</td>
-                        <td>{{item.director_name}}</td>
-                        <td>{{item.director_sex}}</td>
-                        <td>{{item.director_birth}}</td>
-                        <td>{{item.director_country}}</td>
-                        <td>{{item.director_desc}}</td>
+                        <td scope="row">{{item.directorId}}</td>
+                        <td>{{item.directorName}}</td>
+                        <td>{{item.directorSex}}</td>
+                        <td>{{item.directorBirth}}</td>
+                        <td>{{item.directorCountry}}</td>
+                        <td>{{item.directorDesc}}</td>
                         <td>
                             <button type="button" @click="directorList" class="btn btn-info" data-toggle="modal" data-target="#directorModal">修改</button>
                             
@@ -416,36 +416,36 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-body">
-                                            <form method="PUT" action="'/director/'+item.director_id">
+                                            <form method="PUT" action="'/director/'+item.directorId">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">导演名字</label>
-                                                    <input type="text" class="form-control" name="director_name" id="exampleInputEmail1" v-model="item.director_name" aria-describedby="emailHelp"
+                                                    <input type="text" class="form-control" name="directorName" id="exampleInputEmail1" v-model="item.director_name" aria-describedby="emailHelp"
                                                         placeholder="输入导演姓名">
                                                 </div>
 
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="director_sex" id="exampleRadios1" value="1" checked>
+                                                    <input class="form-check-input" type="radio" name="directorSex" id="exampleRadios1" value="1" checked>
                                                     <label class="form-check-label" for="exampleRadios1">
                                                         男
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="director_sex" id="exampleRadios2" value="0">
+                                                    <input class="form-check-input" type="radio" name="directorSex" id="exampleRadios2" value="0">
                                                     <label class="form-check-label" for="exampleRadios2">
                                                         女
                                                     </label>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">出生日期</label>
-                                                    <input type="text" class="form-control" name="director_birth" id="exampleInputPassword1" v-model="item.director_birth" placeholder="输入出生日期">
+                                                    <input type="text" class="form-control" name="directorBirth" id="exampleInputPassword1" v-model="item.director_birth" placeholder="输入出生日期">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">国籍</label>
-                                                    <input type="text" class="form-control" name="director_country" id="exampleInputPassword1" v-model="item.director_country" placeholder="输入国籍">
+                                                    <input type="text" class="form-control" name="directorCountry" id="exampleInputPassword1" v-model="item.director_country" placeholder="输入国籍">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">简介</label>
-                                                    <input type="text" class="form-control" name="director_desc" id="exampleInputPassword1" v-model="item.director_desc" placeholder="输入简介">
+                                                    <input type="text" class="form-control" name="directorDesc" id="exampleInputPassword1" v-model="item.director_desc" placeholder="输入简介">
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">提交</button>
                                             </form>
@@ -462,20 +462,20 @@
         const directorSearch = {
             data(){
                 return{
-                    director_name:''
+                    directors:[]
                 }
             },
             methods:{
-                findDirector(){
-
+                findDirector(n){
+                    axios.get('/director'+n).then((res)=>this.directors=res.data);
                 }
             },
             template: `
             <div>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" placeholder="输入导演姓名" aria-label="Search">
+                <input class="form-control mr-sm-2" name="directorName" placeholder="输入导演姓名" aria-label="Search">
                 
-                <button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="collapse" data-target="#collapseDirector3"
+                <button @click="findDirector(directorName)" class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="collapse" data-target="#collapseDirector3"
                     aria-expanded="false" aria-controls="collapseExample">搜索</button>
             </form>
             <div class="row">
@@ -484,7 +484,7 @@
                         <div class="card card-body">
                             <table class="table">
                                 <thead>
-                                    <tr>
+                                    <tr v-for="d in directors" v-if="directors">
                                         <th>导演id</th>
                                         <th>导演姓名</th>
                                         <th>导演性别</th>
@@ -496,12 +496,12 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td scope="row">1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
+                                        <td scope="row">{{d.directorId}}</td>
+                                        <td>{{d.directorName}}</td>
+                                        <td>{{d.directorSex}}</td>
+                                        <td>{{d.directorBirth}}</td>
+                                        <td>{{d.directorCountry}}</td>
+                                        <td>{{d.directorDesc}}</td>
                                         <td>
                                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#directorModal2">修改</button>
                                             <!-- 搜索导演并点击修改后的model -->
@@ -509,35 +509,35 @@
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-body">
-                                                            <form>
+                                                            <form method="PUT" action="'director/'+d.directorId">
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">导演名字</label>
-                                                                    <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入导演姓名">
+                                                                    <input type="text" class="form-control" name="directorName" v-model="d.directorName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入导演姓名">
                                                                 </div>
 
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input" type="radio" name="sex" id="exampleRadios1" value="1" checked>
+                                                                    <input class="form-check-input" type="radio" name="directorSex" id="exampleRadios1" value="1" checked>
                                                                     <label class="form-check-label" for="exampleRadios1">
                                                                         男
                                                                     </label>
                                                                 </div>
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input" type="radio" name="sex" id="exampleRadios2" value="0">
+                                                                    <input class="form-check-input" type="radio" name="directorSex" id="exampleRadios2" value="0">
                                                                     <label class="form-check-label" for="exampleRadios2">
                                                                         女
                                                                     </label>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleInputPassword1">出生日期</label>
-                                                                    <input type="text" class="form-control" name="birth" id="exampleInputPassword1" placeholder="输入出生日期">
+                                                                    <input type="text" class="form-control" name="directorBirth" v-model="d.directorBirth" id="exampleInputPassword1" placeholder="输入出生日期">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleInputPassword1">国籍</label>
-                                                                    <input type="text" class="form-control" name="country" id="exampleInputPassword1" placeholder="输入国籍">
+                                                                    <input type="text" class="form-control" name="directorCountry" v-model="d.directorCountry" id="exampleInputPassword1" placeholder="输入国籍">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleInputPassword1">简介</label>
-                                                                    <input type="text" class="form-control" name="desc" id="exampleInputPassword1" placeholder="输入简介">
+                                                                    <input type="text" class="form-control" name="directorDesc" v-model="d.directorDesc" id="exampleInputPassword1" placeholder="输入简介">
                                                                 </div>
                                                                 <button type="submit" class="btn btn-primary">提交</button>
                                                             </form>
@@ -565,32 +565,32 @@
                 <form method="POST" action="actor" target="iframeAA">
                     <div class="form-group">
                         <label for="exampleInputEmail1">演员名字</label>
-                        <input type="text" class="form-control" name="actor_name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入演员姓名">
+                        <input type="text" class="form-control" name="actorName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入演员姓名">
 
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="actor_sex" id="exampleRadios1" value="1" checked>
+                        <input class="form-check-input" type="radio" name="actorSex" id="exampleRadios1" value="1" checked>
                         <label class="form-check-label" for="exampleRadios1">
                             男
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="actor_sex" id="exampleRadios2" value="0">
+                        <input class="form-check-input" type="radio" name="actorSex" id="exampleRadios2" value="0">
                         <label class="form-check-label" for="exampleRadios2">
                             女
                         </label>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">出生日期</label>
-                        <input type="text" class="form-control" name="actor_birth" id="exampleInputPassword1" placeholder="输入出生日期">
+                        <input type="text" class="form-control" name="actorBirth" id="exampleInputPassword1" placeholder="输入出生日期">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">国籍</label>
-                        <input type="text" class="form-control" name="actor_country" id="exampleInputPassword1" placeholder="输入国籍">
+                        <input type="text" class="form-control" name="actorCountry" id="exampleInputPassword1" placeholder="输入国籍">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">简介</label>
-                        <input type="text" class="form-control" name="actor_desc" id="exampleInputPassword1" placeholder="输入简介">
+                        <input type="text" class="form-control" name="actorDesc" id="exampleInputPassword1" placeholder="输入简介">
                     </div>
                     <button type="submit" class="btn btn-primary">添加</button>
                 </form>
@@ -629,7 +629,7 @@
             },
             methods:{
                 actorList(){
-                    axios.get('/actor').then((res)=>this.actors=res.data)
+                    axios.get('/actor/base').then((res)=>this.actors=res.data)
                 }
             },
             template: `
@@ -647,12 +647,12 @@
                             </thead>
                             <tbody>
                                 <tr v-for="(a, index) in actors" :key="index">
-                                    <td scope="row">{{a.actor_id}}</td>
-                                    <td>{{a.actor_name}}</td>
-                                    <td>{{a.actor_sex}}</td>
-                                    <td>{{a.actor_birth}}</td>
-                                    <td>{{a.actor_country}}</td>
-                                    <td>{{a.actor_desc}}</td>
+                                    <td scope="row">{{a.actorId}}</td>
+                                    <td>{{a.actorName}}</td>
+                                    <td>{{a.actorSex}}</td>
+                                    <td>{{a.actorBirth}}</td>
+                                    <td>{{a.actorCountry}}</td>
+                                    <td>{{a.actorDesc}}</td>
                                     <td>
                                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ActorModal">修改</button>
                                         <div class="modal fade" id="ActorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -662,37 +662,33 @@
                                                         <form>
                                                             <div class="form-group">
                                                                 <label for="exampleInputEmail1">演员名字</label>
-                                                                <input type="text" class="form-control" name="name" v-model="a.actor_name" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                                                <input type="text" class="form-control" name="actorName" v-model="a.actorName" id="exampleInputEmail1" aria-describedby="emailHelp"
                                                                     placeholder="输入演员姓名">
 
                                                             </div>
-                                                            <!-- <div class="form-group">
-                                                                <label for="exampleInputPassword1">演员性别</label>
-                                                                <input type="number" class="form-control" name="sex" id="exampleInputPassword1" placeholder="输入演员性别">
-                                                            </div> -->
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="sex" id="exampleRadios1" value="1" checked>
+                                                                <input class="form-check-input" type="radio" name="actorSex" id="exampleRadios1" value="1" checked>
                                                                 <label class="form-check-label" for="exampleRadios1">
                                                                     男
                                                                 </label>
                                                             </div>
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="sex" id="exampleRadios2" value="0">
+                                                                <input class="form-check-input" type="radio" name="actorSex" id="exampleRadios2" value="0">
                                                                 <label class="form-check-label" for="exampleRadios2">
                                                                     女
                                                                 </label>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="exampleInputPassword1">出生日期</label>
-                                                                <input type="text" class="form-control" name="birth" v-model="a.actor_birth" id="exampleInputPassword1" placeholder="输入出生日期">
+                                                                <input type="text" class="form-control" name="actorBirth" v-model="a.actorBirth" id="exampleInputPassword1" placeholder="输入出生日期">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="exampleInputPassword1">国籍</label>
-                                                                <input type="text" class="form-control" name="country" v-model="a.actor_country" id="exampleInputPassword1" placeholder="输入国籍">
+                                                                <input type="text" class="form-control" name="actorCountry" v-model="a.actorCountry" id="exampleInputPassword1" placeholder="输入国籍">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="exampleInputPassword1">简介</label>
-                                                                <input type="text" class="form-control" name="desc" v-model="a.actor_desc" id="exampleInputPassword1" placeholder="输入简介">
+                                                                <input type="text" class="form-control" name="actorDesc" v-model="a.actorDesc" id="exampleInputPassword1" placeholder="输入简介">
                                                             </div>
                                                             <button type="submit" class="btn btn-primary">提交</button>
                                                         </form>
