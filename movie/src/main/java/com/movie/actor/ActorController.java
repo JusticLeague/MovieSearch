@@ -22,7 +22,7 @@ public class ActorController {
 	ActorService service;
 
 	// 视图actor_info 展示演员
-	@GetMapping("/{actorId}")
+	@GetMapping("/id/{actorId}")
 	@ResponseBody
 	public List<ActorModel> find(@PathVariable int actorId) {
 		return service.find(actorId);
@@ -36,7 +36,7 @@ public class ActorController {
 	}
 	
 	// 表actor 通过name
-	@GetMapping("/{actorName}")
+	@GetMapping("/name/{actorName}")
 	@ResponseBody
 	public List<ActorModel> findByName(@PathVariable String name){
 		return service.findByName(name);
@@ -66,7 +66,7 @@ public class ActorController {
 	// 添加海报
 	// 要先得到演员id
 	@PostMapping("/{id}")
-	public void addPic(@RequestParam(value = "actor_id", required = true) int actorId,
+	public void addPic(@PathVariable int actorId,
 			@RequestParam(value = "actor_pic", required = false) String actorPic) {
 		service.addPic(actorId, actorPic);
 	}

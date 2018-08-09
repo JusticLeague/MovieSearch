@@ -19,7 +19,7 @@ public class ScoreController {
 		service.create(score);
 	}
 
-	@GetMapping("/show")
+	@GetMapping("/score")
 	@ResponseBody
 	public double score(int movieId) {
 		return service.score(movieId);

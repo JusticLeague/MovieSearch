@@ -38,10 +38,10 @@ public class CollectController {
 	}
 
 	// 得到一个影片的收藏量
-	// @GetMapping()
-	// @ResponseBody
-	// public int numble(@RequestParam int movieId) {
-	// return service.numble(movieId);
-	// }
+	 @GetMapping("/core/numbel")
+	 @ResponseBody
+	 public int numble(@PathVariable int movieId) {
+	 return service.numble(movieId);
+	 }
 
 }

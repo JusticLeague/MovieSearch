@@ -50,7 +50,7 @@ public class MovieController {
 
 	// 添加海报
 	@PostMapping("/{movieId}")
-	public void addPic(@RequestParam(value = "movie_id", required = true) int movieId,
+	public void addPic(@PathVariable int movieId,
 			@RequestParam(value = "poster_pic", required = false) String posterPic) {
 		service.addPic(movieId, posterPic);
 	}
