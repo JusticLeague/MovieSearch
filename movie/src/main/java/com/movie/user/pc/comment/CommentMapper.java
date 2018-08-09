@@ -23,11 +23,11 @@ public interface CommentMapper {
 	void remove(int cmtId);
 
 	// 得到一个用户的所有影片相应的评论
-	@Select("select movie_name, cmt_comment from movie, comment where movie.movie.id = comment.movie.id and comment.vip_id = #{vipId}")
+	@Select("select movie_name as movieName, cmt_comment as cmtComment from movie, comment where movie.movie.id = comment.movie.id and comment.vip_id = #{vipId}")
 	List<CommentModel> find(int vip_id);
 
 	// 统计某部影片有多少收藏
-	@Select("select count(vip_id) from comment where movie_id = #{movieId}")
+	@Select("select count(vip_id as vipId) from comment where movie_id = #{movieId}")
 	int sum(int movieId);
 
 }

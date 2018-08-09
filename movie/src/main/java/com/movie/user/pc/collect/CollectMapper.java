@@ -25,11 +25,11 @@ public interface CollectMapper {
 	void remove(int collectId);
 	
 	// 查找得到影片name
-	@Select("select moive_name from movie, collect where movie.movie.id = collect.movie.id")
+	@Select("select moive_name as movieName from movie, collect where movie.movie.id = collect.movie.id")
 	List<String> getName();
 	
 	// 统计某部影片有多少收藏
-	@Select("select count(vip_id) from collect where movie_id = #{movieId}")
+	@Select("select count(vip_id as vipId) from collect where movie_id = #{movieId}")
 	int sum(int movieId);
 	
 	

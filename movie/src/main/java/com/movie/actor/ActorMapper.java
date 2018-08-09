@@ -24,16 +24,18 @@ public interface ActorMapper {
 	// actor_pic.actor_id ")
 	// List<ActorModel> findPic();
 
-	// 视图actor_info
-	@Select("select * from actor_info where actor_id = #{actorId}")
+	// 视图actor_info 通过id
+	@Select("select actor_id as actorId, actor_name as actorName, actor_sex as actorSex, actor_country as actorCountry, actor_birth as actorBirth,"
+			+ "actor_desc as actorDesc, movie_name as movieName, actor_pic as actorPic from actor_info where actor_id = #{actorId}")
 	List<ActorModel> find(int actorId);
 
-	@Select("select * from actor_info")
+	@Select("select actor_id as actorId, actor_name as actorName, actor_sex as actorSex, actor_country as actorCountry, actor_birth as actorBirth,"
+			+ "actor_desc as actorDesc, movie_name as movieName, actor_pic as actorPic from actor_info")
 	List<ActorModel> findAll();
 	
 	
 	// 通过name 查找
-	@Select("select * from actor where actor_name = #{actorName}")
+	@Select("select actor_id as actorId, actor_name as actorName, actor_sex as actorSex, actor_country as actorCountry, actor_birth as actorBirth, actor_desc as actorDesc from actor where actor_name = #{actorName}")
 	List<ActorModel> findByName(String name);
 
 	// 演员的基本信息
