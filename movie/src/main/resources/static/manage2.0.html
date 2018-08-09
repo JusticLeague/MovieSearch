@@ -117,10 +117,6 @@
                     <input type="text" class="form-control" name="movie_dimension" id="exampleInputPassword1" placeholder="">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">导演</label>
-                    <input type="text" class="form-control" name="director_name" id="exampleInputPassword1" placeholder="">
-                </div>
-                <div class="form-group">
                     <label for="exampleInputEmail1">简介</label>
                     <input type="text" class="form-control" name="movie_desc" id="exampleInputPassword1" placeholder="">
                 </div>
@@ -174,8 +170,6 @@
                         <th>电影产地</th>
                         <th>电影评分</th>
                         <th>上映日期</th>
-                        
-                        <th>导演</th>
                         <th>推荐指数</th>
                         <th>维度</th>
                         <th>电影简介</th>
@@ -190,7 +184,6 @@
                         <td>{{m.movie_country}}</td>
                         <td>{{m.movie_score}}</td>
                         <td>{{m.movie_date}}</td>
-                        <td>{{m.director_name}}</td>
                         <td>{{m.movie_ratings}}</td>
                         <td>{{m.movie_dimension}}</td>
                         <td>{{m.movie_desc}}</td>
@@ -222,11 +215,6 @@
                                                     <label for="exampleInputEmail1">上映日期</label>
                                                     <input type="text" class="form-control" name="movie_date" v-model="m.movie_date" id="exampleInputPassword1" placeholder="">
                                                 </div>
-                                                
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">导演</label>
-                                                    <input type="text" class="form-control" name="director_name" v-model="m.director_name" id="exampleInputPassword1" placeholder="">
-                                                </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">推荐指数</label>
                                                     <input type="text" class="form-control" name="movie_ratings" v-model="m.movie_ratings" id="exampleInputPassword1" placeholder="">
@@ -255,6 +243,22 @@
         }
 
         const vipList = {
+            // data(){
+            //     return{
+            //         vips:[]
+            //     }
+            // },
+            // created(){
+            //     this.vipList()
+            // },
+            // watch:{
+            //     '$route':'vipList'
+            // },
+            // methods:{
+            //     vipList(){
+            //         axios.get('/')
+            //     }
+            // },
             template: `
             <table class="table">
                 <thead>
@@ -403,12 +407,16 @@
                         <td>{{item.director_desc}}</td>
                         <td>
                             <button type="button" @click="directorList" class="btn btn-info" data-toggle="modal" data-target="#directorModal">修改</button>
-                            <!-- 导演修改按钮的modal -->
+                            
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                        <td>
+                        <!-- 导演修改按钮的modal -->
                             <div class="modal fade" id="directorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-body">
-                                            <form>
+                                            <form method="PUT" action="'/director/'+item.director_id">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">导演名字</label>
                                                     <input type="text" class="form-control" name="director_name" id="exampleInputEmail1" v-model="item.director_name" aria-describedby="emailHelp"
@@ -444,9 +452,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <button type="button" class="btn btn-danger">删除</button>
-                        </td>
+                            </div></td>
                     </tr>
                 </tbody>
             </table>
@@ -454,6 +460,16 @@
         }
 
         const directorSearch = {
+            data(){
+                return{
+                    director_name:''
+                }
+            },
+            methods:{
+                findDirector(){
+
+                }
+            },
             template: `
             <div>
             <form class="form-inline my-2 my-lg-0">
