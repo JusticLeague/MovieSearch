@@ -462,18 +462,20 @@
         const directorSearch = {
             data(){
                 return{
-                    directors:[]
+                    directors:[],
+                    directorName:''
                 }
             },
             methods:{
                 findDirector(n){
-                    axios.get('/director'+n).then((res)=>this.directors=res.data);
+
+                    axios.get('/director/name/'+n).then((res)=>this.directors=res.data);
                 }
             },
             template: `
             <div>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" name="directorName" placeholder="输入导演姓名" aria-label="Search">
+                <input class="form-control mr-sm-2" name="directorName" v-model="directorName" placeholder="输入导演姓名" aria-label="Search">
                 
                 <button @click="findDirector(directorName)" class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="collapse" data-target="#collapseDirector3"
                     aria-expanded="false" aria-controls="collapseExample">搜索</button>
@@ -484,7 +486,7 @@
                         <div class="card card-body">
                             <table class="table">
                                 <thead>
-                                    <tr v-for="d in directors" v-if="directors">
+                                    <tr>
                                         <th>导演id</th>
                                         <th>导演姓名</th>
                                         <th>导演性别</th>
@@ -495,7 +497,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr v-for="d in directors">
                                         <td scope="row">{{d.directorId}}</td>
                                         <td>{{d.directorName}}</td>
                                         <td>{{d.directorSex}}</td>

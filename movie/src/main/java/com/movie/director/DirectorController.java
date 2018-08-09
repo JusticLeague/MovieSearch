@@ -37,10 +37,10 @@ public class DirectorController {
 
 	
 	// 表director 通过name
-	@GetMapping("/{directorName}")
+	@GetMapping("/name/{directorName}")
 	@ResponseBody
-	public List<DirectorModel> findByName(@PathVariable String name) {
-		return service.findByName(name);
+	public List<DirectorModel> findByName(@PathVariable String directorName) {
+		return service.findByName(directorName);
 	}
 
 	// 表director 查询基本信息
