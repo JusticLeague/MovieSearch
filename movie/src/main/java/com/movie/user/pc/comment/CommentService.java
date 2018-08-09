@@ -22,13 +22,13 @@ public class CommentService {
 	}
 
 	// 得到一个用户的所有影片相应的评论
-	public List<CommentModel> find(int vip_id) {
-		return mapper.find(vip_id);
+	public List<CommentModel> find(int vipId) {
+		return mapper.find(vipId);
 	}
 
 	// 统计某部影片有多少评论量
-	public int numble(int movie_id) {
-		return mapper.sum(movie_id);
+	public int numble(int movieId) {
+		return mapper.sum(movieId);
 	}
 
 }

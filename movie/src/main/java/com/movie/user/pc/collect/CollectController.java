@@ -26,8 +26,8 @@ public class CollectController {
 
 	// 删除
 	@DeleteMapping("/{collect_id}")
-	public void remove(@PathVariable int collect_id) {
-		service.remove(collect_id);
+	public void remove(@PathVariable int collectId) {
+		service.remove(collectId);
 	}
 
 	// 得到一个人的所有收藏影片name
@@ -38,10 +38,10 @@ public class CollectController {
 	}
 
 	// 得到一个影片的收藏量
-//	@GetMapping()
-//	@ResponseBody
-//	public int numble(@RequestParam int movie_id) {
-//		return service.numble(movie_id);
-//	}
+	// @GetMapping()
+	// @ResponseBody
+	// public int numble(@RequestParam int movieId) {
+	// return service.numble(movieId);
+	// }
 
 }

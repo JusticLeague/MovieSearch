@@ -12,19 +12,18 @@ public class ScoreController {
 
 	@Autowired
 	ScoreService service;
-	
+
 	@RequestMapping("/score")
 	@PostMapping
 	public void create(ScoreModel score) {
 		service.create(score);
 	}
-	
+
 	@RequestMapping("/")
 	@GetMapping
 	@ResponseBody
-	public double score(int movie_id) {
-		return service.score(movie_id);
+	public double score(int movieId) {
+		return service.score(movieId);
 	}
-	
-	
+
 }

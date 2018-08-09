@@ -14,54 +14,59 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
 @RequestMapping("/director")
 public class DirectorController {
 
 	@Autowired
 	DirectorService service;
-	
+
 	// 得到视图
-	@GetMapping("/{director_id}")
+	@GetMapping("/{directorId}")
 	@ResponseBody
-	public List<DirectorModel> find(@PathVariable int director_id){
-		return service.find(director_id);
+	public List<DirectorModel> find(@PathVariable int directorId) {
+		return service.find(directorId);
 	}
-	
+
 	@GetMapping
 	@ResponseBody
-	public List<DirectorModel> findAll(){
+	public List<DirectorModel> findAll() {
 		return service.findAll();
 	}
+	
+	@GetMapping("/{directorName}")
+	@ResponseBody
+	public List<DirectorModel> findByName(@PathVariable String name){
+		return service.findByName(name);
+	}
 
-//	// 查询导演所有信息
-//	@GetMapping
-//	public List<DirectorModel> find() {
-//		return service.findAll();
-//	}
+	// // 查询导演所有信息
+	// @GetMapping
+	// public List<DirectorModel> find() {
+	// return service.findAll();
+	// }
 
 	@PostMapping
-	public String create( DirectorModel director) {
+	public String create(DirectorModel director) {
 		service.create(director);
 		return "redirect:/manage2.0.html#/director/add";
 	}
 
 	// 添加图片
-	@PostMapping("/{director_id}")
-	public void addPic(@RequestParam(value = "director_id", required = true) int director_id,
-			@RequestParam(value = "director_pic", required = false) String director_pic) {
-		service.addPic(director_id, director_pic);
+	@PostMapping("/{directorId}")
+	public void addPic(@RequestParam(value = "director_id", required = true) int directorId,
+			@RequestParam(value = "director_pic", required = false) String directorPic) {
+		service.addPic(directorId, directorPic);
 	}
 
 	// 删除
-	@DeleteMapping("/{director_id}")
-	public void delete(@PathVariable int director_id) {
-		service.remove(director_id);
+	@DeleteMapping("/{directorId}")
+	public void delete(@PathVariable int directorId) {
+		service.remove(directorId);
 	}
 
 	// 修改
-	@PutMapping("/{director_id}")
+	@PutMapping("/{directorId}")
 	public void update(@PathVariable int director_id, @RequestBody DirectorModel director) {
 		service.update(director);
 	}

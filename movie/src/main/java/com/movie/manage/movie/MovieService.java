@@ -16,8 +16,8 @@ public class MovieService {
 		return mapper.findAll();
 	}
 	
-	public List<MovieModel> find(int movie_id){
-		return mapper.find(movie_id);
+	public List<MovieModel> find(int movieId){
+		return mapper.find(movieId);
 	}
 	
 	// 添加基本信息
@@ -26,14 +26,14 @@ public class MovieService {
 	}
 	
 	// 添加海报
-	public void addPic(int movie_id, String poster_pic) {
-		mapper.addPic(movie_id, poster_pic);
+	public void addPic(int movieId, String posterPic) {
+		mapper.addPic(movieId, posterPic);
 	}
 	
 	// 删除影片包括海报
-	public void remove(int movie_id) {
-		mapper.remove(movie_id);
-		mapper.reomvePic(movie_id);
+	public void remove(int movieId) {
+		mapper.remove(movieId);
+		mapper.reomvePic(movieId);
 	}
 	
 	// 修改

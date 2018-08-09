@@ -18,31 +18,35 @@ import org.apache.ibatis.annotations.Update;
 public interface DirectorMapper {
 
 	// 插入基本信息
-	@Insert("insert into director(director_name, director_sex, director_country, director_birth, director_desc) value(#{director_name}, #{director_sex}, #{director_country}, #{director_birth}, #{director_desc})")
+	@Insert("insert into director(director_name, director_sex, director_country, director_birth, director_desc) value(#{directorName}, #{directorSex}, #{directorCountry}, #{directorBirth}, #{directorDesc})")
 	void create(DirectorModel director);
 
 	// 上传图片
-	@Insert("insert into director_pic(director_id, director_pic) value(#{director_id}, #{director_pic}")
+	@Insert("insert into director_pic(director_id, director_pic) value(#{directorId}, #{directorPic}")
 	void addPic(int id, String pic);
 	
 	
-	// 使用视图director_info
-	@Select("select * from director_info where director_id = #{director_id}")
-	List<DirectorModel> find(int director_id);
+	// 使用视图director_info 使用id
+	@Select("select * from director_info where director_id = #{directorId}")
+	List<DirectorModel> find(int directorId);
 	
 	@Select("select * from director_info")
 	List<DirectorModel> findAll();
+	
+	// 通过name 查找
+	@Select("select * from director where director_name = #{directorName}")
+	List<DirectorModel> findByName(String name);
 
 	// 删除导演
-	@Delete("delete from director where director_id = #{director_id}")
-	void remove(int director_id);
+	@Delete("delete from director where director_id = #{directorId}")
+	void remove(int directorId);
 
 	// 删除图片
-	@Delete("delete from director_pic where director_id = #{director_id}")
-	void removePic(int director_id);
+	@Delete("delete from director_pic where director_id = #{directorId}")
+	void removePic(int directorId);
 
 	// 修改信息
-	@Update("update director set director_name = #{director_name}, director_sex = #{director_sex}, director_birth = #{director_birth}, director_country = #{director_country}, director_desc = #{director_desc} where director_id = #{director_id}")
+	@Update("update director set director_name = #{directorName}, director_sex = #{directorSex}, director_birth = #{directorBirth}, director_country = #{directorCountry}, director_desc = #{directorDesc} where director_id = #{directorId}")
 	void update(DirectorModel director);
 
 }

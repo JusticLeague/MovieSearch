@@ -27,10 +27,10 @@ public class MovieController {
 		return service.findAll();
 	}
 	
-	@GetMapping("/{movie_id}")
+	@GetMapping("/{movieId}")
 	@ResponseBody
-	public List<MovieModel> find(@PathVariable int movie_id){
-		return service.find(movie_id);
+	public List<MovieModel> find(@PathVariable int movieId){
+		return service.find(movieId);
 	}
 
 	// 创建基本信息
@@ -40,22 +40,22 @@ public class MovieController {
 	}
 
 	// 添加海报
-	@PostMapping("/{movie_id}")
-	public void addPic(@RequestParam(value = "movie_id", required = true) int movie_id,
-			@RequestParam(value = "poster_pic", required = false) String poster_pic) {
-		service.addPic(movie_id, poster_pic);
+	@PostMapping("/{movieId}")
+	public void addPic(@RequestParam(value = "movie_id", required = true) int movieId,
+			@RequestParam(value = "poster_pic", required = false) String posterPic) {
+		service.addPic(movieId, posterPic);
 	}
 
 	// 修改
-	@PutMapping("/{movie_id}")
-	public void update(@PathVariable int movie_id, @RequestBody MovieModel movie) {
+	@PutMapping("/{movieId}")
+	public void update(@PathVariable int movieId, @RequestBody MovieModel movie) {
 		service.update(movie);
 	}
 
 	// 删除
-	@DeleteMapping("/{movie_id}")
-	public void remove(@PathVariable int movie_id) {
-		service.remove(movie_id);
+	@DeleteMapping("/{movieId}")
+	public void remove(@PathVariable int movieId) {
+		service.remove(movieId);
 	}
 
 }

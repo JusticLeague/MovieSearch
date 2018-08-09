@@ -9,8 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 /**
- * 添加演员，从视图 actor_info 中查看演员信息 
- * 视图 name,country,sex,birth,desc,pic,movie
+ * 添加演员，从视图 actor_info 中查看演员信息 视图 name,country,sex,birth,desc,pic,movie
  * 
  * @author QQ546
  *
@@ -26,30 +25,35 @@ public interface ActorMapper {
 	// List<ActorModel> findPic();
 
 	// 视图actor_info
-	@Select("select * from actor_info where actor_id = #{actor_id}")
-	List<ActorModel> find(int actor_id);
-	
+	@Select("select * from actor_info where actor_id = #{actorId}")
+	List<ActorModel> find(int actorId);
+
 	@Select("select * from actor_info")
 	List<ActorModel> findAll();
+	
+	
+	// 通过name 查找
+	@Select("select * from actor where actor_name = #{actorName}")
+	List<ActorModel> findByName(String name);
 
 	// 演员的基本信息
-	@Insert("insert into actor(actor_name, actor_sex, actor_country, actor_birth, actor_desc) value(#{actor_name}, #{actor_sex}, #{actor_country}, #{actor_birth}, #{actor_desc})")
+	@Insert("insert into actor(actor_name, actor_sex, actor_country, actor_birth, actor_desc) value(#{actorName}, #{actorSex}, #{actorCountry}, #{actorBirth}, #{actorDesc})")
 	void create(ActorModel actor);
 
 	// 演员海报
-	@Insert("insert into actor_pic(actor_id, actor_pic) value(#{actor_id}, #{actor_pic})")
-	void addPic(int id, String actor_pic);
+	@Insert("insert into actor_pic(actor_id, actor_pic) value(#{actorId}, #{actorPic})")
+	void addPic(int id, String actorPic);
 
 	// 删除演员
-	@Delete("delete from actor where actor_id = #{actor_id}")
-	void remove(int actor_id);
+	@Delete("delete from actor where actor_id = #{actorId}")
+	void remove(int actorId);
 
 	// 删除图片
-	@Delete("delete from actor_pic where actor_id = #{actor_id}")
-	void removePic(int actor_id);
+	@Delete("delete from actor_pic where actor_id = #{actorId}")
+	void removePic(int actorId);
 
 	// 修改信息
-	@Update("update actor set actor_name = #{actor_name}, actor_sex = #{actor_sex}, actor_birth = #{actor_birth}, actor_country = #{actor_country}, actor_desc = #{actor_desc} where actor_id = #{actor_id}")
+	@Update("update actor set actor_name = #{actorName}, actor_sex = #{actorSex}, actor_birth = #{actorBirth}, actor_country = #{actorCountry}, actor_desc = #{actorDesc} where actor_id = #{actorId}")
 	void update(ActorModel actor);
 
 }

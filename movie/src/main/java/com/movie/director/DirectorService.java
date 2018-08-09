@@ -18,15 +18,15 @@ public class DirectorService {
 	}
 
 	// 添加海报
-	public void addPic(int director_id, String pic) {
-		mapper.addPic(director_id, pic);
+	public void addPic(int directorId, String directorPic) {
+		mapper.addPic(directorId, directorPic);
 	}
 
 	// 删除包括图片
 	@Transactional
-	public void remove(int director_id) {
-		mapper.remove(director_id);
-		mapper.removePic(director_id);
+	public void remove(int directorId) {
+		mapper.remove(directorId);
+		mapper.removePic(directorId);
 	}
 
 	// 修改信息
@@ -35,11 +35,17 @@ public class DirectorService {
 	}
 	
 	// 得到导演的基本信息包括图片
-	public List<DirectorModel> find(int director_id){
-		return mapper.find(director_id);
+	public List<DirectorModel> find(int directorId){
+		return mapper.find(directorId);
 	}
 
 	public List<DirectorModel> findAll() {
 		return mapper.findAll();
+	}
+	
+	
+	// 通过name 查找
+	public List<DirectorModel> findByName(String name){
+		return mapper.findByName(name);
 	}
 }

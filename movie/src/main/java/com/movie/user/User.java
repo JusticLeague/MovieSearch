@@ -8,54 +8,54 @@ package com.movie.user;
  */
 public class User {
 
-	int vip_id;
-	String vip_pic;
-	String vip_name;
-	String vip_phone;
-	String vip_password;
+	int vipId;
+	String vipPic;
+	String vipName;
+	String vipPhone;
+	String vipPassword;
 
 	public User() {
 
 	}
 
-	public int getVip_id() {
-		return vip_id;
+	public int getVipId() {
+		return vipId;
 	}
 
-	public void setVip_id(int vip_id) {
-		this.vip_id = vip_id;
+	public void setVipId(int vipId) {
+		this.vipId = vipId;
 	}
 
-	public String getVip_pic() {
-		return vip_pic;
+	public String getVipPic() {
+		return vipPic;
 	}
 
-	public void setVip_pic(String vip_pic) {
-		this.vip_pic = vip_pic;
+	public void setVipPic(String vipPic) {
+		this.vipPic = vipPic;
 	}
 
-	public String getVip_name() {
-		return vip_name;
+	public String getVipName() {
+		return vipName;
 	}
 
-	public void setVip_name(String vip_name) {
-		this.vip_name = vip_name;
+	public void setVipName(String vipName) {
+		this.vipName = vipName;
 	}
 
-	public String getVip_phone() {
-		return vip_phone;
+	public String getVipPhone() {
+		return vipPhone;
 	}
 
-	public void setVip_phone(String vip_phone) {
-		this.vip_phone = vip_phone;
+	public void setVipPhone(String vipPhone) {
+		this.vipPhone = vipPhone;
 	}
 
-	public String getVip_password() {
-		return vip_password;
+	public String getVipPassword() {
+		return vipPassword;
 	}
 
-	public void setVip_password(String vip_password) {
-		this.vip_password = vip_password;
+	public void setVipPassword(String vipPassword) {
+		this.vipPassword = vipPassword;
 	}
 
 }

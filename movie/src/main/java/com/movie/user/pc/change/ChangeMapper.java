@@ -13,7 +13,7 @@ import com.movie.user.User;
 @Mapper
 public interface ChangeMapper {
 	
-	@Update("update vip set vip_name = #{vip_name}, vip_pic = #{vip_pic}, vip_password = #{vip_password} where vip_id = #{vip_id}")
+	@Update("update vip set vip_name = #{vipName}, vip_pic = #{vipPic}, vip_password = #{vipPassword} where vip_id = #{vipId}")
 	public void change(User u);
 	
 }

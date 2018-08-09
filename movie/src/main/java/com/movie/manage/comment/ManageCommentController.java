@@ -27,9 +27,9 @@ public class ManageCommentController {
 	}
 	
 	// 删除
-	@DeleteMapping("/{cmt_id}")
-	public void remove(@PathVariable int cmt_id) {
-		service.remove(cmt_id);
+	@DeleteMapping("/{cmtId}")
+	public void remove(@PathVariable int cmtId) {
+		service.remove(cmtId);
 	}
 	
 }

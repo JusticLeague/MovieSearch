@@ -18,29 +18,34 @@ public class ActorService {
 	}
 
 	// 添加演员海报
-	public void addPic(int id, String actor_pic) {
-		mapper.addPic(id, actor_pic);
+	public void addPic(int id, String actorPic) {
+		mapper.addPic(id, actorPic);
 	}
 
 	// 演员视图信息
-	public List<ActorModel> find(int actor_id) {
-		return mapper.find(actor_id);
-	}
-	
-	public List<ActorModel> findAll(){
-		return mapper.findAll();
+	public List<ActorModel> find(int actorId) {
+		return mapper.find(actorId);
 	}
 
-//	// 海报
-//	public List<ActorModel> findPic() {
-//		return mapper.findPic();
-//	}
+	public List<ActorModel> findAll() {
+		return mapper.findAll();
+	}
+	
+	// 通过name 查找
+	public List<ActorModel> findByName(String name){
+		return mapper.findByName(name);
+	}
+
+	// // 海报
+	// public List<ActorModel> findPic() {
+	// return mapper.findPic();
+	// }
 
 	// 删除包括图片
 	@Transactional
-	public void remove(int actor_id) {
-		mapper.remove(actor_id);
-		mapper.removePic(actor_id);
+	public void remove(int actorId) {
+		mapper.remove(actorId);
+		mapper.removePic(actorId);
 	}
 
 	// 修改信息

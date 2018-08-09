@@ -2,27 +2,27 @@ package com.movie.manage.movie;
 
 public class MovieItemModel {
 
-	int movie_id;
-	int actor_id;
+	int movieId;
+	int actorId;
 
 	public MovieItemModel() {
 
 	}
 
-	public int getMovie_id() {
-		return movie_id;
+	public int getMovieId() {
+		return movieId;
 	}
 
-	public void setMovie_id(int movie_id) {
-		this.movie_id = movie_id;
+	public void setMovieId(int movieId) {
+		this.movieId = movieId;
 	}
 
-	public int getActor_id() {
-		return actor_id;
+	public int getActorId() {
+		return actorId;
 	}
 
-	public void setActor_id(int actor_id) {
-		this.actor_id = actor_id;
+	public void setActorId(int actorId) {
+		this.actorId = actorId;
 	}
 
 }

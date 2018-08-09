@@ -9,7 +9,7 @@ import com.movie.user.User;
 public interface SignUpMapper {
 	
 	// 数据库vip表中插入数据
-	@Insert("insert into vip(vip_name,vip_phone,vip_password,vip_pic) value(#{vip_name}, #{vip_phone}, #{vip_password}, #{vip_pic}")
+	@Insert("insert into vip(vip_name,vip_phone,vip_password,vip_pic) value(#{vipName}, #{vipPhone}, #{vipPassword}, #{vipPic}")
 	void create(User user);
 
 }

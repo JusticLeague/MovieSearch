@@ -5,13 +5,12 @@ import org.springframework.stereotype.Service;
 
 import com.movie.user.User;
 
-
 @Service
 public class ChangeService {
-	
+
 	@Autowired
 	ChangeMapper mapper;
-	
+
 	// 修改信息
 	public void change(User u) {
 		mapper.change(u);

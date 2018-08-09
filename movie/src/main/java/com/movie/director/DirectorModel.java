@@ -8,75 +8,81 @@ package com.movie.director;
  */
 public class DirectorModel {
 
-	int director_id;
-	String director_name;
-	int director_sex;
-	String director_birth;
-	String director_country;
-	String director_desc;
-	String director_pic;
-	String movie_name;
-	
+	int directorId;
+	String directorName;
+	int directorSex;
+	String directorBirth;
+	String directorCountry;
+	String directorDesc;
+	String directorPic;
+	String movieName;
+
 	public DirectorModel() {
 
 	}
 
-	public int getDirector_id() {
-		return director_id;
+	public int getDirectorId() {
+		return directorId;
 	}
 
-	public void setDirector_id(int director_id) {
-		this.director_id = director_id;
+	public void setDirectorId(int directorId) {
+		this.directorId = directorId;
 	}
 
-	public String getDirector_name() {
-		return director_name;
+	public String getDirectorName() {
+		return directorName;
 	}
 
-	public void setDirector_name(String director_name) {
-		this.director_name = director_name;
+	public void setDirectorName(String directorName) {
+		this.directorName = directorName;
 	}
 
-	public int getDirector_sex() {
-		return director_sex;
+	public int getDirectorSex() {
+		return directorSex;
 	}
 
-	public void setDirector_sex(int director_sex) {
-		this.director_sex = director_sex;
+	public void setDirectorSex(int directorSex) {
+		this.directorSex = directorSex;
 	}
 
-	public String getDirector_birth() {
-		return director_birth;
+	public String getDirectorBirth() {
+		return directorBirth;
 	}
 
-	public void setDirector_birth(String director_birth) {
-		this.director_birth = director_birth;
+	public void setDirectorBirth(String directorBirth) {
+		this.directorBirth = directorBirth;
 	}
 
-	public String getDirector_country() {
-		return director_country;
+	public String getDirectorCountry() {
+		return directorCountry;
 	}
 
-	public void setDirector_country(String director_country) {
-		this.director_country = director_country;
+	public void setDirectorCountry(String directorCountry) {
+		this.directorCountry = directorCountry;
 	}
 
-	public String getDirector_desc() {
-		return director_desc;
+	public String getDirectorDesc() {
+		return directorDesc;
 	}
 
-	public void setDirector_desc(String director_desc) {
-		this.director_desc = director_desc;
+	public void setDirectorDesc(String directorDesc) {
+		this.directorDesc = directorDesc;
 	}
 
-	public String getDirector_pic() {
-		return director_pic;
+	public String getDirectorPic() {
+		return directorPic;
 	}
 
-	public void setDirector_pic(String director_pic) {
-		this.director_pic = director_pic;
+	public void setDirectorPic(String directorPic) {
+		this.directorPic = directorPic;
 	}
 
-	
+	public String getMovieName() {
+		return movieName;
+	}
+
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
+	}
 
 }

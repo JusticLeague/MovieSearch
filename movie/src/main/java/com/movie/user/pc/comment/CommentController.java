@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/comment")
 public class CommentController {
-	
+
 	@Autowired
 	CommentService service;
 
@@ -23,26 +23,26 @@ public class CommentController {
 	public void create(CommentModel comment) {
 		service.create(comment);
 	}
-	
+
 	// 删除评论
-	@DeleteMapping("/{cmt_id}")
-	public void remove(@PathVariable int cmt_id) {
-		service.remove(cmt_id);
+	@DeleteMapping("/{cmtId}")
+	public void remove(@PathVariable int cmtId) {
+		service.remove(cmtId);
 	}
-	
+
 	// 得到一个vip用户的所有影片相应的评论
-	@GetMapping("/{vip_id}")
+	@GetMapping("/{vipId}")
 	@ResponseBody
-	public List<CommentModel> find(@PathVariable int vip_id){
-		return service.find(vip_id);
+	public List<CommentModel> find(@PathVariable int vipId) {
+		return service.find(vipId);
 	}
-	
+
 	// 统计某部影片有多少评论
-//	@RequestMapping("/")
-//	@GetMapping("/")
-//	@ResponseBody
-//	public int numble(int movie_id) {
-//		return service.numble(movie_id);
-//	}
-	
+	// @RequestMapping("/")
+	// @GetMapping("/")
+	// @ResponseBody
+	// public int numble(int movieId) {
+	// return service.numble(movieId);
+	// }
+
 }

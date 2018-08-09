@@ -8,81 +8,81 @@ package com.movie.actor;
  */
 public class ActorModel {
 
-	int actor_id;
-	String actor_name;
-	int actor_sex;
-	String actor_birth;
-	String actor_country;
-	String actor_desc;
-	String actor_pic;
-	String movie_name;
+	int actorId;
+	String actorName;
+	int actorSex;
+	String actorBirth;
+	String actorCountry;
+	String actorDesc;
+	String actorPic;
+	String movieName;
 
 	public ActorModel() {
 
 	}
 
-	public String getMovie_name() {
-		return movie_name;
+	public int getActorId() {
+		return actorId;
 	}
 
-	public void setMovie_name(String movie_name) {
-		this.movie_name = movie_name;
+	public void setActorId(int actorId) {
+		this.actorId = actorId;
 	}
 
-	public int getActor_id() {
-		return actor_id;
+	public String getActorName() {
+		return actorName;
 	}
 
-	public void setActor_id(int actor_id) {
-		this.actor_id = actor_id;
+	public void setActorName(String actorName) {
+		this.actorName = actorName;
 	}
 
-	public String getActor_name() {
-		return actor_name;
+	public int getActorSex() {
+		return actorSex;
 	}
 
-	public void setActor_name(String actor_name) {
-		this.actor_name = actor_name;
+	public void setActorSex(int actorSex) {
+		this.actorSex = actorSex;
 	}
 
-	public int getActor_sex() {
-		return actor_sex;
+	public String getActorBirth() {
+		return actorBirth;
 	}
 
-	public void setActor_sex(int actor_sex) {
-		this.actor_sex = actor_sex;
+	public void setActorBirth(String actorBirth) {
+		this.actorBirth = actorBirth;
 	}
 
-	public String getActor_birth() {
-		return actor_birth;
+	public String getActorCountry() {
+		return actorCountry;
 	}
 
-	public void setActor_birth(String actor_birth) {
-		this.actor_birth = actor_birth;
+	public void setActorCountry(String actorCountry) {
+		this.actorCountry = actorCountry;
 	}
 
-	public String getActor_country() {
-		return actor_country;
+	public String getActorDesc() {
+		return actorDesc;
 	}
 
-	public void setActor_country(String actor_country) {
-		this.actor_country = actor_country;
+	public void setActorDesc(String actorDesc) {
+		this.actorDesc = actorDesc;
 	}
 
-	public String getActor_desc() {
-		return actor_desc;
+	public String getActorPic() {
+		return actorPic;
 	}
 
-	public void setActor_desc(String actor_desc) {
-		this.actor_desc = actor_desc;
+	public void setActorPic(String actorPic) {
+		this.actorPic = actorPic;
 	}
 
-	public String getActor_pic() {
-		return actor_pic;
+	public String getMovieName() {
+		return movieName;
 	}
 
-	public void setActor_pic(String actor_pic) {
-		this.actor_pic = actor_pic;
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
 	}
 
 }

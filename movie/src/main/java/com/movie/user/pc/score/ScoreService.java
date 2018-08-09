@@ -15,8 +15,8 @@ public class ScoreService {
 	}
 	
 	// 得到一个影片的评分（平均值）
-	public double score(int movie_id) {
-		return mapper.sum(movie_id);
+	public double score(int movieId) {
+		return mapper.sum(movieId);
 	}
 	
 }

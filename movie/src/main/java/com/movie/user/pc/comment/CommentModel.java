@@ -8,45 +8,45 @@ package com.movie.user.pc.comment;
  */
 public class CommentModel {
 
-	int cmt_id;
-	int vip_id;
-	int movie_id;
-	String cmt_comment;
+	int cmtId;
+	int vipId;
+	int movieId;
+	String cmtComment;
 
 	public CommentModel() {
 
 	}
 
-	public int getCmt_id() {
-		return cmt_id;
+	public int getCmtId() {
+		return cmtId;
 	}
 
-	public void setCmt_id(int cmt_id) {
-		this.cmt_id = cmt_id;
+	public void setCmtId(int cmtId) {
+		this.cmtId = cmtId;
 	}
 
-	public int getVip_id() {
-		return vip_id;
+	public int getVipId() {
+		return vipId;
 	}
 
-	public void setVip_id(int vip_id) {
-		this.vip_id = vip_id;
+	public void setVipId(int vipId) {
+		this.vipId = vipId;
 	}
 
-	public int getMovie_id() {
-		return movie_id;
+	public int getMovieId() {
+		return movieId;
 	}
 
-	public void setMovie_id(int movie_id) {
-		this.movie_id = movie_id;
+	public void setMovieId(int movieId) {
+		this.movieId = movieId;
 	}
 
-	public String getCmt_comment() {
-		return cmt_comment;
+	public String getCmtComment() {
+		return cmtComment;
 	}
 
-	public void setCmt_comment(String cmt_comment) {
-		this.cmt_comment = cmt_comment;
+	public void setCmtComment(String cmtComment) {
+		this.cmtComment = cmtComment;
 	}
 
 }

@@ -17,8 +17,8 @@ public class CollectService {
 	}
 
 	// 删除
-	public void remove(int collect_id) {
-		mapper.remove(collect_id);
+	public void remove(int collectId) {
+		mapper.remove(collectId);
 	}
 
 	// 得到一个用户收藏列表里所有的影片name
@@ -27,8 +27,8 @@ public class CollectService {
 	}
 
 	// 得到一个影片的收藏量
-	public int numble(int movie_id) {
-		return mapper.sum(movie_id);
+	public int numble(int movieId) {
+		return mapper.sum(movieId);
 	}
 
 }

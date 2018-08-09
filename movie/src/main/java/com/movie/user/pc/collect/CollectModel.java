@@ -8,36 +8,36 @@ package com.movie.user.pc.collect;
  */
 public class CollectModel {
 
-	int collect_id;
-	int vip_id;
-	int movie_id;
+	int collectId;
+	int vipId;
+	int movieId;
 
 	public CollectModel() {
 
 	}
 
-	public int getId() {
-		return collect_id;
+	public int getCollectId() {
+		return collectId;
 	}
 
-	public void setId(int id) {
-		this.collect_id = id;
+	public void setCollectId(int collectId) {
+		this.collectId = collectId;
 	}
 
-	public int getVip_id() {
-		return vip_id;
+	public int getVipId() {
+		return vipId;
 	}
 
-	public void setVip_id(int vip_id) {
-		this.vip_id = vip_id;
+	public void setVipId(int vipId) {
+		this.vipId = vipId;
 	}
 
-	public int getMovie_id() {
-		return movie_id;
+	public int getMovieId() {
+		return movieId;
 	}
 
-	public void setMovie_id(int movie_id) {
-		this.movie_id = movie_id;
+	public void setMovieId(int movieId) {
+		this.movieId = movieId;
 	}
 
 }
