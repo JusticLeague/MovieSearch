@@ -35,12 +35,12 @@ public class DirectorService {
 	}
 	
 	// 得到导演的基本信息包括图片
-	public List<DirectorModel> find(){
-		return mapper.find();
+	public List<DirectorModel> find(int director_id){
+		return mapper.find(director_id);
 	}
 
 	//查询导演
-	public List<DirectorModel> findAll() {
-		return mapper.find();
-	}
+//	public List<DirectorModel> findAll() {
+//		return mapper.find();
+//	}
 }
