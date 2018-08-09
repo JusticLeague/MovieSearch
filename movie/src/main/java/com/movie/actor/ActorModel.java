@@ -15,9 +15,18 @@ public class ActorModel {
 	String actor_country;
 	String actor_desc;
 	String actor_pic;
-	
+	String movie_name;
+
 	public ActorModel() {
 
+	}
+
+	public String getMovie_name() {
+		return movie_name;
+	}
+
+	public void setMovie_name(String movie_name) {
+		this.movie_name = movie_name;
 	}
 
 	public int getActor_id() {
@@ -75,7 +84,5 @@ public class ActorModel {
 	public void setActor_pic(String actor_pic) {
 		this.actor_pic = actor_pic;
 	}
-
-	
 
 }

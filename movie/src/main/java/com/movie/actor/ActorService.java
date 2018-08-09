@@ -23,8 +23,8 @@ public class ActorService {
 	}
 
 	// 演员视图信息
-	public List<ActorModel> find() {
-		return mapper.find();
+	public List<ActorModel> find(int actor_id) {
+		return mapper.find(actor_id);
 	}
 
 //	// 海报

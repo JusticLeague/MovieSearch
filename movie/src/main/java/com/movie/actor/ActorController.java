@@ -22,10 +22,10 @@ public class ActorController {
 	ActorService service;
 
 	// 展示演员
-	@GetMapping
+	@GetMapping("/{actor_id}")
 	@ResponseBody
-	public List<ActorModel> find() {
-		return service.find();
+	public List<ActorModel> find(@PathVariable int actor_id) {
+		return service.find(actor_id);
 	}
 
 //	// 海报

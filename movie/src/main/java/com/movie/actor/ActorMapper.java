@@ -26,8 +26,8 @@ public interface ActorMapper {
 	// List<ActorModel> findPic();
 
 	// 视图actor_info
-	@Select("select * from actor_info")
-	List<ActorModel> find();
+	@Select("select * from actor_info where actor_id = #{actor_id}")
+	List<ActorModel> find(int actor_id);
 
 	// 演员的基本信息
 	@Insert("insert into actor(actor_name, actor_sex, actor_country, actor_birth, actor_desc) value(#{actor_name}, #{actor_sex}, #{actor_country}, #{actor_birth}, #{actor_desc})")

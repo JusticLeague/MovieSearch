@@ -15,6 +15,8 @@ public class DirectorModel {
 	String director_country;
 	String director_desc;
 	String director_pic;
+	String movie_name;
+	
 	public DirectorModel() {
 
 	}

@@ -27,8 +27,8 @@ public interface DirectorMapper {
 	
 	
 	// 使用视图director_info
-	@Select("select * from director_info")
-	List<DirectorModel> find();
+	@Select("select * from director_info where director_id = #{director_id}")
+	List<DirectorModel> find(int director_id);
 
 	// 删除导演
 	@Delete("delete from director where director_id = #{director_id}")

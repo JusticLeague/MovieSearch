@@ -23,10 +23,10 @@ public class DirectorController {
 	DirectorService service;
 	
 	// 得到视图
-	@GetMapping
+	@GetMapping("/{director_id}")
 	@ResponseBody
-	public List<DirectorModel> find(){
-		return service.find();
+	public List<DirectorModel> find(@PathVariable int director_id){
+		return service.find(director_id);
 	}
 
 //	// 查询导演所有信息
@@ -41,6 +41,7 @@ public class DirectorController {
 		return "redirect:/manage.html";
 	}
 
+	// 添加图片
 	@PostMapping("/{director_id}")
 	public void addPic(@RequestParam(value = "director_id", required = true) int director_id,
 			@RequestParam(value = "director_pic", required = false) String director_pic) {
