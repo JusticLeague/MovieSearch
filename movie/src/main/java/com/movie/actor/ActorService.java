@@ -26,6 +26,10 @@ public class ActorService {
 	public List<ActorModel> find(int actor_id) {
 		return mapper.find(actor_id);
 	}
+	
+	public List<ActorModel> findAll(){
+		return mapper.findAll();
+	}
 
 //	// 海报
 //	public List<ActorModel> findPic() {

@@ -12,8 +12,12 @@ public class MovieService {
 	MovieMapper mapper;
 
 	// 视图movie_show信息
-	public List<MovieModel> find(){
-		return mapper.find();
+	public List<MovieModel> findAll(){
+		return mapper.findAll();
+	}
+	
+	public List<MovieModel> find(int movie_id){
+		return mapper.find(movie_id);
 	}
 	
 	// 添加基本信息

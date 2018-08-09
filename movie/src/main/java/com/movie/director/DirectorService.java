@@ -39,8 +39,7 @@ public class DirectorService {
 		return mapper.find(director_id);
 	}
 
-	//查询导演
-//	public List<DirectorModel> findAll() {
-//		return mapper.find();
-//	}
+	public List<DirectorModel> findAll() {
+		return mapper.findAll();
+	}
 }

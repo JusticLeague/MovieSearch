@@ -26,8 +26,11 @@ public interface MovieMapper {
 	
 	// 视图movie_show
 	@Select("select * from movie_show")
-	List<MovieModel> find();
+	List<MovieModel> findAll();
 
+	@Select("select * from movie_show where movie_id = #{movie_id}")
+	List<MovieModel> find(int movie_id);
+	
 	// 添加基本信息
 	@Insert("insert into movie(movie_name, movie_type, movie_country, movie_score, movie_date, movie_desc, movie_director_id, movie_ratings, movie_dimension) value(#{movie_name}, #{movie_type}, #{movie_country}, #{movie_score}, #{movie_date}, #{movie_desc}, #{movie_director_id}, #{movie_ratings}, #{movie_dimension}")
 	void create(MovieModel movie);

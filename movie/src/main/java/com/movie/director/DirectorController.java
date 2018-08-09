@@ -28,6 +28,12 @@ public class DirectorController {
 	public List<DirectorModel> find(@PathVariable int director_id){
 		return service.find(director_id);
 	}
+	
+	@GetMapping
+	@ResponseBody
+	public List<DirectorModel> findAll(){
+		return service.findAll();
+	}
 
 //	// 查询导演所有信息
 //	@GetMapping

@@ -27,6 +27,12 @@ public class ActorController {
 	public List<ActorModel> find(@PathVariable int actor_id) {
 		return service.find(actor_id);
 	}
+	
+	@GetMapping
+	@ResponseBody
+	public List<ActorModel> findAll(){
+		return service.findAll();
+	}
 
 //	// 海报
 //	@GetMapping

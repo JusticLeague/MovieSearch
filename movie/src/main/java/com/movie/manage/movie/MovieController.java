@@ -23,8 +23,14 @@ public class MovieController {
 
 	@GetMapping
 	@ResponseBody
-	public List<MovieModel> find() {
-		return service.find();
+	public List<MovieModel> findAll() {
+		return service.findAll();
+	}
+	
+	@GetMapping("/{movie_id}")
+	@ResponseBody
+	public List<MovieModel> find(@PathVariable int movie_id){
+		return service.find(movie_id);
 	}
 
 	// 创建基本信息
