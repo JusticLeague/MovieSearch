@@ -8,19 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+@RequestMapping("/score")
 public class ScoreController {
 
 	@Autowired
 	ScoreService service;
 
-	@RequestMapping("/score")
 	@PostMapping
 	public void create(ScoreModel score) {
 		service.create(score);
 	}
 
-	@RequestMapping("/")
-	@GetMapping
+	@GetMapping("/show")
 	@ResponseBody
 	public double score(int movieId) {
 		return service.score(movieId);

@@ -35,6 +35,7 @@ public class MovieController {
 		return service.find(movieId);
 	}
 	
+	// 表movie
 	@GetMapping("/base")
 	@ResponseBody
 	public List<MovieModel> findBase(){

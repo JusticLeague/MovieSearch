@@ -35,13 +35,14 @@ public class ActorController {
 		return service.findAll();
 	}
 	
-	// 表actor
+	// 表actor 通过name
 	@GetMapping("/{actorName}")
 	@ResponseBody
 	public List<ActorModel> findByName(@PathVariable String name){
 		return service.findByName(name);
 	}
 	
+	// 表actor
 	@GetMapping("/base")
 	@ResponseBody
 	public List<ActorModel> findBase(){
