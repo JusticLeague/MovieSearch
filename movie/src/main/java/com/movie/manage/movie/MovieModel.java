@@ -17,12 +17,21 @@ public class MovieModel {
 	String movie_date;
 	String movie_desc;
 	int director_id;
+	String director_name;
 	String movie_ratings;
 	int movie_dimension;
 	String poster_pic;
 
 	public MovieModel() {
 
+	}
+
+	public String getDirector_name() {
+		return director_name;
+	}
+
+	public void setDirector_name(String director_name) {
+		this.director_name = director_name;
 	}
 
 	public int getMovie_id() {

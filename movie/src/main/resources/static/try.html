@@ -13,13 +13,12 @@
 
     <!-- Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-
-    <!-- axios -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- vue  vue.router -->
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </head>
 
@@ -30,30 +29,30 @@
                 <!-- 操作选项 -->
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link" id="home-tab" data-toggle="tab" href="#movie-manage" role="tab" aria-controls="movie-manage" aria-selected="true">
-                            <!-- <router-link to="/movie">电影管理</router-link> -->a
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#movie-manage" role="tab" aria-controls="movie-manage" aria-selected="true">
+                            <router-link to="/movie">影片管理</router-link>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#user-manage" role="tab" aria-controls="user-manage" aria-selected="false">
-                            <!-- <router-link to="/vip">用户管理</router-link> -->b
+                            <router-link to="/vip">用户管理</router-link>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="contact-tab" data-toggle="tab" href="#director-manage" role="tab" aria-controls="director-manage"
                             aria-selected="false">
-                            <!-- <router-link to="/director">导演管理</router-link> -->c
+                            <router-link to="/director">导演管理</router-link>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="actor-manage-tab" data-toggle="tab" href="#actor-manage" role="tab" aria-controls="actor-manage"
                             aria-selected="false">
-                            <!-- <router-link to="/actor">演员管理</router-link> -->d
+                            <router-link to="/actor">演员管理</router-link>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="data-manage-tab" data-toggle="tab" href="#data-manage" role="tab" aria-controls="data-manage" aria-selected="false">
-                            <!-- <router-link to="/summary">数据统计</router-link> -->e
+                            <router-link to="/summary">数据统计</router-link>
                         </a>
                     </li>
                 </ul>
@@ -94,7 +93,7 @@
                             <div class="col-lg-12">
                                 <div class="collapse" id="collapseMovie">
                                     <div class="card card-body">
-                                        <form method="POST" action="actor">
+                                        <form>
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">电影名称</label>
                                                 <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
@@ -664,45 +663,42 @@
                                 <div class="collapse" id="collapseActor">
                                     <div class="card card-body">
                                         <form method="POST" action="actor">
-                                            <!-- <form id="addActor" target="iframe"> -->
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">演员名字</label>
-                                                <input type="text" class="form-control" name="actor_name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入演员姓名">
+                                                <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入演员姓名">
 
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="actor_sex" id="exampleRadios1" value="1" checked>
+                                                <input class="form-check-input" type="radio" name="sex" id="exampleRadios1" value="1" checked>
                                                 <label class="form-check-label" for="exampleRadios1">
                                                     男
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="actor_sex" id="exampleRadios2" value="0">
+                                                <input class="form-check-input" type="radio" name="sex" id="exampleRadios2" value="0">
                                                 <label class="form-check-label" for="exampleRadios2">
                                                     女
                                                 </label>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">出生日期</label>
-                                                <input type="text" class="form-control" name="actor_birth" id="exampleInputPassword1" placeholder="输入出生日期">
+                                                <input type="text" class="form-control" name="birth" id="exampleInputPassword1" placeholder="输入出生日期">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">国籍</label>
-                                                <input type="text" class="form-control" name="actor_country" id="exampleInputPassword1" placeholder="输入国籍">
+                                                <input type="text" class="form-control" name="country" id="exampleInputPassword1" placeholder="输入国籍">
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputPassword1">简介</label>
-                                                <input type="text" class="form-control" name="actor_desc" id="exampleInputPassword1" placeholder="输入简介">
+                                                <input type="text" class="form-control" name="desc" id="exampleInputPassword1" placeholder="输入简介">
                                             </div>
                                             <button type="submit" class="btn btn-primary">添加</button>
-                                            <!-- <button class="btn btn-primary">添加</button> -->
                                         </form>
-                                        <!-- <iframe name="iframe" src="" frameborder="0" width="0" height="0"></iframe> -->
                                         <!-- 上传演员图片 -->
                                         <form>
                                             <div class="form-group mt-3">
                                                 <label for="exampleInputEmail1">演员姓名</label>
-                                                <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入演员姓名">
+                                                <input type="text" class="form-control" namr="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入演员姓名">
                                             </div>
                                             <div class="form-group mt-4">
                                                 <label for="exampleFormControlFile1">Example file input</label>
@@ -885,47 +881,31 @@
     </div>
 
     <script>
-        const movie=new Vue({
-            el: "#app",
+        new Vue({
+            el: "#director-manage",
             data: {
                 directors: [],
-                actors: [],
-                // actor_name: '',
-                // actor_sex: 1,
-                // actor_birth: '',
-                // actor_country: '',
-                // actor_desc: ''
             },
 
             methods: {
                 findDirectors() {
                     axios.get('/director').then((res) => { this.directors = res.data });
-                },
-                findActors() {
-                    axios.get('/actor').then((res) => { this.actors = res.data });
-                },
+                }
             }
         })
 
-        // new Vue({
-        //     el: "#app",
-        //     data: {
-        //         actors: [],
-                // actor_name: '',
-                // actor_sex: 1,
-                // actor_birth: '',
-                // actor_country: '',
-                // actor_desc: ''
-            // },
-            // methods: {
-            //     findActors() {
-            //         axios.get('/actor').then((res) => { this.actors = res.data });
-            //     },
-                // addActor(n, s, b, c, d) {
-                //     axios.post('/actor', { 'actor_name': n, 'actor_sex': s, 'actor_birth': b, 'actor_country': c, 'actor_desc': d }).then();
-                // }
-        //     }
-        // })
+        new Vue({
+            el: "#actor-manage",
+            data: {
+                actors: [],
+            },
+            methods: {
+                findActors() {
+                    axios.get('/actor').then((res) => { this.actors = res.data });
+                }
+            }
+        })
+
 
         const routes = [
             { path: '/director ' },
@@ -941,19 +921,11 @@
         })
 
 
-        // const app = new Vue({
-        //     router
-        // }).$mount('#app')
+        const app = new Vue({
+            router
+        }).$mount('#app')
 
-        // new Vue({
-        //     el: "#addActor",
-        //     data: {
 
-        //     },
-        //     methods: {
-
-        //     }
-        // })
     </script>
 
     <!-- Optional JavaScript -->

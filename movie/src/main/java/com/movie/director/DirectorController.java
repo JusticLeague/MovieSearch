@@ -36,9 +36,9 @@ public class DirectorController {
 //	}
 
 	@PostMapping
-	public String create(DirectorModel director) {
+	public String create( DirectorModel director) {
 		service.create(director);
-		return "redirect:/manage.html";
+		return "redirect:/manage2.0.html#/director/add";
 	}
 
 	@PostMapping("/{director_id}")
