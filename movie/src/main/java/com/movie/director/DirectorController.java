@@ -22,7 +22,7 @@ public class DirectorController {
 	DirectorService service;
 
 	// 视图director_info 通过id
-	@GetMapping("/{directorId}")
+	@GetMapping("/id/{directorId}")
 	@ResponseBody
 	public List<DirectorModel> find(@PathVariable int directorId) {
 		return service.find(directorId);
@@ -57,7 +57,7 @@ public class DirectorController {
 
 	// 添加图片
 	@PostMapping("/{directorId}")
-	public void addPic(@RequestParam(value = "director_id", required = true) int directorId,
+	public void addPic(@PathVariable int directorId,
 			@RequestParam(value = "director_pic", required = false) String directorPic) {
 		service.addPic(directorId, directorPic);
 	}

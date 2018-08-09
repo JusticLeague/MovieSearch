@@ -38,11 +38,10 @@ public class CommentController {
 	}
 
 	// 统计某部影片有多少评论
-	// @RequestMapping("/")
-	// @GetMapping("/")
-	// @ResponseBody
-	// public int numble(int movieId) {
-	// return service.numble(movieId);
-	// }
+	 @GetMapping("/comment/numble")
+	 @ResponseBody
+	 public int numble(int movieId) {
+	 return service.numble(movieId);
+	 }
 
 }
