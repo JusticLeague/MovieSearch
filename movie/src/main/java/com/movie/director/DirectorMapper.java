@@ -25,6 +25,9 @@ public interface DirectorMapper {
 	@Insert("insert into director_pic(director_id, director_pic) value(#{directorId}, #{directorPic}")
 	void addPic(int id, String pic);
 	
+	// 得到id
+	@Select("select director_id as directorId from director where director_name = #{directorName}")
+	int getId(String directorName);
 	
 	// 使用视图director_info 使用id
 	@Select("select * from director_info where directorId = #{directorId}")

@@ -17,12 +17,8 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface ActorMapper {
 
-	// @Select("select * from actor")
-	// List<ActorModel> find();
-	//
-	// @Select("select actor_pic from actor, actor_pic where actor.actor_id =
-	// actor_pic.actor_id ")
-	// List<ActorModel> findPic();
+	 @Select("select actor_id as actorId from actor where actor_name = #{actorName}")
+	 int getId(String actorName);
 
 	// 视图actor_info 通过id
 	@Select("select * from actor_info where actorId = #{actorId}")

@@ -15,8 +15,8 @@ public class SignInController {
 
 	// 返回登陆的结果
 	@PostMapping
-	public String signIn(@RequestParam(value = "vip_phone", required = true) String phone,
-			@RequestParam(value = "vip_password", required = true) String password) {
+	public String signIn(@RequestParam(value = "vipPhone", required = true) String phone,
+			@RequestParam(value = "vipPassword", required = true) String password) {
 
 		// 比较账号和密码
 		// 前端调用时  使用 ${msg}（得用jsp） 直接调用数据 不采用

@@ -56,10 +56,11 @@ public class DirectorController {
 	}
 
 	// 添加图片
-	@PostMapping("/{directorId}")
-	public void addPic(@PathVariable int directorId,
-			@RequestParam(value = "director_pic", required = false) String directorPic) {
-		service.addPic(directorId, directorPic);
+	@PostMapping("/{directorName}")
+	public void addPic(@PathVariable String directorName,
+			@RequestParam(value = "directorPic", required = false) String directorPic) {
+		
+		service.addPic(service.getId(directorName), directorPic);
 	}
 
 	// 删除
