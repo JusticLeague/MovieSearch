@@ -4,13 +4,17 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ActorService {
 
 	@Autowired
 	ActorMapper mapper;
+	
+	// 通过name 得到id
+	public int getId(String actorName) {
+		return mapper.getId(actorName);
+	}
 
 	// 添加演员
 	public void create(ActorModel actor) {
@@ -48,7 +52,6 @@ public class ActorService {
 	// }
 
 	// 删除包括图片
-	@Transactional
 	public void remove(int actorId) {
 		mapper.remove(actorId);
 		mapper.removePic(actorId);

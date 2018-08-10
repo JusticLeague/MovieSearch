@@ -44,14 +44,15 @@ public class MovieController {
 
 	// 创建基本信息
 	@PostMapping
-	public void create(MovieModel movie) {
+	public void create(@RequestParam(value = "directorName", required = true) String directorName, MovieModel movie) {
+		movie.setDirectorId(service.getId(directorName));
 		service.create(movie);
 	}
 
 	// 添加海报
 	@PostMapping("/{movieId}")
 	public void addPic(@PathVariable int movieId,
-			@RequestParam(value = "poster_pic", required = false) String posterPic) {
+			@RequestParam(value = "posterPic", required = false) String posterPic) {
 		service.addPic(movieId, posterPic);
 	}
 

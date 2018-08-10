@@ -64,11 +64,10 @@ public class ActorController {
 	}
 
 	// 添加海报
-	// 要先得到演员id
-	@PostMapping("/{id}")
-	public void addPic(@PathVariable int actorId,
-			@RequestParam(value = "actor_pic", required = false) String actorPic) {
-		service.addPic(actorId, actorPic);
+	@PostMapping("/{actorName}")
+	public void addPic(@PathVariable String actorName,
+			@RequestParam(value = "actorPic", required = false) String actorPic) {
+		service.addPic(service.getId(actorName), actorPic);
 	}
 
 	// 删除

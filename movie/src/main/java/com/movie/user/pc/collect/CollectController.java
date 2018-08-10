@@ -38,7 +38,7 @@ public class CollectController {
 	}
 
 	// 得到一个影片的收藏量
-	 @GetMapping("/core/numbel")
+	 @GetMapping("/core/numble")
 	 @ResponseBody
 	 public int numble(@PathVariable int movieId) {
 	 return service.numble(movieId);

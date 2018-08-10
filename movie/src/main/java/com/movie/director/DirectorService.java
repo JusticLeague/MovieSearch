@@ -11,6 +11,11 @@ public class DirectorService {
 
 	@Autowired
 	DirectorMapper mapper;
+	
+	// 得到id
+	public int getId(String directorName) {
+		return mapper.getId(directorName);
+	}
 
 	// 添加导演
 	public void create(DirectorModel director) {

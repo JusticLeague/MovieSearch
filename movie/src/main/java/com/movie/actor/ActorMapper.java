@@ -17,21 +17,15 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface ActorMapper {
 
-	// @Select("select * from actor")
-	// List<ActorModel> find();
-	//
-	// @Select("select actor_pic from actor, actor_pic where actor.actor_id =
-	// actor_pic.actor_id ")
-	// List<ActorModel> findPic();
+	 @Select("select actor_id as actorId from actor where actor_name = #{actorName}")
+	 int getId(String actorName);
 
 	// 视图actor_info 通过id
-	@Select("select actor_id as actorId, actor_name as actorName, actor_sex as actorSex, actor_country as actorCountry, actor_birth as actorBirth,"
-			+ "actor_desc as actorDesc, movie_name as movieName, actor_pic as actorPic from actor_info where actor_id = #{actorId}")
+	@Select("select * from actor_info where actorId = #{actorId}")
 	List<ActorModel> find(int actorId);
 	
 	// 视图actor_info
-	@Select("select actor_id as actorId, actor_name as actorName, actor_sex as actorSex, actor_country as actorCountry, actor_birth as actorBirth,"
-			+ "actor_desc as actorDesc, movie_name as movieName, actor_pic as actorPic from actor_info")
+	@Select("select * from actor_info")
 	List<ActorModel> findAll();
 	
 	// 表actor

@@ -11,6 +11,10 @@ public class MovieService {
 	@Autowired
 	MovieMapper mapper;
 	
+	public int getId(String directorName) {
+		return mapper.getId(directorName);
+	}
+	
 	// 表 movie
 	public List<MovieModel> findBase(){
 		return mapper.findBase();
