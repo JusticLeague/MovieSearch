@@ -70,7 +70,7 @@ public class DirectorController {
 
 	// 修改
 	@PutMapping("/{directorId}")
-	public void update(@PathVariable int director_id, @RequestBody DirectorModel director) {
+	public void update(@RequestBody DirectorModel director) {
 		service.update(director);
 	}
 

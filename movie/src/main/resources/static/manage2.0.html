@@ -37,6 +37,30 @@
 
 
     <script>
+        // 模态框
+        // const imodal = {
+        //     data(){
+        //         return{
+
+        //         }
+        //     },
+        //     props:['show'],
+        //     methods:{
+        //         close(){
+        //             this.$emit('close');
+        //         }
+        //     },
+        //     template: `
+        //     <div class="modal-backdrop" @click="close" v-show="show"> 
+        //         <div class="modal" @click.stop> 
+        //             <div class="modal-body"> 
+        //                 <slot name="body"></slot>
+        //             </div> 
+        //         </div>
+        //     </div>
+        //     `
+        // }
+
         // 电影管理
         const movieManage = {
             template: `
@@ -83,7 +107,8 @@
             </div>
             `
         }
-
+        
+        //添加电影 ok
         const movieAdd = {
             template: `
             <div>
@@ -143,21 +168,26 @@
             `
         }
 
+        //电影列表
         const movieList = {
-            data(){
-                return{
-                    movies:[]
+            data() {
+                return {
+                    movies: []
                 }
             },
-            created(){
+            created() {
                 this.movieList()
             },
-            watch:{
-                '$route':'movieList'
+            watch: {
+                '$route': 'movieList'
             },
-            methods:{
-                movieList(){
-                    axios.get('/movie/base').then((res)=>this.movies=res.data);
+            methods: {
+                movieList() {
+                    axios.get('/movie/base').then((res) => this.movies = res.data);
+                },
+
+                deleteInfo(i){
+                    axios.delete('/movie/'+i,{'directorId':i}).then();
                 }
             },
             template: `
@@ -188,8 +218,8 @@
                         <td>{{m.movieDimension}}</td>
                         <td>{{m.movieDesc}}</td>
                         <td>
-                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#movieModal">修改</button>
-                            <div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <button type="button" class="btn btn-info" data-toggle="modal" v-bind:data-target="'#'+m.movieName">修改</button>
+                            <div class="modal fade" v-bind:id=m.movieName tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-body">
@@ -234,7 +264,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-danger">删除</button>
+                            <button type="button" @click="deleteInfo(m.movieId)" class="btn btn-danger">删除</button>
                         </td>
                     </tr>
                 </tbody>
@@ -243,22 +273,22 @@
         }
 
         const vipList = {
-            // data(){
-            //     return{
-            //         vips:[]
-            //     }
-            // },
-            // created(){
-            //     this.vipList()
-            // },
-            // watch:{
-            //     '$route':'vipList'
-            // },
-            // methods:{
-            //     vipList(){
-            //         axios.get('/')
-            //     }
-            // },
+            data() {
+                return {
+                    vips: []
+                }
+            },
+            created() {
+                this.vipList()
+            },
+            watch: {
+                '$route': 'vipList'
+            },
+            methods: {
+                vipList() {
+                    axios.get('/signIn').then((res) => this.vips = res.data)
+                }
+            },
             template: `
             <table class="table">
                 <thead>
@@ -269,24 +299,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td scope="row">1</td>
-                        <td>1</td>
-                        <td>1</td>
+                    <tr v-for="v in vips">
+                        <td scope="row">{{v.vipId}}</td>
+                        <td>{{v.vipName}}</td>
+                        <td>{{v.vipPhone}}</td>
                         <td>
-                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal2">修改</button>
-                            <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <button type="button" class="btn btn-info" data-toggle="modal" v-bind:data-target="'#'+v.vipName">修改</button>
+                            <div class="modal fade" v-bind:id=v.vipName tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-body">
                                             <form>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">用户昵称</label>
-                                                    <input type="text" class="form-control" name="name" id="exampleInputPassword1" placeholder="">
+                                                    <input type="text" class="form-control" name="vipName" v-model="v.vipName" id="exampleInputPassword1" placeholder="">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">用户手机</label>
-                                                    <input type="text" class="form-control" name="phone" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                                                    <input type="text" class="form-control" name="vipPhone" v-model="v.vipPhone" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">提交</button>
                                             </form>
@@ -367,7 +397,8 @@
         const directorList = {
             data() {
                 return {
-                    directors: []
+                    directors: [],
+                    isModalVisible: false
                 }
             },
             created() {
@@ -381,8 +412,32 @@
             },
             methods: {
                 directorList() {
+                    
                     axios.get('/director/base').then((res) => this.directors = res.data);
+                    
+                },
+                updateDirector(i, n, s, b, c, d) {
+                    axios.put('/director/' + i, {
+                        'directorId': i, 'directorName': n, 'directorSex': s, 'directorBirth': b, 'directorCountry': c
+                        , 'directorDesc': d
+                    }).then(console.log('发送成功'));
+                    
+                },
+                show(){
+                    this.isModalVisible=true;
                 }
+                // showModal() {
+                //     this.isModalVisible = true
+                // },
+                // closeModal() {
+                //     this.isModalVisible = false
+                // },
+                // create() {
+
+                // }
+                // update(){
+
+                // }
             },
             template: `
             <table class="table" id="">
@@ -398,7 +453,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="item in directors">
+                    <tr v-for="(item,index) in directors">
                         <td scope="row">{{item.directorId}}</td>
                         <td>{{item.directorName}}</td>
                         <td>{{item.directorSex}}</td>
@@ -406,53 +461,53 @@
                         <td>{{item.directorCountry}}</td>
                         <td>{{item.directorDesc}}</td>
                         <td>
-                            <button type="button" @click="directorList" class="btn btn-info" data-toggle="modal" data-target="#directorModal">修改</button>
-                            
-                            <button type="button" class="btn btn-danger">删除</button>
-                        </td>
-                        <td>
-                        <!-- 导演修改按钮的modal -->
-                            <div class="modal fade" id="directorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
+                            <button type="button" @click="show()" class="btn btn-info" data-toggle="modal" v-bind:data-target="'#'+item.directorName">修改</button>
+                            <div class="modal fade" tabindex="-1" role="dialog" v-bind:id=item.directorName aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document" >
                                     <div class="modal-content">
                                         <div class="modal-body">
-                                            <form method="PUT" action="'/director/'+item.directorId">
+                                            <form>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">导演名字</label>
-                                                    <input type="text" class="form-control" name="directorName" id="exampleInputEmail1" v-model="item.director_name" aria-describedby="emailHelp"
+                                                    <input type="text" class="form-control" name="directorName" id="exampleInputEmail1" v-model="item.directorName" aria-describedby="emailHelp"
                                                         placeholder="输入导演姓名">
                                                 </div>
 
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="directorSex" id="exampleRadios1" value="1" checked>
+                                                    <input class="form-check-input" type="radio" name="directorSex" v-model="item.directorSex" id="exampleRadios1" value="1">
                                                     <label class="form-check-label" for="exampleRadios1">
                                                         男
                                                     </label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="directorSex" id="exampleRadios2" value="0">
+                                                    <input class="form-check-input" type="radio" name="directorSex" v-model="item.directorSex" id="exampleRadios2" value="0">
                                                     <label class="form-check-label" for="exampleRadios2">
                                                         女
                                                     </label>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">出生日期</label>
-                                                    <input type="text" class="form-control" name="directorBirth" id="exampleInputPassword1" v-model="item.director_birth" placeholder="输入出生日期">
+                                                    <input type="text" class="form-control" name="directorBirth" id="exampleInputPassword1" v-model="item.directorBirth" placeholder="输入出生日期">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">国籍</label>
-                                                    <input type="text" class="form-control" name="directorCountry" id="exampleInputPassword1" v-model="item.director_country" placeholder="输入国籍">
+                                                    <input type="text" class="form-control" name="directorCountry" id="exampleInputPassword1" v-model="item.directorCountry" placeholder="输入国籍">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">简介</label>
-                                                    <input type="text" class="form-control" name="directorDesc" id="exampleInputPassword1" v-model="item.director_desc" placeholder="输入简介">
+                                                    <input type="text" class="form-control" name="directorDesc" id="exampleInputPassword1" v-model="item.directorDesc" placeholder="输入简介">
                                                 </div>
-                                                <button type="submit" class="btn btn-primary">提交</button>
+                                                <button type="button" @click="updateDirector(item.directorId,item.directorName,item.directorSex
+                                                ,item.directorBirth,item.directorCountry,item.directorDesc)" class="btn btn-info" >修改</button>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
-                            </div></td>
+                            </div>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+
+                        
                     </tr>
                 </tbody>
             </table>
@@ -460,16 +515,16 @@
         }
 
         const directorSearch = {
-            data(){
-                return{
-                    directors:[],
-                    directorName:''
+            data() {
+                return {
+                    director: [],
+                    directorName: ''
                 }
             },
-            methods:{
-                findDirector(n){
+            methods: {
+                findDirector(n) {
 
-                    axios.get('/director/name/'+n).then((res)=>this.directors=res.data);
+                    axios.get('/director/name/' + n).then((res) => this.director = res.data);
                 }
             },
             template: `
@@ -497,7 +552,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="d in directors">
+                                    <tr v-for="d in director">
                                         <td scope="row">{{d.directorId}}</td>
                                         <td>{{d.directorName}}</td>
                                         <td>{{d.directorSex}}</td>
@@ -618,20 +673,20 @@
         }
 
         const actorList = {
-            data(){
-                return{
-                    actors:[]
+            data() {
+                return {
+                    actors: []
                 }
             },
-            created(){
+            created() {
                 this.actorList()
             },
-            watch:{
-                '$route':'actorList'
+            watch: {
+                '$route': 'actorList'
             },
-            methods:{
-                actorList(){
-                    axios.get('/actor/base').then((res)=>this.actors=res.data)
+            methods: {
+                actorList() {
+                    axios.get('/actor/base').then((res) => this.actors = res.data)
                 }
             },
             template: `
@@ -656,8 +711,8 @@
                                     <td>{{a.actorCountry}}</td>
                                     <td>{{a.actorDesc}}</td>
                                     <td>
-                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ActorModal">修改</button>
-                                        <div class="modal fade" id="ActorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <button type="button" class="btn btn-info" data-toggle="modal" v-bind:data-target="'#'+a.actorName">修改</button>
+                                        <div class="modal fade" v-bind:id=a.actorName tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-body">
@@ -707,12 +762,24 @@
         }
 
         const actorSearch = {
+            data() {
+                return {
+                    actor: [],
+                    actorName: ''
+                }
+            },
+            methods: {
+                findActor(n) {
+
+                    axios.get('/actor/name/' + n).then((res) => this.actor = res.data);
+                }
+            },
             template: `
             <div>
                             <form class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" placeholder="输入演员姓名" aria-label="Search">
+                                <input class="form-control mr-sm-2" name="actorName" v-model="actorName" placeholder="输入演员姓名" aria-label="Search">
                                 <!-- 点击按钮后发送导演名并展开下拉内容框 （后续增加点击事件）-->
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="collapse" data-target="#collapseActor3" aria-expanded="false"
+                                <button @click="findActor(actorName)" class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="collapse" data-target="#collapseActor3" aria-expanded="false"
                                     aria-controls="collapseExample">搜索</button>
                             </form>
                             <div class="row">
@@ -732,13 +799,13 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td scope="row">1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
+                                                    <tr v-for="a in actor">
+                                                        <td scope="row">{{a.actorId}}</td>
+                                                        <td>{{a.actorName}}</td>
+                                                        <td>{{a.actorSex}}</td>
+                                        <td>{{a.actorBirth}}</td>
+                                        <td>{{a.actorCountry}}</td>
+                                        <td>{{a.actorDesc}}</td>
                                                         <td>
                                                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#actorModal2">修改</button>
                                                             <!-- 搜索导演并点击修改后的model -->
