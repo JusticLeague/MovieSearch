@@ -16,6 +16,9 @@ import org.apache.ibatis.annotations.Update;
  */
 @Mapper
 public interface MovieMapper {
+	
+	@Select("select director_id as directorId from director where director_name = #{directorName}")
+	int getId(String directorName);
 
 	// 表movie
 	@Select("select movie_id as movieId, movie_name as movieName, movie_type as movieType, movie_country as movieCountry, movie_score as movieScore,"
@@ -23,15 +26,11 @@ public interface MovieMapper {
 	List<MovieModel> findBase();
 
 	// 视图movie_show
-	@Select("select movie_id as movieId, movie_name as movieName, movie_type as movieType, movie_country as movieCountry, movie_score as movieScore,"
-			+ " movie_date as movieDate, movie_desc as movieDesc, director_name as directorname, actor_name as actorName,"
-			+ " movie_ratings as movieRatings, movie_dimension as movieDimension, poster_pic as posterPic from movie_show")
+	@Select("select * from movie_show")
 	List<MovieModel> findAll();
 
 	// 视图movie_show 通过id
-	@Select("select movie_id as movieId, movie_name as movieName, movie_type as movieType, movie_country as movieCountry, movie_score as movieScore,"
-			+ " movie_date as movieDate, movie_desc as movieDesc, director_name as directorname, actor_name as actorName,"
-			+ " movie_ratings as movieRatings, movie_dimension as movieDimension, poster_pic as posterPic from movie_show where movie_id = #{movieId}")
+	@Select("select * from movie_show where movieId = #{movieId}")
 	List<MovieModel> find(int movieId);
 
 	// 添加基本信息

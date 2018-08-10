@@ -53,14 +53,14 @@ mi.movie_id = m.movie_id;
 视图director_info
 create view director_info as
 select
-director.director_id,
-director_name,
-director_sex,
-director_country,
-director_birth,
-movie_name,
-director_pic,
-director_desc
+director.director_id as directorId,
+director_name as directorName,
+director_sex as directorSex,
+director_country as directorCountry,
+director_birth as directorBirth,
+movie_name as movieName,
+director_pic as directorPic,
+director_desc as directorDesc
 from
 movie , director , director_pic
 where
@@ -74,7 +74,14 @@ select * from director_info;
 视图actor_info
 create view actor_info as
 select
-actor.actor_id ,actor_name, actor_sex, actor_country, actor_birth, movie_name, actor_desc, actor_pic
+actor.actor_id as actorId,
+actor_name as actorName,
+actor_sex as actorSex, 
+actor_country as actorCountry, 
+actor_birth as actorBirth, 
+movie_name as movieName, 
+actor_desc as actorDesc, 
+actor_pic as actorPic 
 from 
 movie, movie_item, actor, actor_pic
 where 
@@ -91,11 +98,18 @@ select * from actor_info;
 视图movie_show
 create view movie_show as
 SELECT 
-movie.movie_id, movie_name, movie_type, movie_country, movie_date, movie_score, movie_ratings, movie_dimension,
-director_name,
-actor_name,
-movie_desc,
-poster_pic
+movie.movie_id as movieId,
+ movie_name as movieName,
+ movie_type as movieType,
+ movie_country as movieCountry,
+ movie_date as movieDate,
+ movie_score as movieScore,
+ movie_ratings as movieRatings,
+ movie_dimension as movieDimension,
+director_name as directorName,
+actor_name as actorName,
+movie_desc as movieDesc, 
+poster_pic as posterPic
 FROM
 movie, director, movie_item, actor, poster
 WHERE

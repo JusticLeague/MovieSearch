@@ -27,14 +27,12 @@ public interface DirectorMapper {
 	
 	
 	// 使用视图director_info 使用id
-	@Select("select director_id as directorId, director_name as directorName, director_sex as directorSex, director_country as directorCountry,"
-			+ "director_birth as directorBirth, movie_name as movieName, director_pic as directorPic, director_desc as directorDesc from director_info where director_id = #{directorId}")
+	@Select("select * from director_info where directorId = #{directorId}")
 	List<DirectorModel> find(int directorId);
 	
 	
 	// 视图director_info 
-	@Select("select director_id as directorId, director_name as directorName, director_sex as directorSex, director_country as directorCountry,"
-			+ "director_birth as directorBirth, movie_name as movieName, director_pic as directorPic, director_desc as directorDesc from director_info")
+	@Select("select * from director_info")
 	List<DirectorModel> findAll();
 	
 	// 表director 通过name 查找
