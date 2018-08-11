@@ -22,8 +22,12 @@
 </head>
 
 <body>
-    <h3>后台管理</h3>
-    <div class="container">
+    <!-- As a link -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#"><h4>后台管理</h4></a>
+    </nav>
+
+    <div class="container mt-5">
         <div id="manage">
             <p>
                 <router-link to="/movie">电影管理</router-link>
@@ -109,9 +113,25 @@
             </div>
             `
         }
-        
+
         //添加电影 ok
         const movieAdd = {
+            // data() {
+            //     return (
+            //         directorName:'',
+            //         movieName:'',
+            //         movieType:'',
+            //         movieCountry:'',
+            //     )
+            // },
+            // methods: {
+            //     add(dn, mn, mt, mc, ms, md, mr, mdi, mde) {
+            //         axios.post('/movie', {
+            //             'directorName': dn, 'movieName': mn, 'movieType': mt, 'movieCountry': mc, 'movieScore': ms,
+            //             'movieDate': md, 'movieRatings': mr, 'movieDimension': mdi, 'movieDesc': mde
+            //         }).then()
+            //     }
+            // },
             template: `
             <div>
             <form method="POST" action="movie" target="iframeMA">
@@ -144,10 +164,14 @@
                     <input type="text" class="form-control" name="movieDimension" id="exampleInputPassword1" placeholder="">
                 </div>
                 <div class="form-group">
+                    <label for="exampleInputEmail1">导演</label>
+                    <input type="text" class="form-control" name="directorName" id="exampleInputPassword1" placeholder="">
+                </div>
+                <div class="form-group">
                     <label for="exampleInputEmail1">简介</label>
                     <input type="text" class="form-control" name="movieDesc" id="exampleInputPassword1" placeholder="">
                 </div>
-                    <button type="submit" class="btn btn-primary">提交</button>
+                    <button type="submit"  class="btn btn-primary">提交</button>
                 </form>
                 <iframe id="iframe" name="iframeMA" style="display:none;"></iframe>
                 </div>
@@ -188,14 +212,16 @@
                     axios.get('/movie/base').then((res) => this.movies = res.data);
                 },
 
-                updateMovie(i,n,t,c,s,d,r,di,de){
-                    axios.put('/movie/'+i,{'movieId':i,'movieName':n,'movieType':t,'movieCountry':c,'movieScore':s,
-                    'movieDate':d,'movieRatings':r,'movieDimension':di,'movieDesc':de}).then(
-                        console.log('发送成功')               
+                updateMovie(i, n, t, c, s, d, r, di, de) {
+                    axios.put('/movie/' + i, {
+                        'movieId': i, 'movieName': n, 'movieType': t, 'movieCountry': c, 'movieScore': s,
+                        'movieDate': d, 'movieRatings': r, 'movieDimension': di, 'movieDesc': de
+                    }).then(
+                        console.log('发送成功')
                     )
                 },
-                deleteMovie(i){
-                    axios.delete('/movie/'+i,{'movieId':i}).then();
+                deleteMovie(i) {
+                    axios.delete('/movie/' + i, { 'movieId': i }).then();
                 }
             },
             template: `
@@ -293,14 +319,16 @@
                 findMovie(n) {
                     axios.get('/movie/name/' + n).then((res) => this.movie = res.data);
                 },
-                updateMovie(i,n,t,c,s,d,r,di,de){
-                    axios.put('/movie/'+i,{'movieId':i,'movieName':n,'movieType':t,'movieCountry':c,'movieScore':s,
-                    'movieDate':d,'movieRatings':r,'movieDimension':di,'movieDesc':de}).then(
-                        console.log('发送成功')               
+                updateMovie(i, n, t, c, s, d, r, di, de) {
+                    axios.put('/movie/' + i, {
+                        'movieId': i, 'movieName': n, 'movieType': t, 'movieCountry': c, 'movieScore': s,
+                        'movieDate': d, 'movieRatings': r, 'movieDimension': di, 'movieDesc': de
+                    }).then(
+                        console.log('发送成功')
                     )
                 },
-                deleteMovie(i){
-                    axios.delete('/movie/'+i,{'movieId':i}).then();
+                deleteMovie(i) {
+                    axios.delete('/movie/' + i, { 'movieId': i }).then();
                 }
             },
             template: `
@@ -418,13 +446,13 @@
                 vipList() {
                     axios.get('/signIn').then((res) => this.vips = res.data)
                 },
-                updateVip(i,n,p){
-                    axios.put('/vip/'+i,{'vipId':i,'vipName':n,'vipPhone':p}).then(
+                updateVip(i, n, p) {
+                    axios.put('/vip/' + i, { 'vipId': i, 'vipName': n, 'vipPhone': p }).then(
                         console.log('发送成功')
                     )
                 },
-                deleteVip(i){
-                    axios.delete('/vip/'+i,{'vipId':i}).then()
+                deleteVip(i) {
+                    axios.delete('/vip/' + i, { 'vipId': i }).then()
                 }
             },
             template: `
@@ -484,13 +512,13 @@
                 findVip(n) {
                     axios.get('/signIn/name/' + n).then((res) => this.vip = res.data);
                 },
-                updateVip(i,n,p){
-                    axios.put('/vip/'+i,{'vipId':i,'vipName':n,'vipPhone':p}).then(
+                updateVip(i, n, p) {
+                    axios.put('/vip/' + i, { 'vipId': i, 'vipName': n, 'vipPhone': p }).then(
                         console.log('发送成功')
                     )
                 },
-                deleteVip(i){
-                    axios.delete('/vip/'+i,{'vipId':i}).then()
+                deleteVip(i) {
+                    axios.delete('/vip/' + i, { 'vipId': i }).then()
                 }
             },
             template: `
@@ -637,10 +665,10 @@
                         'directorId': i, 'directorName': n, 'directorSex': s, 'directorBirth': b, 'directorCountry': c
                         , 'directorDesc': d
                     }).then(console.log('发送成功'));
-                    
+
                 },
-                deleteDirector(i){
-                    axios.delete('/director/'+i,{'directorId':i}).then()
+                deleteDirector(i) {
+                    axios.delete('/director/' + i, { 'directorId': i }).then()
                 }
             },
             template: `
@@ -735,10 +763,10 @@
                         'directorId': i, 'directorName': n, 'directorSex': s, 'directorBirth': b, 'directorCountry': c
                         , 'directorDesc': d
                     }).then(console.log('发送成功'));
-                    
+
                 },
-                deleteDirector(i){
-                    axios.delete('/director/'+i,{'directorId':i}).then()
+                deleteDirector(i) {
+                    axios.delete('/director/' + i, { 'directorId': i }).then()
                 }
             },
             template: `
@@ -910,10 +938,10 @@
                         'actorId': i, 'actorName': n, 'actorSex': s, 'actorBirth': b, 'actorCountry': c
                         , 'actorDesc': d
                     }).then(console.log('发送成功'));
-                    
+
                 },
-                deleteActor(i){
-                    axios.delete('/actor/'+i,{'actorId':i}).then()
+                deleteActor(i) {
+                    axios.delete('/actor/' + i, { 'actorId': i }).then()
                 }
             },
             template: `
@@ -1006,10 +1034,10 @@
                         'actorId': i, 'actorName': n, 'actorSex': s, 'actorBirth': b, 'actorCountry': c
                         , 'actorDesc': d
                     }).then(console.log('发送成功'));
-                    
+
                 },
-                deleteActor(i){
-                    axios.delete('/actor/'+i,{'actorId':i}).then()
+                deleteActor(i) {
+                    axios.delete('/actor/' + i, { 'actorId': i }).then()
                 }
             },
             template: `
@@ -1119,8 +1147,8 @@
                 component: movieList
             },
             {
-                path:'search',
-                component:movieSearch
+                path: 'search',
+                component: movieSearch
             }]
         },
         {
@@ -1131,8 +1159,8 @@
                 component: vipList,
             },
             {
-                path:'search',
-                component:vipSearch
+                path: 'search',
+                component: vipSearch
             }]
         },
         {
