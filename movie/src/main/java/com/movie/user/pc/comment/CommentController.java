@@ -38,10 +38,10 @@ public class CommentController {
 	}
 
 	// 统计某部影片有多少评论
-	 @GetMapping("/comment/numble")
+	 @GetMapping("/comment/number/{movieId}")
 	 @ResponseBody
-	 public int numble(int movieId) {
-	 return service.numble(movieId);
+	 public int number(@PathVariable int movieId) {
+	 return service.number(movieId);
 	 }
 
 }

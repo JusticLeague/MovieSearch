@@ -3,6 +3,7 @@ package com.movie.user.pc.score;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,9 +20,10 @@ public class ScoreController {
 		service.create(score);
 	}
 
-	@GetMapping("/score")
+	// 得到一个影片的评分（平均值）
+	@GetMapping("/score/{movieId}")
 	@ResponseBody
-	public double score(int movieId) {
+	public double score(@PathVariable int movieId) {
 		return service.score(movieId);
 	}
 

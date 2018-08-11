@@ -44,7 +44,15 @@ public class MovieController {
 	public List<MovieModel> findBase(){
 		return service.findBase();
 	}
-
+	
+	// 表movie
+	@GetMapping("/base/{movieName}")
+	@ResponseBody
+	public List<MovieModel> findByName(@PathVariable String movieName){
+		return findByName(movieName);
+	}
+	
+	
 	// 创建基本信息
 	@PostMapping
 	public void create(@RequestParam(value = "directorName", required = true) String directorName, @RequestBody MovieModel movie) {
