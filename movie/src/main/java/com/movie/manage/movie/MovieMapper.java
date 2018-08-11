@@ -49,10 +49,29 @@ public interface MovieMapper {
 	@Update("update movie set movie_name=#{movieName}, movie_type=#{movieType}, movie_country=#{movieCountry}, movie_score=#{movieScore}, movie_date=#{movieDate}, movie_desc=#{movieDesc}, director_id=#{directorId}, movie_ratings=#{movieRatings}, movie_dimension=#{movieDimension} where movie_id = #{movieId}")
 	void update(MovieModel movie);
 
+	// movie,score,comment,collect,movie_item,director,poster
 	@Delete("delete from movie where movie_id = #{movieId}")
-	void remove(int movieId);
-
+	void removeMovie(int movieId);
+	
+	@Delete("delete from score where movie_id = #{movieId}")
+	void removeScore(int movieId);
+	
+	@Delete("delete from comment where movie_id = #{movieId}")
+	void removeComment(int movieId);
+	
+	@Delete("delete from collect where movie_id = #{movieId}")
+	void removeCollect(int movieId);
+	
+	@Delete("delete from movie_item where movie_id = #{movieId}")
+	void removeMovie_item(int movieId);
+	
+	@Delete("delete from director where movie_id = #{movieId}")
+	void removeDirector(int movieId);
+	
 	@Delete("delete from poster where movie_id = #{movieId}")
-	void reomvePic(int movieId);
-
+	void removePoster(int movieId);
+	
+	
+	
+	
 }

@@ -47,8 +47,13 @@ public class MovieService {
 	
 	// 删除影片包括海报
 	public void remove(int movieId) {
-		mapper.remove(movieId);
-		mapper.reomvePic(movieId);
+		mapper.removeScore(movieId);
+		mapper.removeComment(movieId);
+		mapper.removeCollect(movieId);
+		mapper.removeMovie_item(movieId);
+		mapper.removeDirector(movieId);
+		mapper.removePoster(movieId);
+		mapper.removeMovie(movieId);
 	}
 	
 	// 修改
