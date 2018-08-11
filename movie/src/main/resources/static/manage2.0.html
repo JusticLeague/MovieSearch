@@ -317,7 +317,7 @@
             },
             methods: {
                 findMovie(n) {
-                    axios.get('/movie/name/' + n).then((res) => this.movie = res.data);
+                    axios.get('/movie/base/' + n).then((res) => this.movie = res.data);
                 },
                 updateMovie(i, n, t, c, s, d, r, di, de) {
                     axios.put('/movie/' + i, {
@@ -408,7 +408,7 @@
                                                                     <label for="exampleInputEmail1">简介</label>
                                                                     <input type="text" class="form-control" name="movieDesc" v-model="m.movieDesc" id="exampleInputPassword1" placeholder="">
                                                                 </div>
-                                                                <button type="botton" @click="updateMovie(m.movieName,m.movieType,m.movieCountry,
+                                                                <button type="botton" @click="updateMovie(m.movieId,m.movieName,m.movieType,m.movieCountry,
                                                                 m.movieScore,m.movieDate,m.movieRatings,m.movieDimension,m.movieDesc)" class="btn btn-primary">提交</button>
                                                             </form>
                                                         </div>
