@@ -3,6 +3,7 @@ package com.movie.user.signUp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.movie.user.User;
@@ -21,7 +22,7 @@ public class SignUpController {
 	SignUpService service;
 
 	@PostMapping
-	public String add(User u) {
+	public String add(@RequestBody User u) {
 		service.addVip(u);
 		return "redirect:/signIn.html";
 	}

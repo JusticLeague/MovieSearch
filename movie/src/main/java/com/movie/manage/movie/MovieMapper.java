@@ -33,7 +33,7 @@ public interface MovieMapper {
 	@Select("select * from movie_show where movieId = #{movieId}")
 	List<MovieModel> find(int movieId);
 
-	// 添加基本信息
+	// 添加基本信息 表director
 	@Insert("insert into movie(movie_name, movie_type, movie_country, movie_score, movie_date, movie_desc, director_id, movie_ratings, movie_dimension) value(#{movieName}, #{movieType}, #{movieCountry}, #{movieScore}, #{movieDate}, #{movieDesc}, #{directorId}, #{movieRatings}, #{movieDimension}")
 	void create(MovieModel movie);
 

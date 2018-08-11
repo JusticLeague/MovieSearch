@@ -50,7 +50,7 @@ public class DirectorController {
 	}
 
 	@PostMapping
-	public String create(DirectorModel director) {
+	public String create(@RequestBody DirectorModel director) {
 		service.create(director);
 		return "redirect:/manage2.0.html#/director/add";
 	}

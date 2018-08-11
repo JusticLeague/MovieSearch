@@ -27,7 +27,7 @@ public class CommentService {
 	}
 
 	// 统计某部影片有多少评论量
-	public int numble(int movieId) {
+	public int number(int movieId) {
 		return mapper.sum(movieId);
 	}
 

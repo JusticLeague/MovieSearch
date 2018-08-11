@@ -44,7 +44,7 @@ public class MovieController {
 
 	// 创建基本信息
 	@PostMapping
-	public void create(@RequestParam(value = "directorName", required = true) String directorName, MovieModel movie) {
+	public void create(@RequestParam(value = "directorName", required = true) String directorName, @RequestBody MovieModel movie) {
 		movie.setDirectorId(service.getId(directorName));
 		service.create(movie);
 	}
