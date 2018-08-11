@@ -24,6 +24,11 @@ public interface MovieMapper {
 	@Select("select movie_id as movieId, movie_name as movieName, movie_type as movieType, movie_country as movieCountry, movie_score as movieScore,"
 			+ "director_id as directorId, movie_date as movieDate, movie_desc as movieDesc, movie_ratings as movieRatings, movie_dimension as movieDimension from movie")
 	List<MovieModel> findBase();
+	
+	// 表movie 通过name
+	@Select("select movie_id as movieId, movie_name as movieName, movie_type as movieType, movie_country as movieCountry, movie_score as movieScore,"
+			+ "movie_date as movieDate, movie_desc as movieDesc, movie_ratings as movieRatings, movie_dimension as movieDimension from movie")
+	List<MovieModel> findByName(String movieName);
 
 	// 视图movie_show
 	@Select("select * from movie_show")
@@ -34,7 +39,7 @@ public interface MovieMapper {
 	List<MovieModel> find(int movieId);
 
 	// 添加基本信息 表director
-	@Insert("insert into movie(movie_name, movie_type, movie_country, movie_score, movie_date, movie_desc, director_id, movie_ratings, movie_dimension) value(#{movieName}, #{movieType}, #{movieCountry}, #{movieScore}, #{movieDate}, #{movieDesc}, #{directorId}, #{movieRatings}, #{movieDimension}")
+	@Insert("insert into movie(movie_name, movie_type, movie_country, movie_score, movie_date, movie_desc, director_id, movie_ratings, movie_dimension) value(#{movieName}, #{movieType}, #{movieCountry}, #{movieScore}, #{movieDate}, #{movieDesc}, #{directorId}, #{movieRatings}, #{movieDimension})")
 	void create(MovieModel movie);
 
 	// 添加海报

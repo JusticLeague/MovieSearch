@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -21,7 +20,7 @@ public class CommentController {
 
 	// 添加评论
 	@PostMapping
-	public void create(@RequestBody CommentModel comment) {
+	public void create(CommentModel comment) {
 		service.create(comment);
 	}
 
@@ -39,9 +38,9 @@ public class CommentController {
 	}
 
 	// 统计某部影片有多少评论
-	 @GetMapping("/comment/number")
+	 @GetMapping("/comment/number/{movieId}")
 	 @ResponseBody
-	 public int number(int movieId) {
+	 public int number(@PathVariable int movieId) {
 	 return service.number(movieId);
 	 }
 

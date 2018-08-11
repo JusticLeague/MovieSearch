@@ -19,6 +19,11 @@ public class MovieService {
 	public List<MovieModel> findBase(){
 		return mapper.findBase();
 	}
+	
+	// 表movie 通过name
+	public List<MovieModel> fineByName(String movieName){
+		return mapper.findByName(movieName);
+	}
 
 	// 视图movie_show信息
 	public List<MovieModel> findAll(){

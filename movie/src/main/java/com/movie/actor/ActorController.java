@@ -58,7 +58,7 @@ public class ActorController {
 
 	// 创建演员
 	@PostMapping
-	public void create(@RequestBody ActorModel actor) {
+	public void create(ActorModel actor) {
 		service.create(actor);
 //		return "redirect:/manage.html";
 	}
