@@ -21,7 +21,7 @@ public class MovieService {
 	}
 	
 	// 表movie 通过name
-	public List<MovieModel> fineByName(String movieName){
+	public List<MovieModel> findByName(String movieName){
 		return mapper.findByName(movieName);
 	}
 
