@@ -1,8 +1,5 @@
 package com.movie.manage.movie;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
-
-import java.io.Console;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,38 +21,38 @@ public class MovieController {
 	@Autowired
 	MovieService service;
 
-	// 视图movie_show 
+	// 视图movie_show
 	@GetMapping
 	@ResponseBody
 	public List<MovieModel> findAll() {
 		return service.findAll();
 	}
-	
+
 	// 视图movie_show 通过id
 	@GetMapping("/{movieId}")
 	@ResponseBody
-	public List<MovieModel> find(@PathVariable int movieId){
+	public List<MovieModel> find(@PathVariable int movieId) {
 		return service.find(movieId);
 	}
-	
+
 	// 表movie
 	@GetMapping("/base")
 	@ResponseBody
-	public List<MovieModel> findBase(){
+	public List<MovieModel> findBase() {
 		return service.findBase();
 	}
-	
+
 	// 表movie
 	@GetMapping("/base/{movieName}")
 	@ResponseBody
-	public List<MovieModel> findByName(@PathVariable String movieName){
+	public List<MovieModel> findByName(@PathVariable String movieName) {
 		return service.findByName(movieName);
 	}
-	
-	
+
 	// 创建基本信息
 	@PostMapping
-	public void create(@RequestParam(value = "directorName", required = true) String directorName, @RequestBody MovieModel movie) {
+	public void create(@RequestParam(value = "directorName", required = true) String directorName,
+			@RequestBody MovieModel movie) {
 		movie.setDirectorId(service.getId(directorName));
 		service.create(movie);
 	}
