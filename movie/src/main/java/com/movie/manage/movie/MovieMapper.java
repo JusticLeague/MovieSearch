@@ -46,7 +46,7 @@ public interface MovieMapper {
 	@Insert("insert into poster(movie_id, poster_pic) value(#{movieId}, #{posterPic}")
 	void addPic(int movieId, String posterPic);
 
-	@Update("update movie set movie_name=#{movieName}, movie_type=#{movieType}, movie_country=#{movieCountry}, movie_score=#{movieScore}, movie_date=#{movieDate}, movie_desc=#{movieDesc}, director_id=#{directorId}, movie_ratings=#{movieRatings}, movie_dimension=#{movieDimension} where movie_id = #{movieId})")
+	@Update("update movie set movie_name=#{movieName}, movie_type=#{movieType}, movie_country=#{movieCountry}, movie_score=#{movieScore}, movie_date=#{movieDate}, movie_desc=#{movieDesc}, director_id=#{directorId}, movie_ratings=#{movieRatings}, movie_dimension=#{movieDimension} where movie_id = #{movieId}")
 	void update(MovieModel movie);
 
 	@Delete("delete from movie where movie_id = #{movieId}")

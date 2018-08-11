@@ -42,7 +42,7 @@ public class MovieController {
 		return service.findBase();
 	}
 
-	// 表movie
+	// 表movie 通过name
 	@GetMapping("/base/{movieName}")
 	@ResponseBody
 	public List<MovieModel> findByName(@PathVariable String movieName) {
@@ -66,7 +66,9 @@ public class MovieController {
 
 	// 修改
 	@PutMapping("/{movieId}")
-	public void update(@PathVariable int movieId, @RequestBody MovieModel movie) {
+	public void update(@RequestBody MovieModel movie,
+			@RequestParam(value = "directorName", required = false) String directorName) {
+		movie.setDirectorId(service.getId(directorName));
 		service.update(movie);
 	}
 
