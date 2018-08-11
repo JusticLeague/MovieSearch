@@ -46,7 +46,7 @@ public class MovieController {
 	@GetMapping("/base/{movieName}")
 	@ResponseBody
 	public List<MovieModel> findByName(@PathVariable String movieName){
-		return findByName(movieName);
+		return service.findByName(movieName);
 	}
 	
 	
