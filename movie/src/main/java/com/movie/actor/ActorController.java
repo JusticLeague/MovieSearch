@@ -27,40 +27,33 @@ public class ActorController {
 	public List<ActorModel> find(@PathVariable int actorId) {
 		return service.find(actorId);
 	}
-	
+
 	// 视图actor_info
 	@GetMapping
 	@ResponseBody
-	public List<ActorModel> findAll(){
+	public List<ActorModel> findAll() {
 		return service.findAll();
 	}
-	
+
 	// 表actor 通过name
 	@GetMapping("/name/{actorName}")
 	@ResponseBody
-	public List<ActorModel> findByName(@PathVariable String actorName){
+	public List<ActorModel> findByName(@PathVariable String actorName) {
 		return service.findByName(actorName);
 	}
-	
+
 	// 表actor
 	@GetMapping("/base")
 	@ResponseBody
-	public List<ActorModel> findBase(){
+	public List<ActorModel> findBase() {
 		return service.findBase();
 	}
-
-//	// 海报
-//	@GetMapping
-//	@ResponseBody
-//	public List<ActorModel> findPic() {
-//		return service.findPic();
-//	}
 
 	// 创建演员
 	@PostMapping
 	public void create(ActorModel actor) {
 		service.create(actor);
-//		return "redirect:/manage.html";
+		// return "redirect:/manage.html";
 	}
 
 	// 添加海报

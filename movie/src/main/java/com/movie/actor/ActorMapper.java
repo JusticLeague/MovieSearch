@@ -17,6 +17,7 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface ActorMapper {
 
+	// 表 actor  通过name得到id
 	 @Select("select actor_id as actorId from actor where actor_name = #{actorName}")
 	 int getId(String actorName);
 
@@ -45,7 +46,9 @@ public interface ActorMapper {
 	@Insert("insert into actor_pic(actor_id, actor_pic) value(#{actorId}, #{actorPic})")
 	void addPic(int id, String actorPic);
 
-	// 删除演员
+	// 删除演员 (将movie_item中的actor_id 赋 null)
+	@Update("update movie_item set actor_id = null where actor_id = #{actorId}")
+	void set(int actorId);
 	@Delete("delete from actor where actor_id = #{actorId}")
 	void remove(int actorId);
 

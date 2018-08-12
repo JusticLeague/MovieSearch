@@ -42,6 +42,10 @@ public class MovieController {
 		return service.findBase();
 	}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f7d2ba882358695dbb1c2169f8912ca21476e88f
 	// 表movie 通过name
 	@GetMapping("/base/{movieName}")
 	@ResponseBody

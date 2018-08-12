@@ -9,8 +9,8 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 /**
- * 添加导演、添加海报
- * 视图 name,country,sex,birth,desc,pic,movie
+ * 添加导演、添加海报 视图 name,country,sex,birth,desc,pic,movie
+ * 
  * @author QQ546
  *
  */
@@ -24,30 +24,32 @@ public interface DirectorMapper {
 	// 上传图片
 	@Insert("insert into director_pic(director_id, director_pic) value(#{directorId}, #{directorPic}")
 	void addPic(int id, String pic);
-	
+
 	// 得到id
 	@Select("select director_id as directorId from director where director_name = #{directorName}")
 	int getId(String directorName);
-	
+
 	// 使用视图director_info 使用id
 	@Select("select * from director_info where directorId = #{directorId}")
 	List<DirectorModel> find(int directorId);
-	
-	// 视图director_info 
+
+	// 视图director_info
 	@Select("select * from director_info")
 	List<DirectorModel> findAll();
-	
+
 	// 表director 通过name 查找
 	@Select("select director_id as directorId, director_name as directorName, director_sex as directorSex, director_country as directorCountry, "
 			+ "director_birth as directorBirth, director_desc as directorDesc from director where director_name = #{directorName}")
 	List<DirectorModel> findByName(String name);
-	
-	// 表 director 
+
+	// 表 director
 	@Select("select director_id as directorId, director_name as directorName, director_sex as directorSex, director_country as directorCountry, "
 			+ "director_birth as directorBirth, director_desc as directorDesc from director")
 	List<DirectorModel> findBase();
 
-	// 删除导演
+	// 删除导演(将movie中的director_id 赋 null)
+	@Update("update movie set director_id = null  where director_id = #{directorId}")
+	void set(int director);
 	@Delete("delete from director where director_id = #{directorId}")
 	void remove(int directorId);
 
