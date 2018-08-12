@@ -51,7 +51,6 @@ public class MovieService {
 		mapper.removeComment(movieId);
 		mapper.removeCollect(movieId);
 		mapper.removeMovie_item(movieId);
-		mapper.removeDirector(movieId);
 		mapper.removePoster(movieId);
 		mapper.removeMovie(movieId);
 	}

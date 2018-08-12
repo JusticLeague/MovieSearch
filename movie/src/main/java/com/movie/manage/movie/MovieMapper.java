@@ -38,11 +38,7 @@ public interface MovieMapper {
 	@Select("select * from movie_show where movieId = #{movieId}")
 	List<MovieModel> find(int movieId);
 
-<<<<<<< HEAD
-	// 添加基本信息 表director
-=======
 	// 添加基本信息 表movie
->>>>>>> 58d9b8604c3c586054210354345591acf548830a
 	@Insert("insert into movie(movie_name, movie_type, movie_country, movie_score, movie_date, movie_desc, director_id, movie_ratings, movie_dimension) value(#{movieName}, #{movieType}, #{movieCountry}, #{movieScore}, #{movieDate}, #{movieDesc}, #{directorId}, #{movieRatings}, #{movieDimension})")
 	void create(MovieModel movie);
 
@@ -53,7 +49,7 @@ public interface MovieMapper {
 	@Update("update movie set movie_name=#{movieName}, movie_type=#{movieType}, movie_country=#{movieCountry}, movie_score=#{movieScore}, movie_date=#{movieDate}, movie_desc=#{movieDesc}, director_id=#{directorId}, movie_ratings=#{movieRatings}, movie_dimension=#{movieDimension} where movie_id = #{movieId}")
 	void update(MovieModel movie);
 
-	// movie,score,comment,collect,movie_item,director,poster
+	// movie,score,comment,collect,movie_item,poster
 	@Delete("delete from movie where movie_id = #{movieId}")
 	void removeMovie(int movieId);
 	
@@ -68,9 +64,6 @@ public interface MovieMapper {
 	
 	@Delete("delete from movie_item where movie_id = #{movieId}")
 	void removeMovie_item(int movieId);
-	
-	@Delete("delete from director where movie_id = #{movieId}")
-	void removeDirector(int movieId);
 	
 	@Delete("delete from poster where movie_id = #{movieId}")
 	void removePoster(int movieId);
