@@ -46,7 +46,7 @@ public class MovieService {
 	}
 	
 	// 删除影片包括海报
-	public void remove(int movieId) {
+	public void remove(Integer movieId) {
 		mapper.remove(movieId);
 		mapper.reomvePic(movieId);
 	}

@@ -42,11 +42,7 @@ public class MovieController {
 		return service.findBase();
 	}
 
-<<<<<<< HEAD
-	// 表movie
-=======
 	// 表movie 通过name
->>>>>>> 58d9b8604c3c586054210354345591acf548830a
 	@GetMapping("/base/{movieName}")
 	@ResponseBody
 	public List<MovieModel> findByName(@PathVariable String movieName) {
@@ -55,9 +51,9 @@ public class MovieController {
 
 	// 创建基本信息
 	@PostMapping
-	public void create(@RequestParam(value = "directorName", required = true) String directorName,
+	public void create(
 			@RequestBody MovieModel movie) {
-		movie.setDirectorId(service.getId(directorName));
+		movie.setDirectorId(service.getId(movie.directorName));
 		service.create(movie);
 	}
 
@@ -70,15 +66,14 @@ public class MovieController {
 
 	// 修改
 	@PutMapping("/{movieId}")
-	public void update(@RequestBody MovieModel movie,
-			@RequestParam(value = "directorName", required = false) String directorName) {
-		movie.setDirectorId(service.getId(directorName));
+	public void update(@RequestBody MovieModel movie) {
+//		movie.setDirectorId(service.getId(directorName));
 		service.update(movie);
 	}
 
 	// 删除
 	@DeleteMapping("/{movieId}")
-	public void remove(@PathVariable int movieId) {
+	public void remove(Integer movieId) {
 		service.remove(movieId);
 	}
 
