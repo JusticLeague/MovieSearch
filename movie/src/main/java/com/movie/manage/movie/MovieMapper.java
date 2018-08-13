@@ -51,11 +51,18 @@ public interface MovieMapper {
 	@Insert("insert into poster(movie_id, poster_pic) value(#{movieId}, #{posterPic}")
 	void addPic(int movieId, String posterPic);
 
-	@Update("update movie set movie_name=#{movieName}, movie_type=#{movieType}, movie_country=#{movieCountry}, movie_score=#{movieScore}, movie_date=#{movieDate}, movie_desc=#{movieDesc}, director_id=#{directorId}, movie_ratings=#{movieRatings}, movie_dimension=#{movieDimension} where movie_id = #{movieId}")
+	@Update("update movie set movie_name=#{movieName}, movie_type=#{movieType}, movie_country=#{movieCountry}, movie_score=#{movieScore}, movie_date=#{movieDate}, movie_desc=#{movieDesc}, movie_ratings=#{movieRatings}, movie_dimension=#{movieDimension} where movie_id = #{movieId}")
 	void update(MovieModel movie);
 
 	// movie,score,comment,collect,movie_item,poster
 	@Delete("delete from movie where movie_id = #{movieId}")
+<<<<<<< HEAD
+	void remove(Integer movieId);
+
+	@Delete("delete from poster where movie_id = #{movieId}")
+	void reomvePic(Integer movieId);
+
+=======
 	void removeMovie(int movieId);
 
 	@Delete("delete from score where movie_id = #{movieId}")
@@ -72,5 +79,13 @@ public interface MovieMapper {
 
 	@Delete("delete from poster where movie_id = #{movieId}")
 	void removePoster(int movieId);
+<<<<<<< HEAD
 
+=======
+	
+	
+	
+	
+>>>>>>> f7d2ba882358695dbb1c2169f8912ca21476e88f
+>>>>>>> f7f185814e4a0dcba5a3e792f684fc23e9c1f902
 }

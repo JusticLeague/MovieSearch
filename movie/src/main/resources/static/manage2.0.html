@@ -21,21 +21,36 @@
 
 </head>
 
-<body>
+<body style="background-color: #f5f8fa">
     <!-- As a link -->
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="#"><h4>后台管理</h4></a>
+    <nav class="navbar" style="background-color: #3097D1">
+            <h4 style="color: white">后台管理</h4>
     </nav>
 
-    <div class="container mt-5">
+    <div class="container mt-3">
         <div id="manage">
             <p>
-                <router-link to="/movie">电影管理</router-link>
-                <router-link to="/vip">用户管理</router-link>
-                <router-link to="/director">导演管理</router-link>
-                <router-link to="/actor">演员管理</router-link>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <router-link to="/movie"><button type="button" class="btn btn-primary">电影管理</button></router-link>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <router-link to="/vip"><button type="button" class="btn btn-primary">用户管理</button></router-link>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <router-link to="/director"><button type="button" class="btn btn-primary">导演管理</button></router-link>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <router-link to="/actor"><button type="button" class="btn btn-primary">演员管理</button></router-link>
+                        </li>
+                    </ol>
+                    </ol>
+                </nav>
             </p>
-            <router-view></router-view>
+            <!-- <div class="alert alert-primary" role="alert"> -->
+                <router-view></router-view>
+            <!-- </div> -->
         </div>
     </div>
 
@@ -69,21 +84,37 @@
         const movieManage = {
             template: `
             <div class="movie">
-                <router-link to="/movie/add">添加电影</router-link>
-                <router-link to="/movie/poster">添加图片</router-link>
-                <router-link to="/movie/list">影片列表</router-link>
-                <router-link to="/movie/search">影片搜索</router-link>
-                <router-view></router-view>
-                </div>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><router-link to="/movie/add">添加电影</router-link></li>
+                        <li class="breadcrumb-item"><router-link to="/movie/poster">添加图片</router-link></li>
+                        <li class="breadcrumb-item"><router-link to="/movie/list">影片列表</router-link></li>
+                        <li class="breadcrumb-item"><router-link to="/movie/search">影片搜索</router-link></li>
+                    </ol>
+                </nav>
+                <div class="card" style="width: 60rem;margin:0 auto">
+                    <div class="card-body">
+                        <router-view></router-view>   
+                    </div>
+                </div>                                   
+            </div>
                 `
         }
         //用户管理
         const vipManage = {
             template: `
             <div class="vip">
-                <router-link to="/vip/list">用户列表</router-link>
-                <router-link to="/vip/search">用户搜索</router-link>
-                <router-view></router-view>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><router-link to="/vip/list">用户列表</router-link></li>
+                        <li class="breadcrumb-item"><router-link to="/vip/search">用户搜索</router-link></li>
+                    </ol>
+                </nav>             
+                <div class="card" style="width: 60rem;margin:0 auto">
+                    <div class="card-body">
+                        <router-view></router-view>
+                    </div>
+                </div>               
             </div>
             `
         }
@@ -92,11 +123,19 @@
         const directorManage = {
             template: `
             <div class="director">
-                <router-link to="/director/add">添加导演</router-link>
-                <router-link to="/director/pic">添加图片</router-link>
-                <router-link to="/director/list">导演列表</router-link>
-                <router-link to="/director/search">搜索导演</router-link>
-                <router-view></router-view>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><router-link to="/director/add">添加导演</router-link></li>
+                        <li class="breadcrumb-item"><router-link to="/director/pic">添加图片</router-link></li>
+                        <li class="breadcrumb-item"><router-link to="/director/list">导演列表</router-link></li>
+                        <li class="breadcrumb-item"><router-link to="/director/search">搜索导演</router-link></li>
+                    </ol>
+                </nav>
+                <div class="card" style="width: 60rem;margin:0 auto">
+                    <div class="card-body">
+                        <router-view></router-view>
+                    </div>
+                </div>               
             </div>
             `
         }
@@ -105,75 +144,95 @@
         const actorManage = {
             template: `
             <div class="actor">
-                <router-link to="/actor/add">添加演员</router-link>
-                <router-link to="/actor/pic">添加图片</router-link>
-                <router-link to="/actor/list">演员列表</router-link>
-                <router-link to="/actor/search">搜索演员</router-link>
-                <router-view></router-view>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><router-link to="/actor/add">添加演员</router-link></li>
+                        <li class="breadcrumb-item"><router-link to="/actor/pic">添加图片</router-link></li>
+                        <li class="breadcrumb-item"><router-link to="/actor/list">演员列表</router-link></li>
+                        <li class="breadcrumb-item"><router-link to="/actor/search">搜索演员</router-link></li>
+                    </ol>
+                </nav>
+                <div class="card" style="width: 60rem;margin:0 auto">
+                    <div class="card-body">
+                       <router-view></router-view>
+                    </div>
+                </div>
             </div>
             `
         }
 
         //添加电影 ok
         const movieAdd = {
-            // data() {
-            //     return (
-            //         directorName:'',
-            //         movieName:'',
-            //         movieType:'',
-            //         movieCountry:'',
-            //     )
-            // },
-            // methods: {
-            //     add(dn, mn, mt, mc, ms, md, mr, mdi, mde) {
-            //         axios.post('/movie', {
-            //             'directorName': dn, 'movieName': mn, 'movieType': mt, 'movieCountry': mc, 'movieScore': ms,
-            //             'movieDate': md, 'movieRatings': mr, 'movieDimension': mdi, 'movieDesc': mde
-            //         }).then()
-            //     }
-            // },
+            data() {
+                return {
+                    directorName:'',
+                    movieName:'',
+                    movieType:'',
+                    movieCountry:'',
+                    movieScore:'',
+                    movieDate:'',
+                    movieRatings:'',
+                    movieDimension:'',
+                    movieDesc:''
+                }
+            },
+            methods: {
+                add(dn, mn, mt, mc, ms, md, mr, mdi, mde) {
+                    axios.post('/movie', {
+                        'directorName': dn, 'movieName': mn, 'movieType': mt, 'movieCountry': mc, 'movieScore': ms,
+                        'movieDate': md, 'movieRatings': mr, 'movieDimension': mdi, 'movieDesc': mde
+                    }).then(
+                        alert('添加成功')
+                    ).catch((err)=>{
+                        alert('添加失败')
+                        console.err
+                    }
+                        
+                    )
+                }
+            },
             template: `
             <div>
-            <form method="POST" action="movie" target="iframeMA">
+            <form>
                 <div class="form-group">
                     <label for="exampleInputEmail1">电影名称</label>
-                    <input type="text" class="form-control" name="movieName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                    <input type="text" class="form-control" name="movieName" v-model="movieName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">电影类型</label>
-                    <input type="text" class="form-control" name="movieType" id="exampleInputPassword1" placeholder="">
+                    <input type="text" class="form-control" name="movieType" v-model="movieType" id="exampleInputPassword1" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">电影产地</label>
-                    <input type="text" class="form-control" name="movieCountry" id="exampleInputPassword1" placeholder="">
+                    <input type="text" class="form-control" name="movieCountry" v-model="movieCountry" id="exampleInputPassword1" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">评分</label>
-                    <input type="text" class="form-control" name="movieScore" id="exampleInputPassword1" placeholder="">
+                    <input type="text" class="form-control" name="movieScore" v-model="movieScore" id="exampleInputPassword1" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">上映日期</label>
-                    <input type="text" class="form-control" name="movieDate" id="exampleInputPassword1" placeholder="">
+                    <input type="text" class="form-control" name="movieDate" v-model="movieDate" id="exampleInputPassword1" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">推荐指数</label>
-                    <input type="text" class="form-control" name="movieRatings" id="exampleInputPassword1" placeholder="">
+                    <input type="text" class="form-control" name="movieRatings" v-model="movieRatings" id="exampleInputPassword1" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">维度</label>
-                    <input type="text" class="form-control" name="movieDimension" id="exampleInputPassword1" placeholder="">
+                    <input type="text" class="form-control" name="movieDimension" v-model="movieDimension" id="exampleInputPassword1" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">导演</label>
-                    <input type="text" class="form-control" name="directorName" id="exampleInputPassword1" placeholder="">
+                    <input type="text" class="form-control" name="directorName" v-model="directorName" id="exampleInputPassword1" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">简介</label>
-                    <input type="text" class="form-control" name="movieDesc" id="exampleInputPassword1" placeholder="">
+                    <input type="text" class="form-control" name="movieDesc" v-model="movieDesc" id="exampleInputPassword1" placeholder="">
                 </div>
-                    <button type="submit"  class="btn btn-primary">提交</button>
+                    <button type="button" @click="add(directorName, movieName, movieType, movieCountry, movieScore,
+                        movieDate, movieRatings, movieDimension, movieDesc)"  class="btn btn-primary">提交</button>
                 </form>
-                <iframe id="iframe" name="iframeMA" style="display:none;"></iframe>
                 </div>
             `
         }
@@ -257,6 +316,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-body">
+                                        <p>a</p>
                                             <form>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">电影名称</label>
@@ -291,7 +351,7 @@
                                                     <label for="exampleInputEmail1">简介</label>
                                                     <input type="text" class="form-control" name="movieDesc" v-model="m.movieDesc" id="exampleInputPassword1" placeholder="">
                                                 </div>
-                                                <button type="button" @click="updateMovie(m.movieName,m.movieType,m.movieCountry,
+                                                <button type="button" @click="updateMovie(m.movieId,m.movieName,m.movieType,m.movieCountry,
                                                     m.movieScore,m.movieDate,m.movieRatings,m.movieDimension,m.movieDesc)" class="btn btn-primary">提交</button>
                                             </form>
                                         </div>
@@ -319,12 +379,14 @@
                 findMovie(n) {
                     axios.get('/movie/base/' + n).then((res) => this.movie = res.data);
                 },
-                updateMovie(i, n, t, c, s, d, r, di, de) {
+                updateMovie(i, n, t, c, s, d, r, di, dn, de) {
                     axios.put('/movie/' + i, {
                         'movieId': i, 'movieName': n, 'movieType': t, 'movieCountry': c, 'movieScore': s,
-                        'movieDate': d, 'movieRatings': r, 'movieDimension': di, 'movieDesc': de
-                    }).then(
+                        'movieDate': d, 'movieRatings': r, 'movieDimension': di, 'directorName': dn, 'movieDesc': de
+                    }).then(() => {
+                        // self.$router.replace({ path: 'search' }),
                         console.log('发送成功')
+                    }
                     )
                 },
                 deleteMovie(i) {
@@ -354,6 +416,7 @@
                                         <th>上映日期</th>
                                         <th>推荐指数</th>
                                         <th>维度</th>
+                                        <th>导演</th>
                                         <th>电影简介</th>
                                         <th>操作</th>
                                     </tr>
@@ -368,6 +431,7 @@
                                         <td>{{m.movieDate}}</td>
                                         <td>{{m.movieRatings}}</td>
                                         <td>{{m.movieDimension}}</td>
+                                        <td>{{m.directorId}}</td>
                                         <td>{{m.movieDesc}}</td>
                                         <td>
                                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#directorModal2">修改</button>
@@ -375,7 +439,7 @@
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-body">
-                                                            <form>
+                                                            <form >
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">电影名称</label>
                                                                     <input type="text" class="form-control" name="movieName" v-model="m.movieName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
@@ -405,11 +469,15 @@
                                                                     <input type="text" class="form-control" name="movieDimension" v-model="m.movieDimension" id="exampleInputPassword1" placeholder="">
                                                                 </div>
                                                                 <div class="form-group">
+                                                                    <label for="exampleInputEmail1">导演</label>
+                                                                    <input type="text" class="form-control" name="directorName" v-model="m.directorName" id="exampleInputPassword1" placeholder="">
+                                                                </div>
+                                                                <div class="form-group">
                                                                     <label for="exampleInputEmail1">简介</label>
                                                                     <input type="text" class="form-control" name="movieDesc" v-model="m.movieDesc" id="exampleInputPassword1" placeholder="">
                                                                 </div>
                                                                 <button type="botton" @click="updateMovie(m.movieId,m.movieName,m.movieType,m.movieCountry,
-                                                                m.movieScore,m.movieDate,m.movieRatings,m.movieDimension,m.movieDesc)" class="btn btn-primary">提交</button>
+                                                                m.movieScore,m.movieDate,m.movieRatings,m.movieDimension,m.directorName,m.movieDesc)" class="btn btn-primary">提交</button>
                                                             </form>
                                                         </div>
 
@@ -421,6 +489,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            
                         </div>
                     </div>
                 </div>
@@ -736,7 +805,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" @click="deleteDirector(d.directorId)" class="btn btn-danger">删除</button>
+                            <button type="button" @click="deleteDirector(item.directorId)" class="btn btn-danger">删除</button>
                         </td>
 
                         
@@ -838,8 +907,8 @@
                                                                     <label for="exampleInputPassword1">简介</label>
                                                                     <input type="text" class="form-control" name="directorDesc" v-model="d.directorDesc" id="exampleInputPassword1" placeholder="输入简介">
                                                                 </div>
-                                                                <button type="button" @click="updateDirector(item.directorId,item.directorName,item.directorSex
-                                                                    ,item.directorBirth,item.directorCountry,item.directorDesc)" class="btn btn-info" >修改</button>
+                                                                <button type="button" @click="updateDirector(d.directorId,d.directorName,d.directorSex
+                                                                    ,d.directorBirth,d.directorCountry,d.directorDesc)" class="btn btn-info" >修改</button>
                                                             </form>
                                                         </div>
 
