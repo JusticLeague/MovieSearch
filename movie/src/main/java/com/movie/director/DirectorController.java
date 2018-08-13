@@ -35,7 +35,6 @@ public class DirectorController {
 		return service.findAll();
 	}
 
-	
 	// 表director 通过name
 	@GetMapping("/name/{directorName}")
 	@ResponseBody
@@ -49,17 +48,21 @@ public class DirectorController {
 		return service.findBase();
 	}
 
+	// 表director
 	@PostMapping
 	public String create(DirectorModel director) {
+		if (service.getId(director.getDirectorName()) > 0) {
+			return "导演存在";
+		}
 		service.create(director);
-		return "redirect:/manage2.0.html#/director/add";
+		return "创建成功！";
 	}
 
 	// 添加图片
 	@PostMapping("/{directorName}")
 	public void addPic(@PathVariable String directorName,
 			@RequestParam(value = "directorPic", required = false) String directorPic) {
-		
+
 		service.addPic(service.getId(directorName), directorPic);
 	}
 

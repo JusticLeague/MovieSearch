@@ -25,7 +25,7 @@ public class CollectController {
 	}
 
 	// 删除
-	@DeleteMapping("/{collect_id}")
+	@DeleteMapping("/{collectId}")
 	public void remove(@PathVariable int collectId) {
 		service.remove(collectId);
 	}

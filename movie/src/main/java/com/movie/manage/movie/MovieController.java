@@ -52,10 +52,13 @@ public class MovieController {
 
 	// 创建基本信息
 	@PostMapping
-	public void create(@RequestParam(value = "directorName", required = true) String directorName,
-			@RequestBody MovieModel movie) {
-		movie.setDirectorId(service.getId(directorName));
+	public String create(@RequestBody MovieModel movie) {
+		if(service.getMovieId(movie.getMovieName()) > 0) {
+			return "影片存在";
+		}
+		movie.setDirectorId(service.getDirectorId(movie.getDirectorName()));
 		service.create(movie);
+		return "创建成功";
 	}
 
 	// 添加海报
@@ -67,9 +70,8 @@ public class MovieController {
 
 	// 修改
 	@PutMapping("/{movieId}")
-	public void update(@RequestBody MovieModel movie,
-			@RequestParam(value = "directorName", required = false) String directorName) {
-		movie.setDirectorId(service.getId(directorName));
+	public void update(@RequestBody MovieModel movie) {
+		movie.setDirectorId(service.getDirectorId(movie.getDirectorName()));
 		service.update(movie);
 	}
 
