@@ -18,8 +18,8 @@ import org.apache.ibatis.annotations.Update;
 public interface ActorMapper {
 
 	// 表 actor  通过name得到id
-	 @Select("select actor_id as actorId from actor where actor_name = #{actorName}")
-	 int getId(String actorName);
+	@Select("select actor_id as actorId from actor where actor_name = #{actorName}")
+	int getId(String actorName);
 
 	// 视图actor_info 通过id
 	@Select("select * from actor_info where actorId = #{actorId}")

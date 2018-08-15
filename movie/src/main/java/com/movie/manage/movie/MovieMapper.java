@@ -16,15 +16,20 @@ import org.apache.ibatis.annotations.Update;
  */
 @Mapper
 public interface MovieMapper {
-	
+
+	// 得到导演id
 	@Select("select director_id as directorId from director where director_name = #{directorName}")
-	int getId(String directorName);
+	int getDirectorId(String directorName);
+
+	// 得到影片id
+	@Select("select movie_id as movieId from movie where movie_name = #{movieName}")
+	int getMovieId(String movieName);
 
 	// 表movie
 	@Select("select movie_id as movieId, movie_name as movieName, movie_type as movieType, movie_country as movieCountry, movie_score as movieScore,"
 			+ "director_id as directorId, movie_date as movieDate, movie_desc as movieDesc, movie_ratings as movieRatings, movie_dimension as movieDimension from movie")
 	List<MovieModel> findBase();
-	
+
 	// 表movie 通过name
 	@Select("select movie_id as movieId, movie_name as movieName, movie_type as movieType, movie_country as movieCountry, movie_score as movieScore,"
 			+ "movie_date as movieDate, movie_desc as movieDesc, movie_ratings as movieRatings, movie_dimension as movieDimension from movie where movie_name = #{movieName}")
@@ -52,23 +57,31 @@ public interface MovieMapper {
 	// movie,score,comment,collect,movie_item,poster
 	@Delete("delete from movie where movie_id = #{movieId}")
 	void removeMovie(int movieId);
-	
+
 	@Delete("delete from score where movie_id = #{movieId}")
 	void removeScore(int movieId);
-	
+
 	@Delete("delete from comment where movie_id = #{movieId}")
 	void removeComment(int movieId);
-	
+
 	@Delete("delete from collect where movie_id = #{movieId}")
 	void removeCollect(int movieId);
-	
+
 	@Delete("delete from movie_item where movie_id = #{movieId}")
 	void removeMovie_item(int movieId);
-	
+
 	@Delete("delete from poster where movie_id = #{movieId}")
 	void removePoster(int movieId);
+<<<<<<< HEAD
+
+=======
 	
 	
 	
 	
+<<<<<<< HEAD
+=======
+>>>>>>> f7d2ba882358695dbb1c2169f8912ca21476e88f
+>>>>>>> f7f185814e4a0dcba5a3e792f684fc23e9c1f902
+>>>>>>> 89115cd54f7c3fffaa9cf30d7333df848833e015
 }

@@ -55,9 +55,23 @@ public class MovieController {
 
 	// 创建基本信息
 	@PostMapping
+<<<<<<< HEAD
 	public void create(@RequestBody MovieModel movie) {
+=======
+<<<<<<< HEAD
+	public String create(@RequestBody MovieModel movie) {
+		if(service.getMovieId(movie.getMovieName()) > 0) {
+			return "影片存在";
+		}
+		movie.setDirectorId(service.getDirectorId(movie.getDirectorName()));
+=======
+	public void create(
+			@RequestBody MovieModel movie) {
+>>>>>>> 89115cd54f7c3fffaa9cf30d7333df848833e015
 		movie.setDirectorId(service.getId(movie.directorName));
+>>>>>>> f7f185814e4a0dcba5a3e792f684fc23e9c1f902
 		service.create(movie);
+		return "创建成功";
 	}
 
 	// 添加海报
@@ -91,7 +105,11 @@ public class MovieController {
 	// 修改
 	@PutMapping("/{movieId}")
 	public void update(@RequestBody MovieModel movie) {
+<<<<<<< HEAD
+		movie.setDirectorId(service.getDirectorId(movie.getDirectorName()));
+=======
 //		movie.setDirectorId(service.getId(directorName));
+>>>>>>> f7f185814e4a0dcba5a3e792f684fc23e9c1f902
 		service.update(movie);
 	}
 

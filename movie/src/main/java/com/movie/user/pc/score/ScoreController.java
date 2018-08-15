@@ -21,7 +21,7 @@ public class ScoreController {
 	}
 
 	// 得到一个影片的评分（平均值）
-	@GetMapping("/score/{movieId}")
+	@GetMapping("/number/{movieId}")
 	@ResponseBody
 	public double score(@PathVariable int movieId) {
 		return service.score(movieId);
