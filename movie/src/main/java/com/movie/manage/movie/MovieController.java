@@ -1,5 +1,8 @@
 package com.movie.manage.movie;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/movie")
@@ -42,10 +46,6 @@ public class MovieController {
 		return service.findBase();
 	}
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f7d2ba882358695dbb1c2169f8912ca21476e88f
 	// 表movie 通过name
 	@GetMapping("/base/{movieName}")
 	@ResponseBody
@@ -55,18 +55,38 @@ public class MovieController {
 
 	// 创建基本信息
 	@PostMapping
-	public void create(
-			@RequestBody MovieModel movie) {
+	public void create(@RequestBody MovieModel movie) {
 		movie.setDirectorId(service.getId(movie.directorName));
 		service.create(movie);
 	}
 
 	// 添加海报
-	@PostMapping("/{movieId}")
-	public void addPic(@PathVariable int movieId,
-			@RequestParam(value = "posterPic", required = false) String posterPic) {
-		service.addPic(movieId, posterPic);
-	}
+//	@PostMapping("/{movieId}")
+//	public void addPic(@PathVariable int movieId,
+//			@RequestParam(value = "posterPic", required = false) String posterPic) {
+//		service.addPic(movieId, posterPic);
+//	}
+	
+//	@PostMapping("/poster")
+//	public String addPic(@RequestParam("file") MultipartFile file) {
+//		if(!file.isEmpty()) {
+//			try {
+//				BufferedOutputStream out =new BufferedOutputStream(
+//						new FileOutputStream(new File(
+//								file.getOriginalFilename())));
+//				System.out.println(file.getName());
+//				out.write(file.getBytes());
+//				out.flush();
+//				out.close();
+//			}catch (Exception e) {
+//				e.printStackTrace();    
+//                return "上传失败," + e.getMessage();   
+//			}
+//			return "上传成功";
+//		}else {
+//			return "空文件";
+//		}
+//	}
 
 	// 修改
 	@PutMapping("/{movieId}")
@@ -77,7 +97,7 @@ public class MovieController {
 
 	// 删除
 	@DeleteMapping("/{movieId}")
-	public void remove(Integer movieId) {
+	public void remove(@PathVariable int movieId) {
 		service.remove(movieId);
 	}
 

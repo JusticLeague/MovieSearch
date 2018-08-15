@@ -50,9 +50,9 @@ public class DirectorController {
 	}
 
 	@PostMapping
-	public String create(DirectorModel director) {
+	public void create(@RequestBody DirectorModel director) {
 		service.create(director);
-		return "redirect:/manage2.0.html#/director/add";
+//		return "redirect:/manage2.0.html#/director/add";
 	}
 
 	// 添加图片

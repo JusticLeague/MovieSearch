@@ -16,6 +16,11 @@
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
     <!-- axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
@@ -24,61 +29,42 @@
 <body style="background-color: #f5f8fa">
     <!-- As a link -->
     <nav class="navbar" style="background-color: #3097D1">
-            <h4 style="color: white">后台管理</h4>
+        <h4 style="color: white">后台管理</h4>
     </nav>
 
     <div class="container mt-3">
         <div id="manage">
             <p>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <router-link to="/movie"><button type="button" class="btn btn-primary">电影管理</button></router-link>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <router-link to="/vip"><button type="button" class="btn btn-primary">用户管理</button></router-link>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <router-link to="/director"><button type="button" class="btn btn-primary">导演管理</button></router-link>
-                        </li>
-                        <li class="breadcrumb-item">
-                            <router-link to="/actor"><button type="button" class="btn btn-primary">演员管理</button></router-link>
-                        </li>
-                    </ol>
-                    </ol>
-                </nav>
+
+                <router-link to="/movie">
+                    <button type="button" class="btn btn-primary mr-3">电影管理</button>
+                </router-link>
+
+
+                <router-link to="/vip">
+                    <button type="button" class="btn btn-primary mr-3">用户管理</button>
+                </router-link>
+
+
+                <router-link to="/director">
+                    <button type="button" class="btn btn-primary mr-3">导演管理</button>
+                </router-link>
+
+
+                <router-link to="/actor">
+                    <button type="button" class="btn btn-primary mr-3">演员管理</button>
+                </router-link>
+
+
             </p>
             <!-- <div class="alert alert-primary" role="alert"> -->
-                <router-view></router-view>
+            <router-view></router-view>
             <!-- </div> -->
         </div>
     </div>
 
 
     <script>
-        // 模态框
-        // const imodal = {
-        //     data(){
-        //         return{
-
-        //         }
-        //     },
-        //     props:['show'],
-        //     methods:{
-        //         close(){
-        //             this.$emit('close');
-        //         }
-        //     },
-        //     template: `
-        //     <div class="modal-backdrop" @click="close" v-show="show"> 
-        //         <div class="modal" @click.stop> 
-        //             <div class="modal-body"> 
-        //                 <slot name="body"></slot>
-        //             </div> 
-        //         </div>
-        //     </div>
-        //     `
-        // }
 
         // 电影管理
         const movieManage = {
@@ -165,29 +151,28 @@
         const movieAdd = {
             data() {
                 return {
-                    directorName:'',
-                    movieName:'',
-                    movieType:'',
-                    movieCountry:'',
-                    movieScore:'',
-                    movieDate:'',
-                    movieRatings:'',
-                    movieDimension:'',
-                    movieDesc:''
+                    directorName: '',
+                    movieName: '',
+                    movieType: '',
+                    movieCountry: '',
+                    movieScore: '',
+                    movieDate: '',
+                    movieRatings: '',
+                    movieDimension: '',
+                    movieDesc: ''
                 }
             },
             methods: {
-                add(dn, mn, mt, mc, ms, md, mr, mdi, mde) {
+                addMovie(dn, mn, mt, mc, ms, md, mr, mdi, mde) {
                     axios.post('/movie', {
                         'directorName': dn, 'movieName': mn, 'movieType': mt, 'movieCountry': mc, 'movieScore': ms,
                         'movieDate': md, 'movieRatings': mr, 'movieDimension': mdi, 'movieDesc': mde
                     }).then(
                         alert('添加成功')
-                    ).catch((err)=>{
+                    ).catch((err) => {
                         alert('添加失败')
-                        console.err
                     }
-                        
+
                     )
                 }
             },
@@ -230,7 +215,7 @@
                     <label for="exampleInputEmail1">简介</label>
                     <input type="text" class="form-control" name="movieDesc" v-model="movieDesc" id="exampleInputPassword1" placeholder="">
                 </div>
-                    <button type="button" @click="add(directorName, movieName, movieType, movieCountry, movieScore,
+                    <button type="button" @click="addMovie(directorName, movieName, movieType, movieCountry, movieScore,
                         movieDate, movieRatings, movieDimension, movieDesc)"  class="btn btn-primary">提交</button>
                 </form>
                 </div>
@@ -238,18 +223,40 @@
         }
 
         const moviePoster = {
+            data() {
+                return {
+                    posters: [],
+                    movieId:0
+                }
+            },
+            methods: {
+                handleRemove(file, fileList) {
+                    console.log(file, fileList);
+                },
+                handlePreview(file) {
+                    console.log(file);
+                },
+                submitUpload() {
+                    // console.log(posters)
+                    this.$refs.upload.submit();
+                },
+            },
             template: `
-            <form>
-                <div class="form-group mt-3">
-                    <label for="exampleInputEmail1">电影名称</label>
-                    <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                </div>
-                <div class="form-group mt-4">
-                    <label for="exampleFormControlFile1">Example file input</label>
-                    <input type="file" multiple class="form-control-file" id="exampleFormControlFile1">
-                    <button type="submit" class="btn btn-primary mt-3">上传</button>
-                </div>
-            </form>
+            <div>
+                <input type="text" name="movieId" v-model="movieId"></input>
+            
+            <el-upload
+                class="upload-demo"
+                ref="upload"
+                action="/movie/poster"
+                :on-preview="handlePreview"
+                :on-remove="handleRemove"
+                :file-list="posters"
+                :auto-upload="false">
+                <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+                <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
+            </el-upload>
+            </div>
             `
         }
 
@@ -276,11 +283,11 @@
                         'movieId': i, 'movieName': n, 'movieType': t, 'movieCountry': c, 'movieScore': s,
                         'movieDate': d, 'movieRatings': r, 'movieDimension': di, 'movieDesc': de
                     }).then(
-                        console.log('发送成功')
+                        window.location.reload()
                     )
                 },
                 deleteMovie(i) {
-                    axios.delete('/movie/' + i, { 'movieId': i }).then();
+                    axios.delete('/movie/' + i, { 'movieId': i }).then(window.location.reload());
                 }
             },
             template: `
@@ -311,12 +318,11 @@
                         <td>{{m.movieDimension}}</td>
                         <td>{{m.movieDesc}}</td>
                         <td>
-                            <button type="button" class="btn btn-info" data-toggle="modal" v-bind:data-target="'#'+m.movieName">修改</button>
-                            <div class="modal fade" v-bind:id=m.movieName tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <button type="button" class="btn btn-info" data-toggle="modal" v-bind:data-target="'#modal'+m.movieId">修改</button>
+                            <div class="modal fade" v-bind:id="'modal'+m.movieId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-body">
-                                        <p>a</p>
                                             <form>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">电影名称</label>
@@ -386,11 +392,12 @@
                     }).then(() => {
                         // self.$router.replace({ path: 'search' }),
                         console.log('发送成功')
+                        window.location.reload()
                     }
                     )
                 },
                 deleteMovie(i) {
-                    axios.delete('/movie/' + i, { 'movieId': i }).then();
+                    axios.delete('/movie/' + i, { 'movieId': i }).then(window.location.reload());
                 }
             },
             template: `
@@ -434,8 +441,8 @@
                                         <td>{{m.directorId}}</td>
                                         <td>{{m.movieDesc}}</td>
                                         <td>
-                                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#directorModal2">修改</button>
-                                            <div class="modal fade" id="directorModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <button type="button" class="btn btn-info" v-bind:data-target="'#modal'+m.movieId" data-toggle="modal">修改</button>
+                                            <div class="modal fade" v-bind:id="'modal'+m.movieId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-body">
@@ -654,39 +661,65 @@
 
         //添加导演 ok
         const directorAdd = {
+            data() {
+                return {
+                    directorName: '',
+                    directorSex: 0,
+                    directorBirth: '',
+                    directorCountry: '',
+                    directorDesc: ''
+                }
+            },
+            methods: {
+                addDirector(dn, ds, db, dc, dd) {
+                    axios.post('/director',
+                        {
+                            'directorName': dn,
+                            'directorSex': ds,
+                            'directorBirth': db,
+                            'directorCountry': dc,
+                            'directorDesc': dd
+                        }).then(
+                            alert('添加成功')
+                        ).catch((err) => {
+                            alert('添加失败')
+                        }
+                        )
+                }
+            },
             template: `
             <div>
-            <form method="POST" action="director" target="iframeDA">
+            <form>
                 <div class="form-group">
                     <label for="exampleInputEmail1">导演名字</label>
-                    <input type="text" class="form-control" name="directorName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入导演姓名">
+                    <input type="text" class="form-control" name="directorName" v-model="directorName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入导演姓名">
 
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="directorSex" id="exampleRadios1" value="1" checked>
+                    <input class="form-check-input" type="radio" name="directorSex" v-model="directorSex" id="exampleRadios1" value="1" checked>
                     <label class="form-check-label" for="exampleRadios1">
                         男
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="directorSex" id="exampleRadios2" value="0">
+                    <input class="form-check-input" type="radio" name="directorSex" v-model="directorSex" id="exampleRadios2" value="0">
                     <label class="form-check-label" for="exampleRadios2">
                         女
                     </label>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">出生日期</label>
-                    <input type="text" class="form-control" name="directorBirth" id="exampleInputPassword1" placeholder="输入出生日期">
+                    <input type="text" class="form-control" name="directorBirth" v-model="directorBirth" id="exampleInputPassword1" placeholder="输入出生日期">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">国籍</label>
-                    <input type="text" class="form-control" name="directorCountry" id="exampleInputPassword1" placeholder="输入国籍">
+                    <input type="text" class="form-control" name="directorCountry" v-model="directorCountry" id="exampleInputPassword1" placeholder="输入国籍">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">简介</label>
-                    <input type="text" class="form-control" name="directorDesc" id="exampleInputPassword1" placeholder="输入简介">
+                    <input type="text" class="form-control" name="directorDesc" v-model="directorDesc" id="exampleInputPassword1" placeholder="输入简介">
                 </div>
-                <button type="submit" class="btn btn-primary">添加</button>
+                <button type="button" @click="addDirector(directorName,directorSex,directorBirth,directorCountry,directorDesc)" class="btn btn-primary">添加</button>
             </form>
             <iframe id="iframe" name="iframeDA" style="display:none;"></iframe>
             </div>
@@ -733,11 +766,15 @@
                     axios.put('/director/' + i, {
                         'directorId': i, 'directorName': n, 'directorSex': s, 'directorBirth': b, 'directorCountry': c
                         , 'directorDesc': d
-                    }).then(console.log('发送成功'));
+                    }).then(
+                        window.location.reload()
+                    );
 
                 },
                 deleteDirector(i) {
-                    axios.delete('/director/' + i, { 'directorId': i }).then()
+                    axios.delete('/director/' + i, { 'directorId': i }).then(
+                        window.location.reload()
+                    )
                 }
             },
             template: `
@@ -762,8 +799,8 @@
                         <td>{{item.directorCountry}}</td>
                         <td>{{item.directorDesc}}</td>
                         <td>
-                            <button type="button" class="btn btn-info" data-toggle="modal" v-bind:data-target="'#'+item.directorName">修改</button>
-                            <div class="modal fade" tabindex="-1" role="dialog" v-bind:id=item.directorName aria-labelledby="myModalLabel">
+                            <button type="button" class="btn btn-info" data-toggle="modal" v-bind:data-target="'#modal'+item.directorId">修改</button>
+                            <div class="modal fade" tabindex="-1" role="dialog" v-bind:id="'modal'+item.directorId" aria-labelledby="myModalLabel">
                                 <div class="modal-dialog" role="document" >
                                     <div class="modal-content">
                                         <div class="modal-body">
@@ -831,11 +868,11 @@
                     axios.put('/director/' + i, {
                         'directorId': i, 'directorName': n, 'directorSex': s, 'directorBirth': b, 'directorCountry': c
                         , 'directorDesc': d
-                    }).then(console.log('发送成功'));
+                    }).then(window.location.reload());
 
                 },
                 deleteDirector(i) {
-                    axios.delete('/director/' + i, { 'directorId': i }).then()
+                    axios.delete('/director/' + i, { 'directorId': i }).then(window.location.reload())
                 }
             },
             template: `
@@ -871,9 +908,9 @@
                                         <td>{{d.directorCountry}}</td>
                                         <td>{{d.directorDesc}}</td>
                                         <td>
-                                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#directorModal2">修改</button>
+                                            <button type="button" class="btn btn-info" data-toggle="modal" v-bind:data-target="'#modal'+item.directorId">修改</button>
                                             <!-- 搜索导演并点击修改后的model -->
-                                            <div class="modal fade" id="directorModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal fade" v-bind:id="'modal'+item.directorId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-body">
@@ -930,39 +967,62 @@
 
         //添加演员 ok
         const actorAdd = {
+            data() {
+                return {
+                    actorName: '',
+                    actorSex: number,
+                    actorBirth: '',
+                    actorCountry: '',
+                    actorDesc: ''
+                }
+            },
+            methods: {
+                addActor(an, as, ab, ac, ad) {
+                    axios.post('/actor', {
+                        'actorName': an,
+                        'actorSex': as,
+                        'actorBirth': ab,
+                        'actorCountry': ac,
+                        'actorDesc': ad
+                    }).then(
+                        alert('添加成功')
+                    ).catch((err) =>
+                        alert('添加失败'))
+                }
+            },
             template: `
             <div>
-                <form method="POST" action="actor" target="iframeAA">
+                <form>
                     <div class="form-group">
                         <label for="exampleInputEmail1">演员名字</label>
-                        <input type="text" class="form-control" name="actorName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入演员姓名">
+                        <input type="text" class="form-control" name="actorName" v-model="actorName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入演员姓名">
 
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="actorSex" id="exampleRadios1" value="1" checked>
+                        <input class="form-check-input" type="radio" name="actorSex" v-model="actorSex" id="exampleRadios1" value="1" checked>
                         <label class="form-check-label" for="exampleRadios1">
                             男
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="actorSex" id="exampleRadios2" value="0">
+                        <input class="form-check-input" type="radio" name="actorSex" v-model="actorSex" id="exampleRadios2" value="0">
                         <label class="form-check-label" for="exampleRadios2">
                             女
                         </label>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">出生日期</label>
-                        <input type="text" class="form-control" name="actorBirth" id="exampleInputPassword1" placeholder="输入出生日期">
+                        <input type="text" class="form-control" name="actorBirth" v-model="actorBirth" id="exampleInputPassword1" placeholder="输入出生日期">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">国籍</label>
-                        <input type="text" class="form-control" name="actorCountry" id="exampleInputPassword1" placeholder="输入国籍">
+                        <input type="text" class="form-control" name="actorCountry" v-model="actorCountry" id="exampleInputPassword1" placeholder="输入国籍">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">简介</label>
-                        <input type="text" class="form-control" name="actorDesc" id="exampleInputPassword1" placeholder="输入简介">
+                        <input type="text" class="form-control" name="actorDesc" v-model="actorDesc" id="exampleInputPassword1" placeholder="输入简介">
                     </div>
-                    <button type="submit" class="btn btn-primary">添加</button>
+                    <button type="button" @click="addActor(actorName,actorSex,actorBirth,actorCountry,actorDesc)" class="btn btn-primary">添加</button>
                 </form>
                 <iframe id="iframe" name="iframeAA" style="display:none;"></iframe>
                 </div>
@@ -1006,11 +1066,11 @@
                     axios.put('/actor/' + i, {
                         'actorId': i, 'actorName': n, 'actorSex': s, 'actorBirth': b, 'actorCountry': c
                         , 'actorDesc': d
-                    }).then(console.log('发送成功'));
+                    }).then(window.location.reload());
 
                 },
                 deleteActor(i) {
-                    axios.delete('/actor/' + i, { 'actorId': i }).then()
+                    axios.delete('/actor/' + i, { 'actorId': i }).then(window.location.reload())
                 }
             },
             template: `
@@ -1035,8 +1095,8 @@
                                     <td>{{a.actorCountry}}</td>
                                     <td>{{a.actorDesc}}</td>
                                     <td>
-                                        <button type="button" class="btn btn-info" data-toggle="modal" v-bind:data-target="'#'+a.actorName">修改</button>
-                                        <div class="modal fade" v-bind:id=a.actorName tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <button type="button" class="btn btn-info" data-toggle="modal" v-bind:data-target="'#modal'+a.actorId">修改</button>
+                                        <div class="modal fade" v-bind:id="'modal'+a.actorId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-body">
@@ -1048,13 +1108,13 @@
 
                                                             </div>
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="actorSex" id="exampleRadios1" value="1" checked>
+                                                                <input class="form-check-input" type="radio" name="actorSex" v-model="a.actorSex" id="exampleRadios1" value="1" checked>
                                                                 <label class="form-check-label" for="exampleRadios1">
                                                                     男
                                                                 </label>
                                                             </div>
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="actorSex" id="exampleRadios2" value="0">
+                                                                <input class="form-check-input" type="radio" name="actorSex" v-model="a.actorSex" id="exampleRadios2" value="0">
                                                                 <label class="form-check-label" for="exampleRadios2">
                                                                     女
                                                                 </label>
@@ -1102,11 +1162,11 @@
                     axios.put('/actor/' + i, {
                         'actorId': i, 'actorName': n, 'actorSex': s, 'actorBirth': b, 'actorCountry': c
                         , 'actorDesc': d
-                    }).then(console.log('发送成功'));
+                    }).then(window.location.reload());
 
                 },
                 deleteActor(i) {
-                    axios.delete('/actor/' + i, { 'actorId': i }).then()
+                    axios.delete('/actor/' + i, { 'actorId': i }).then(window.location.reload())
                 }
             },
             template: `
@@ -1142,8 +1202,8 @@
                                                         <td>{{a.actorCountry}}</td>
                                                         <td>{{a.actorDesc}}</td>
                                                         <td>
-                                                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#actorModal2">修改</button>
-                                                            <div class="modal fade" id="actorModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <button type="button" class="btn btn-info" data-toggle="modal" v-bind:data-target="'#modal'+a.actorId">修改</button>
+                                                            <div class="modal fade" v-bind:id="'modal'+a.actorId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                 <div class="modal-dialog" role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-body">
@@ -1155,13 +1215,13 @@
                                                                                 </div>
 
                                                                                 <div class="form-check">
-                                                                                    <input class="form-check-input" type="radio" name="sex" id="exampleRadios1" value="1" checked>
+                                                                                    <input class="form-check-input" type="radio" name="actorSex" v-model="a.actorSex" id="exampleRadios1" value="1" checked>
                                                                                     <label class="form-check-label" for="exampleRadios1">
                                                                                         男
                                                                                     </label>
                                                                                 </div>
                                                                                 <div class="form-check">
-                                                                                    <input class="form-check-input" type="radio" name="sex" id="exampleRadios2" value="0">
+                                                                                    <input class="form-check-input" type="radio" name="actorSex" v-model="a.actorSex" id="exampleRadios2" value="0">
                                                                                     <label class="form-check-label" for="exampleRadios2">
                                                                                         女
                                                                                     </label>

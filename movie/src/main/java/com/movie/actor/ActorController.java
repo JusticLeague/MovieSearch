@@ -1,5 +1,8 @@
 package com.movie.actor;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/actor")
@@ -51,17 +55,19 @@ public class ActorController {
 
 	// 创建演员
 	@PostMapping
-	public void create(ActorModel actor) {
+	public void create(@RequestBody ActorModel actor) {
 		service.create(actor);
 		// return "redirect:/manage.html";
 	}
 
-	// 添加海报
-	@PostMapping("/{actorName}")
-	public void addPic(@PathVariable String actorName,
-			@RequestParam(value = "actorPic", required = false) String actorPic) {
-		service.addPic(service.getId(actorName), actorPic);
-	}
+//	// 添加海报
+//	@PostMapping("/{actorName}")
+//	public void addPic(@PathVariable String actorName,
+//			@RequestParam(value = "actorPic", required = false) String actorPic) {
+//		service.addPic(service.getId(actorName), actorPic);
+//	}
+	
+	
 
 	// 删除
 	@DeleteMapping("/{actorId}")
