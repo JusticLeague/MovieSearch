@@ -1,5 +1,8 @@
 package com.movie.manage.movie;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/movie")
@@ -51,21 +55,58 @@ public class MovieController {
 
 	// 创建基本信息
 	@PostMapping
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+	public void create(@RequestBody MovieModel movie) {
+=======
+<<<<<<< HEAD
+>>>>>>> d100fdcc4f36392bd7c28dcb7762bb39d527dc1d
 	public String create(@RequestBody MovieModel movie) {
 		if(service.getMovieId(movie.getMovieName()) > 0) {
 			return "影片存在";
 		}
 		movie.setDirectorId(service.getDirectorId(movie.getDirectorName()));
+<<<<<<< HEAD
+=======
+=======
+	public void create(
+			@RequestBody MovieModel movie) {
+>>>>>>> 89115cd54f7c3fffaa9cf30d7333df848833e015
+		movie.setDirectorId(service.getId(movie.directorName));
+>>>>>>> f7f185814e4a0dcba5a3e792f684fc23e9c1f902
+>>>>>>> d100fdcc4f36392bd7c28dcb7762bb39d527dc1d
 		service.create(movie);
 		return "创建成功";
 	}
 
 	// 添加海报
-	@PostMapping("/{movieId}")
-	public void addPic(@PathVariable int movieId,
-			@RequestParam(value = "posterPic", required = false) String posterPic) {
-		service.addPic(movieId, posterPic);
-	}
+//	@PostMapping("/{movieId}")
+//	public void addPic(@PathVariable int movieId,
+//			@RequestParam(value = "posterPic", required = false) String posterPic) {
+//		service.addPic(movieId, posterPic);
+//	}
+	
+//	@PostMapping("/poster")
+//	public String addPic(@RequestParam("file") MultipartFile file) {
+//		if(!file.isEmpty()) {
+//			try {
+//				BufferedOutputStream out =new BufferedOutputStream(
+//						new FileOutputStream(new File(
+//								file.getOriginalFilename())));
+//				System.out.println(file.getName());
+//				out.write(file.getBytes());
+//				out.flush();
+//				out.close();
+//			}catch (Exception e) {
+//				e.printStackTrace();    
+//                return "上传失败," + e.getMessage();   
+//			}
+//			return "上传成功";
+//		}else {
+//			return "空文件";
+//		}
+//	}
 
 	// 修改
 	@PutMapping("/{movieId}")
@@ -76,7 +117,7 @@ public class MovieController {
 
 	// 删除
 	@DeleteMapping("/{movieId}")
-	public void remove(Integer movieId) {
+	public void remove(@PathVariable int movieId) {
 		service.remove(movieId);
 	}
 

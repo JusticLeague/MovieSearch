@@ -50,12 +50,18 @@ public class DirectorController {
 
 	// 表director
 	@PostMapping
+<<<<<<< HEAD
+	public void create(@RequestBody DirectorModel director) {
+		service.create(director);
+//		return "redirect:/manage2.0.html#/director/add";
+=======
 	public String create(DirectorModel director) {
 		if (service.getId(director.getDirectorName()) > 0) {
 			return "导演存在";
 		}
 		service.create(director);
 		return "创建成功！";
+>>>>>>> 89115cd54f7c3fffaa9cf30d7333df848833e015
 	}
 
 	// 添加图片
