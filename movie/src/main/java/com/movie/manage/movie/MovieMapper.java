@@ -72,4 +72,22 @@ public interface MovieMapper {
 
 	@Delete("delete from poster where movie_id = #{movieId}")
 	void removePoster(int movieId);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+	
+	
+	
+	
+<<<<<<< HEAD
+=======
+>>>>>>> f7d2ba882358695dbb1c2169f8912ca21476e88f
+>>>>>>> f7f185814e4a0dcba5a3e792f684fc23e9c1f902
+>>>>>>> 89115cd54f7c3fffaa9cf30d7333df848833e015
+>>>>>>> d100fdcc4f36392bd7c28dcb7762bb39d527dc1d
+>>>>>>> 2c3ac2a755bdae1bf9be3d920b3556ffaf957a71
 }

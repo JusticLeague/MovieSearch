@@ -50,11 +50,33 @@ public class MovieController {
 
 	// 创建基本信息
 	@PostMapping
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+	public void create(@RequestBody MovieModel movie) {
+=======
+<<<<<<< HEAD
+>>>>>>> d100fdcc4f36392bd7c28dcb7762bb39d527dc1d
+>>>>>>> 2c3ac2a755bdae1bf9be3d920b3556ffaf957a71
 	public String create(@RequestBody MovieModel movie) {
 		if(service.getMovieId(movie.getMovieName()) > 0) {
 			return "影片存在";
 		}
 		movie.setDirectorId(service.getDirectorId(movie.getDirectorName()));
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+	public void create(
+			@RequestBody MovieModel movie) {
+>>>>>>> 89115cd54f7c3fffaa9cf30d7333df848833e015
+		movie.setDirectorId(service.getId(movie.directorName));
+>>>>>>> f7f185814e4a0dcba5a3e792f684fc23e9c1f902
+>>>>>>> d100fdcc4f36392bd7c28dcb7762bb39d527dc1d
+>>>>>>> 2c3ac2a755bdae1bf9be3d920b3556ffaf957a71
 		service.create(movie);
 		return "创建成功";
 	}
@@ -91,7 +113,10 @@ public class MovieController {
 	@PutMapping("/{movieId}")
 	public void update(@RequestBody MovieModel movie) {
 		movie.setDirectorId(service.getDirectorId(movie.getDirectorName()));
+<<<<<<< HEAD
 //		movie.setDirectorId(service.getId(directorName));
+=======
+>>>>>>> 2c3ac2a755bdae1bf9be3d920b3556ffaf957a71
 		service.update(movie);
 	}
 
