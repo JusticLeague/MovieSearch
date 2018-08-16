@@ -56,13 +56,6 @@ public interface MovieMapper {
 
 	// movie,score,comment,collect,movie_item,poster
 	@Delete("delete from movie where movie_id = #{movieId}")
-<<<<<<< HEAD
-	void remove(Integer movieId);
-
-	@Delete("delete from poster where movie_id = #{movieId}")
-	void reomvePic(Integer movieId);
-
-=======
 	void removeMovie(int movieId);
 
 	@Delete("delete from score where movie_id = #{movieId}")
@@ -79,13 +72,4 @@ public interface MovieMapper {
 
 	@Delete("delete from poster where movie_id = #{movieId}")
 	void removePoster(int movieId);
-<<<<<<< HEAD
-
-=======
-	
-	
-	
-	
->>>>>>> f7d2ba882358695dbb1c2169f8912ca21476e88f
->>>>>>> f7f185814e4a0dcba5a3e792f684fc23e9c1f902
 }
