@@ -11,9 +11,18 @@ public class ScoreModel {
 	int vipId;
 	int movieId;
 	double score;
+	int number;
 
 	public ScoreModel() {
 
+	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
 	}
 
 	public int getVipId() {
