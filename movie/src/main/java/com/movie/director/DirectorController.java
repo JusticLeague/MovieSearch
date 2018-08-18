@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -50,8 +49,8 @@ public class DirectorController {
 
 	// 表director
 	@PostMapping
-	public String create(DirectorModel director) {
-		if (service.getId(director.getDirectorName()) > 0) {
+	public String create(@RequestBody DirectorModel director) {
+		if (service.getId(director.getDirectorName()) != null) {
 			return "导演存在";
 		}
 		service.create(director);
@@ -59,12 +58,12 @@ public class DirectorController {
 	}
 
 	// 添加图片
-	@PostMapping("/{directorName}")
-	public void addPic(@PathVariable String directorName,
-			@RequestParam(value = "directorPic", required = false) String directorPic) {
-
-		service.addPic(service.getId(directorName), directorPic);
-	}
+//	@PostMapping("/{directorName}")
+//	public void addPic(@PathVariable String directorName,
+//			@RequestParam(value = "directorPic", required = false) String directorPic) {
+//
+//		service.addPic(service.getId(directorName), directorPic);
+//	}
 
 	// 删除
 	@DeleteMapping("/{directorId}")

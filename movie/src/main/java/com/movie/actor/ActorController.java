@@ -50,12 +50,13 @@ public class ActorController {
 
 	// 创建演员
 	@PostMapping
-	public String create(ActorModel actor) {
-		if (service.getId(actor.getActorName()) > 0) {
+	public String create(@RequestBody ActorModel actor) {
+		if (service.getId(actor.getActorName()) != null) {
 			return "演員存在";
+		} else {
+			service.create(actor);
+			return "创建成功！";
 		}
-		service.create(actor);
-		return "创建成功！";
 	}
 
 	// // 添加海报

@@ -17,7 +17,7 @@ public class MovieService {
 	}
 
 	// 得到影片的id
-	public int getMovieId(String movieName) {
+	public String getMovieId(String movieName) {
 		return mapper.getMovieId(movieName);
 	}
 

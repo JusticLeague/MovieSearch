@@ -12,7 +12,7 @@ public class DirectorService {
 	DirectorMapper mapper;
 
 	// 得到id
-	public int getId(String directorName) {
+	public String getId(String directorName) {
 		return mapper.getId(directorName);
 	}
 
