@@ -49,10 +49,14 @@ public class DirectorController {
 	}
 
 	// 表director
+<<<<<<< HEAD
 //	@PostMapping
 //	public void create(@RequestBody DirectorModel director) {
 //		service.create(director);
 //		return "redirect:/manage2.0.html#/director/add";
+=======
+	@PostMapping
+>>>>>>> 33d44c40a55213bc657c1f3680fc507b33b49af5
 	public String create(DirectorModel director) {
 		if (service.getId(director.getDirectorName()) > 0) {
 			return "导演存在";

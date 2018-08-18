@@ -38,10 +38,17 @@ public class CommentController {
 	}
 
 	// 统计某部影片有多少评论
-	 @GetMapping("/comment/number/{movieId}")
-	 @ResponseBody
-	 public int number(@PathVariable int movieId) {
-	 return service.number(movieId);
-	 }
+	@GetMapping("/number/{movieId}")
+	@ResponseBody
+	public int number(@PathVariable int movieId) {
+		return service.number(movieId);
+	}
+
+	// 得到影片的所有评论
+	@GetMapping("/movie/{movieId}")
+	@ResponseBody
+	public List<CommentModel> getComment(@PathVariable int movieId) {
+		return service.getComment(movieId);
+	}
 
 }

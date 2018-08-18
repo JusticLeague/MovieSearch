@@ -58,14 +58,12 @@ public class ActorController {
 		return "创建成功！";
 	}
 
-//	// 添加海报
-//	@PostMapping("/{actorName}")
-//	public void addPic(@PathVariable String actorName,
-//			@RequestParam(value = "actorPic", required = false) String actorPic) {
-//		service.addPic(service.getId(actorName), actorPic);
-//	}
-	
-	
+	// // 添加海报
+	// @PostMapping("/{actorName}")
+	// public void addPic(@PathVariable String actorName,
+	// @RequestParam(value = "actorPic", required = false) String actorPic) {
+	// service.addPic(service.getId(actorName), actorPic);
+	// }
 
 	// 删除
 	@DeleteMapping("/{actorId}")

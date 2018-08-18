@@ -30,5 +30,10 @@ public class CommentService {
 	public int number(int movieId) {
 		return mapper.sum(movieId);
 	}
+	
+	// 得到影片的所有评论
+	public List<CommentModel> getComment(int movieId){
+		return mapper.getComment(movieId);
+	}
 
 }
