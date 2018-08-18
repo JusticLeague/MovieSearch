@@ -37,22 +37,22 @@
             <p>
 
                 <router-link to="/movie">
-                    <button type="button" class="btn btn-primary mr-3">电影管理</button>
+                    <button type="button" class="btn mr-3" style="background-color: #3097D1;color: white">电影管理</button>
                 </router-link>
 
 
                 <router-link to="/vip">
-                    <button type="button" class="btn btn-primary mr-3">用户管理</button>
+                    <button type="button" class="btn mr-3" style="background-color: #3097D1;color: white">用户管理</button>
                 </router-link>
 
 
                 <router-link to="/director">
-                    <button type="button" class="btn btn-primary mr-3">导演管理</button>
+                    <button type="button" class="btn mr-3" style="background-color: #3097D1;color: white">导演管理</button>
                 </router-link>
 
 
                 <router-link to="/actor">
-                    <button type="button" class="btn btn-primary mr-3">演员管理</button>
+                    <button type="button" class="btn mr-3" style="background-color: #3097D1;color: white">演员管理</button>
                 </router-link>
 
 
@@ -94,6 +94,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><router-link to="/vip/list">用户列表</router-link></li>
                         <li class="breadcrumb-item"><router-link to="/vip/search">用户搜索</router-link></li>
+                        <li class="breadcrumb-item"><router-link to="/vip/comment">评论</router-link></li>
                     </ol>
                 </nav>             
                 <div class="card" style="width: 60rem;margin:0 auto">
@@ -226,7 +227,7 @@
             data() {
                 return {
                     posters: [],
-                    movieId:0
+                    movieId: 0
                 }
             },
             methods: {
@@ -656,6 +657,53 @@
                 </div>
             </div>
             </div>
+            `
+        }
+
+        //显示所有评论
+        const vipComment = {
+            data() {
+                return {
+                    comments: []
+                }
+            },
+            created(){
+                this.findComments()
+            },
+            watch: {
+                '$route': 'findComments'
+            },
+            methods: {
+                findComments() {
+                    axios.get('/manage')
+                        .then((res) => this.comments = res.data)
+                },
+                deleComment(i){
+                    axios.delete('/manage/'+i).then(window.location.reload())
+                }
+
+            },
+            template: `
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>用户id</th>
+                            <th>电影id</th>
+                            <th>评论</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(c, index) in comments" :key="index">
+                            <td>{{c.vipId}}</td>
+                            <td>{{c.movieId}}</td>
+                            <td>{{c.cmtComment}}</td>
+                            <td>
+                                <button type="button" @click="deleComment(c.cmtId)" class="btn btn-danger">删除</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             `
         }
 
@@ -1290,6 +1338,10 @@
             {
                 path: 'search',
                 component: vipSearch
+            },
+            {
+                path:'comment',
+                component:vipComment
             }]
         },
         {

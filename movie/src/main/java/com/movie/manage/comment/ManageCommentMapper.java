@@ -12,7 +12,7 @@ import com.movie.user.pc.comment.CommentModel;
 public interface ManageCommentMapper {
 
 	// 找出所有的评论
-	@Select("select cmt_comment from comment")
+	@Select("select cmt_id as cmtId, vip_id as vipId,movie_id as movieId,cmt_comment as cmtComment from comment")
 	List<CommentModel> find();
 
 	// 按评论id删除

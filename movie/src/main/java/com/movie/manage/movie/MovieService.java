@@ -52,7 +52,11 @@ public class MovieService {
 	}
 
 	// 删除影片包括海报
+<<<<<<< HEAD
+	public void remove(Integer movieId) {
+=======
 	public void remove(int movieId) {
+>>>>>>> 33d44c40a55213bc657c1f3680fc507b33b49af5
 		mapper.removeScore(movieId);
 		mapper.removeComment(movieId);
 		mapper.removeCollect(movieId);

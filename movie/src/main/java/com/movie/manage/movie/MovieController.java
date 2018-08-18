@@ -64,6 +64,7 @@ public class MovieController {
 	@PutMapping("/{movieId}")
 	public void update(@RequestBody MovieModel movie) {
 		movie.setDirectorId(service.getDirectorId(movie.getDirectorName()));
+//		movie.setDirectorId(service.getId(directorName));
 		service.update(movie);
 	}
 
