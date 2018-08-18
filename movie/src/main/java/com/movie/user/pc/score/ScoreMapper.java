@@ -17,7 +17,7 @@ public interface ScoreMapper {
 	double sum(int movieId);
 	
 	// 影片的评分等级的各个人数
-	@Select("select score ,count(*) as number from score where movie_id = #{movieId} group by score order by score desc")
-	List<ScoreModel> list(int movieId);
+	@Select("select count(*) as number from score where movie_id = #{movieId} group by score order by score desc")
+	List<Integer> list(int movieId);
 	
 }

@@ -22,7 +22,7 @@ public class ScoreService {
 	}
 	
 	// 得到影片各个评分的人数
-	public  List<ScoreModel> list(int movieId){
+	public  List<Integer> list(int movieId){
 		return mapper.list(movieId);
 	}
 	

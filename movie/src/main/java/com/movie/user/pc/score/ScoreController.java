@@ -1,4 +1,4 @@
-package com.movie.user.pc.score;
+  package com.movie.user.pc.score;
 
 import java.util.List;
 
@@ -32,7 +32,7 @@ public class ScoreController {
 	// 得到影片各个评论的人数（1~5分的人数） 
 	@GetMapping("/{movieId}")
 	@ResponseBody
-	public List<ScoreModel> list(@PathVariable int movieId){
+	public List<Integer> list(@PathVariable int movieId){
 		return service.list(movieId);
 	}
 
