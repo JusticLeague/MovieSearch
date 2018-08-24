@@ -58,22 +58,9 @@ public class DirectorController {
 			service.create(director);
 			return "创建成功！";
 		}
-<<<<<<< HEAD
-		
 	}
 
 	// 添加图片
-//	@PostMapping("/{directorName}")
-//	public void addPic(@PathVariable String directorName,
-//			@RequestParam(value = "directorPic", required = false) String directorPic) {
-//
-//		service.addPic(service.getId(directorName), directorPic);
-//	}
-=======
-	}
-
-	// 添加图片
-<<<<<<< HEAD
 	@PostMapping("/{directorName}")
 	public void addPic(@PathVariable String directorName) {
 
@@ -86,15 +73,6 @@ public class DirectorController {
 		}
 
 	}
-=======
-	// @PostMapping("/{directorName}")
-	// public void addPic(@PathVariable String directorName,
-	// @RequestParam(value = "directorPic", required = false) String directorPic) {
-	//
-	// service.addPic(service.getId(directorName), directorPic);
-	// }
->>>>>>> 61847ea7f983d8b0e4655714afa8e5f384db4c2e
->>>>>>> d66c55d0694cadd8b6e388dff81cc2fcd2bc4126
 
 	// 删除
 	@DeleteMapping("/{directorId}")
