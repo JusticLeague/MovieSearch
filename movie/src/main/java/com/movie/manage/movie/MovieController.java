@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.movie.manage.GetPicPath;
+
 @RestController
 @RequestMapping("/movie")
 public class MovieController {
@@ -60,11 +62,25 @@ public class MovieController {
 		}
 	}
 
+	// 添加海报
+	@PostMapping("/{movieName}")
+	public void addPoster(@PathVariable String movieName) {
+
+		// 海报所在的文件夹
+		String path = "" + movieName;
+
+		// 遍历将所有图片路径上传
+		for (String posterPic : GetPicPath.getPath(path)) {
+			service.addPic(service.getMoiveIntId(movieName), posterPic);
+		}
+
+	}
+
 	// 修改
 	@PutMapping("/{movieId}")
 	public void update(@RequestBody MovieModel movie) {
 		movie.setDirectorId(service.getDirectorId(movie.getDirectorName()));
-//		movie.setDirectorId(service.getId(directorName));
+		// movie.setDirectorId(service.getId(directorName));
 		service.update(movie);
 	}
 

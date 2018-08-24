@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.movie.manage.GetPicPath;
+
 @RestController
 @RequestMapping("/director")
 public class DirectorController {
@@ -59,12 +61,18 @@ public class DirectorController {
 	}
 
 	// 添加图片
-	// @PostMapping("/{directorName}")
-	// public void addPic(@PathVariable String directorName,
-	// @RequestParam(value = "directorPic", required = false) String directorPic) {
-	//
-	// service.addPic(service.getId(directorName), directorPic);
-	// }
+	@PostMapping("/{directorName}")
+	public void addPic(@PathVariable String directorName) {
+
+		// 得到图片所在的文件夹
+		String path = "E:/aac/" + directorName;
+
+		// 遍历所有的图片路径
+		for (String directorPic : GetPicPath.getPath(path)) {
+			service.addPic(service.getIntId(directorName), directorPic);
+		}
+
+	}
 
 	// 删除
 	@DeleteMapping("/{directorId}")

@@ -16,9 +16,14 @@ public class MovieService {
 		return mapper.getDirectorId(directorName);
 	}
 
-	// 得到影片的id
+	// 得到影片的id(String)
 	public String getMovieId(String movieName) {
 		return mapper.getMovieId(movieName);
+	}
+
+	// id(int)
+	public int getMoiveIntId(String movieName) {
+		return mapper.getMovieIntId(movieName);
 	}
 
 	// 表 movie

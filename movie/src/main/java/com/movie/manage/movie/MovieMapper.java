@@ -21,9 +21,13 @@ public interface MovieMapper {
 	@Select("select director_id as directorId from director where director_name = #{directorName}")
 	int getDirectorId(String directorName);
 
-	// 得到影片id
+	// 得到影片id(String)
 	@Select("select movie_id as movieId from movie where movie_name = #{movieName}")
 	String getMovieId(String movieName);
+
+	// 得到影片id(String)
+	@Select("select movie_id as movieId from movie where movie_name = #{movieName}")
+	int getMovieIntId(String movieName);
 
 	// 表movie
 	@Select("select movie_id as movieId, movie_name as movieName, movie_type as movieType, movie_country as movieCountry, movie_score as movieScore,"

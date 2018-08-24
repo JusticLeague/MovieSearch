@@ -17,23 +17,26 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface ActorMapper {
 
-	// 表 actor  通过name得到id
+	// 表 actor 通过name得到id
 	@Select("select actor_id as actorId from actor where actor_name = #{actorName}")
 	String getId(String actorName);
+
+	@Select("select actor_id as actorId from actor where actor_name = #{actorName}")
+	int getIntId(String actorName);
 
 	// 视图actor_info 通过id
 	@Select("select * from actor_info where actorId = #{actorId}")
 	List<ActorModel> find(int actorId);
-	
+
 	// 视图actor_info
 	@Select("select * from actor_info")
 	List<ActorModel> findAll();
-	
+
 	// 表actor
 	@Select("select actor_id as actorId, actor_name as actorName, actor_sex as actorSex, actor_country as actorCountry, actor_birth as actorBirth,"
 			+ "actor_desc as actorDesc from actor ")
 	List<ActorModel> findBase();
-	
+
 	// 表actor 通过name 查找
 	@Select("select actor_id as actorId, actor_name as actorName, actor_sex as actorSex, actor_country as actorCountry, actor_birth as actorBirth, actor_desc as actorDesc from actor where actor_name = #{actorName}")
 	List<ActorModel> findByName(String name);
@@ -49,6 +52,7 @@ public interface ActorMapper {
 	// 删除演员 (将movie_item中的actor_id 赋 null)
 	@Update("update movie_item set actor_id = null where actor_id = #{actorId}")
 	void set(int actorId);
+
 	@Delete("delete from actor where actor_id = #{actorId}")
 	void remove(int actorId);
 

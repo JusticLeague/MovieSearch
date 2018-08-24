@@ -11,9 +11,14 @@ public class ActorService {
 	@Autowired
 	ActorMapper mapper;
 
-	// 通过name 得到id
+	// 通过name 得到id(String)
 	public String getId(String actorName) {
 		return mapper.getId(actorName);
+	}
+
+	// id(int)
+	public int getIntId(String actorName) {
+		return mapper.getIntId(actorName);
 	}
 
 	// 添加演员
