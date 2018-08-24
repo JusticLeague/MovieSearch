@@ -27,7 +27,7 @@ public interface DirectorMapper {
 
 	// 得到id
 	@Select("select director_id as directorId from director where director_name = #{directorName}")
-	int getId(String directorName);
+	String getId(String directorName);
 
 	// 使用视图director_info 使用id
 	@Select("select * from director_info where directorId = #{directorId}")

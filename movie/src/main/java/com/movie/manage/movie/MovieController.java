@@ -53,45 +53,18 @@ public class MovieController {
 	public String create(@RequestBody MovieModel movie) {
 		if (service.getMovieId(movie.getMovieName()) > 0) {
 			return "影片存在";
+		} else {
+			movie.setDirectorId(service.getDirectorId(movie.getDirectorName()));
+			service.create(movie);
+			return "创建成功";
 		}
-		movie.setDirectorId(service.getDirectorId(movie.getDirectorName()));
-		service.create(movie);
-		return "创建成功";
+		
 	}
 
-	// 添加海报
-	// @PostMapping("/{movieId}")
-	// public void addPic(@PathVariable int movieId,
-	// @RequestParam(value = "posterPic", required = false) String posterPic) {
-	// service.addPic(movieId, posterPic);
-	// }
-
-	// @PostMapping("/poster")
-	// public String addPic(@RequestParam("file") MultipartFile file) {
-	// if(!file.isEmpty()) {
-	// try {
-	// BufferedOutputStream out =new BufferedOutputStream(
-	// new FileOutputStream(new File(
-	// file.getOriginalFilename())));
-	// System.out.println(file.getName());
-	// out.write(file.getBytes());
-	// out.flush();
-	// out.close();
-	// }catch (Exception e) {
-	// e.printStackTrace();
-	// return "上传失败," + e.getMessage();
-	// }
-	// return "上传成功";
-	// }else {
-	// return "空文件";
-	// }
-	// }
 
 	// 修改
 	@PutMapping("/{movieId}")
 	public void update(@RequestBody MovieModel movie) {
-		movie.setDirectorId(service.getDirectorId(movie.getDirectorName()));
-//		movie.setDirectorId(service.getId(directorName));
 		service.update(movie);
 	}
 

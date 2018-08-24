@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -49,29 +48,24 @@ public class DirectorController {
 	}
 
 	// 表director
-<<<<<<< HEAD
-//	@PostMapping
-//	public void create(@RequestBody DirectorModel director) {
-//		service.create(director);
-//		return "redirect:/manage2.0.html#/director/add";
-=======
 	@PostMapping
->>>>>>> 33d44c40a55213bc657c1f3680fc507b33b49af5
-	public String create(DirectorModel director) {
-		if (service.getId(director.getDirectorName()) > 0) {
+	public String create(@RequestBody DirectorModel director) {
+		if (service.getId(director.getDirectorName()) != null) {
 			return "导演存在";
+		} else {
+			service.create(director);
+			return "创建成功！";
 		}
-		service.create(director);
-		return "创建成功！";
+		
 	}
 
 	// 添加图片
-	@PostMapping("/{directorName}")
-	public void addPic(@PathVariable String directorName,
-			@RequestParam(value = "directorPic", required = false) String directorPic) {
-
-		service.addPic(service.getId(directorName), directorPic);
-	}
+//	@PostMapping("/{directorName}")
+//	public void addPic(@PathVariable String directorName,
+//			@RequestParam(value = "directorPic", required = false) String directorPic) {
+//
+//		service.addPic(service.getId(directorName), directorPic);
+//	}
 
 	// 删除
 	@DeleteMapping("/{directorId}")

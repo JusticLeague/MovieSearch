@@ -21,6 +21,18 @@
     <!-- axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
+    <!-- 引入 ECharts 文件 -->
+    <!-- <script src="js/echarts.min.js"></script> -->
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+
 
 </head>
 
@@ -32,12 +44,11 @@
     }
 
     body {
-        background-image: url("b2.jpg");
+        /* background-image: url("b2.jpg"); */
         /* background-image: url("c2.jpg"); */
         /* background-color: transparent; */
         /* background-color: #2b2b2b; */
-        /* background-color: #f5f8fa; */
-    
+        background-color: #f5f8fa;
     }
 
     .img-thumbnail {
@@ -213,8 +224,10 @@
             <div class="col-lg-10 offset-lg-1">
                 <div class="card">
                     <div class="card-header">
-                        <h5>死侍<i class="el-icon-star-off float-right"></i></h5>
-                        
+                        <h5>死侍
+                            <i class="el-icon-star-off float-right"></i>
+                        </h5>
+
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -227,7 +240,7 @@
                                         <span class="info_li">
                                             <span>导演：</span>
                                             <span>
-                                                <a href="">{{}}</a>
+                                                <a href=""></a>
                                             </span>
                                         </span>
                                     </li>
@@ -243,7 +256,7 @@
                                         <span>
                                             <span>类型：</span>
                                             <span>
-                                                <a href="">{{i.movieType}}</a>
+                                                <a href=""></a>
                                             </span>
                                         </span>
                                     </li>
@@ -295,7 +308,7 @@
                                 <div class="row mt-4">
                                     <!-- <div class="col-lg-2">
                                         <button type="button" class="btn btn-primary mt-2">收藏</button> -->
-                                        <!-- <button type="button" class="btn btn-primary btn-lg mt-2 " data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+                                    <!-- <button type="button" class="btn btn-primary btn-lg mt-2 " data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
                                     aria-controls="collapseExample">评论</button> -->
                                     <!-- </div> -->
                                     <div class="col" style="width: 100%">
@@ -309,6 +322,14 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-5">
+                <!-- <div id="main" style="width: 600px;height:400px;"></div> -->
+                <echart></echart>
+            </div>
+
+        </div>
+
         <!-- <div class="row">
             <div class="col-lg-5">
                 <button type="button" class="btn btn-primary btn-lg mt-4">收藏</button>
@@ -348,9 +369,6 @@
                     </div>
                     <div class="card-body">
                         <ul class="director-pic pl-0">
-                            <!-- <li>
-                                <img src="陈凯歌.webp" alt="..." class="img-thumbnail">
-                            </li>
                             <li>
                                 <img src="陈凯歌.webp" alt="..." class="img-thumbnail">
                             </li>
@@ -365,7 +383,10 @@
                             </li>
                             <li>
                                 <img src="陈凯歌.webp" alt="..." class="img-thumbnail">
-                            </li> -->
+                            </li>
+                            <li>
+                                <img src="陈凯歌.webp" alt="..." class="img-thumbnail">
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -436,7 +457,7 @@
                 <div>
                     <p>我要评分</p>
                     <div class="block">
-                        <el-rate allow-half=true	 v-model="value1"></el-rate>
+                        <el-rate allow-half:true	 v-model="value1"></el-rate>
                         <button type="button" class="btn btn-primary btn-sm mt-2">提交评分</button>
                     </div>
                     
@@ -457,49 +478,231 @@
                 </div>
                 `
         }
+        const eChart = {
+            data() {
+                return {
+                    scores: [],
+                    number: []
+                }
+            },
+            mounted() {
+
+                var myChart = echarts.init(document.getElementById('main'));
+                // var app=document.getElementById('#app');
+                // console.log(this.scores[1]);
+                // for(var i=0;i<this.scores.length;i++){
+                //     this.number[i]=this.scores[i].number
+                // }
+                // for(let s in this.scores){
+                //     number[i++]=this.scores[s].number
+                // }
+                axios.get('/score/9').then((res) =>
+                    myChart.setOption({
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'shadow'
+                            }
+                        },
+                        grid: {
+                            left: '15%',
+                            right: '20%',
+                            bottom: '50%',
+                            containLabel: true
+                        },
+                        xAxis: {
+                            name: '人数',
+                            type: 'value',
+                            boundaryGap: [0, 0.01]
+                        },
+                        yAxis: {
+                            name: '分数',
+                            type: 'category',
+                            data: ['1', '2', '3', '4', '5']
+                        },
+                        series: [
+                            {
+                                name: '人数',
+                                type: 'bar',
+                                // data: [this.scores[0],this.scores[0],this.scores[0],this.scores[0],this.scores[0]]
+                                data: res.data
+                            }
+                        ]
+                    })
+                )
+            },
+            template: `<div>
+          <div id="main" style="width: 600px;height:400px;"></div>
+          <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr >
+                        <td scope="row"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+          `
+
+        }
         new Vue({
             el: '#app',
-            data:{
-                movieInfo:[]
+            data: {
+                scores: []
             },
             components: {
                 'set-score': setScore,
-                'comment': comment
+                'comment': comment,
+                'echart': eChart
             },
-            // metnods:{
-            //     getInfo(){
-            //         axios.get('/movie/1').then((res)=>this.movieInfo=res)
-            //     }
+            // mounted() {
+                // axios.get('/score/'+9).then((res)=>this.scores=res.data, console.log(this.scores));
+                // console.log(this.scores);
+                // for(let i=0;i<this.scores.length;i++){
+                //     this.number[i]=this.scores[i]
+                // }
             // }
             mounted() {
-                axios.get('/movie/base/'+'肖申克的救赎').then((res)=>this.movieInfo=res.data)
-                console.log(toString(this.movieInfo) );
-                
+                axios.get('/movie/base/' + '肖申克的救赎').then((res) => this.movieInfo = res.data)
+                console.log(toString(this.movieInfo));
+
             },
         })
     </script>
-    <!-- <footer class="bd-footer text-muted">
-        <div class="container-fluid p-3 pmd-5">
-            <div class="row">
-                <div class="col-lg-7 offset-lg-3">
-                    <ul class="bd-footer-links">
-                        <li>李协</li>
-                        <li>杨鹏</li>
-                        <li>洪佳雷</li>
-                    </ul>
-                </div>
-            </div>
 
-        </div>
-    </footer> -->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+
+
+
+    <!-- <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('main'));
+        option = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            grid: {
+                left: '15%',
+                right: '20%',
+                bottom: '50%',
+                containLabel: true
+            },
+            xAxis: {
+                name: '人数',
+                type: 'value',
+                boundaryGap: [0, 0.01]
+            },
+            yAxis: {
+                name: '分数',
+                type: 'category',
+                data: ['1', '2', '3', '4', '5']
+            },
+            series: [
+                {
+                    name: '人数',
+                    type: 'bar',
+                    data: ['1', '1', '1', '1', '1']
+                }
+            ]
+        } -->
+
+
+    <!-- <script>
+        const eChart = {
+            data() {
+                return {
+                    scores: [],
+                    option = {
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'shadow'
+                            }
+                        },
+                        grid: {
+                            left: '15%',
+                            right: '20%',
+                            bottom: '50%',
+                            containLabel: true
+                        },
+                        xAxis: {
+                            name: '人数',
+                            type: 'value',
+                            boundaryGap: [0, 0.01]
+                        },
+                        yAxis: {
+                            name: '分数',
+                            type: 'category',
+                            data: ['1', '2', '3', '4', '5']
+                        },
+                        series: [
+                            {
+                                name: '人数',
+                                type: 'bar',
+                                data: ['1', '1', '1', '1', '1']
+                            }
+                        ]
+                    }
+                }
+            },
+            created() {
+                var myChart = echarts.init(document.getElementById('main'));
+                myChart.setOption({
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'shadow'
+                        }
+                    },
+                    grid: {
+                        left: '15%',
+                        right: '20%',
+                        bottom: '50%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        name: '人数',
+                        type: 'value',
+                        boundaryGap: [0, 0.01]
+                    },
+                    yAxis: {
+                        name: '分数',
+                        type: 'category',
+                        data: ['1', '2', '3', '4', '5']
+                    },
+                    series: [
+                        {
+                            name: '人数',
+                            type: 'bar',
+                            // data: ['1', '1', '1', '1', '1']
+                            data: scores
+                        }
+                    ]
+                })
+            },
+            template: `
+                <div id="main" style="width: 600px;height:400px;"></div>
+            `
+        }
+    </script> -->
+
 </body>
 
 
