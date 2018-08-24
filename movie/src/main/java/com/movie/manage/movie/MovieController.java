@@ -51,17 +51,22 @@ public class MovieController {
 	// 创建基本信息
 	@PostMapping
 	public String create(@RequestBody MovieModel movie) {
-		if (service.getMovieId(movie.getMovieName()) > 0) {
+		if (service.getMovieId(movie.getMovieName()) != null) {
 			return "影片存在";
 		} else {
 			movie.setDirectorId(service.getDirectorId(movie.getDirectorName()));
 			service.create(movie);
 			return "创建成功";
 		}
+<<<<<<< HEAD
 		
 	}
 
 
+=======
+	}
+
+>>>>>>> 61847ea7f983d8b0e4655714afa8e5f384db4c2e
 	// 修改
 	@PutMapping("/{movieId}")
 	public void update(@RequestBody MovieModel movie) {

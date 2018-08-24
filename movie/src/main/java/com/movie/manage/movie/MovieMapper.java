@@ -23,7 +23,7 @@ public interface MovieMapper {
 
 	// 得到影片id
 	@Select("select movie_id as movieId from movie where movie_name = #{movieName}")
-	int getMovieId(String movieName);
+	String getMovieId(String movieName);
 
 	// 表movie
 	@Select("select movie_id as movieId, movie_name as movieName, movie_type as movieType, movie_country as movieCountry, movie_score as movieScore,"

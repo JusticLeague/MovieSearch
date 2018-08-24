@@ -12,7 +12,7 @@ public class ActorService {
 	ActorMapper mapper;
 
 	// 通过name 得到id
-	public int getId(String actorName) {
+	public String getId(String actorName) {
 		return mapper.getId(actorName);
 	}
 

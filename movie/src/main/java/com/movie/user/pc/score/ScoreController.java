@@ -1,4 +1,4 @@
-package com.movie.user.pc.score;
+  package com.movie.user.pc.score;
 
 import java.util.List;
 
