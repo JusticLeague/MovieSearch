@@ -60,8 +60,11 @@ public class MovieController {
 			service.create(movie);
 			return "创建成功";
 		}
+<<<<<<< HEAD
+		
 	}
 
+<<<<<<< HEAD
 	// 添加海报
 	@PostMapping("/{movieName}")
 	public void addPoster(@PathVariable String movieName) {
@@ -81,6 +84,16 @@ public class MovieController {
 	public void update(@RequestBody MovieModel movie) {
 		movie.setDirectorId(service.getDirectorId(movie.getDirectorName()));
 		// movie.setDirectorId(service.getId(directorName));
+=======
+
+=======
+	}
+
+>>>>>>> 61847ea7f983d8b0e4655714afa8e5f384db4c2e
+	// 修改
+	@PutMapping("/{movieId}")
+	public void update(@RequestBody MovieModel movie) {
+>>>>>>> d66c55d0694cadd8b6e388dff81cc2fcd2bc4126
 		service.update(movie);
 	}
 
