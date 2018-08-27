@@ -22,13 +22,13 @@ public class MovieItemService {
 	}
 	
 	// 查找演员的电影
-	public List<MovieItemModel> findMovie(int actorId){
-		return mapper.findMovie(actorId);
+	public List<Integer> findMovie(int actorId){
+		return mapper.findMovieId(actorId);
 	}
 	
 	// 查找电影的演员
-	public List<MovieItemModel> findActor(int movieId){
-		return mapper.findActor(movieId);
+	public List<Integer> findActor(int movieId){
+		return mapper.findActorId(movieId);
 	}
 	
 	

@@ -66,10 +66,12 @@ public class DirectorController {
 
 		// 得到图片所在的文件夹
 		String path = "E:/aac/" + directorName;
+		
+		int id = service.getIntId(directorName);
 
 		// 遍历所有的图片路径
 		for (String directorPic : GetPicPath.getPath(path)) {
-			service.addPic(service.getIntId(directorName), directorPic);
+			service.addPic(id, directorPic);
 		}
 
 	}

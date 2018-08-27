@@ -26,4 +26,10 @@ public class GetPicPath {
 		return list;
 	}
 	
+	public static void main(String[] args) {
+		for (String string : getPath("E:/aac/pic2")) {
+			System.out.println(string);
+		}
+	}
+	
 }

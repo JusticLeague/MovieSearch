@@ -68,10 +68,12 @@ public class MovieController {
 
 		// 海报所在的文件夹
 		String path = "" + movieName;
+		
+		int id = service.getMoiveIntId(movieName);
 
 		// 遍历将所有图片路径上传
 		for (String posterPic : GetPicPath.getPath(path)) {
-			service.addPic(service.getMoiveIntId(movieName), posterPic);
+			service.addPic(id , posterPic);
 		}
 
 	}

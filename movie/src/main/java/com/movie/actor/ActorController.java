@@ -67,10 +67,12 @@ public class ActorController {
 
 		// 得到存储图片的文件夹
 		String path = "E:/aac/pic/" + actorName;
+		
+		int id = service.getIntId(actorName);
 
 		// 遍历所有的图片路径
 		for (String actorPic : GetPicPath.getPath(path)) {
-			service.addPic(service.getIntId(actorName), actorPic);
+			service.addPic(id, actorPic);
 		}
 
 	}

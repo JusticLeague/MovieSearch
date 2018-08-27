@@ -29,16 +29,16 @@ public class MovieItemController {
 	}
 	
 	// 查找演员的电影
-	@GetMapping("/actorId/{actorId}")
+	@GetMapping("/actor/{actorId}")
 	@ResponseBody
-	public List<MovieItemModel> findMovie(@PathVariable int actorId){
+	public List<Integer> findMovie(@PathVariable int actorId){
 		return service.findMovie(actorId);
 	}
 	
 	// 查找电影的演员
-	@GetMapping("/movieId/{movieId}")
+	@GetMapping("/movie/{movieId}")
 	@ResponseBody
-	public List<MovieItemModel> findActoe(@PathVariable int movieId){
+	public List<Integer> findActoe(@PathVariable int movieId){
 		return service.findActor(movieId);
 	}
 	
