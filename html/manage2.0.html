@@ -160,16 +160,25 @@
                     movieDate: '',
                     movieRatings: '',
                     movieDimension: '',
-                    movieDesc: ''
+                    movieDesc: '',
+
+                    actorString:'',
+                    actors:[]
+                    
                 }
             },
             methods: {
-                addMovie(dn, mn, mt, mc, ms, md, mr, mdi, mde) {
+
+                addMovie(dn, mn, mt, mc, ms, md, mr, mdi, mde,ats) {
+
+                    ats=this.actorString.split(' ')
+
                     axios.post('/movie', {
                         'directorName': dn, 'movieName': mn, 'movieType': mt, 'movieCountry': mc, 'movieScore': ms,
-                        'movieDate': md, 'movieRatings': mr, 'movieDimension': mdi, 'movieDesc': mde
+                        'movieDate': md, 'movieRatings': mr, 'movieDimension': mdi, 'movieDesc': mde,'actors':ats
                     }).then(
-                        alert('添加成功')
+                        // alert('添加成功'),
+                        window.location.reload()
                     ).catch((err) => {
                         alert('添加失败')
                     }
@@ -216,8 +225,12 @@
                     <label for="exampleInputEmail1">简介</label>
                     <input type="text" class="form-control" name="movieDesc" v-model="movieDesc" id="exampleInputPassword1" placeholder="">
                 </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">主要演员</label>
+                    <input type="text" class="form-control" name="actors" v-model="actorString" id="exampleInputPassword1" placeholder="演员之间请用空格分开">
+                </div>
                     <button type="button" @click="addMovie(directorName, movieName, movieType, movieCountry, movieScore,
-                        movieDate, movieRatings, movieDimension, movieDesc)"  class="btn btn-primary">提交</button>
+                        movieDate, movieRatings, movieDimension, movieDesc,actors)"  class="btn btn-primary">提交</button>
                 </form>
                 </div>
             `
@@ -227,7 +240,7 @@
             data() {
                 return {
                     posters: [],
-                    movieId: 0
+                    movieName: ''
                 }
             },
             methods: {
@@ -237,26 +250,18 @@
                 handlePreview(file) {
                     console.log(file);
                 },
-                submitUpload() {
+                // submitUpload() {
                     // console.log(posters)
-                    this.$refs.upload.submit();
-                },
+                //     this.$refs.upload.submit();
+                // },
+                postName(n){
+                    axios.post('/movie/'+ n,{'movieName':n}).then()
+                }
             },
             template: `
             <div>
-                <input type="text" name="movieId" v-model="movieId"></input>
-            
-            <el-upload
-                class="upload-demo"
-                ref="upload"
-                action="/movie/poster"
-                :on-preview="handlePreview"
-                :on-remove="handleRemove"
-                :file-list="posters"
-                :auto-upload="false">
-                <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-                <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
-            </el-upload>
+                <input type="text" name="movieName" v-model="movieName"></input>
+                <a class="btn btn-primary" @click="postName(movieName)">上传</a>
             </div>
             `
         }

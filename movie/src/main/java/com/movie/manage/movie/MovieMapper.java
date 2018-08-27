@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -27,7 +28,7 @@ public interface MovieMapper {
 
 	// 得到影片id(String)
 	@Select("select movie_id as movieId from movie where movie_name = #{movieName}")
-	int getMovieIntId(String movieName);
+	Integer getMovieIntId(String movieName);
 
 	// 表movie
 	@Select("select movie_id as movieId, movie_name as movieName, movie_type as movieType, movie_country as movieCountry, movie_score as movieScore,"
@@ -52,8 +53,8 @@ public interface MovieMapper {
 	void create(MovieModel movie);
 
 	// 添加海报
-	@Insert("insert into poster(movie_id, poster_pic) value(#{movieId}, #{posterPic}")
-	void addPic(int movieId, String posterPic);
+	@Insert("insert into poster(movie_id, poster_pic) value(#{movieId}, #{posterPic})")
+	void addPic(@Param(value = "movieId") int movieId,@Param(value = "posterPic") String posterPic);
 
 	@Update("update movie set movie_name=#{movieName}, movie_type=#{movieType}, movie_country=#{movieCountry}, movie_score=#{movieScore}, movie_date=#{movieDate}, movie_desc=#{movieDesc}, movie_ratings=#{movieRatings}, movie_dimension=#{movieDimension} where movie_id = #{movieId}")
 	void update(MovieModel movie);

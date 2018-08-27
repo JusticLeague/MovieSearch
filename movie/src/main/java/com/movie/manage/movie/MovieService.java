@@ -22,7 +22,7 @@ public class MovieService {
 	}
 
 	// id(int)
-	public int getMoiveIntId(String movieName) {
+	public Integer getMoiveIntId(String movieName) {
 		return mapper.getMovieIntId(movieName);
 	}
 

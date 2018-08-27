@@ -1,7 +1,9 @@
 package com.movie.manage.movie;
 
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -65,13 +68,19 @@ public class MovieController {
 	// 添加海报
 	@PostMapping("/{movieName}")
 	public void addPoster(@PathVariable String movieName) {
+		
+		System.out.println(movieName);
 
 		// 海报所在的文件夹
-		String path = "" + movieName;
+		String path = "D:/截图/" + movieName;
+		
+		int id = service.getMoiveIntId(movieName);
+		
+		System.out.println(id);
 
 		// 遍历将所有图片路径上传
 		for (String posterPic : GetPicPath.getPath(path)) {
-			service.addPic(service.getMoiveIntId(movieName), posterPic);
+			service.addPic(id, posterPic);
 		}
 
 	}
