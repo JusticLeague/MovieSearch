@@ -65,15 +65,15 @@ public class ActorController {
 	@PostMapping("/{actorName}")
 	public void addPic(@PathVariable String actorName) {
 
-		// 得到存储图片的文件夹
-		String path = "E:/aac/pic/" + actorName;
-		
-		int id = service.getIntId(actorName);
+		String path = "/";
 
-		// 遍历所有的图片路径
-		for (String actorPic : GetPicPath.getPath(path)) {
-			service.addPic(id, actorPic);
-		}
+		// 得到ID
+		int actorId = service.getIntId(actorName);
+
+		// 得到路径
+		String actorPic = GetPicPath.getPath(path, actorName);
+
+		service.addPic(actorId, actorPic);
 
 	}
 

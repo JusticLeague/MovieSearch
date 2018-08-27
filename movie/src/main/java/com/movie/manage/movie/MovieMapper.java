@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -53,7 +54,7 @@ public interface MovieMapper {
 
 	// 添加海报
 	@Insert("insert into poster(movie_id, poster_pic) value(#{movieId}, #{posterPic}")
-	void addPic(int movieId, String posterPic);
+	void addPic(@Param(value = "movieId") int movieId, @Param(value = "posterPic") String posterPic);
 
 	@Update("update movie set movie_name=#{movieName}, movie_type=#{movieType}, movie_country=#{movieCountry}, movie_score=#{movieScore}, movie_date=#{movieDate}, movie_desc=#{movieDesc}, movie_ratings=#{movieRatings}, movie_dimension=#{movieDimension} where movie_id = #{movieId}")
 	void update(MovieModel movie);

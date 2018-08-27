@@ -1,35 +1,29 @@
 package com.movie.manage;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * 得到图片的路径
+ * 得到一个路径中的某个名字的图片路径
  * 
  * @author QQ546
  *
  */
 public class GetPicPath {
-	
-	// path: ../name
-	public static List<String> getPath(String path) {
-		
+
+	// 得到一个路径中的某个名字的图片路径
+	public static String getPath(String path, String name) {
+
 		File file = new File(path);
-		
-		List<String> list = new ArrayList<>();
-		
+
 		for (File f : file.listFiles()) {
-			list.add(f.getPath());
+			System.out.println(f.getName());
+			if (f.getName().equals(name + ".jpg") || f.getName().equals(name + ".png")) {
+				path = f.getPath();
+			}
+
 		}
-		
-		return list;
+		return path;
+
 	}
-	
-	public static void main(String[] args) {
-		for (String string : getPath("E:/aac/pic2")) {
-			System.out.println(string);
-		}
-	}
-	
+
 }
