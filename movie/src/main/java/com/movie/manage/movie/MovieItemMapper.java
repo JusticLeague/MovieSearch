@@ -17,9 +17,9 @@ public interface MovieItemMapper {
 	
 	// 查找演员的电影
 	@Select("select movie_id as movieId from movie_item where actor_id = #{actorId}")
-	List<MovieItemModel> findMovie(int actorId);
+	List<Integer> findMovieId(int actorId);
 	
 	// 查找电影的演员
 	@Select("select actoer_id as actorId from movie_item where movie_id = #{movieId}")
-	List<MovieItemModel> findActor(int movieId);
+	List<Integer> findActorId(int movieId);
 }

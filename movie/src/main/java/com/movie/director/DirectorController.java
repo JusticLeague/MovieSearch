@@ -63,14 +63,16 @@ public class DirectorController {
 	// 添加图片
 	@PostMapping("/{directorName}")
 	public void addPic(@PathVariable String directorName) {
+		
+		String path ="";
 
-		// 得到图片所在的文件夹
-		String path = "E:/aac/" + directorName;
+		// 得到ID
+		int directorId = service.getIntId(directorName);
 
-		// 遍历所有的图片路径
-		for (String directorPic : GetPicPath.getPath(path)) {
-			service.addPic(service.getIntId(directorName), directorPic);
-		}
+		// 得到图片路径
+		String directorPic = GetPicPath.getPath(path, directorName);
+
+		service.addPic(directorId, directorPic);
 
 	}
 

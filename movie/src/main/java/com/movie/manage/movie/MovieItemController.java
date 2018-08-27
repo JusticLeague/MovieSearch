@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.movie.actor.ActorService;
 
 @RestController
 @RequestMapping("/item")
@@ -16,31 +19,52 @@ public class MovieItemController {
 
 	@Autowired
 	MovieItemService service;
-	
+
+	@Autowired
+	MovieService mservice;
+
+	@Autowired
+	ActorService aservice;
+
+	// 创建影片演员表
 	@PostMapping
-	public void create(MovieItemModel item) {
-		service.create(item);
+	public void create(@RequestBody String movieName, @RequestBody String[] actorName) {
+
+		MovieItemModel item = new MovieItemModel();
+
+		// 得到movieID
+		int movieId = mservice.getMoiveIntId(movieName);
+		item.setMovieId(movieId);
+
+		for (String string : actorName) {
+			// 得到演员ID
+			int actorId = aservice.getIntId(string);
+			item.setActorId(actorId);
+
+			service.create(item);
+
+		}
+
 	}
-	
+
 	@GetMapping()
 	@ResponseBody
-	public List<MovieItemModel> findAll(){
+	public List<MovieItemModel> findAll() {
 		return service.findAll();
 	}
-	
+
 	// 查找演员的电影
-	@GetMapping("/actorId/{actorId}")
+	@GetMapping("/actor/{actorId}")
 	@ResponseBody
-	public List<MovieItemModel> findMovie(@PathVariable int actorId){
+	public List<Integer> findMovie(@PathVariable int actorId) {
 		return service.findMovie(actorId);
 	}
-	
+
 	// 查找电影的演员
-	@GetMapping("/movieId/{movieId}")
+	@GetMapping("/movie/{movieId}")
 	@ResponseBody
-	public List<MovieItemModel> findActoe(@PathVariable int movieId){
+	public List<Integer> findActoe(@PathVariable int movieId) {
 		return service.findActor(movieId);
 	}
-	
-	
+
 }

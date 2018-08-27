@@ -69,6 +69,7 @@ public class MovieController {
 	@PostMapping("/{movieName}")
 	public void addPoster(@PathVariable String movieName) {
 		
+<<<<<<< HEAD
 		System.out.println(movieName);
 
 		// 海报所在的文件夹
@@ -82,6 +83,17 @@ public class MovieController {
 		for (String posterPic : GetPicPath.getPath(path)) {
 			service.addPic(id, posterPic);
 		}
+=======
+		String path = "";
+		
+		// 得到影片ID
+		int movieId = service.getMoiveIntId(movieName);
+		
+		// 得到图片路径
+		String posterPic = GetPicPath.getPath(path, movieName);
+
+		service.addPic(movieId, posterPic);
+>>>>>>> 9137cfca957c7fa71d91d2bce0586c312723cdd2
 
 	}
 
