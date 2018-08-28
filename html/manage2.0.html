@@ -173,7 +173,7 @@
 
                     ats=this.actorString.split(' ')
 
-                    axios.post('/item', {
+                    axios.post('/movie', {
                         'directorName': dn, 'movieName': mn, 'movieType': mt, 'movieCountry': mc, 'movieScore': ms,
                         'movieDate': md, 'movieRatings': mr, 'movieDimension': mdi, 'movieDesc': mde,'actors':ats
                     }).then(

@@ -53,7 +53,7 @@ public interface MovieMapper {
 	void create(MovieModel movie);
 
 	// 添加海报
-	@Insert("insert into poster(movie_id, poster_pic) value(#{movieId}, #{posterPic}")
+	@Insert("insert into poster(movie_id, poster_pic) value(#{movieId}, #{posterPic})")
 	void addPic(@Param(value = "movieId") int movieId, @Param(value = "posterPic") String posterPic);
 
 	@Update("update movie set movie_name=#{movieName}, movie_type=#{movieType}, movie_country=#{movieCountry}, movie_score=#{movieScore}, movie_date=#{movieDate}, movie_desc=#{movieDesc}, movie_ratings=#{movieRatings}, movie_dimension=#{movieDimension} where movie_id = #{movieId}")

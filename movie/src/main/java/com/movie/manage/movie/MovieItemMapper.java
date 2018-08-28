@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface MovieItemMapper {
 
-	@Insert("insert into moive_item value(actor_id = #{ActorId}, movie_id = #{movieId})")
+	@Insert("insert into movie_item value(#{movieId}, #{actorId})")
 	void create(MovieItemModel item);
 	
 	@Select("select actor_id as actorId, movie_id as movieId from movie_item")

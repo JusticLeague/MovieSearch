@@ -60,7 +60,7 @@ public class MovieController {
 
 	// 创建基本信息
 	@PostMapping
-	public String create(@RequestBody MovieModel movie, @RequestParam("actors") String[] actors) {
+	public String create(@RequestBody MovieModel movie) {
 
 		if (service.getMovieId(movie.getMovieName()) != null) {
 			return "已存在！";
@@ -73,10 +73,10 @@ public class MovieController {
 			MovieItemModel item = new MovieItemModel();
 
 			// 得到movieID
-			int movieId = movie.getMovieId();
+			int movieId = service.getMoiveIntId(movie.getMovieName());
 			item.setMovieId(movieId);
 
-			for (String actor : actors) {
+			for (String actor : movie.getActors()) {
 				
 				// 得到演员ID
 				int actorId = aservice.getIntId(actor);

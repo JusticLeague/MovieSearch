@@ -21,10 +21,21 @@ public class MovieModel {
 	String movieRatings;
 	int movieDimension;
 	String posterPic;
+	String[] actors;
 
 	public MovieModel() {
 
 	}
+
+	public String[] getActors() {
+		return actors;
+	}
+
+	public void setActors(String[] actors) {
+		this.actors = actors;
+	}
+
+
 
 	public int getMovieId() {
 		return movieId;
