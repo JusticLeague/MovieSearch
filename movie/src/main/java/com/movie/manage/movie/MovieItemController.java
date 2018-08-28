@@ -5,13 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.movie.actor.ActorService;
 
 @RestController
 @RequestMapping("/item")
@@ -20,32 +17,26 @@ public class MovieItemController {
 	@Autowired
 	MovieItemService service;
 
-	@Autowired
-	MovieService mservice;
-
-	@Autowired
-	ActorService aservice;
-
 	// 创建影片演员表
-	@PostMapping
-	public void create(@RequestBody String movieName, @RequestBody String[] actorName) {
-
-		MovieItemModel item = new MovieItemModel();
-
-		// 得到movieID
-		int movieId = mservice.getMoiveIntId(movieName);
-		item.setMovieId(movieId);
-
-		for (String string : actorName) {
-			// 得到演员ID
-			int actorId = aservice.getIntId(string);
-			item.setActorId(actorId);
-
-			service.create(item);
-
-		}
-
-	}
+//	@PostMapping()
+//	public void create(@RequestBody String movieName, @RequestBody String[] actors) {
+//
+//		MovieItemModel item = new MovieItemModel();
+//
+//		// 得到movieID
+//		int movieId = mservice.getMoiveIntId(movieName);
+//		item.setMovieId(movieId);
+//
+//		for (String string : actors) {
+//			// 得到演员ID
+//			int actorId = aservice.getIntId(string);
+//			item.setActorId(actorId);
+//
+//			service.create(item);
+//
+//		}
+//
+//	}
 
 	@GetMapping()
 	@ResponseBody

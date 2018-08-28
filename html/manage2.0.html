@@ -173,12 +173,12 @@
 
                     ats=this.actorString.split(' ')
 
-                    axios.post('/movie', {
+                    axios.post('/item', {
                         'directorName': dn, 'movieName': mn, 'movieType': mt, 'movieCountry': mc, 'movieScore': ms,
                         'movieDate': md, 'movieRatings': mr, 'movieDimension': mdi, 'movieDesc': mde,'actors':ats
                     }).then(
                         // alert('添加成功'),
-                        window.location.reload()
+                        // window.location.reload()
                     ).catch((err) => {
                         alert('添加失败')
                     }

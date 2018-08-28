@@ -1,9 +1,7 @@
 package com.movie.manage.movie;
 
 import java.util.List;
-import java.util.Map;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.movie.actor.ActorService;
 import com.movie.manage.GetPicPath;
 
 @RestController
@@ -24,6 +23,12 @@ public class MovieController {
 
 	@Autowired
 	MovieService service;
+
+	@Autowired
+	ActorService aservice;
+
+	@Autowired
+	MovieItemService mservice;
 
 	// 视图movie_show
 	@GetMapping
@@ -55,45 +60,48 @@ public class MovieController {
 
 	// 创建基本信息
 	@PostMapping
-	public String create(@RequestBody MovieModel movie) {
+	public String create(@RequestBody MovieModel movie, @RequestParam("actors") String[] actors) {
+
 		if (service.getMovieId(movie.getMovieName()) != null) {
-			return "影片存在";
+			return "已存在！";
+			
 		} else {
+			// 设置导演ID
 			movie.setDirectorId(service.getDirectorId(movie.getDirectorName()));
 			service.create(movie);
-			return "创建成功";
+
+			MovieItemModel item = new MovieItemModel();
+
+			// 得到movieID
+			int movieId = movie.getMovieId();
+			item.setMovieId(movieId);
+
+			for (String actor : actors) {
+				
+				// 得到演员ID
+				int actorId = aservice.getIntId(actor);
+				item.setActorId(actorId);
+
+				mservice.create(item);
+			}
+
+			return "创建成功！";
 		}
 	}
 
 	// 添加海报
 	@PostMapping("/{movieName}")
 	public void addPoster(@PathVariable String movieName) {
-		
-<<<<<<< HEAD
-		System.out.println(movieName);
 
-		// 海报所在的文件夹
-		String path = "D:/截图/" + movieName;
-		
-		int id = service.getMoiveIntId(movieName);
-		
-		System.out.println(id);
-
-		// 遍历将所有图片路径上传
-		for (String posterPic : GetPicPath.getPath(path)) {
-			service.addPic(id, posterPic);
-		}
-=======
 		String path = "";
-		
+
 		// 得到影片ID
 		int movieId = service.getMoiveIntId(movieName);
-		
+
 		// 得到图片路径
 		String posterPic = GetPicPath.getPath(path, movieName);
 
 		service.addPic(movieId, posterPic);
->>>>>>> 9137cfca957c7fa71d91d2bce0586c312723cdd2
 
 	}
 
