@@ -38,7 +38,6 @@ public class ActorController {
 
 	// 表actor 通过name
 	@GetMapping("/name/{actorName}")
-	@ResponseBody
 	public List<ActorModel> findByName(@PathVariable String actorName) {
 		return service.findByName(actorName);
 	}

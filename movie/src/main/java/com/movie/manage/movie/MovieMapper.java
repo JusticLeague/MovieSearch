@@ -37,8 +37,8 @@ public interface MovieMapper {
 
 	// 表movie 通过name
 	@Select("select movie_id as movieId, movie_name as movieName, movie_type as movieType, movie_country as movieCountry, movie_score as movieScore,"
-			+ "movie_date as movieDate, movie_desc as movieDesc, movie_ratings as movieRatings, movie_dimension as movieDimension from movie where movie_name = #{movieName}")
-	List<MovieModel> findByName(String movieName);
+			+ "movie_date as movieDate, movie_desc as movieDesc, movie_ratings as movieRatings, movie_dimension as movieDimension from movie where movie_name like '%${movieName}%'")
+	List<MovieModel> findByName(@Param("movieName") String movieName);
 
 	// 视图movie_show
 	@Select("select * from movie_show")

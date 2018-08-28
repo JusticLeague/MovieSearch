@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -38,8 +39,8 @@ public interface ActorMapper {
 	List<ActorModel> findBase();
 
 	// 表actor 通过name 查找
-	@Select("select actor_id as actorId, actor_name as actorName, actor_sex as actorSex, actor_country as actorCountry, actor_birth as actorBirth, actor_desc as actorDesc from actor where actor_name = #{actorName}")
-	List<ActorModel> findByName(String name);
+	@Select("select actor_id as actorId, actor_name as actorName, actor_sex as actorSex, actor_country as actorCountry, actor_birth as actorBirth, actor_desc as actorDesc from actor where actor_name like '%${actorName}%'")
+	List<ActorModel> findByName(@Param("actorName") String actorName);
 
 	// 演员的基本信息
 	@Insert("insert into actor(actor_name, actor_sex, actor_country, actor_birth, actor_desc) value(#{actorName}, #{actorSex}, #{actorCountry}, #{actorBirth}, #{actorDesc})")

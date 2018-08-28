@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -42,8 +43,8 @@ public interface DirectorMapper {
 
 	// 表director 通过name 查找
 	@Select("select director_id as directorId, director_name as directorName, director_sex as directorSex, director_country as directorCountry, "
-			+ "director_birth as directorBirth, director_desc as directorDesc from director where director_name = #{directorName}")
-	List<DirectorModel> findByName(String name);
+			+ "director_birth as directorBirth, director_desc as directorDesc from director where director_name like '%${directorName}%'")
+	List<DirectorModel> findByName(@Param("directorName") String directorName);
 
 	// 表 director
 	@Select("select director_id as directorId, director_name as directorName, director_sex as directorSex, director_country as directorCountry, "

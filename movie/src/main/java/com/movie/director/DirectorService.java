@@ -54,8 +54,8 @@ public class DirectorService {
 	}
 
 	// 表director 通过name 查找
-	public List<DirectorModel> findByName(String name) {
-		return mapper.findByName(name);
+	public List<DirectorModel> findByName(String directorName) {
+		return mapper.findByName(directorName);
 	}
 
 	// 表director

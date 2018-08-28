@@ -961,9 +961,9 @@
                                         <td>{{d.directorCountry}}</td>
                                         <td>{{d.directorDesc}}</td>
                                         <td>
-                                            <button type="button" class="btn btn-info" data-toggle="modal" v-bind:data-target="'#modal'+item.directorId">修改</button>
+                                            <button type="button" class="btn btn-info" data-toggle="modal" v-bind:data-target="'#modal'+d.directorId">修改</button>
                                             <!-- 搜索导演并点击修改后的model -->
-                                            <div class="modal fade" v-bind:id="'modal'+item.directorId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal fade" v-bind:id="'modal'+d.directorId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-body">
