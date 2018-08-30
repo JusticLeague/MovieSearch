@@ -45,11 +45,11 @@ public class DirectorModel {
 		this.directorSex = directorSex;
 	}
 
-	public String getDirectorBirth() {
+	public String getDirectorBirthday() {
 		return directorBirthday;
 	}
 
-	public void setDirectorBirth(String directorBirthday) {
+	public void setDirectorBirthday(String directorBirthday) {
 		this.directorBirthday = directorBirthday;
 	}
 

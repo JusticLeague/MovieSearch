@@ -64,7 +64,7 @@ public class DirectorController {
 	@PostMapping("/{directorName}")
 	public void addPic(@PathVariable String directorName) {
 		
-		String path ="";
+		String path ="D:/AJianGuoYun/GitHub/MovieSearch/movie/src/main/resources/static/";
 
 		// 得到ID
 		int directorId = service.getIntId(directorName);

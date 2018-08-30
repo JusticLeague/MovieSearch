@@ -230,7 +230,7 @@
                     <input type="text" class="form-control" name="actors" v-model="actorString" id="exampleInputPassword1" placeholder="演员之间请用空格分开">
                 </div>
                     <button type="button" @click="addMovie(directorName, movieName, movieType, movieCountry, movieScore,
-                        movieDate, movieRatings, movieDimension, movieDesc,actors)"  class="btn btn-primary">提交</button>
+                        movieDate, movieRatings, movieDimension, movieDesc,actors)"  class="btn btn-primary btn-block">提交</button>
                 </form>
                 </div>
             `
@@ -244,24 +244,14 @@
                 }
             },
             methods: {
-                handleRemove(file, fileList) {
-                    console.log(file, fileList);
-                },
-                handlePreview(file) {
-                    console.log(file);
-                },
-                // submitUpload() {
-                    // console.log(posters)
-                //     this.$refs.upload.submit();
-                // },
                 postName(n){
                     axios.post('/movie/'+ n,{'movieName':n}).then()
                 }
             },
             template: `
             <div>
-                <input type="text" name="movieName" v-model="movieName"></input>
-                <a class="btn btn-primary" @click="postName(movieName)">上传</a>
+                <input type="text" name="movieName" v-model="movieName" placeholder="请输入影片名称"></input>
+                <a class="btn btn-primary" @click="postName(movieName)" style="color:white">上传</a>
             </div>
             `
         }
@@ -411,7 +401,7 @@
             template: `
             <div>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" name="movieName" v-model="movieName"  placeholder="输入导演姓名" aria-label="Search">
+                <input class="form-control mr-sm-2" name="movieName" v-model="movieName"  placeholder="输入影片名称" aria-label="Search">
                 
                 <button @click="findMovie(movieName)" class="btn btn-outline-success my-2 my-sm-0" type="button" data-toggle="collapse" data-target="#collapseMovie3"
                     aria-expanded="false" aria-controls="collapseExample">搜索</button>
@@ -776,7 +766,7 @@
                     <label for="exampleInputPassword1">简介</label>
                     <input type="text" class="form-control" name="directorDesc" v-model="directorDesc" id="exampleInputPassword1" placeholder="输入简介">
                 </div>
-                <button type="button" @click="addDirector(directorName,directorSex,directorBirthday,directorCountry,directorDesc)" class="btn btn-primary">添加</button>
+                <button type="button" @click="addDirector(directorName,directorSex,directorBirthday,directorCountry,directorDesc)" class="btn btn-primary btn-block">添加</button>
             </form>
             <iframe id="iframe" name="iframeDA" style="display:none;"></iframe>
             </div>
@@ -784,18 +774,21 @@
         }
 
         const directorPic = {
+            data() {
+                return {
+                    directorName: ''
+                }
+            },
+            methods: {
+                postName(n){
+                    axios.post('/director/'+ n,{'directorName':n}).then()
+                }
+            },
             template: `
-            <form>
-                <div class="form-group mt-3">
-                    <label for="exampleInputEmail1">导演姓名</label>
-                    <input type="text" class="form-control" namr="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入导演姓名">
-                </div>
-                <div class="form-group mt-4">
-                    <label for="exampleFormControlFile1">Example file input</label>
-                    <input type="file" multiple class="form-control-file" id="exampleFormControlFile1">
-                    <button type="submit" class="btn btn-primary mt-3">上传</button>
-                </div>
-            </form>
+            <div>
+                <input type="text" name="directorName" v-model="directorName" placeholder="请输入导演姓名"></input>
+                <a class="btn btn-primary" @click="postName(directorName)" style="color:white">上传</a>
+            </div>
             `
         }
 
@@ -1079,7 +1072,7 @@
                         <label for="exampleInputPassword1">简介</label>
                         <input type="text" class="form-control" name="actorDesc" v-model="actorDesc" id="exampleInputPassword1" placeholder="输入简介">
                     </div>
-                    <button type="button" @click="addActor(actorName,actorSex,actorBirthday,actorCountry,actorDesc)" class="btn btn-primary">添加</button>
+                    <button type="button" @click="addActor(actorName,actorSex,actorBirthday,actorCountry,actorDesc)" class="btn btn-primary btn-block">添加</button>
                 </form>
                 <iframe id="iframe" name="iframeAA" style="display:none;"></iframe>
                 </div>
@@ -1087,19 +1080,22 @@
         }
 
         const actorPic = {
+            data() {
+                return {
+                    actorName: ''
+                }
+            },
+            methods: {
+                postName(n){
+                    axios.post('/actor/'+ n,{'actorName':n}).then()
+                }
+            },
             template: `
-                    <form>
-                        <div class="form-group mt-3">
-                            <label for="exampleInputEmail1">演员姓名</label>
-                            <input type="text" class="form-control" name="name" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="输入演员姓名">
-                        </div>
-                        <div class="form-group mt-4">
-                            <label for="exampleFormControlFile1">Example file input</label>
-                            <input type="file" multiple class="form-control-file" id="exampleFormControlFile1">
-                            <button type="submit" class="btn btn-primary mt-3">上传</button>
-                        </div>
-                    </form>
-                    `
+            <div>
+                <input type="text" name="actorName" v-model="actorName" placeholder="请输入演员姓名"></input>
+                <a class="btn btn-primary" @click="postName(actorName)" style="color:white">上传</a>
+            </div>
+            `
         }
 
         //演员列表 ok

@@ -23,8 +23,8 @@ public interface DirectorMapper {
 	void create(DirectorModel director);
 
 	// 上传图片
-	@Insert("insert into director_pic(director_id, director_pic) value(#{directorId}, #{directorPic}")
-	void addPic(int id, String pic);
+	@Insert("insert into director_pic(director_id, director_pic) value(#{directorId}, #{directorPic})")
+	void addPic(@Param("directorId") int directorId, @Param("directorPic") String directorPic);
 
 	// 得到id
 	@Select("select director_id as directorId from director where director_name = #{directorName}")

@@ -27,8 +27,8 @@ public class ActorService {
 	}
 
 	// 添加演员海报
-	public void addPic(int id, String actorPic) {
-		mapper.addPic(id, actorPic);
+	public void addPic(int actorId, String actorPic) {
+		mapper.addPic(actorId, actorPic);
 	}
 
 	// 演员视图信息

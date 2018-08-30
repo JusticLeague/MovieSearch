@@ -103,7 +103,7 @@ public class MovieController {
 	@PostMapping("/{movieName}")
 	public void addPoster(@PathVariable String movieName) {
 
-		String path = "";
+		String path = "D:/AJianGuoYun/GitHub/MovieSearch/movie/src/main/resources/static/";
 
 		// 得到影片ID
 		int movieId = service.getMoiveIntId(movieName);

@@ -48,7 +48,7 @@ public interface ActorMapper {
 
 	// 演员海报
 	@Insert("insert into actor_pic(actor_id, actor_pic) value(#{actorId}, #{actorPic})")
-	void addPic(int id, String actorPic);
+	void addPic(@Param("actorId") int actorId, @Param("actorPic") String actorPic);
 
 	// 删除演员 (将movie_item中的actor_id 赋 null)
 	@Update("update movie_item set actor_id = null where actor_id = #{actorId}")

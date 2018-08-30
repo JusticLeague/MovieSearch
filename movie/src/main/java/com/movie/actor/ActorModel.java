@@ -45,11 +45,11 @@ public class ActorModel {
 		this.actorSex = actorSex;
 	}
 
-	public String getActorBirth() {
+	public String getActorBirthday() {
 		return actorBirthday;
 	}
 
-	public void setActorBirth(String actorBirthday) {
+	public void setActorBirthday(String actorBirthday) {
 		this.actorBirthday = actorBirthday;
 	}
 
