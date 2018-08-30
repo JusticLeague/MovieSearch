@@ -19,7 +19,7 @@ import org.apache.ibatis.annotations.Update;
 public interface DirectorMapper {
 
 	// 插入基本信息
-	@Insert("insert into director(director_name, director_sex, director_country, director_birth, director_desc) value(#{directorName}, #{directorSex}, #{directorCountry}, #{directorBirth}, #{directorDesc})")
+	@Insert("insert into director(director_name, director_sex, director_country, director_birthday, director_desc) value(#{directorName}, #{directorSex}, #{directorCountry}, #{directorBirthday}, #{directorDesc})")
 	void create(DirectorModel director);
 
 	// 上传图片
@@ -43,12 +43,12 @@ public interface DirectorMapper {
 
 	// 表director 通过name 查找
 	@Select("select director_id as directorId, director_name as directorName, director_sex as directorSex, director_country as directorCountry, "
-			+ "director_birth as directorBirth, director_desc as directorDesc from director where director_name like '%${directorName}%'")
+			+ "director_birthday as directorBirthday, director_desc as directorDesc from director where director_name like '%${directorName}%'")
 	List<DirectorModel> findByName(@Param("directorName") String directorName);
 
 	// 表 director
 	@Select("select director_id as directorId, director_name as directorName, director_sex as directorSex, director_country as directorCountry, "
-			+ "director_birth as directorBirth, director_desc as directorDesc from director")
+			+ "director_birthday as directorBirthday, director_desc as directorDesc from director")
 	List<DirectorModel> findBase();
 
 	// 删除导演(将movie中的director_id 赋 null)
@@ -63,7 +63,7 @@ public interface DirectorMapper {
 	void removePic(int directorId);
 
 	// 修改信息
-	@Update("update director set director_name = #{directorName}, director_sex = #{directorSex}, director_birth = #{directorBirth}, director_country = #{directorCountry}, director_desc = #{directorDesc} where director_id = #{directorId}")
+	@Update("update director set director_name = #{directorName}, director_sex = #{directorSex}, director_birthday = #{directorBirthday}, director_country = #{directorCountry}, director_desc = #{directorDesc} where director_id = #{directorId}")
 	void update(DirectorModel director);
 
 }

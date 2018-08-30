@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 /**
- * 添加演员，从视图 actor_info 中查看演员信息 视图 name,country,sex,birth,desc,pic,movie
+ * 添加演员，从视图 actor_info 中查看演员信息 视图 name,country,sex,birthday,desc,pic,movie
  * 
  * @author QQ546
  *
@@ -34,16 +34,16 @@ public interface ActorMapper {
 	List<ActorModel> findAll();
 
 	// 表actor
-	@Select("select actor_id as actorId, actor_name as actorName, actor_sex as actorSex, actor_country as actorCountry, actor_birth as actorBirth,"
+	@Select("select actor_id as actorId, actor_name as actorName, actor_sex as actorSex, actor_country as actorCountry, actor_birthday as actorBirthday,"
 			+ "actor_desc as actorDesc from actor ")
 	List<ActorModel> findBase();
 
 	// 表actor 通过name 查找
-	@Select("select actor_id as actorId, actor_name as actorName, actor_sex as actorSex, actor_country as actorCountry, actor_birth as actorBirth, actor_desc as actorDesc from actor where actor_name like '%${actorName}%'")
+	@Select("select actor_id as actorId, actor_name as actorName, actor_sex as actorSex, actor_country as actorCountry, actor_birthday as actorBirthday, actor_desc as actorDesc from actor where actor_name like '%${actorName}%'")
 	List<ActorModel> findByName(@Param("actorName") String actorName);
 
 	// 演员的基本信息
-	@Insert("insert into actor(actor_name, actor_sex, actor_country, actor_birth, actor_desc) value(#{actorName}, #{actorSex}, #{actorCountry}, #{actorBirth}, #{actorDesc})")
+	@Insert("insert into actor(actor_name, actor_sex, actor_country, actor_birthday, actor_desc) value(#{actorName}, #{actorSex}, #{actorCountry}, #{actorBirthday}, #{actorDesc})")
 	void create(ActorModel actor);
 
 	// 演员海报
@@ -62,7 +62,7 @@ public interface ActorMapper {
 	void removePic(int actorId);
 
 	// 修改信息
-	@Update("update actor set actor_name = #{actorName}, actor_sex = #{actorSex}, actor_birth = #{actorBirth}, actor_country = #{actorCountry}, actor_desc = #{actorDesc} where actor_id = #{actorId}")
+	@Update("update actor set actor_name = #{actorName}, actor_sex = #{actorSex}, actor_birthday = #{actorBirthday}, actor_country = #{actorCountry}, actor_desc = #{actorDesc} where actor_id = #{actorId}")
 	void update(ActorModel actor);
 
 }
