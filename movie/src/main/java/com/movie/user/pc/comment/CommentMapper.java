@@ -30,7 +30,7 @@ public interface CommentMapper {
 	@Select("select cmt_comment as cmtComment from comment where movie_id = #{movieId}")
 	List<CommentModel> getComment(int movieId);
 
-	// 统计某部影片有多少收藏
+	// 统计某部影片有多少评论
 	@Select("select count(vip_id as vipId) from comment where movie_id = #{movieId}")
 	int sum(int movieId);
 
