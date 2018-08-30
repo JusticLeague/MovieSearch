@@ -11,7 +11,7 @@ public class DirectorModel {
 	int directorId;
 	String directorName;
 	int directorSex;
-	String directorBirth;
+	String directorBirthday;
 	String directorCountry;
 	String directorDesc;
 	String directorPic;
@@ -46,11 +46,11 @@ public class DirectorModel {
 	}
 
 	public String getDirectorBirth() {
-		return directorBirth;
+		return directorBirthday;
 	}
 
-	public void setDirectorBirth(String directorBirth) {
-		this.directorBirth = directorBirth;
+	public void setDirectorBirth(String directorBirthday) {
+		this.directorBirthday = directorBirthday;
 	}
 
 	public String getDirectorCountry() {

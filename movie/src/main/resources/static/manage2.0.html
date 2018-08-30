@@ -722,7 +722,7 @@
                 return {
                     directorName: '',
                     directorSex: 0,
-                    directorBirth: '',
+                    directorBirthday: '',
                     directorCountry: '',
                     directorDesc: ''
                 }
@@ -733,7 +733,7 @@
                         {
                             'directorName': dn,
                             'directorSex': ds,
-                            'directorBirth': db,
+                            'directorBirthday': db,
                             'directorCountry': dc,
                             'directorDesc': dd
                         }).then(
@@ -766,7 +766,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">出生日期</label>
-                    <input type="text" class="form-control" name="directorBirth" v-model="directorBirth" id="exampleInputPassword1" placeholder="输入出生日期">
+                    <input type="text" class="form-control" name="directorBirthday" v-model="directorBirthday" id="exampleInputPassword1" placeholder="输入出生日期">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">国籍</label>
@@ -776,7 +776,7 @@
                     <label for="exampleInputPassword1">简介</label>
                     <input type="text" class="form-control" name="directorDesc" v-model="directorDesc" id="exampleInputPassword1" placeholder="输入简介">
                 </div>
-                <button type="button" @click="addDirector(directorName,directorSex,directorBirth,directorCountry,directorDesc)" class="btn btn-primary">添加</button>
+                <button type="button" @click="addDirector(directorName,directorSex,directorBirthday,directorCountry,directorDesc)" class="btn btn-primary">添加</button>
             </form>
             <iframe id="iframe" name="iframeDA" style="display:none;"></iframe>
             </div>
@@ -821,7 +821,7 @@
                 },
                 updateDirector(i, n, s, b, c, d) {
                     axios.put('/director/' + i, {
-                        'directorId': i, 'directorName': n, 'directorSex': s, 'directorBirth': b, 'directorCountry': c
+                        'directorId': i, 'directorName': n, 'directorSex': s, 'directorBirthday': b, 'directorCountry': c
                         , 'directorDesc': d
                     }).then(
                         window.location.reload()
@@ -852,7 +852,7 @@
                         <td scope="row">{{item.directorId}}</td>
                         <td>{{item.directorName}}</td>
                         <td>{{item.directorSex===1?'男':'女'}}</td>
-                        <td>{{item.directorBirth}}</td>
+                        <td>{{item.directorBirthday}}</td>
                         <td>{{item.directorCountry}}</td>
                         <td>{{item.directorDesc}}</td>
                         <td>
@@ -882,7 +882,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">出生日期</label>
-                                                    <input type="text" class="form-control" name="directorBirth" id="exampleInputPassword1" v-model="item.directorBirth" placeholder="输入出生日期">
+                                                    <input type="text" class="form-control" name="directorBirthday" id="exampleInputPassword1" v-model="item.directorBirthday" placeholder="输入出生日期">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">国籍</label>
@@ -893,7 +893,7 @@
                                                     <input type="text" class="form-control" name="directorDesc" id="exampleInputPassword1" v-model="item.directorDesc" placeholder="输入简介">
                                                 </div>
                                                 <button type="button" @click="updateDirector(item.directorId,item.directorName,item.directorSex
-                                                ,item.directorBirth,item.directorCountry,item.directorDesc)" class="btn btn-info" >修改</button>
+                                                ,item.directorBirthday,item.directorCountry,item.directorDesc)" class="btn btn-info" >修改</button>
                                             </form>
                                         </div>
                                     </div>
@@ -923,7 +923,7 @@
                 },
                 updateDirector(i, n, s, b, c, d) {
                     axios.put('/director/' + i, {
-                        'directorId': i, 'directorName': n, 'directorSex': s, 'directorBirth': b, 'directorCountry': c
+                        'directorId': i, 'directorName': n, 'directorSex': s, 'directorBirthday': b, 'directorCountry': c
                         , 'directorDesc': d
                     }).then(window.location.reload());
 
@@ -961,7 +961,7 @@
                                         <td scope="row">{{d.directorId}}</td>
                                         <td>{{d.directorName}}</td>
                                         <td>{{d.directorSex===1?'男':'女'}}</td>
-                                        <td>{{d.directorBirth}}</td>
+                                        <td>{{d.directorBirthday}}</td>
                                         <td>{{d.directorCountry}}</td>
                                         <td>{{d.directorDesc}}</td>
                                         <td>
@@ -991,7 +991,7 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleInputPassword1">出生日期</label>
-                                                                    <input type="text" class="form-control" name="directorBirth" v-model="d.directorBirth" id="exampleInputPassword1" placeholder="输入出生日期">
+                                                                    <input type="text" class="form-control" name="directorBirthday" v-model="d.directorBirthday" id="exampleInputPassword1" placeholder="输入出生日期">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleInputPassword1">国籍</label>
@@ -1002,7 +1002,7 @@
                                                                     <input type="text" class="form-control" name="directorDesc" v-model="d.directorDesc" id="exampleInputPassword1" placeholder="输入简介">
                                                                 </div>
                                                                 <button type="button" @click="updateDirector(d.directorId,d.directorName,d.directorSex
-                                                                    ,d.directorBirth,d.directorCountry,d.directorDesc)" class="btn btn-info" >修改</button>
+                                                                    ,d.directorBirthday,d.directorCountry,d.directorDesc)" class="btn btn-info" >修改</button>
                                                             </form>
                                                         </div>
 
@@ -1028,7 +1028,7 @@
                 return {
                     actorName: '',
                     actorSex: number,
-                    actorBirth: '',
+                    actorBirthday: '',
                     actorCountry: '',
                     actorDesc: ''
                 }
@@ -1038,7 +1038,7 @@
                     axios.post('/actor', {
                         'actorName': an,
                         'actorSex': as,
-                        'actorBirth': ab,
+                        'actorBirthday': ab,
                         'actorCountry': ac,
                         'actorDesc': ad
                     }).then(
@@ -1069,7 +1069,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">出生日期</label>
-                        <input type="text" class="form-control" name="actorBirth" v-model="actorBirth" id="exampleInputPassword1" placeholder="输入出生日期">
+                        <input type="text" class="form-control" name="actorBirthday" v-model="actorBirthday" id="exampleInputPassword1" placeholder="输入出生日期">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">国籍</label>
@@ -1079,7 +1079,7 @@
                         <label for="exampleInputPassword1">简介</label>
                         <input type="text" class="form-control" name="actorDesc" v-model="actorDesc" id="exampleInputPassword1" placeholder="输入简介">
                     </div>
-                    <button type="button" @click="addActor(actorName,actorSex,actorBirth,actorCountry,actorDesc)" class="btn btn-primary">添加</button>
+                    <button type="button" @click="addActor(actorName,actorSex,actorBirthday,actorCountry,actorDesc)" class="btn btn-primary">添加</button>
                 </form>
                 <iframe id="iframe" name="iframeAA" style="display:none;"></iframe>
                 </div>
@@ -1121,7 +1121,7 @@
                 },
                 updateActor(i, n, s, b, c, d) {
                     axios.put('/actor/' + i, {
-                        'actorId': i, 'actorName': n, 'actorSex': s, 'actorBirth': b, 'actorCountry': c
+                        'actorId': i, 'actorName': n, 'actorSex': s, 'actorBirthday': b, 'actorCountry': c
                         , 'actorDesc': d
                     }).then(window.location.reload());
 
@@ -1148,7 +1148,7 @@
                                     <td scope="row">{{a.actorId}}</td>
                                     <td>{{a.actorName}}</td>
                                     <td>{{a.actorSex===1?'男':'女'}}</td>
-                                    <td>{{a.actorBirth}}</td>
+                                    <td>{{a.actorBirthday}}</td>
                                     <td>{{a.actorCountry}}</td>
                                     <td>{{a.actorDesc}}</td>
                                     <td>
@@ -1178,7 +1178,7 @@
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="exampleInputPassword1">出生日期</label>
-                                                                <input type="text" class="form-control" name="actorBirth" v-model="a.actorBirth" id="exampleInputPassword1" placeholder="输入出生日期">
+                                                                <input type="text" class="form-control" name="actorBirthday" v-model="a.actorBirthday" id="exampleInputPassword1" placeholder="输入出生日期">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="exampleInputPassword1">国籍</label>
@@ -1189,7 +1189,7 @@
                                                                 <input type="text" class="form-control" name="actorDesc" v-model="a.actorDesc" id="exampleInputPassword1" placeholder="输入简介">
                                                             </div>
                                                             <button type="button" @click="updateActor(a.actorId,a.actorName,a.actorSex
-                                                                ,a.actorBirth,a.actorCountry,a.actorDesc)" class="btn btn-info" >修改</button>
+                                                                ,a.actorBirthday,a.actorCountry,a.actorDesc)" class="btn btn-info" >修改</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -1217,7 +1217,7 @@
                 },
                 updateActor(i, n, s, b, c, d) {
                     axios.put('/actor/' + i, {
-                        'actorId': i, 'actorName': n, 'actorSex': s, 'actorBirth': b, 'actorCountry': c
+                        'actorId': i, 'actorName': n, 'actorSex': s, 'actorBirthday': b, 'actorCountry': c
                         , 'actorDesc': d
                     }).then(window.location.reload());
 
@@ -1255,7 +1255,7 @@
                                                         <td scope="row">{{a.actorId}}</td>
                                                         <td>{{a.actorName}}</td>
                                                         <td>{{a.actorSex===1?'男':'女'}}</td>
-                                                        <td>{{a.actorBirth}}</td>
+                                                        <td>{{a.actorBirthday}}</td>
                                                         <td>{{a.actorCountry}}</td>
                                                         <td>{{a.actorDesc}}</td>
                                                         <td>
@@ -1285,7 +1285,7 @@
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="exampleInputPassword1">出生日期</label>
-                                                                                    <input type="text" class="form-control" name="actorBirth" v-model="a.actorBirth" id="exampleInputPassword1" placeholder="输入出生日期">
+                                                                                    <input type="text" class="form-control" name="actorBirthday" v-model="a.actorBirthday" id="exampleInputPassword1" placeholder="输入出生日期">
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="exampleInputPassword1">国籍</label>
@@ -1296,7 +1296,7 @@
                                                                                     <input type="text" class="form-control" name="actorDesc" v-model="a.actorDesc" id="exampleInputPassword1" placeholder="输入简介">
                                                                                 </div>
                                                                                 <button type="button" @click="updateActor(a.actorId,a.actorName,a.actorSex
-                                                                                    ,a.actorBirth,a.actorCountry,a.actorDesc)" class="btn btn-info" >修改</button>
+                                                                                    ,a.actorBirthday,a.actorCountry,a.actorDesc)" class="btn btn-info" >修改</button>
                                                                             </form>
                                                                         </div>
 

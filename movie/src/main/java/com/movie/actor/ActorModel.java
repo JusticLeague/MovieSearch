@@ -11,7 +11,7 @@ public class ActorModel {
 	int actorId;
 	String actorName;
 	int actorSex;
-	String actorBirth;
+	String actorBirthday;
 	String actorCountry;
 	String actorDesc;
 	String actorPic;
@@ -46,11 +46,11 @@ public class ActorModel {
 	}
 
 	public String getActorBirth() {
-		return actorBirth;
+		return actorBirthday;
 	}
 
-	public void setActorBirth(String actorBirth) {
-		this.actorBirth = actorBirth;
+	public void setActorBirth(String actorBirthday) {
+		this.actorBirthday = actorBirthday;
 	}
 
 	public String getActorCountry() {
