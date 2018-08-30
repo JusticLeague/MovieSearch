@@ -103,7 +103,7 @@ public class MovieController {
 	@PostMapping("/{movieName}")
 	public void addPoster(@PathVariable String movieName) {
 
-		String path = "D:/AJianGuoYun/GitHub/MovieSearch/movie/src/main/resources/static/";
+		String path = "C:/Users/QQ546/Documents/GitHub/MovieSearch/movie/src/main/resources/static/影片海报";
 
 		// 得到影片ID
 		int movieId = service.getMoiveIntId(movieName);
@@ -118,7 +118,7 @@ public class MovieController {
 	// 修改
 	@PutMapping("/{movieId}")
 	public void update(@RequestBody MovieModel movie) {
-		movie.setDirectorId(service.getDirectorId(movie.getDirectorName()));
+//		movie.setDirectorId(service.getDirectorId(movie.getDirectorName()));
 		// movie.setDirectorId(service.getId(directorName));
 		service.update(movie);
 	}

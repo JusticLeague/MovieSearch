@@ -64,7 +64,7 @@ public class ActorController {
 	@PostMapping("/{actorName}")
 	public void addPic(@PathVariable String actorName) {
 
-		String path = "D:/AJianGuoYun/GitHub/MovieSearch/movie/src/main/resources/static/";
+		String path = "C:/Users/QQ546/Documents/GitHub/MovieSearch/movie/src/main/resources/static/演员图片";
 
 		// 得到ID
 		int actorId = service.getIntId(actorName);
