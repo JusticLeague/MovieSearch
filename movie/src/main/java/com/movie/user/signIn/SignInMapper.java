@@ -3,6 +3,7 @@ package com.movie.user.signIn;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import com.movie.user.User;
@@ -19,6 +20,9 @@ public interface SignInMapper {
 	String password();
 	
 	// 得到id, name ,phone
-	@Select("select  vip_id as vipId, vip_name as vipName, vip_phone as vipPhone from vip")
-	List<User> find();
+	@Select("select  vip_id as vipId, vip_name as vipName, vip_phone as vipPhone from vip where vip_name like '%${vipName}%'")
+	List<User> find(@Param("vipName") String vipName);
+	
+	@Select("select vip_id as vipId, vip_name as vipName, vip_phone as vipPhone from vip")
+	List<User> findAll();
 }

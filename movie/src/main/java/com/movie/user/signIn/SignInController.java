@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,10 +21,17 @@ public class SignInController {
 	@Autowired
 	SignInService service;
 	
+	
 	@GetMapping
 	@ResponseBody
-	public List<User> find(){
-		return service.find();
+	public List<User> findAll(){
+		return service.findAll();
+	}
+	
+	@GetMapping("/{vipName}")
+	@ResponseBody
+	public List<User> find(@PathVariable String vipName){
+		return service.find(vipName);
 	}
 
 	// 返回登陆的结果

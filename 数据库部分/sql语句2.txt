@@ -123,6 +123,24 @@ poster.movie_id=movie.movie_id;
 
 
 
+视图comment_view
+create view comment_view as
+select
+comment.cmt_id as cmtId,
+vip.vip_name as vipName,
+movie.movie_name as movieName,
+comment.cmt_comment as cmtComment
+from 
+movie, vip, comment
+where 
+vip.vip_id = comment.vip_id
+and
+movie.movie_id = comment.movie_id;
+
+
+
+
+
 
 
 

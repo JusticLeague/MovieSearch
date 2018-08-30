@@ -592,7 +592,7 @@
             },
             methods: {
                 findVip(n) {
-                    axios.get('/signIn/name/' + n).then((res) => this.vip = res.data);
+                    axios.get('/signIn/' + n).then((res) => this.vip = res.data);
                 },
                 updateVip(i, n, p) {
                     axios.put('/vip/' + i, { 'vipId': i, 'vipName': n, 'vipPhone': p }).then(
@@ -692,16 +692,18 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>用户id</th>
-                            <th>电影id</th>
+                            <th>评论id</th>
+                            <th>用户昵称</th>
+                            <th>电影名称</th>
                             <th>评论</th>
                             <th>操作</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="(c, index) in comments" :key="index">
-                            <td>{{c.vipId}}</td>
-                            <td>{{c.movieId}}</td>
+                            <td>{{c.cmtId}}</td>
+                            <td>{{c.vipName}}</td>
+                            <td>{{c.movieName}}</td>
                             <td>{{c.cmtComment}}</td>
                             <td>
                                 <button type="button" @click="deleComment(c.cmtId)" class="btn btn-danger">删除</button>
@@ -799,7 +801,7 @@
         const directorList = {
             data() {
                 return {
-                    directors: [],
+                    directors: []
                 }
             },
             created() {
@@ -847,7 +849,7 @@
                     <tr v-for="(item,index) in directors">
                         <td scope="row">{{item.directorId}}</td>
                         <td>{{item.directorName}}</td>
-                        <td>{{item.directorSex}}</td>
+                        <td>{{item.directorSex===1?'男':'女'}}</td>
                         <td>{{item.directorBirth}}</td>
                         <td>{{item.directorCountry}}</td>
                         <td>{{item.directorDesc}}</td>
@@ -956,7 +958,7 @@
                                     <tr v-for="d in director">
                                         <td scope="row">{{d.directorId}}</td>
                                         <td>{{d.directorName}}</td>
-                                        <td>{{d.directorSex}}</td>
+                                        <td>{{d.directorSex===1?'男':'女'}}</td>
                                         <td>{{d.directorBirth}}</td>
                                         <td>{{d.directorCountry}}</td>
                                         <td>{{d.directorDesc}}</td>
@@ -1143,7 +1145,7 @@
                                 <tr v-for="(a, index) in actors" :key="index">
                                     <td scope="row">{{a.actorId}}</td>
                                     <td>{{a.actorName}}</td>
-                                    <td>{{a.actorSex}}</td>
+                                    <td>{{a.actorSex===1?'男':'女'}}</td>
                                     <td>{{a.actorBirth}}</td>
                                     <td>{{a.actorCountry}}</td>
                                     <td>{{a.actorDesc}}</td>
@@ -1250,7 +1252,7 @@
                                                     <tr v-for="a in actor">
                                                         <td scope="row">{{a.actorId}}</td>
                                                         <td>{{a.actorName}}</td>
-                                                        <td>{{a.actorSex}}</td>
+                                                        <td>{{a.actorSex===1?'男':'女'}}</td>
                                                         <td>{{a.actorBirth}}</td>
                                                         <td>{{a.actorCountry}}</td>
                                                         <td>{{a.actorDesc}}</td>

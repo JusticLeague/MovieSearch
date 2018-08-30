@@ -15,6 +15,11 @@ public class MovieService {
 	public int getDirectorId(String directorName) {
 		return mapper.getDirectorId(directorName);
 	}
+	
+	// 得到导演Name
+	public String getDirectorName(int directorId) {
+		return mapper.getDirectorName(directorId);
+	}
 
 	// 得到影片的id(String)
 	public String getMovieId(String movieName) {
@@ -70,5 +75,6 @@ public class MovieService {
 	public void update(MovieModel movie) {
 		mapper.update(movie);
 	}
+
 
 }

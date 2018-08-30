@@ -26,9 +26,14 @@ public class SignInService {
 		 return mapper.password();
 	}
 	
-	// 得到id, name, phone
-	public List<User> find(){
-		return mapper.find();
+	// 搜索得到id, name, phone
+	public List<User> find(String vipName){
+		return mapper.find(vipName);
+	}
+	
+	// 得到所有用户
+	public List<User> findAll(){
+		return mapper.findAll();
 	}
 
 }

@@ -21,6 +21,9 @@ public interface MovieMapper {
 	// 得到导演id
 	@Select("select director_id as directorId from director where director_name = #{directorName}")
 	int getDirectorId(String directorName);
+	
+	@Select("select director_name as directorName from director where director_id = #{directorId}")
+	String getDirectorName(int directorId);
 
 	// 得到影片id(String)
 	@Select("select movie_id as movieId from movie where movie_name = #{movieName}")
@@ -77,4 +80,5 @@ public interface MovieMapper {
 
 	@Delete("delete from poster where movie_id = #{movieId}")
 	void removePoster(int movieId);
+
 }

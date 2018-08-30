@@ -10,11 +10,29 @@ public class CommentModel {
 
 	int cmtId;
 	int vipId;
+	String vipName;
+	String movieName;
 	int movieId;
 	String cmtComment;
 
 	public CommentModel() {
 
+	}
+
+	public String getVipName() {
+		return vipName;
+	}
+
+	public void setVipName(String vipName) {
+		this.vipName = vipName;
+	}
+
+	public String getMovieName() {
+		return movieName;
+	}
+
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
 	}
 
 	public int getCmtId() {

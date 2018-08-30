@@ -47,14 +47,25 @@ public class MovieController {
 	@GetMapping("/base")
 	@ResponseBody
 	public List<MovieModel> findBase() {
-		return service.findBase();
+		List<MovieModel> list = service.findBase();
+		for (MovieModel movie : list) {
+			int directorId = movie.getDirectorId();
+			movie.setDirectorName(service.getDirectorName(directorId));
+		}
+		return list;
+		
 	}
 
 	// 表movie 通过name
 	@GetMapping("/base/{movieName}")
 	@ResponseBody
 	public List<MovieModel> findByName(@PathVariable String movieName) {
-		return service.findByName(movieName);
+		List<MovieModel> list = service.findByName(movieName);
+		for (MovieModel movie : list) {
+			int directorId = movie.getDirectorId();
+			movie.setDirectorName(service.getDirectorName(directorId));
+		}
+		return list;
 	}
 
 	// 创建基本信息
