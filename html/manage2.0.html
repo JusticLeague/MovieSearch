@@ -308,6 +308,7 @@
                         <th>上映日期</th>
                         <th>推荐指数</th>
                         <th>维度</th>
+                        <th>导演</th>
                         <th>电影简介</th>
                         <th>操作</th>
                     </tr>
@@ -322,6 +323,7 @@
                         <td>{{m.movieDate}}</td>
                         <td>{{m.movieRatings}}</td>
                         <td>{{m.movieDimension}}</td>
+                        <td>{{m.directorName}}</td>
                         <td>{{m.movieDesc}}</td>
                         <td>
                             <button type="button" class="btn btn-info" data-toggle="modal" v-bind:data-target="'#modal'+m.movieId">修改</button>
@@ -444,7 +446,7 @@
                                         <td>{{m.movieDate}}</td>
                                         <td>{{m.movieRatings}}</td>
                                         <td>{{m.movieDimension}}</td>
-                                        <td>{{m.directorId}}</td>
+                                        <td>{{m.directorName}}</td>
                                         <td>{{m.movieDesc}}</td>
                                         <td>
                                             <button type="button" class="btn btn-info" v-bind:data-target="'#modal'+m.movieId" data-toggle="modal">修改</button>
