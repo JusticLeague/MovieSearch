@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>后台管理</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -186,11 +186,7 @@
         const echart1 = {
             data() {
                 return {
-<<<<<<< HEAD
-                    yMax: 10,
-=======
                     yMax: 8,
->>>>>>> f3073214b8dcf67a39e29a95c591ce3617755855
                     dataShadow: [],
                     option: null,
 
@@ -314,11 +310,7 @@
         const echart2 = {
             data() {
                 return {
-<<<<<<< HEAD
-                    yMax: 10,
-=======
                     yMax: 8,
->>>>>>> f3073214b8dcf67a39e29a95c591ce3617755855
                     dataShadow: [],
                     option: null,
 
@@ -327,23 +319,10 @@
             },
             mounted() {
                 var myChart = echarts.init(document.getElementById('echart2'));
-<<<<<<< HEAD
-                axios.get('/summary/score').then((res) =>
-                    // axios.get('/summary/scoreNum').then((res)=>this.data=res.data);
-                    
-                    function shadow(){
-                    	for (var i = 0; i < res.data.length; i++) {
-                    		this.dataShadow.push(this.yMax)
-                    		}
-                    	return dataShadow;
-                    },
-
-=======
                 axios.get('/summary/score').then((res) => {
                     for (var i = 0; i < res.data.arr2.length; i++) {
                         this.dataShadow.push(this.yMax);
                     };
->>>>>>> f3073214b8dcf67a39e29a95c591ce3617755855
 
                     myChart.setOption({
                         title: {
