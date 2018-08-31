@@ -143,7 +143,7 @@ movie.movie_id = comment.movie_id;
 create view year_view as
 select 
 year(movie_date) as year,
-count(*)
+count(*) as number
 from movie
 group by movie_date;
 
