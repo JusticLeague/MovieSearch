@@ -186,7 +186,7 @@
         const echart1 = {
             data() {
                 return {
-                    yMax: 500,
+                    yMax: 10,
                     dataShadow: [],
                     option: null,
 
@@ -307,7 +307,7 @@
         const echart2 = {
             data() {
                 return {
-                    yMax: 500,
+                    yMax: 10,
                     dataShadow: [],
                     option: null,
 
@@ -318,6 +318,13 @@
                 var myChart = echarts.init(document.getElementById('echart2'));
                 axios.get('/summary/score').then((res) =>
                     // axios.get('/summary/scoreNum').then((res)=>this.data=res.data);
+                    
+                    function shadow(){
+                    	for (var i = 0; i < res.data.length; i++) {
+                    		this.dataShadow.push(this.yMax)
+                    		}
+                    	return dataShadow;
+                    },
 
 
                     myChart.setOption({

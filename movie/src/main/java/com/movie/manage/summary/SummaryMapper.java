@@ -16,11 +16,11 @@ public interface SummaryMapper {
 	
 	// 得到分数(升序)
 	@Select("select movie_score as score from movie group by movie_score order by movie_score")
-	int[] score();
+	float[] score();
 	
 	// 得分数量
 	@Select("select count(*) as number from movie group by movie_score order by movie_score")
-	int[] scoreNum();
+	float[] scoreNum();
 	
 	
 	
