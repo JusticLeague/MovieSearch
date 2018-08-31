@@ -186,7 +186,7 @@
         const echart1 = {
             data() {
                 return {
-                    yMax: 500,
+                    yMax: 8,
                     dataShadow: [],
                     option: null,
 
@@ -195,8 +195,10 @@
             },
             mounted() {
                 var myChart = echarts.init(document.getElementById('echart1'));
-                axios.get('/summary/year').then((res) =>
-                    // axios.get('/summary/scoreNum').then((res)=>this.data=res.data);
+                axios.get('/summary/year').then((res) => {
+                    for (var i = 0; i < res.data.arr2.length; i++) {
+                        this.dataShadow.push(this.yMax);
+                    };
 
 
                     myChart.setOption({
@@ -277,16 +279,17 @@
                         ]
                     }),
 
-                    myChart.on('click', function (params) {
-                        console.log(res.data.arr1[Math.max(params.dataIndex - this.zoomSize / 2, 0)]);
-                        myChart.dispatchAction({
-                            type: 'dataZoom',
-                            startValue: res.data.arr1[Math.max(params.dataIndex - this.zoomSize / 2, 0)],
-                            endValue: res.data.arr1[Math.min(params.dataIndex + this.zoomSize / 2, res.data.arr2.length - 1)]
-                        });
-                    })
+                        myChart.on('click', function (params) {
+                            console.log(res.data.arr1[Math.max(params.dataIndex - this.zoomSize / 2, 0)]);
+                            myChart.dispatchAction({
+                                type: 'dataZoom',
+                                startValue: res.data.arr1[Math.max(params.dataIndex - this.zoomSize / 2, 0)],
+                                endValue: res.data.arr1[Math.min(params.dataIndex + this.zoomSize / 2, res.data.arr2.length - 1)]
+                            });
+                        })
 
-                );
+                });
+
 
                 // myChart.setOption(option, true);
             },
@@ -307,7 +310,7 @@
         const echart2 = {
             data() {
                 return {
-                    yMax: 500,
+                    yMax: 8,
                     dataShadow: [],
                     option: null,
 
@@ -316,9 +319,10 @@
             },
             mounted() {
                 var myChart = echarts.init(document.getElementById('echart2'));
-                axios.get('/summary/score').then((res) =>
-                    // axios.get('/summary/scoreNum').then((res)=>this.data=res.data);
-
+                axios.get('/summary/score').then((res) => {
+                    for (var i = 0; i < res.data.arr2.length; i++) {
+                        this.dataShadow.push(this.yMax);
+                    };
 
                     myChart.setOption({
                         title: {
@@ -398,15 +402,15 @@
                         ]
                     }),
 
-                    myChart.on('click', function (params) {
-                        console.log(res.data.arr1[Math.max(params.dataIndex - this.zoomSize / 2, 0)]);
-                        myChart.dispatchAction({
-                            type: 'dataZoom',
-                            startValue: res.data.arr1[Math.max(params.dataIndex - this.zoomSize / 2, 0)],
-                            endValue: res.data.arr1[Math.min(params.dataIndex + this.zoomSize / 2, res.data.arr2.length - 1)]
-                        });
-                    })
-                );
+                        myChart.on('click', function (params) {
+                            console.log(res.data.arr1[Math.max(params.dataIndex - this.zoomSize / 2, 0)]);
+                            myChart.dispatchAction({
+                                type: 'dataZoom',
+                                startValue: res.data.arr1[Math.max(params.dataIndex - this.zoomSize / 2, 0)],
+                                endValue: res.data.arr1[Math.min(params.dataIndex + this.zoomSize / 2, res.data.arr2.length - 1)]
+                            });
+                        })
+                });
                 // myChart.setOption(option, true);
             },
             // mounted(){
