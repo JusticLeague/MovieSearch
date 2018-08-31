@@ -139,6 +139,15 @@ movie.movie_id = comment.movie_id;
 
 
 
+视图year_view
+create view year_view as
+select 
+year(movie_date) as year,
+count(*)
+from movie
+group by movie_date;
+
+
 
 
 

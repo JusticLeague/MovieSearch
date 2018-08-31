@@ -16,7 +16,6 @@ public class GetPicPath {
 		File file = new File(path);
 
 		for (File f : file.listFiles()) {
-			System.out.println(f.getName());
 			if (f.getName().equals(name + ".jpg") || f.getName().equals(name + ".png")) {
 				path = f.getPath();
 			}
@@ -25,5 +24,6 @@ public class GetPicPath {
 		return path;
 
 	}
+
 
 }
