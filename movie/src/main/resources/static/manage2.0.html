@@ -2,73 +2,88 @@
 <html lang="en">
 
 <head>
-  <title>Title</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-    crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
 
-  <!-- Vue.js -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <!-- Vue.js -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 
-  <!-- 引入样式 -->
-  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-  <!-- 引入组件库 -->
-  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 
-  <!-- axios -->
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
 
 </head>
 
 <body style="background-color: #f5f8fa">
-  <!-- As a link -->
-  <nav class="navbar" style="background-color: #3097D1">
-    <h4 style="color: white">后台管理</h4>
-  </nav>
 
-  <div class="container mt-3">
-    <div id="manage">
-      <p>
+    <!-- As a link -->
+    <nav class="navbar" style="background-color: #3097D1">
+        <h4 style="color: white">后台管理</h4>
+    </nav>
 
-        <router-link to="/movie">
-          <button type="button" class="btn mr-3" style="background-color: #3097D1;color: white">电影管理</button>
-        </router-link>
+    <div class="container mt-3">
+        <div id="manage">
+            <p>
 
-
-        <router-link to="/vip">
-          <button type="button" class="btn mr-3" style="background-color: #3097D1;color: white">用户管理</button>
-        </router-link>
+                <router-link to="/movie">
+                    <button type="button" class="btn mr-3" style="background-color: #3097D1;color: white">电影管理</button>
+                </router-link>
 
 
-        <router-link to="/director">
-          <button type="button" class="btn mr-3" style="background-color: #3097D1;color: white">导演管理</button>
-        </router-link>
+                <router-link to="/vip">
+                    <button type="button" class="btn mr-3" style="background-color: #3097D1;color: white">用户管理</button>
+                </router-link>
 
 
-        <router-link to="/actor">
-          <button type="button" class="btn mr-3" style="background-color: #3097D1;color: white">演员管理</button>
-        </router-link>
+                <router-link to="/director">
+                    <button type="button" class="btn mr-3" style="background-color: #3097D1;color: white">导演管理</button>
+                </router-link>
 
 
-      </p>
-      <!-- <div class="alert alert-primary" role="alert"> -->
-      <router-view></router-view>
-      <!-- </div> -->
+                <router-link to="/actor">
+                    <button type="button" class="btn mr-3" style="background-color: #3097D1;color: white">演员管理</button>
+                </router-link>
+
+                <router-link to="/statistics">
+                    <button type="button" class="btn mr-3" style="background-color: #3097D1;color: white">数据统计</button>
+                </router-link>
+
+
+            </p>
+            <!-- <div class="alert alert-primary" role="alert"> -->
+            <router-view></router-view>
+            <!-- </div> -->
+        </div>
     </div>
-  </div>
 
 
-  <script>
+    <script>
 
-    // 电影管理
-    const movieManage = {
-      template: `
+        // 电影管理
+        const movieManage = {
+            template: `
             <div class="movie">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -85,10 +100,10 @@
                 </div>                                   
             </div>
                 `
-    }
-    //用户管理
-    const vipManage = {
-      template: `
+        }
+        //用户管理
+        const vipManage = {
+            template: `
             <div class="vip">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -104,11 +119,11 @@
                 </div>               
             </div>
             `
-    }
+        }
 
-    //导演管理
-    const directorManage = {
-      template: `
+        //导演管理
+        const directorManage = {
+            template: `
             <div class="director">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -125,11 +140,11 @@
                 </div>               
             </div>
             `
-    }
+        }
 
-    //演员管理
-    const actorManage = {
-      template: `
+        //演员管理
+        const actorManage = {
+            template: `
             <div class="actor">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
@@ -146,47 +161,284 @@
                 </div>
             </div>
             `
-    }
-
-    //添加电影 ok
-    const movieAdd = {
-      data() {
-        return {
-          directorName: '',
-          movieName: '',
-          movieType: '',
-          movieCountry: '',
-          movieScore: '',
-          movieDate: '',
-          movieRatings: '',
-          movieDimension: '',
-          movieDesc: '',
-
-          actorString: '',
-          actors: []
-
         }
-      },
-      methods: {
 
-        addMovie(dn, mn, mt, mc, ms, md, mr, mdi, mde, ats) {
-
-          ats = this.actorString.split(' ')
-
-          axios.post('/movie', {
-            'directorName': dn, 'movieName': mn, 'movieType': mt, 'movieCountry': mc, 'movieScore': ms,
-            'movieDate': md, 'movieRatings': mr, 'movieDimension': mdi, 'movieDesc': mde, 'actors': ats
-          }).then(
-            alert('添加成功'),
-            window.location.reload()
-          ).catch((err) => {
-            alert('添加失败')
-          }
-
-          )
+        //数据统计
+        const statistics = {
+            template: `
+      <div class="statistics">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><router-link to="/statistics/echart1">图表1</router-link></li>
+                        <li class="breadcrumb-item"><router-link to="/statistics/echart2">图表2</router-link></li>
+                    </ol>
+                </nav>
+                <div class="card" style="width: 60rem;margin:0 auto">
+                    <div class="card-body">
+                       <router-view></router-view>
+                    </div>
+                </div>
+            </div>
+            `
         }
-      },
-      template: `
+
+        //图表1
+        const echart1 = {
+            data() {
+                return {
+                    dataAxis: ['点', '击', '柱', '子', '或', '者', '两', '指',
+                        '在', '触', '屏', '上', '滑', '动', '能', '够', '自', '动',
+                        '缩', '放'],
+                    data: [220, 182, 191, 234, 290, 330, 310, 123, 442, 321,
+                        90, 149, 210, 122, 133, 334, 198, 123, 125, 220],
+                    yMax: 500,
+                    dataShadow: [],
+                    option: null
+                }
+            },
+            mounted() {
+                // axios.get().then()
+                var myChart = echarts.init(document.getElementById('echart1'));
+                myChart.setOption({
+                    title: {
+                        text: '每年的影片数：',
+                    },
+                    xAxis: {
+                        data: this.dataAxis,
+                        axisLabel: {
+                            inside: true,
+                            textStyle: {
+                                color: '#fff'
+                            }
+                        },
+                        axisTick: {
+                            show: false
+                        },
+                        axisLine: {
+                            show: false
+                        },
+                        z: 10
+                    },
+                    yAxis: {
+                        axisLine: {
+                            show: false
+                        },
+                        axisTick: {
+                            show: false
+                        },
+                        axisLabel: {
+                            textStyle: {
+                                color: '#999'
+                            }
+                        }
+                    },
+                    dataZoom: [
+                        {
+                            type: 'inside'
+                        }
+                    ],
+                    series: [
+                        { // For shadow
+                            type: 'bar',
+                            itemStyle: {
+                                normal: { color: 'rgba(0,0,0,0.05)' }
+                            },
+                            barGap: '-100%',
+                            barCategoryGap: '40%',
+                            data: this.dataShadow,
+                            animation: false
+                        },
+                        {
+                            type: 'bar',
+                            itemStyle: {
+                                normal: {
+                                    color: new echarts.graphic.LinearGradient(
+                                        0, 0, 0, 1,
+                                        [
+                                            { offset: 0, color: '#83bff6' },
+                                            { offset: 0.5, color: '#188df0' },
+                                            { offset: 1, color: '#188df0' }
+                                        ]
+                                    )
+                                },
+                                emphasis: {
+                                    color: new echarts.graphic.LinearGradient(
+                                        0, 0, 0, 1,
+                                        [
+                                            { offset: 0, color: '#2378f7' },
+                                            { offset: 0.7, color: '#2378f7' },
+                                            { offset: 1, color: '#83bff6' }
+                                        ]
+                                    )
+                                }
+                            },
+                            data: this.data
+                        }
+                    ]
+                });
+                // myChart.setOption(option, true);
+            },
+            // mounted(){
+            //     addShadow(){
+            //         for(var i=0;i<this.data.length;i++){
+            //             this.dataShadow.push(this.yMax);
+            //         }
+            //     }
+
+            // },
+            template: `
+               <div id="echart1" style="width: 600px;height:400px;"></div>
+            `
+        }
+
+        //图表2 
+        const echart2 = {
+            data() {
+                return {
+                    dataAxis: ['点', '击', '柱', '子', '或', '者', '两', '指',
+                        '在', '触', '屏', '上', '滑', '动', '能', '够', '自', '动',
+                        '缩', '放'],
+                    data: [220, 182, 191, 234, 290, 330, 310, 123, 442, 321,
+                        90, 149, 210, 122, 133, 334, 198, 123, 125, 220],
+                    yMax: 500,
+                    dataShadow: [],
+                    option: null
+                }
+            },
+            mounted() {
+                // axios.get().then()
+                var myChart = echarts.init(document.getElementById('echart2'));
+                myChart.setOption({
+                    title: {
+                        text: '每年的影片数：',
+                    },
+                    xAxis: {
+                        data: this.dataAxis,
+                        axisLabel: {
+                            inside: true,
+                            textStyle: {
+                                color: '#fff'
+                            }
+                        },
+                        axisTick: {
+                            show: false
+                        },
+                        axisLine: {
+                            show: false
+                        },
+                        z: 10
+                    },
+                    yAxis: {
+                        axisLine: {
+                            show: false
+                        },
+                        axisTick: {
+                            show: false
+                        },
+                        axisLabel: {
+                            textStyle: {
+                                color: '#999'
+                            }
+                        }
+                    },
+                    dataZoom: [
+                        {
+                            type: 'inside'
+                        }
+                    ],
+                    series: [
+                        { // For shadow
+                            type: 'bar',
+                            itemStyle: {
+                                normal: { color: 'rgba(0,0,0,0.05)' }
+                            },
+                            barGap: '-100%',
+                            barCategoryGap: '40%',
+                            data: this.dataShadow,
+                            animation: false
+                        },
+                        {
+                            type: 'bar',
+                            itemStyle: {
+                                normal: {
+                                    color: new echarts.graphic.LinearGradient(
+                                        0, 0, 0, 1,
+                                        [
+                                            { offset: 0, color: '#83bff6' },
+                                            { offset: 0.5, color: '#188df0' },
+                                            { offset: 1, color: '#188df0' }
+                                        ]
+                                    )
+                                },
+                                emphasis: {
+                                    color: new echarts.graphic.LinearGradient(
+                                        0, 0, 0, 1,
+                                        [
+                                            { offset: 0, color: '#2378f7' },
+                                            { offset: 0.7, color: '#2378f7' },
+                                            { offset: 1, color: '#83bff6' }
+                                        ]
+                                    )
+                                }
+                            },
+                            data: this.data
+                        }
+                    ]
+                });
+                // myChart.setOption(option, true);
+            },
+            // mounted(){
+            //     addShadow(){
+            //         for(var i=0;i<this.data.length;i++){
+            //             this.dataShadow.push(this.yMax);
+            //         }
+            //     }
+
+            // },
+            template: `
+               <div id="echart2" style="width: 600px;height:400px;"></div>
+            `
+        }
+
+        //添加电影 ok
+        const movieAdd = {
+            data() {
+                return {
+                    directorName: '',
+                    movieName: '',
+                    movieType: '',
+                    movieCountry: '',
+                    movieScore: '',
+                    movieDate: '',
+                    movieRatings: '',
+                    movieDimension: '',
+                    movieDesc: '',
+
+                    actorString: '',
+                    actors: []
+
+                }
+            },
+            methods: {
+
+                addMovie(dn, mn, mt, mc, ms, md, mr, mdi, mde, ats) {
+
+                    ats = this.actorString.split(' ')
+
+                    axios.post('/movie', {
+                        'directorName': dn, 'movieName': mn, 'movieType': mt, 'movieCountry': mc, 'movieScore': ms,
+                        'movieDate': md, 'movieRatings': mr, 'movieDimension': mdi, 'movieDesc': mde, 'actors': ats
+                    }).then(
+                        alert('添加成功'),
+                        window.location.reload()
+                    ).catch((err) => {
+                        alert('添加失败')
+                    }
+
+                    )
+                }
+            },
+            template: `
             <div>
             <form>
                 <div class="form-group">
@@ -234,61 +486,61 @@
                 </form>
                 </div>
             `
-    }
+        }
 
-    const moviePoster = {
-      data() {
-        return {
-          posters: [],
-          movieName: ''
-        }
-      },
-      methods: {
-        postName(n) {
-          axios.post('/movie/' + n, { 'movieName': n }).then(
-            alert('添加成功!')
-          )
-        }
-      },
-      template: `
+        const moviePoster = {
+            data() {
+                return {
+                    posters: [],
+                    movieName: ''
+                }
+            },
+            methods: {
+                postName(n) {
+                    axios.post('/movie/' + n, { 'movieName': n }).then(
+                        alert('添加成功!')
+                    )
+                }
+            },
+            template: `
             <div>
                 <input type="text" name="movieName" v-model="movieName" placeholder="请输入影片名称"></input>
                 <a class="btn btn-primary" @click="postName(movieName)" style="color:white">上传</a>
             </div>
             `
-    }
-
-    //电影列表 ok
-    const movieList = {
-      data() {
-        return {
-          movies: []
         }
-      },
-      created() {
-        this.movieList()
-      },
-      watch: {
-        '$route': 'movieList'
-      },
-      methods: {
-        movieList() {
-          axios.get('/movie/base').then((res) => this.movies = res.data);
-        },
 
-        updateMovie(i, n, t, c, s, d, r, di, de) {
-          axios.put('/movie/' + i, {
-            'movieId': i, 'movieName': n, 'movieType': t, 'movieCountry': c, 'movieScore': s,
-            'movieDate': d, 'movieRatings': r, 'movieDimension': di, 'movieDesc': de
-          }).then(
-            window.location.reload()
-          )
-        },
-        deleteMovie(i) {
-          axios.delete('/movie/' + i, { 'movieId': i }).then(window.location.reload());
-        }
-      },
-      template: `
+        //电影列表 ok
+        const movieList = {
+            data() {
+                return {
+                    movies: []
+                }
+            },
+            created() {
+                this.movieList()
+            },
+            watch: {
+                '$route': 'movieList'
+            },
+            methods: {
+                movieList() {
+                    axios.get('/movie/base').then((res) => this.movies = res.data);
+                },
+
+                updateMovie(i, n, t, c, s, d, r, di, de) {
+                    axios.put('/movie/' + i, {
+                        'movieId': i, 'movieName': n, 'movieType': t, 'movieCountry': c, 'movieScore': s,
+                        'movieDate': d, 'movieRatings': r, 'movieDimension': di, 'movieDesc': de
+                    }).then(
+                        window.location.reload()
+                    )
+                },
+                deleteMovie(i) {
+                    axios.delete('/movie/' + i, { 'movieId': i }).then(window.location.reload());
+                }
+            },
+            template: `
             <table class="table">
                 <thead>
                     <tr>
@@ -371,36 +623,36 @@
                 </tbody>
             </table>
             `
-    }
+        }
 
-    //电影搜索 ok
-    const movieSearch = {
-      data() {
-        return {
-          movie: [],
-          movieName: ''
-        }
-      },
-      methods: {
-        findMovie(n) {
-          axios.get('/movie/base/' + n).then((res) => this.movie = res.data);
-        },
-        updateMovie(i, n, t, c, s, d, r, di, dn, de) {
-          axios.put('/movie/' + i, {
-            'movieId': i, 'movieName': n, 'movieType': t, 'movieCountry': c, 'movieScore': s,
-            'movieDate': d, 'movieRatings': r, 'movieDimension': di, 'directorName': dn, 'movieDesc': de
-          }).then(() => {
-            // self.$router.replace({ path: 'search' }),
-            console.log('发送成功')
-            window.location.reload()
-          }
-          )
-        },
-        deleteMovie(i) {
-          axios.delete('/movie/' + i, { 'movieId': i }).then(window.location.reload());
-        }
-      },
-      template: `
+        //电影搜索 ok
+        const movieSearch = {
+            data() {
+                return {
+                    movie: [],
+                    movieName: ''
+                }
+            },
+            methods: {
+                findMovie(n) {
+                    axios.get('/movie/base/' + n).then((res) => this.movie = res.data);
+                },
+                updateMovie(i, n, t, c, s, d, r, di, dn, de) {
+                    axios.put('/movie/' + i, {
+                        'movieId': i, 'movieName': n, 'movieType': t, 'movieCountry': c, 'movieScore': s,
+                        'movieDate': d, 'movieRatings': r, 'movieDimension': di, 'directorName': dn, 'movieDesc': de
+                    }).then(() => {
+                        // self.$router.replace({ path: 'search' }),
+                        console.log('发送成功')
+                        window.location.reload()
+                    }
+                    )
+                },
+                deleteMovie(i) {
+                    axios.delete('/movie/' + i, { 'movieId': i }).then(window.location.reload());
+                }
+            },
+            template: `
             <div>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" name="movieName" v-model="movieName"  placeholder="输入影片名称" aria-label="Search">
@@ -503,35 +755,35 @@
             </div>
             </div>
             `
-    }
+        }
 
-    //用户列表 ok
-    const vipList = {
-      data() {
-        return {
-          vips: []
-        }
-      },
-      created() {
-        this.vipList()
-      },
-      watch: {
-        '$route': 'vipList'
-      },
-      methods: {
-        vipList() {
-          axios.get('/signIn').then((res) => this.vips = res.data)
-        },
-        updateVip(i, n, p) {
-          axios.put('/vip/' + i, { 'vipId': i, 'vipName': n, 'vipPhone': p }).then(
-            console.log('发送成功')
-          )
-        },
-        deleteVip(i) {
-          axios.delete('/vip/' + i, { 'vipId': i }).then()
-        }
-      },
-      template: `
+        //用户列表 ok
+        const vipList = {
+            data() {
+                return {
+                    vips: []
+                }
+            },
+            created() {
+                this.vipList()
+            },
+            watch: {
+                '$route': 'vipList'
+            },
+            methods: {
+                vipList() {
+                    axios.get('/signIn').then((res) => this.vips = res.data)
+                },
+                updateVip(i, n, p) {
+                    axios.put('/vip/' + i, { 'vipId': i, 'vipName': n, 'vipPhone': p }).then(
+                        console.log('发送成功')
+                    )
+                },
+                deleteVip(i) {
+                    axios.delete('/vip/' + i, { 'vipId': i }).then()
+                }
+            },
+            template: `
             <table class="table">
                 <thead>
                     <tr>
@@ -574,30 +826,30 @@
                 </tbody>
             </table>
             `
-    }
+        }
 
-    //用户搜索 ok
-    const vipSearch = {
-      data() {
-        return {
-          vip: [],
-          vipName: ''
-        }
-      },
-      methods: {
-        findVip(n) {
-          axios.get('/signIn/' + n).then((res) => this.vip = res.data);
-        },
-        updateVip(i, n, p) {
-          axios.put('/vip/' + i, { 'vipId': i, 'vipName': n, 'vipPhone': p }).then(
-            console.log('发送成功')
-          )
-        },
-        deleteVip(i) {
-          axios.delete('/vip/' + i, { 'vipId': i }).then()
-        }
-      },
-      template: `
+        //用户搜索 ok
+        const vipSearch = {
+            data() {
+                return {
+                    vip: [],
+                    vipName: ''
+                }
+            },
+            methods: {
+                findVip(n) {
+                    axios.get('/signIn/' + n).then((res) => this.vip = res.data);
+                },
+                updateVip(i, n, p) {
+                    axios.put('/vip/' + i, { 'vipId': i, 'vipName': n, 'vipPhone': p }).then(
+                        console.log('发送成功')
+                    )
+                },
+                deleteVip(i) {
+                    axios.delete('/vip/' + i, { 'vipId': i }).then()
+                }
+            },
+            template: `
             <div>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" name="vipName" v-model="vipName" placeholder="输入用户昵称" aria-label="Search">
@@ -657,32 +909,32 @@
             </div>
             </div>
             `
-    }
-
-    //显示所有评论
-    const vipComment = {
-      data() {
-        return {
-          comments: []
-        }
-      },
-      created() {
-        this.findComments()
-      },
-      watch: {
-        '$route': 'findComments'
-      },
-      methods: {
-        findComments() {
-          axios.get('/manage')
-            .then((res) => this.comments = res.data)
-        },
-        deleComment(i) {
-          axios.delete('/manage/' + i).then(window.location.reload())
         }
 
-      },
-      template: `
+        //显示所有评论
+        const vipComment = {
+            data() {
+                return {
+                    comments: []
+                }
+            },
+            created() {
+                this.findComments()
+            },
+            watch: {
+                '$route': 'findComments'
+            },
+            methods: {
+                findComments() {
+                    axios.get('/manage')
+                        .then((res) => this.comments = res.data)
+                },
+                deleComment(i) {
+                    axios.delete('/manage/' + i).then(window.location.reload())
+                }
+
+            },
+            template: `
                 <table class="table">
                     <thead>
                         <tr>
@@ -706,38 +958,38 @@
                     </tbody>
                 </table>
             `
-    }
+        }
 
-    //添加导演 ok
-    const directorAdd = {
-      data() {
-        return {
-          directorName: '',
-          directorSex: 0,
-          directorBirthday: '',
-          directorCountry: '',
-          directorDesc: ''
-        }
-      },
-      methods: {
-        addDirector(dn, ds, db, dc, dd) {
-          axios.post('/director',
-            {
-              'directorName': dn,
-              'directorSex': ds,
-              'directorBirthday': db,
-              'directorCountry': dc,
-              'directorDesc': dd
-            }).then(
-              alert('添加成功'),
-              window.location.reload()
-            ).catch((err) => {
-              alert('添加失败')
-            }
-            )
-        }
-      },
-      template: `
+        //添加导演 ok
+        const directorAdd = {
+            data() {
+                return {
+                    directorName: '',
+                    directorSex: 0,
+                    directorBirthday: '',
+                    directorCountry: '',
+                    directorDesc: ''
+                }
+            },
+            methods: {
+                addDirector(dn, ds, db, dc, dd) {
+                    axios.post('/director',
+                        {
+                            'directorName': dn,
+                            'directorSex': ds,
+                            'directorBirthday': db,
+                            'directorCountry': dc,
+                            'directorDesc': dd
+                        }).then(
+                            alert('添加成功'),
+                            window.location.reload()
+                        ).catch((err) => {
+                            alert('添加失败')
+                        }
+                        )
+                }
+            },
+            template: `
             <div>
             <form>
                 <div class="form-group">
@@ -774,65 +1026,65 @@
             <iframe id="iframe" name="iframeDA" style="display:none;"></iframe>
             </div>
             `
-    }
+        }
 
-    const directorPic = {
-      data() {
-        return {
-          directorName: ''
-        }
-      },
-      methods: {
-        postName(n) {
-          axios.post('/director/' + n, { 'directorName': n }).then(
-             alert('添加成功!')
-          )
-        }
-      },
-      template: `
+        const directorPic = {
+            data() {
+                return {
+                    directorName: ''
+                }
+            },
+            methods: {
+                postName(n) {
+                    axios.post('/director/' + n, { 'directorName': n }).then(
+                        alert('添加成功!')
+                    )
+                }
+            },
+            template: `
             <div>
                 <input type="text" name="directorName" v-model="directorName" placeholder="请输入导演姓名"></input>
                 <a class="btn btn-primary" @click="postName(directorName)" style="color:white">上传</a>
             </div>
             `
-    }
-
-    //导演列表 ok
-    const directorList = {
-      data() {
-        return {
-          directors: []
         }
-      },
-      created() {
-        // 组件创建完后获取数据，
-        // 此时 data 已经被 observed 了
-        this.directorList()
-      },
-      watch: {
-        // 如果路由有变化，会再次执行该方法
-        '$route': 'directorList'
-      },
-      methods: {
-        directorList() {
-          axios.get('/director/base').then((res) => this.directors = res.data);
-        },
-        updateDirector(i, n, s, b, c, d) {
-          axios.put('/director/' + i, {
-            'directorId': i, 'directorName': n, 'directorSex': s, 'directorBirthday': b, 'directorCountry': c
-            , 'directorDesc': d
-          }).then(
-            window.location.reload()
-          );
 
-        },
-        deleteDirector(i) {
-          axios.delete('/director/' + i, { 'directorId': i }).then(
-            window.location.reload()
-          )
-        }
-      },
-      template: `
+        //导演列表 ok
+        const directorList = {
+            data() {
+                return {
+                    directors: []
+                }
+            },
+            created() {
+                // 组件创建完后获取数据，
+                // 此时 data 已经被 observed 了
+                this.directorList()
+            },
+            watch: {
+                // 如果路由有变化，会再次执行该方法
+                '$route': 'directorList'
+            },
+            methods: {
+                directorList() {
+                    axios.get('/director/base').then((res) => this.directors = res.data);
+                },
+                updateDirector(i, n, s, b, c, d) {
+                    axios.put('/director/' + i, {
+                        'directorId': i, 'directorName': n, 'directorSex': s, 'directorBirthday': b, 'directorCountry': c
+                        , 'directorDesc': d
+                    }).then(
+                        window.location.reload()
+                    );
+
+                },
+                deleteDirector(i) {
+                    axios.delete('/director/' + i, { 'directorId': i }).then(
+                        window.location.reload()
+                    )
+                }
+            },
+            template: `
             <table class="table" id="">
                 <thead>
                     <tr>
@@ -905,32 +1157,32 @@
                 </tbody>
             </table>
             `
-    }
-
-    //导演搜索 ok
-    const directorSearch = {
-      data() {
-        return {
-          director: [],
-          directorName: ''
         }
-      },
-      methods: {
-        findDirector(n) {
-          axios.get('/director/name/' + n).then((res) => this.director = res.data);
-        },
-        updateDirector(i, n, s, b, c, d) {
-          axios.put('/director/' + i, {
-            'directorId': i, 'directorName': n, 'directorSex': s, 'directorBirthday': b, 'directorCountry': c
-            , 'directorDesc': d
-          }).then(window.location.reload());
 
-        },
-        deleteDirector(i) {
-          axios.delete('/director/' + i, { 'directorId': i }).then(window.location.reload())
-        }
-      },
-      template: `
+        //导演搜索 ok
+        const directorSearch = {
+            data() {
+                return {
+                    director: [],
+                    directorName: ''
+                }
+            },
+            methods: {
+                findDirector(n) {
+                    axios.get('/director/name/' + n).then((res) => this.director = res.data);
+                },
+                updateDirector(i, n, s, b, c, d) {
+                    axios.put('/director/' + i, {
+                        'directorId': i, 'directorName': n, 'directorSex': s, 'directorBirthday': b, 'directorCountry': c
+                        , 'directorDesc': d
+                    }).then(window.location.reload());
+
+                },
+                deleteDirector(i) {
+                    axios.delete('/director/' + i, { 'directorId': i }).then(window.location.reload())
+                }
+            },
+            template: `
             <div>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" name="directorName" v-model="directorName" placeholder="输入导演姓名" aria-label="Search">
@@ -1018,35 +1270,35 @@
             </div>
             </div>
             `
-    }
+        }
 
-    //添加演员 ok
-    const actorAdd = {
-      data() {
-        return {
-          actorName: '',
-          actorSex: number,
-          actorBirthday: '',
-          actorCountry: '',
-          actorDesc: ''
-        }
-      },
-      methods: {
-        addActor(an, as, ab, ac, ad) {
-          axios.post('/actor', {
-            'actorName': an,
-            'actorSex': as,
-            'actorBirthday': ab,
-            'actorCountry': ac,
-            'actorDesc': ad
-          }).then(
-            alert('添加成功'),
-            window.location.reload()
-          ).catch((err) =>
-            alert('添加失败'))
-        }
-      },
-      template: `
+        //添加演员 ok
+        const actorAdd = {
+            data() {
+                return {
+                    actorName: '',
+                    actorSex: number,
+                    actorBirthday: '',
+                    actorCountry: '',
+                    actorDesc: ''
+                }
+            },
+            methods: {
+                addActor(an, as, ab, ac, ad) {
+                    axios.post('/actor', {
+                        'actorName': an,
+                        'actorSex': as,
+                        'actorBirthday': ab,
+                        'actorCountry': ac,
+                        'actorDesc': ad
+                    }).then(
+                        alert('添加成功'),
+                        window.location.reload()
+                    ).catch((err) =>
+                        alert('添加失败'))
+                }
+            },
+            template: `
             <div>
                 <form>
                     <div class="form-group">
@@ -1083,58 +1335,58 @@
                 <iframe id="iframe" name="iframeAA" style="display:none;"></iframe>
                 </div>
                 `
-    }
+        }
 
-    const actorPic = {
-      data() {
-        return {
-          actorName: ''
-        }
-      },
-      methods: {
-        postName(n) {
-          axios.post('/actor/' + n, { 'actorName': n }).then(
-             alert('添加成功!')
-          )
-        }
-      },
-      template: `
+        const actorPic = {
+            data() {
+                return {
+                    actorName: ''
+                }
+            },
+            methods: {
+                postName(n) {
+                    axios.post('/actor/' + n, { 'actorName': n }).then(
+                        alert('添加成功!')
+                    )
+                }
+            },
+            template: `
             <div>
                 <input type="text" name="actorName" v-model="actorName" placeholder="请输入演员姓名"></input>
                 <a class="btn btn-primary" @click="postName(actorName)" style="color:white">上传</a>
             </div>
             `
-    }
-
-    //演员列表 ok
-    const actorList = {
-      data() {
-        return {
-          actors: []
         }
-      },
-      created() {
-        this.actorList()
-      },
-      watch: {
-        '$route': 'actorList'
-      },
-      methods: {
-        actorList() {
-          axios.get('/actor/base').then((res) => this.actors = res.data)
-        },
-        updateActor(i, n, s, b, c, d) {
-          axios.put('/actor/' + i, {
-            'actorId': i, 'actorName': n, 'actorSex': s, 'actorBirthday': b, 'actorCountry': c
-            , 'actorDesc': d
-          }).then(window.location.reload());
 
-        },
-        deleteActor(i) {
-          axios.delete('/actor/' + i, { 'actorId': i }).then(window.location.reload())
-        }
-      },
-      template: `
+        //演员列表 ok
+        const actorList = {
+            data() {
+                return {
+                    actors: []
+                }
+            },
+            created() {
+                this.actorList()
+            },
+            watch: {
+                '$route': 'actorList'
+            },
+            methods: {
+                actorList() {
+                    axios.get('/actor/base').then((res) => this.actors = res.data)
+                },
+                updateActor(i, n, s, b, c, d) {
+                    axios.put('/actor/' + i, {
+                        'actorId': i, 'actorName': n, 'actorSex': s, 'actorBirthday': b, 'actorCountry': c
+                        , 'actorDesc': d
+                    }).then(window.location.reload());
+
+                },
+                deleteActor(i) {
+                    axios.delete('/actor/' + i, { 'actorId': i }).then(window.location.reload())
+                }
+            },
+            template: `
                         <table class="table">
                             <thead>
                                 <tr>
@@ -1205,32 +1457,32 @@
                             </tbody>
                         </table>
                         `
-    }
-
-    //搜索演员 ok
-    const actorSearch = {
-      data() {
-        return {
-          actor: [],
-          actorName: ''
         }
-      },
-      methods: {
-        findActor(n) {
-          axios.get('/actor/name/' + n).then((res) => this.actor = res.data);
-        },
-        updateActor(i, n, s, b, c, d) {
-          axios.put('/actor/' + i, {
-            'actorId': i, 'actorName': n, 'actorSex': s, 'actorBirthday': b, 'actorCountry': c
-            , 'actorDesc': d
-          }).then(window.location.reload());
 
-        },
-        deleteActor(i) {
-          axios.delete('/actor/' + i, { 'actorId': i }).then(window.location.reload())
-        }
-      },
-      template: `
+        //搜索演员 ok
+        const actorSearch = {
+            data() {
+                return {
+                    actor: [],
+                    actorName: ''
+                }
+            },
+            methods: {
+                findActor(n) {
+                    axios.get('/actor/name/' + n).then((res) => this.actor = res.data);
+                },
+                updateActor(i, n, s, b, c, d) {
+                    axios.put('/actor/' + i, {
+                        'actorId': i, 'actorName': n, 'actorSex': s, 'actorBirthday': b, 'actorCountry': c
+                        , 'actorDesc': d
+                    }).then(window.location.reload());
+
+                },
+                deleteActor(i) {
+                    axios.delete('/actor/' + i, { 'actorId': i }).then(window.location.reload())
+                }
+            },
+            template: `
             <div>
                             <form class="form-inline my-2 my-lg-0">
                                 <input class="form-control mr-sm-2" name="actorName" v-model="actorName" placeholder="输入演员姓名" aria-label="Search">
@@ -1318,106 +1570,121 @@
                             </div>
                             </div>
                             `
-    }
+        }
 
-    //创建route
-    const routes = [{
-      path: '/movie',
-      component: movieManage,
-      children: [{
-        path: 'add',
-        component: movieAdd
-      },
-      {
-        path: 'poster',
-        component: moviePoster
-      },
-      {
-        path: 'list',
-        component: movieList
-      },
-      {
-        path: 'search',
-        component: movieSearch
-      }]
-    },
-    {
-      path: '/vip',
-      component: vipManage,
-      children: [{
-        path: 'list',
-        component: vipList,
-      },
-      {
-        path: 'search',
-        component: vipSearch
-      },
-      {
-        path: 'comment',
-        component: vipComment
-      }]
-    },
-    {
-      path: '/director',
-      component: directorManage,
-      children: [{
-        path: 'add',
-        component: directorAdd,
-      },
-      {
-        path: 'pic',
-        component: directorPic,
-      },
-      {
-        path: 'list',
-        component: directorList,
-      },
-      {
-        path: 'search',
-        component: directorSearch
-      }]
-    },
-    {
-      path: '/actor',
-      component: actorManage,
-      children: [{
-        path: 'add',
-        component: actorAdd,
-      },
-      {
-        path: 'pic',
-        component: actorPic,
-      },
-      {
-        path: 'list',
-        component: actorList,
-      },
-      {
-        path: 'search',
-        component: actorSearch
-      }]
-    }
-    ]
-    //创建router
-    const router = new VueRouter({
-      routes
-    })
-    //挂载
-    const app = new Vue({
-      router
-    }).$mount('#manage')
+        //创建route
+        const routes = [{
+            path: '/movie',
+            component: movieManage,
+            children: [{
+                path: 'add',
+                component: movieAdd
+            },
+            {
+                path: 'poster',
+                component: moviePoster
+            },
+            {
+                path: 'list',
+                component: movieList
+            },
+            {
+                path: 'search',
+                component: movieSearch
+            }]
+        },
+        {
+            path: '/vip',
+            component: vipManage,
+            children: [{
+                path: 'list',
+                component: vipList,
+            },
+            {
+                path: 'search',
+                component: vipSearch
+            },
+            {
+                path: 'comment',
+                component: vipComment
+            }]
+        },
+        {
+            path: '/director',
+            component: directorManage,
+            children: [{
+                path: 'add',
+                component: directorAdd,
+            },
+            {
+                path: 'pic',
+                component: directorPic,
+            },
+            {
+                path: 'list',
+                component: directorList,
+            },
+            {
+                path: 'search',
+                component: directorSearch
+            }]
+        },
+        {
+            path: '/actor',
+            component: actorManage,
+            children: [{
+                path: 'add',
+                component: actorAdd,
+            },
+            {
+                path: 'pic',
+                component: actorPic,
+            },
+            {
+                path: 'list',
+                component: actorList,
+            },
+            {
+                path: 'search',
+                component: actorSearch
+            }]
+        },
+        {
+            path: '/statistics',
+            component: statistics,
+            children: [{
+                path: 'echart1',
+                component: echart1
+            },
+            {
+                path: 'echart2',
+                component: echart2
+            }]
+        }
+        ]
+        //创建router
+        const router = new VueRouter({
+            routes
+        })
+        //挂载
+        const app = new Vue({
+            router
+        }).$mount('#manage')
 
-    axios.get('/director').then((res) => this.directors = res.data);
-  </script>
+        axios.get('/director').then((res) => this.directors = res.data);
+    </script>
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+
+
 </body>
 
 </html>
