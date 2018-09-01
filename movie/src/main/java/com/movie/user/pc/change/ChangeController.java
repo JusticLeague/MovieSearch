@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.movie.user.User;
 
+/**
+ * 前台对于个人修改信息的部分
+ * 
+ * @author QQ546
+ *
+ */
 @Controller
 @RequestMapping("/change")
 public class ChangeController {

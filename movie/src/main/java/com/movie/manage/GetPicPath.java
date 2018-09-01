@@ -4,6 +4,7 @@ import java.io.File;
 
 /**
  * 得到一个路径中的某个名字的图片路径
+ * 用于图片上传
  * 
  * @author QQ546
  *

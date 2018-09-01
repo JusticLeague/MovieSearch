@@ -9,7 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
+/**
+ * 对于影片与演员之间关系的管理
+ * 
+ * @author QQ546
+ *
+ */
 @RestController
 @RequestMapping("/item")
 public class MovieItemController {

@@ -13,7 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.movie.user.User;
 
-
+/**
+ * 前台登陆部分
+ * 
+ * @author QQ546
+ *
+ */
 @RestController
 @RequestMapping("/signIn")
 public class SignInController {

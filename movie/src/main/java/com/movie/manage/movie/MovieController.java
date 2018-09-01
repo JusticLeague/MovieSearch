@@ -16,6 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.movie.actor.ActorService;
 import com.movie.manage.GetPicPath;
 
+/**
+ * 后台对于影片相关信息的管理
+ * 
+ * @author QQ546
+ *
+ */
 @RestController
 @RequestMapping("/movie")
 public class MovieController {

@@ -1,5 +1,11 @@
 package com.movie.manage.summary;
 
+/**
+ * 数据统计所调用的评分相关的信息
+ * 
+ * @author QQ546
+ *
+ */
 public class ScoreModel {
 	
 	float[] arr1;

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.movie.user.User;
 
 /**
- * 注册控制器
+ * 前台对于注册的部分
  * 
  * @author QQ546
  *

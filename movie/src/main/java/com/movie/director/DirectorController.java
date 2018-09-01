@@ -15,6 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.movie.manage.GetPicPath;
 
+/**
+ * 负责导演相关的部分
+ * 
+ * @author QQ546
+ *
+ */
 @RestController
 @RequestMapping("/director")
 public class DirectorController {

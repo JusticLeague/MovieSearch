@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.movie.user.pc.comment.CommentModel;
 
+/**
+ * 后台对于评论的管理
+ * 
+ * @author QQ546
+ *
+ */
 @RestController
 @RequestMapping("/manage")
 public class ManageCommentController {

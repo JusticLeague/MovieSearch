@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * 前台对于用户收藏的部分
+ * 
+ * @author QQ546
+ *
+ */
 @Controller
 @RequestMapping("/collect")
 public class CollectController {

@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * 前台对于评分的部分
+ * 
+ * @author QQ546
+ *
+ */
 @Controller
 @RequestMapping("/score")
 public class ScoreController {
